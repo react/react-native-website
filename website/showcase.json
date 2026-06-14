@@ -349,6 +349,13 @@
       "icon": "brex.png",
       "linkAppStore": "https://apps.apple.com/us/app/brex/id1472905508",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.brex.mobile&hl=en_US&gl=US"
+    },
+    {
+      "name": "Dream11: Fantasy Sports Platform",
+      "icon": "dream11.png",
+      "linkAppStore": "https://apps.apple.com/in/app/dream11-fantasy-cricket-app/id1077286074",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.dream11.fantasy.cricket.football.kabaddi&hl=en&gl=IN",
+      "infoLink": "https://tech.dream11.in/blog/dream11%E2%80%99s-big-bet-on-react-native"
     }
   ]
 }
