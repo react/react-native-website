@@ -349,6 +349,11 @@
       "icon": "brex.png",
       "linkAppStore": "https://apps.apple.com/us/app/brex/id1472905508",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.brex.mobile&hl=en_US&gl=US"
+    },
+    {
+      "name": "Callie: Food Self Care Pet",
+      "icon": "callie.png",
+      "linkAppStore": "https://apps.apple.com/us/app/callie-food-self-care-pet/id6480029953"
     }
   ]
 }
