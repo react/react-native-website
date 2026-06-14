@@ -9,13 +9,18 @@ A common way to use this API is to call it before updating the state hook in fun
 
 Note that in order to get this to work on **Android** you need to set the following flags via `UIManager`:
 
+> ⚠️ **Note (React Native 0.79+)**:  
+> `UIManager.setLayoutAnimationEnabledExperimental(true)` is **no longer needed** in React Native 0.79+ and above. It is enabled by default now.
+
+If you're using an older version (before 0.79), you can still use:
+
 ```js
 if (Platform.OS === 'android') {
   if (UIManager.setLayoutAnimationEnabledExperimental) {
     UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 }
-```
+
 
 ## Example
 
