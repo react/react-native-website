@@ -3,24 +3,21 @@ id: strict-typescript-api
 title: Strict TypeScript API (opt in)
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import RNRepoLink from '@site/core/RNRepoLink';
 
-The Strict TypeScript API is a preview of our future, stable JavaScript API for React Native.
+<p><div className="label primary">Since 0.80</div></p>
 
-Specifically, this is a new set of TypeScript types for the `react-native` npm package, available from 0.80 onwards. These provide stronger and more futureproof type accuracy, and will allow us to confidently evolve React Native's API into a stable shape. Opting in to the Strict TypeScript API brings some structural type differences, and is therefore a one-time breaking change.
+The Strict TypeScript API is a new set of TypeScript types for the `react-native` package, providing a refined single package entry point and stronger type accuracy.
 
-The new types are:
-
-1. **Generated directly from our source code** — improving coverage and correctness, so you can expect stronger compatibility guarantees.
-2. **Restricted to `react-native`'s index file** — more tightly defining our public API, and meaning we won't break the API when making internal file changes.
-
-When the community is ready, the Strict TypeScript API will become our default API in future — synchronized with deep imports removal.
+The Strict API is currently in preview as we iterate towards a stable JavaScript API for React Native.
 
 ## Opting in
 
-We're shipping these new types alongside our existing types, meaning you can choose to migrate when ready. We encourage early adopters and newly created apps to opt in via your `tsconfig.json` file.
+We're shipping these new types alongside our existing types, meaning you can choose to migrate when ready, via your `tsconfig.json` config.
 
-Opting in is a **breaking change**, since some of our new types have updated names and shapes, although many apps won't be affected. You can learn about each breaking change in the next section.
+Opting in brings some structural type differences, including updated type names and shapes. Therefore migrating your codebase to the Strict API is a **one-time breaking change**.
 
 ```json title="tsconfig.json"
 {
@@ -38,25 +35,31 @@ This will instruct TypeScript to resolve `react-native` types from our new [`typ
 
 :::
 
-The Strict TypeScript API follows our [RFC](https://github.com/react-native-community/discussions-and-proposals/pull/894) to remove deep imports from React Native. Therefore, some APIs are no longer exported at root. This is intentional, in order to reduce the overall surface area of React Native's API.
+### Key changes (breaking)
 
-:::tip[API feedback]
+1. **No deep imports.** The API is restricted to `react-native`'s index file. This is a tighter and more intentional public API contract. It also ensures that internal file path changes in React Native's source code won't be breaking.
+2. **Generated directly from source.** Previously, React Native used separately maintained manual types. Generating from source now means we improve coverage, correctness, and compatibility guarantees.
 
-**Sending feedback**: We will be working with the community to finalize which APIs we export over (at least) the next two React Native releases. Please share your feedback in our [feedback thread](https://github.com/react-native-community/discussions-and-proposals/discussions/893).
+---
 
-See also our [announcement blog post](/blog/2025/06/12/moving-towards-a-stable-javascript-api) for more info on our motivation and timelines.
+:::tip[Preview feedback]
+
+We're working with the community and partners to finalize the shape of the Strict API. Share API feedback in our [discussion thread](https://github.com/react-native-community/discussions-and-proposals/discussions/893), or see the [announcement blog post](/blog/2025/06/12/moving-towards-a-stable-javascript-api) for more context.
 
 :::
 
 ## Migration guide
 
-### Codegen types should now be imported from the `react-native` package
+### Codegen types → `CodegenTypes` namespace
 
 Types used for codegen, like `Int32`, `Double`, `WithDefault` etc. are now available under a single `CodegenTypes` namespace. Similarly, `codegenNativeComponent` and `codegenNativeCommands` are now available to import from the react-native package instead of using the deep import.
 
 Namespaced `CodegenTypes` as well as `codegenNativeCommands` and `codegenNativeComponent` are also available from `react-native` package when the Strict API is not enabled to make the adoption easier for third-party libraries.
 
-**Before**
+#### Migration
+
+<Tabs defaultValue="after">
+<TabItem value="before" label="Before">
 
 ```ts title=""
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
@@ -75,7 +78,8 @@ export default codegenNativeComponent<NativeProps>(
 );
 ```
 
-**After**
+</TabItem>
+<TabItem value="after" label="After">
 
 ```ts title=""
 import {CodegenTypes, codegenNativeComponent} from 'react-native';
@@ -90,9 +94,124 @@ export default codegenNativeComponent<NativeProps>(
 );
 ```
 
+</TabItem>
+</Tabs>
+
+### Refs now use `*Instance` types
+
+Each built-in component now has a dedicated `*Instance` type for use with refs — for example, `ViewInstance`, `TextInputInstance`, `ScrollViewInstance`. These are the **recommended way to type refs** under the Strict TypeScript API.
+
+Previously, `useRef<View>` worked because `View` and other components were typed as a class. Under the Strict API, built-in components are typed as functions, so `View` refers to the function itself — **component type names no longer work as ref types**.
+
+<Tabs defaultValue="after">
+<TabItem value="before" label="Before">
+
+```tsx title=""
+import {useRef} from 'react';
+import {View, TextInput} from 'react-native';
+
+function MyComponent() {
+  const viewRef = useRef<View>(null);
+  const inputRef = useRef<TextInput>(null);
+
+  return (
+    <>
+      <View ref={viewRef} />
+      <TextInput ref={inputRef} />
+    </>
+  );
+}
+```
+
+</TabItem>
+<TabItem value="after" label="After">
+
+```tsx title=""
+import {useRef} from 'react';
+import type {ViewInstance, TextInputInstance} from 'react-native';
+
+function MyComponent() {
+  const viewRef = useRef<ViewInstance>(null);
+  const inputRef = useRef<TextInputInstance>(null);
+
+  return (
+    <>
+      <View ref={viewRef} />
+      <TextInput ref={inputRef} />
+    </>
+  );
+}
+```
+
+</TabItem>
+</Tabs>
+
+`*Instance` types also work transparently with `Animated` variants — no separate type is needed:
+
+```tsx title=""
+const viewRef = useRef<ViewInstance>(null);
+
+<View ref={viewRef} />
+<Animated.View ref={viewRef} />
+```
+
+This also replaces the removed `Animated.LegacyRef` type. Code using `ref={ref as React.Ref<Animated.LegacyRef<View>>}` can be simplified to `ref={ref}` with a `ViewInstance`-typed ref.
+
+<details>
+<summary>**🗒️ Available instance types**</summary>
+
+| Component                 | Instance type                     |
+| ------------------------- | --------------------------------- |
+| `ActivityIndicator`       | `ActivityIndicatorInstance`       |
+| `Button`                  | `ButtonInstance`                  |
+| `DrawerLayoutAndroid`     | `DrawerLayoutAndroidInstance`     |
+| `FlatList`                | `FlatListInstance`                |
+| `Image`                   | `ImageInstance`                   |
+| `ImageBackground`         | `ImageBackgroundInstance`         |
+| `KeyboardAvoidingView`    | `KeyboardAvoidingViewInstance`    |
+| `Modal`                   | `ModalInstance`                   |
+| `Pressable`               | `PressableInstance`               |
+| `ProgressBarAndroid`      | `ProgressBarAndroidInstance`      |
+| `RefreshControl`          | `RefreshControlInstance`          |
+| `SafeAreaView`            | `SafeAreaViewInstance`            |
+| `ScrollView`              | `ScrollViewInstance`              |
+| `SectionList`             | `SectionListInstance`             |
+| `StatusBar`               | `StatusBarInstance`               |
+| `Switch`                  | `SwitchInstance`                  |
+| `Text`                    | `TextInstance`                    |
+| `TextInput`               | `TextInputInstance`               |
+| `TouchableHighlight`      | `TouchableHighlightInstance`      |
+| `TouchableNativeFeedback` | `TouchableNativeFeedbackInstance` |
+| `TouchableOpacity`        | `TouchableOpacityInstance`        |
+| `View`                    | `ViewInstance`                    |
+| `VirtualizedList`         | `VirtualizedListInstance`         |
+| `VirtualizedSectionList`  | `VirtualizedSectionListInstance`  |
+
+Components without ref support (`InputAccessoryView`, `TouchableWithoutFeedback`, `experimental_LayoutConformance`) do not have instance types.
+
+</details>
+
+**Migration**
+
+| Before                                                  | After                        |
+| ------------------------------------------------------- | ---------------------------- |
+| `useRef<View>(null)`                                    | `useRef<ViewInstance>(null)` |
+| `useRef<React.ComponentRef<typeof View>>(null)`         | `useRef<ViewInstance>(null)` |
+| `useRef<HostInstance>(null)` (for a specific component) | `useRef<ViewInstance>(null)` |
+| `Ref<Animated.LegacyRef<View>>`                         | `Ref<ViewInstance>`          |
+
+:::note
+
+`React.ComponentRef<typeof View>` remains valid and produces the same type as `ViewInstance`. The `*Instance` types are convenient aliases — both approaches work.
+
+:::
+
 ### Removal of `*Static` types
 
-**Before**
+#### Migration
+
+<Tabs defaultValue="after">
+<TabItem value="before" label="Before">
 
 ```tsx title=""
 import {Linking, LinkingStatic} from 'react-native';
@@ -101,7 +220,8 @@ function foo(linking: LinkingStatic) {}
 foo(Linking);
 ```
 
-**After**
+</TabItem>
+<TabItem value="after" label="After">
 
 ```tsx title=""
 import {Linking} from 'react-native';
@@ -110,11 +230,13 @@ function foo(linking: Linking) {}
 foo(Linking);
 ```
 
+</TabItem>
+</Tabs>
+
 The following APIs were previously named as `*Static` plus a variable declaration of said type. In most cases there was an alias so that value and the type were exported under the same identifier, but some were missing.
 
-(For example there was an `AlertStatic` type, `Alert` variable of type `AlertStatic` and type `Alert` which was an alias for `AlertStatic`. But in the case of `PixelRatio` there was a `PixelRatioStatic` type and a `PixelRatio` variable of that type without additional type aliases.)
-
-**Affected APIs**
+<details>
+<summary>**🗒️ Affected APIs**</summary>
 
 - `AlertStatic`
 - `ActionSheetIOSStatic`
@@ -145,26 +267,7 @@ The following APIs were previously named as `*Static` plus a variable declaratio
 - `SettingsStatic`
 - `VibrationStatic`
 
-### Some core components are now function components instead of class components
-
-- `View`
-- `Image`
-- `TextInput`
-- `Modal`
-- `Text`
-- `TouchableWithoutFeedback`
-- `Switch`
-- `ActivityIndicator`
-- `ProgressBarAndroid`
-- `InputAccessoryView`
-- `Button`
-- `SafeAreaView`
-
-Due to this change, accessing ref types of these views requires using `React.ComponentRef<typeof View>` pattern which works as expected for both class and function components, e.g.:
-
-```ts title=""
-const ref = useRef<React.ComponentRef<typeof View>>(null);
-```
+</details>
 
 ## Other breaking changes
 
@@ -172,7 +275,7 @@ const ref = useRef<React.ComponentRef<typeof View>>(null);
 
 Animated nodes were previously generic types based on their interpolation output. Now, they are non-generic types with a generic `interpolate` method.
 
-`Animated.LegacyRef` is no longer available.
+`Animated.LegacyRef` is no longer available. Use the appropriate `*Instance` type instead (e.g. `ViewInstance` for `Animated.View`).
 
 ### Unified types for optional props
 
