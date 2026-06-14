@@ -28,6 +28,10 @@ console.timeStamp(
 
 The `console.timeStamp` API allows you to add custom timing entries in the Performance panel timeline.
 
+:::note
+The Performance panel is not available yet in React Native DevTools by default.
+:::
+
 **Parameters:**
 
 | Name       | Type               | Required | Description                                                                                                                                                                                                                                                                                                   |
