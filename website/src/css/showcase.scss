@@ -8,11 +8,11 @@
 @use "shared";
 
 :root {
-  --showcase-icon-background: rgb(0 0 0 / 1.5%);
+  --showcase-icon-background: rgb(0 0 0 / 0.015);
 }
 
 html[data-theme="dark"] {
-  --showcase-icon-background: rgb(255 255 255 / 1.5%);
+  --showcase-icon-background: rgb(255 255 255 / 0.015);
 }
 
 .plugin-pages .main-wrapper {
@@ -66,7 +66,7 @@ html[data-theme="dark"] {
 
   h2 {
     margin: 4px -20px 12px;
-    padding: 0 40px 0;
+    padding: 0 40px;
     text-align: start;
 
     img {
@@ -94,7 +94,7 @@ html[data-theme="dark"] {
   .logos {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 28px;
+    gap: 28px;
     margin: 20px 20px 16px;
 
     .icon {
@@ -154,7 +154,7 @@ html[data-theme="dark"] {
     }
 
     .icon {
-      box-shadow: 0 8px 16px rgb(20 20 20 / 7%);
+      box-shadow: 0 8px 16px rgb(20 20 20 / 0.07);
       position: relative;
       z-index: 1;
       transition: transform 200ms ease-in-out;
@@ -198,6 +198,7 @@ html[data-theme="dark"] {
 
     a {
       @extend %link-style-dark;
+
       color: #fff;
       background: none !important;
 
@@ -210,6 +211,7 @@ html[data-theme="dark"] {
 
   .formButton {
     @extend %button-link-style;
+
     color: #fff;
     border-color: var(--ifm-color-primary);
     margin-top: 20px;
@@ -260,7 +262,7 @@ html[data-theme="dark"] .showcaseSection {
 
 .footnote {
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgb(0 0 0 / 0.4);
 }
 
 .home-showcase-section {

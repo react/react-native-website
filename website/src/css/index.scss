@@ -38,7 +38,7 @@
     background: none;
     color: var(--brand);
 
-    &::after {
+    &:after {
       content: "›";
       font-size: 24px;
       margin-left: 5px;
@@ -65,7 +65,7 @@
   display: grid;
   padding: 0;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+  gap: 16px;
 
   .item {
     list-style: none;
@@ -73,7 +73,7 @@
     img {
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 6px 14px rgb(20 20 20 / 8%);
+      box-shadow: 0 6px 14px rgb(20 20 20 / 0.08);
     }
   }
 }
@@ -137,7 +137,7 @@
 
 @media only screen and (max-width: 960px) {
   .CrossPlatform .TwoColumns {
-    grid-gap: 2rem;
+    gap: 2rem;
   }
 
   .CrossPlatform svg {
@@ -178,7 +178,7 @@
 
 @media only screen and (min-width: 481px) and (max-width: 960px) {
   .FastRefresh .TwoColumns {
-    grid-gap: 2rem;
+    gap: 2rem;
   }
 
   .FastRefresh .column.last {
@@ -205,6 +205,7 @@
   /* Need to set video height so it'll fit */
   .FastRefresh video {
     height: 340px;
+
     /* width: 100%; */
   }
 }
@@ -249,12 +250,12 @@
   border-top: 1px solid gray;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding: 30px 30px 0px 30px;
+  padding: 30px 30px 0;
   width: 600px;
   position: relative;
 }
 
-.GetStarted .terminal::before {
+.GetStarted .terminal:before {
   content: "○ ○ ○";
   color: gray;
   font-size: 16px;
@@ -271,7 +272,7 @@
   border: 0;
 }
 
-.GetStarted code:first-child::before {
+.GetStarted code:first-child:before {
   content: ">";
   position: absolute;
   left: -13px;
@@ -364,6 +365,7 @@
     display: flex;
     justify-content: center;
   }
+
   .HeaderHero .column.last {
     text-align: center;
   }
@@ -482,7 +484,7 @@
   transform: scale(2.25, 1.33) rotate(-180deg);
 }
 
-.LogoAnimation:not(.mobile):not(.mobile2) .speaker {
+.LogoAnimation:not(.mobile, .mobile2) .speaker {
   opacity: 0;
   transform: scaleX(0);
 }
@@ -556,13 +558,13 @@
 
   .NativeCode .prism-code {
     font-size: 10px;
-    padding: 1.25rem 1.25rem;
+    padding: 1.25rem;
   }
 }
 
 @media screen and (min-width: 481px) and (max-width: 960px) {
   .NativeCode .TwoColumns {
-    grid-gap: 2rem;
+    gap: 2rem;
   }
 
   .NativeCode .column.last {
@@ -576,7 +578,7 @@
   .NativeCode .prism-code {
     width: 30rem;
     margin: 0 auto;
-    padding: 1.25rem 0rem;
+    padding: 1.25rem 0;
   }
 }
 
@@ -584,6 +586,7 @@
   .NativeCode .TwoColumns .column.right {
     /* Make flush with top and bottom */
     margin-top: -50px;
+
     /* Get rid of default left padding */
     padding-left: 0;
   }
@@ -615,7 +618,7 @@
 
 @media only screen and (max-width: 960px) {
   .NativeDevelopment .TwoColumns {
-    grid-gap: 2rem;
+    gap: 2rem;
   }
 }
 
@@ -676,7 +679,7 @@ html[data-theme="dark"] .Section p a {
 
 @media only screen and (max-width: 960px) {
   .VideoContent .TwoColumns {
-    grid-gap: 2rem;
+    gap: 2rem;
   }
 
   .VideoContent .column.last {
