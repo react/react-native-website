@@ -47,3 +47,24 @@ npx create-expo-app@latest
 Once you’ve created your app, check out the rest of Expo’s getting started guide to start developing your app.
 
 <BoxLink href="https://docs.expo.dev/get-started/set-up-your-environment">Continue with Expo</BoxLink>
+npx create-expo-app@latestfrom openai import OpenAI
+
+client = OpenAI(api_key="YOUR_API_KEY")
+
+response = client.responses.create(
+    model="gpt-4.1-mini",
+    input=[
+        {
+            "role": "user",
+            "content": [
+                {"type": "input_text", "text": "Analyze this image and create a detailed AI image prompt."},
+                {
+                    "type": "input_image",
+                    "image_url": "image.jpg"
+                }
+            ]
+        }
+    ]
+)
+
+print(response.output_text)
