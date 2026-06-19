@@ -20,7 +20,7 @@
 @media only screen and (max-width: 900px) {
   .featureContainer {
     flex-direction: column;
-    gap: 0rem;
+    gap: 0;
     max-width: 600px;
   }
 

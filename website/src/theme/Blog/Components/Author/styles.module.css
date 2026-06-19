@@ -7,6 +7,7 @@
 
 .authorImage {
   background: var(--home-hero-grid-icon);
+
   --ifm-avatar-photo-size: 3.6rem;
 }
 
