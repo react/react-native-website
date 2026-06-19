@@ -29,7 +29,7 @@
     "lint:examples": "eslint-examples-jsx && eslint-examples-tsx && tsc-examples",
     "lint:markdown:images": "node ../scripts/src/image-check.ts",
     "lint:markdown:links": "remark ../docs --quiet -r .remarkrc.withBrokenLinks.mjs",
-    "ci:lint": "yarn lint && lint:styles && yarn lint:examples && yarn lint:markdown:images && prettier --check src/**/*.scss",
+    "ci:lint": "yarn lint && yarn lint:styles && yarn lint:examples && yarn lint:markdown:images && prettier --check src/**/*.scss",
     "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true",
     "update-redirects": "node ../scripts/src/update-redirects.ts",
     "build:vercel": "docusaurus build",
