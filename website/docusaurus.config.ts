@@ -23,7 +23,7 @@ const isProductionDeployment =
   (!!process.env.VERCEL && process.env.VERCEL_ENV === 'production');
 
 const lastVersion = versions[0];
-const copyright = `Copyright © ${new Date().getFullYear()} Meta Platforms, Inc.`;
+const copyright = `Copyright © Meta Platforms, Inc.`;
 
 export type EditUrlButton = {
   label: string;
@@ -545,12 +545,8 @@ const config: Config = {
               to: 'community/overview',
             },
             {
-              label: 'Directory',
-              href: 'https://reactnative.directory/',
-            },
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/react-native',
+              label: 'Code of Conduct',
+              href: 'https://github.com/react/react-native/blob/main/CODE_OF_CONDUCT.md',
             },
           ],
         },
@@ -579,8 +575,12 @@ const config: Config = {
           title: 'Explore More',
           items: [
             {
-              label: 'ReactJS',
+              label: 'React',
               href: 'https://react.dev/',
+            },
+            {
+              label: 'Packages Directory',
+              href: 'https://reactnative.directory/',
             },
             {
               label: 'Privacy Policy',
