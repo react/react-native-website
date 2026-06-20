@@ -1052,6 +1052,7 @@ So we need to "revert" some CSS vars to not enforce dark mode
       padding: 0;
       justify-content: center;
       width: 36px;
+      min-width: unset;
     }
 
     .DocSearch-Button-Keys,
@@ -1085,15 +1086,16 @@ So we need to "revert" some CSS vars to not enforce dark mode
   border: 1px solid var(--light);
   padding: 0 8px 0 12px;
   font-family: var(--ifm-font-family-base);
-  color: var(--subtle);
+  color: var(--docsearch-muted-color);
   box-sizing: border-box;
+  min-width: 160px;
 
   &:hover {
     box-shadow: inset 0 0 0 2px var(--ifm-color-primary);
 
     .DocSearch-Search-Icon,
     .DocSearch-Button-Placeholder {
-      color: var(--subtle);
+      color: var(--docsearch-muted-color);
     }
   }
 }
@@ -1108,27 +1110,33 @@ So we need to "revert" some CSS vars to not enforce dark mode
 
 .DocSearch-Button-Placeholder {
   font-size: 14px;
+  padding-inline: 6px 12px;
 }
 
 .DocSearch-Button-Keys {
   min-width: 42px;
-  margin-right: 4px;
-  margin-top: 1px;
-  gap: 2px;
+  margin-right: 3px;
+  margin-top: 0.5px;
+  gap: 3px;
 
   .DocSearch-Button-Key {
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 500;
     background: color-mix(
       in srgb,
-      var(--docsearch-subtle-color) 40%,
+      var(--docsearch-subtle-color) 50%,
       transparent
     );
     color: var(--docsearch-muted-color);
     transform: none;
     margin: 0;
-    width: 20px;
     height: 20px;
+    max-width: 22px;
+    font-family: var(--ifm-font-family-monospace);
+  }
+
+  .DocSearch-Button-Key--ctrl {
+    max-width: 32px;
   }
 }
 
@@ -1183,8 +1191,18 @@ So we need to "revert" some CSS vars to not enforce dark mode
   }
 }
 
+.DocSearch-MagnifierLabel svg {
+  color: var(--docsearch-muted-color);
+  position: relative;
+  top: -1px;
+}
+
 .DocSearch-Form:focus-within .DocSearch-MagnifierLabel svg {
   color: var(--home-button-primary);
+}
+
+.DocSearch-Close {
+  border-radius: 100%;
 }
 
 .DocSearch-Footer {
