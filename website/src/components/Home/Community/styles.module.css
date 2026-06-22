@@ -22,10 +22,11 @@
 
     a {
       border-bottom: 0 !important;
-      transition: transform 0.3s ease !important;
 
       &:hover {
-        transform: scale(1.025);
+        img {
+          transform: scale(1.05);
+        }
       }
     }
 
@@ -35,6 +36,7 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 6px 14px rgb(20 20 20 / 0.08);
+      transition: transform 0.2s ease-in-out;
     }
   }
 }
