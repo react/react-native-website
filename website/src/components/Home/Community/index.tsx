@@ -60,16 +60,8 @@ function Community() {
       <div className={styles.communityNote}>
         <p>
           Meta released React Native in 2015 and has been maintaining it ever
-          since. In 2018, React Native had the{' '}
-          <a
-            href="https://octoverse.github.com/2018/projects#repositories"
-            target="_blank"
-            rel="noopener noreferrer">
-            2nd highest
-          </a>{' '}
-          number of contributors for any repository in GitHub. Today, React
-          Native is supported by contributions from individuals and companies
-          around the world including{' '}
+          since. Today, React Native is supported by contributions from
+          individuals and companies around the world including{' '}
           <span>
             <a
               href="https://callstack.com/"
@@ -108,11 +100,18 @@ function Community() {
             rel="noopener noreferrer">
             Software Mansion
           </a>
+          . If you're interested in learning more, check out{' '}
+          <a
+            href="https://github.com/react/react-native/blob/main/ECOSYSTEM.md"
+            target="_blank"
+            rel="noopener noreferrer">
+            how we have structured the ecosystem
+          </a>
           .
         </p>
         <p>
-          Our community is always shipping exciting new projects and exploring
-          platforms beyond Android and iOS with initiatives like{' '}
+          Our community is always shipping exciting new projects and expanding
+          beyond Android and iOS with initiatives like{' '}
           <a
             href="https://microsoft.github.io/react-native-windows/"
             target="_blank"
