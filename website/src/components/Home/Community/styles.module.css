@@ -76,11 +76,6 @@
     background-color: var(--home-button-secondary-hover);
     color: var(--home-button-secondary-text);
   }
-
-  &.small {
-    font-size: 0.85rem;
-    padding: 8px 20 px;
-  }
 }
 
 .buttonGroup {
