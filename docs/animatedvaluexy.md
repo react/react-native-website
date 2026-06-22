@@ -17,18 +17,21 @@ const DraggableView = () => {
 
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: Animated.event([
-      null,
-      {
-        dx: pan.x, // x,y are Animated.Value
-        dy: pan.y,
-      },
-    ]),
+    onPanResponderMove: Animated.event(
+      [
+        null,
+        {
+          dx: pan.x, // x,y are Animated.Value
+          dy: pan.y,
+        },
+      ],
+      {useNativeDriver: false} // Set to false for PanResponder to work
+    ),
     onPanResponderRelease: () => {
-      Animated.spring(
-        pan, // Auto-multiplexed
-        {toValue: {x: 0, y: 0}, useNativeDriver: true}, // Back to zero
-      ).start();
+      Animated.spring(pan, {
+        toValue: {x: 0, y: 0},
+        useNativeDriver: true, // Keep this for better performance
+      }).start();
     },
   });
 
@@ -37,7 +40,12 @@ const DraggableView = () => {
       <SafeAreaView style={styles.container}>
         <Animated.View
           {...panResponder.panHandlers}
-          style={[pan.getLayout(), styles.box]}
+          style={[
+            {
+              transform: pan.getTranslateTransform(), // Use transform instead of left/top
+            },
+            styles.box,
+          ]}
         />
       </SafeAreaView>
     </SafeAreaProvider>
