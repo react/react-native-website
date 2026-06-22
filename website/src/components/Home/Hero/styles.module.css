@@ -108,35 +108,35 @@
   padding: 10px 24px;
   border-radius: 99rem;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
-}
+  transition: background-color 200ms ease-in-out;
 
-.primaryButton:hover {
-  color: var(--home-button-primary-text);
-  background-color: var(--home-button-primary-hover);
+  &:hover {
+    color: var(--home-button-primary-text);
+    background-color: var(--home-button-primary-hover);
+  }
 }
 
 .secondaryButton {
   padding: 10px 24px;
   border-radius: 99rem;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
   color: var(--home-button-secondary-text);
   border: 1px solid var(--home-button-secondary-border);
   background-color: var(--home-button-secondary);
-}
+  transition: background-color 200ms ease-in-out;
 
-.secondaryButton:hover {
-  background-color: var(--home-button-secondary-hover);
-  color: var(--home-button-secondary-text);
+  &:hover {
+    background-color: var(--home-button-secondary-hover);
+    color: var(--home-button-secondary-text);
+  }
 }
 
 @media (max-width: 600px) {

@@ -82,7 +82,8 @@
       "name": "Amazon Alexa",
       "icon": "amazon-alexa.webp",
       "linkAppStore": "https://apps.apple.com/us/app/amazon-alexa/id944011620",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en_US&gl=US"
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en_US&gl=US",
+      "pinned": true
     },
     {
       "name": "Amazon Photos",
