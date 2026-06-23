@@ -260,7 +260,7 @@ The following options are currently not working with `fetch`
 * Cookie based authentication is currently unstable. You can view some of the issues raised here: https://github.com/facebook/react-native/issues/23185
 * As a minimum on iOS, when redirected through a `302`, if a `Set-Cookie` header is present, the cookie is not set properly. Since the redirect cannot be handled manually this might cause a scenario where infinite requests occur if the redirect is the result of an expired session.
 
-## Configuring NSURLSession on iOS
+## Configuring `NSURLSession` on iOS
 
 For some applications it may be appropriate to provide a custom `NSURLSessionConfiguration` for the underlying `NSURLSession` that is used for network requests in a React Native application running on iOS. For instance, one may need to set a custom user agent string for all network requests coming from the app or supply `NSURLSession` with an ephemeral `NSURLSessionConfiguration`. The function `RCTSetCustomNSURLSessionConfigurationProvider` allows for such customization. Remember to add the following import to the file in which `RCTSetCustomNSURLSessionConfigurationProvider` will be called:
 
@@ -282,5 +282,35 @@ For some applications it may be appropriate to provide a custom `NSURLSessionCon
 
   // set up React
   _bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+}
+```
+
+## Using a custom `OkHttp` client on Android
+
+To create a custom `OkHttp` client we can use a combination of `OkHttpClientProvider` and `OkHttpClientFactory`, creating an `OkHttp` client factory and passing it to React Native.
+
+```java
+import com.facebook.react.modules.network.OkHttpClientFactory;
+import com.facebook.react.modules.network.OkHttpClientProvider;
+
+import okhttp3.OkHttpClient;
+
+public class CustomOkHttpClient implements OkHttpClientFactory {
+  public OkHttpClient createNewNetworkModuleClient() {
+    return OkHttpClient.Builder() // configure the client
+      .build();
+  }
+}
+```
+
+Instead of using `OkHttpClient.Builder()`, we could also call `OkHttpClientProvider.createClientBuilder()`, which will use the React Native existing defaults.
+
+```java
+// MainApplication.java
+
+public void onCreate() {
+  // ...
+
+  OkHttpClientProvider.setOkHttpClientFactory(new CustomOkHTTPClient());
 }
 ```
