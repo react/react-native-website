@@ -242,7 +242,9 @@ Tells the screen reader to treat the currently focused on element as having a sp
 
 On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 
-On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
+On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS.
+
+> Nested Text with accessibilityRole link is only supported on Android. It does not support inline images and importantForAccessibility="no".
 
 | Type                                                 |
 | ---------------------------------------------------- |
