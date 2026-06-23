@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
 
 export default LotsOfStyles;
 ```
+> `StyleSheet.create` is the preferred way to define styles. While it would be possible to define styles using a plain object, `StyleSheet.create` validates each style property, so errors are reported at compile time. Additionally, there are performance gains, as a unique ID is created for each style object, and communication over the bridge utilizes this ID.
 
 One common pattern is to make your component accept a `style` prop which in turn is used to style subcomponents. You can use this to make styles "cascade" the way they do in CSS.
 
