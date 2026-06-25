@@ -47,6 +47,16 @@ div[class^="copyPageDropdown"] {
     &:hover {
       background-color: var(--ifm-menu-color-background-hover);
     }
+
+    &:not([data-copy-page-action="copy"], [data-copy-page-action="view"]) {
+      div[class^="itemTitle"] {
+        margin-bottom: 0;
+      }
+
+      div[class^="itemDescription"] {
+        display: none;
+      }
+    }
   }
 
   div[class^="itemDescription"] {
