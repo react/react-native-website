@@ -24,6 +24,13 @@ div[class^="copyPageArticleAction"] {
   margin-bottom: 0;
 }
 
+/* Keep the in-article button right-aligned even when DocVersionBadge renders
+ * nothing (current release), so .docHeaderContainer's space-between doesn't
+ * pin the lone child to the left. */
+.copyPageArticleAction {
+  margin-left: auto;
+}
+
 button[class^="copyPageButton"] {
   border-radius: var(--ifm-global-radius);
   border-color: var(--ifm-color-gray-500);
