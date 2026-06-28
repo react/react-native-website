@@ -19,6 +19,41 @@ InteractionManager.runAfterInteractions(() => {
 });
 ```
 
+---
+
+`InteractionManager` is great for certain cases, but if you use it everywhere you might make your app **feel slow or unresponsive**.
+
+---
+
+### ✅ When it’s *good* to use:
+
+* **Heavy JS work that isn’t urgent**
+  e.g., processing a large API response, sorting a big list, parsing JSON, etc.
+* **Tasks after screen transitions**
+  e.g., preload non-critical data only after navigation animations finish.
+* **Low-priority UI updates**
+  e.g., updating analytics, caching, saving drafts.
+
+---
+
+### ❌ When *not* to use:
+
+* **Urgent actions that must happen immediately**
+  e.g., validation feedback after pressing “Submit,” updating a counter in real-time.
+* **User input response**
+  Delaying UI reaction to touches will make the app feel laggy.
+* **Short tasks (<1–2 ms)**
+  The delay from waiting for animations might be longer than the task itself.
+
+---
+
+### 🔍 Rule of Thumb:
+
+> If the task can wait **a few hundred ms** without hurting the user experience, `InteractionManager` is your friend.
+> If the task is essential for immediate feedback, run it right away.
+
+---
+
 Compare this to other scheduling alternatives:
 
 - `requestAnimationFrame()` for code that animates a view over time.
