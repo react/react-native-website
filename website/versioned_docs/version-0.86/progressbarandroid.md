@@ -3,7 +3,7 @@ id: progressbarandroid
 title: '🗑️ ProgressBarAndroid'
 ---
 
-:::warning Deprecated
+:::warning[Deprecated]
 Use one of the [community packages](https://reactnative.directory/?search=progressbar) instead.
 :::
 

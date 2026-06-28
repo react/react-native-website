@@ -3,7 +3,7 @@ id: pushnotificationios
 title: '🗑️ PushNotificationIOS'
 ---
 
-:::warning Deprecated
+:::warning[Deprecated]
 Use one of the [community packages](https://reactnative.directory/?search=notification) instead.
 :::
 

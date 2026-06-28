@@ -171,7 +171,7 @@ export default App;
 
 ### `setStyleAttributePreprocessor()`
 
-:::warning Experimental
+:::warning[Experimental]
 Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
 :::
 

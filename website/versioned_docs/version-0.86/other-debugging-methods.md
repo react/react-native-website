@@ -27,7 +27,7 @@ Every time the app is reloaded, a new JSContext is created. Choosing "Automatica
 
 ## Remote JavaScript Debugging (removed)
 
-:::warning Important
+:::warning[Important]
 Remote JavaScript Debugging has been removed as of React Native 0.79. See the original [deprecation announcement](https://github.com/react-native-community/discussions-and-proposals/discussions/734).
 
 If you are on an older version of React Native, please go to the docs [for your version](/versions).
