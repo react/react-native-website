@@ -256,7 +256,7 @@ Query whether reduce motion and prefer cross-fade transitions settings are curre
 
 ### 🗑️ `setAccessibilityFocus()`
 
-:::warning Deprecated
+:::warning[Deprecated]
 Prefer using `sendAccessibilityEvent` with eventType `focus` instead.
 :::
 

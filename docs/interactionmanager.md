@@ -5,7 +5,7 @@ title: 🗑️ InteractionManager
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-:::warning Deprecated
+:::warning[Deprecated]
 Avoid long-running work and use [`requestIdleCallback`](global-requestIdleCallback) instead.
 :::
 

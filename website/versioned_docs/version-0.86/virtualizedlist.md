@@ -298,7 +298,7 @@ Styling for internal View for `ListHeaderComponent`.
 
 ### 🗑️ `disableVirtualization`
 
-:::warning Deprecated
+:::warning[Deprecated]
 Virtualization provides significant performance and memory optimizations, but fully unmounts react instances that are outside of the render window. You should only need to disable this for debugging purposes.
 :::
 

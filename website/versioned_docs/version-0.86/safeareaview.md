@@ -3,7 +3,7 @@ id: safeareaview
 title: '🗑️ SafeAreaView'
 ---
 
-:::warning Deprecated
+:::warning[Deprecated]
 Use [react-native-safe-area-context](https://github.com/AppAndFlow/react-native-safe-area-context) instead.
 :::
 

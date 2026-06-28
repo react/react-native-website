@@ -43,7 +43,7 @@ A Boolean value which is `true` if the target element intersects with the inters
 
 ### `rnRootIntersectionRatio` ⚠️
 
-:::warning Non-standard
+:::warning[Non-standard]
 This is a React Native specific extension.
 :::
 
