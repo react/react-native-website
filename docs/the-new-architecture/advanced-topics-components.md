@@ -7,3 +7,4 @@ This guide will cover the following topics:
 - [Direct Manipulation](/docs/the-new-architecture/direct-manipulation-new-architecture)
 - [Measuring the Layout](/docs/the-new-architecture/layout-measurements)
 - [Invoking native functions on your native component](/docs/next/the-new-architecture/fabric-component-native-commands)
+- [View Recycling](/docs/next/the-new-architecture/view-recycling)
