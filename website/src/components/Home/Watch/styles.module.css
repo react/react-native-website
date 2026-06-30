@@ -15,7 +15,7 @@
 .videoContainer {
   border: 1px solid var(--home-border);
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.03);
   padding: 16px;
   display: flex;
   flex-direction: column;

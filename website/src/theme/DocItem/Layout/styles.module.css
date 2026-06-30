@@ -24,6 +24,10 @@ div[class^="copyPageArticleAction"] {
   margin-bottom: 0;
 }
 
+.copyPageArticleAction {
+  margin-left: auto;
+}
+
 button[class^="copyPageButton"] {
   border-radius: var(--ifm-global-radius);
   border-color: var(--ifm-color-gray-500);
@@ -46,6 +50,16 @@ div[class^="copyPageDropdown"] {
 
     &:hover {
       background-color: var(--ifm-menu-color-background-hover);
+    }
+
+    &:not([data-copy-page-action="copy"], [data-copy-page-action="view"]) {
+      div[class^="itemTitle"] {
+        margin-bottom: 0;
+      }
+
+      div[class^="itemDescription"] {
+        display: none;
+      }
     }
   }
 

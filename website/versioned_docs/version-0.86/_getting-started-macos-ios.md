@@ -1,3 +1,5 @@
+import ThemedImage from '@theme/ThemedImage';
+
 ## Installing dependencies
 
 You will need Node, Watchman, the React Native command line interface, Xcode and CocoaPods.
@@ -27,7 +29,13 @@ The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple
 
 You will also need to install the Xcode Command Line Tools. Open Xcode, then choose **Settings... (or Preferences...)** from the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
 
-![Xcode Command Line Tools](/docs/assets/GettingStartedXcodeCommandLineTools.png)
+<ThemedImage
+alt="Xcode Command Line Tools configuration"
+sources={{
+    light: '/docs/assets/GettingStartedXcodeCommandLineTools.png',
+    dark: '/docs/assets/GettingStartedXcodeCommandLineToolsDark.png',
+  }}
+/>
 
 #### Installing an iOS Simulator in Xcode
 

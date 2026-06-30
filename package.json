@@ -29,25 +29,25 @@
     "dev:vercel": "vercel dev"
   },
   "devDependencies": {
-    "@eslint/css": "^1.2.0",
+    "@eslint/css": "^1.3.0",
     "@eslint/js": "^9.39.4",
     "@manypkg/cli": "^0.25.1",
-    "@typescript-eslint/parser": "^8.59.3",
+    "@typescript-eslint/parser": "^8.61.0",
     "alex": "^11.0.1",
     "case-police": "^2.2.1",
     "eslint": "^9.39.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-alex": "^1.0.0",
     "eslint-plugin-case-police": "2.2.1",
-    "eslint-plugin-mdx": "^3.7.0",
-    "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-yml": "^3.3.2",
+    "eslint-plugin-mdx": "^3.8.1",
+    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-yml": "^3.4.0",
     "globals": "^17.6.0",
     "husky": "^9.1.7",
-    "prettier": "^3.8.3",
+    "prettier": "^3.8.4",
     "pretty-quick": "^4.2.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.3"
+    "typescript-eslint": "^8.61.0"
   },
   "resolutions": {
     "serialize-javascript": "^7.0.5",

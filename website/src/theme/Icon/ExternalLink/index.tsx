@@ -1,25 +1,42 @@
-/**
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
+import React, {type ReactNode} from 'react';
+import {translate} from '@docusaurus/Translate';
+import type {Props} from '@theme/Icon/ExternalLink';
 
-import React from 'react';
 import styles from './styles.module.css';
 
-export default function IconExternalLink({width = 13.5, height = 13.5, style}) {
+export default function IconExternalLink({
+  width = 13.5,
+  height = 13.5,
+}: Props): ReactNode {
   return (
     <svg
       width={width}
       height={height}
-      style={style}
-      aria-hidden="true"
-      viewBox="0 0 24 24"
+      viewBox="0 0 256 256"
+      aria-label={translate({
+        id: 'theme.IconExternalLink.ariaLabel',
+        message: '(opens in new tab)',
+        description: 'The ARIA label for the external link icon',
+      })}
       className={styles.iconExternalLink}>
-      <path
-        fill="currentColor"
-        d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"
+      <line
+        x1="64"
+        y1="192"
+        x2="192"
+        y2="64"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="16"
+      />
+      <polyline
+        points="88 64 192 64 192 168"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="16"
       />
     </svg>
   );

@@ -1,0 +1,150 @@
+---
+title: 'React Native 0.86 - Edge-to-Edge and DevTools Improvements, no breaking changes'
+authors: [fabriziocucci, robhogan, zoontek, gabrieldonadel]
+tags: [announcement, release]
+date: 2026-06-11
+---
+
+# React Native 0.86 - Edge-to-Edge and DevTools Improvements, no breaking changes
+
+Today we are excited to release React Native 0.86!
+
+This release includes comprehensive edge-to-edge support on Android 15+ and improvements in React Native DevTools.
+
+Following 0.83, this is the second React Native release with no user-facing breaking changes, reflecting our continued commitment to making upgrades more predictable and seamless.
+
+## Highlights
+
+- [A New Home for React Native](/blog/2026/06/11/react-native-0.86#a-new-home-for-react-native)
+- [Edge-to-Edge on Android](/blog/2026/06/11/react-native-0.86#edge-to-edge-on-android)
+- [React Native DevTools Improvements](/blog/2026/06/11/react-native-0.86#react-native-devtools-improvements)
+
+{/* truncate */}
+
+### A New Home for React Native
+
+The React Native repository, together with React, Metro, Yoga and the React Native Website, has moved from the `facebook` GitHub organization to the `react` organization. This move reflects the transition of React and React Native to the [React Foundation](https://react.foundation/), an independent foundation dedicated to the long-term stewardship of the React ecosystem.
+
+GitHub will automatically redirect all existing URLs, issues and PRs to the new location, so no action is required on your part.
+
+### Edge-to-Edge on Android
+
+React Native 0.86 ships comprehensive fixes for Android 15+ edge-to-edge mode, including when it's enforced by the OS but not explicitly enabled via the `edgeToEdgeEnabled` Gradle property.
+
+Key fixes include:
+
+- **`measureInWindow`** now returns correct coordinates when edge-to-edge is enabled.
+- **`KeyboardAvoidingView`** works correctly on Android 15+ with `edgeToEdgeEnabled`.
+- **`Dimensions`** window values are accurate on Android versions prior to 15 when edge-to-edge is enabled.
+- **`StatusBar`** now supports updating status bar style and visibility while a Modal is open.
+- **Navigation bar** contrast respects the theme's `enforceNavigationBarContrast` attribute.
+
+### React Native DevTools Improvements
+
+React Native DevTools now supports **light/dark mode emulation** via `Emulation.setEmulatedMedia`, allowing you to test your app's appearance mode handling directly from DevTools without changing your device settings. Use `cmd`/`ctrl` + `shift` + `P` to access from the Command Palette.
+
+As with the web, this is a temporary switch that will reset when DevTools is disconnected.
+
+![React Native DevTools Command Palette showing the light/dark mode emulation options](/blog/assets/0.86-devtools-light-dark-emulation.png)
+
+## Breaking Changes
+
+React Native 0.86 has **no user-facing breaking changes**.
+
+If you are on React Native 0.85, you should be able to upgrade your app to React Native 0.86 without any changes to your app code.
+
+To learn more about what we consider a breaking change, have a look at [this article](/docs/releases/versioning-policy#what-is-a-breaking-change).
+
+## Deprecations
+
+The following APIs have been deprecated and are due for removal in a future release of React Native:
+
+- **`ViewUtil.getUIManagerType`**: As part of the removal of the legacy architecture, this API is now deprecated. You can inline `UIManagerType.Fabric` directly or remove the checks on the UIManagerType altogether.
+- **`AppRegistry`**: The second argument of `AppRegistry.setComponentProviderInstrumentationHook` is now deprecated and will warn if used.
+
+## Other Changes
+
+### Runtime & Web Spec Alignment
+
+- **`ExceptionsManager.reportErrorsAsExceptions` strictness**: Setting `reportErrorsAsExceptions` to anything other than `false` no longer does anything. Previously, any falsy value (like `0`, `null` or `""`) would disable error-to-exception conversion. Now only the explicit boolean `false` opts out, making the API less error-prone.
+- **`PerformanceObserver` default `durationThreshold`**: `observe({type: 'event'})` now correctly defaults `durationThreshold` to 104ms per the W3C Event Timing spec, instead of reporting all events. This aligns React Native's Performance API with web standards and reduces noise from very short events.
+
+### Rendering, Layout & Animation
+
+- **Modal Components `style` prop**: The `style` prop is now forwarded to Modal's inner container View, allowing custom styling (e.g., padding, background colors) without overriding `transparent` or `backdropColor` behavior.
+- **Animated mounting layer sync**: Enabled a mounting layer synchronization so Native Animated synchronous updates are not overridden by later React commits. This fixes a flicker where animated views could briefly jump back to their pre-animation values.
+- **Text measurement crash**: Fixed a crash when measuring text on a surface that had already been stopped.
+- **Non-invertible transform touch fix**: Views with non-invertible transforms (e.g., `scaleX: 0` or `scaleY: 0`) no longer receive touches on Android or iOS. Hit-testing now detects when a transform matrix can't be inverted and skips those views.
+- **Yoga Layout fixes**: Fixed several layout regressions related to Yoga such as text wrapping in absolutely positioned elements on Android ([#56651](https://github.com/facebook/react-native/pull/56651)), a crash with Android's `BoringLayout.isBoring()` with a negative width ([#56007](https://github.com/facebook/react-native/pull/56007)) and fixed ownership of nodes with `display: contents` nodes ([#56422](https://github.com/facebook/react-native/pull/56422)).
+
+### Accessibility
+
+- **Unresolved promises**: Fixed `AccessibilityInfo.isDarkerSystemColorsEnabled`, `isHighTextContrastEnabled` and `prefersCrossFadeTransitions` returning promises that never resolved on unsupported platforms. They now resolve to `false` instead of hanging indefinitely.
+
+### Infrastructure & Dependencies
+
+- **Metro `^0.84.2`**: Updated Metro bundler dependency.
+- **`HeadlessJsTaskSupportModule` auto-registration**: This module is now registered in the `CoreReactPackage`, so apps that use headless JS tasks on Android no longer need to ensure this module is manually registered.
+
+### JSI (Native Interface)
+
+New JSI APIs added to make the C++ interface between native modules and the JS engine more capable:
+
+- **`IRuntime` interface**: Makes previously protected `Runtime` methods public, enabling new JSI functionality without cascading interface versions.
+- **`TypedArray` / `Uint8Array`**: First-class support for typed arrays, including creation, buffer access, offset and length queries.
+- **`ArrayBuffer.detached`**: Check whether an `ArrayBuffer` has been detached.
+- **`Array.push`**: Append elements to arrays (previously array size was immutable after creation).
+- **`String.length`**: Get string length in UTF-16 code units without converting to a full string.
+- **`isInteger`**: Check if a `jsi::Value` is an integer without calling into the runtime.
+- **Error creation APIs**: Factory methods for all standard JS error types (`TypeError`, `RangeError`, `ReferenceError`, `SyntaxError`, `EvalError`, `URIError`).
+
+### Android Input, Navigation & Images
+
+- **BackHandler event object**: `hardwareBackPress` events now pass an event object with a `timeStamp` property from the native event, enabling timing analysis and event correlation. Existing callbacks that ignore the argument are unaffected.
+- **BackHandler resume fix on API 36+**: `BackHandler` callbacks stopped working after the app was resumed from the background on Android API 36+. The fix ensures the back button handler is properly re-registered during `onHostResume`.
+- **LogBox/RedBox back button dismiss**: LogBox notification toasts and the inspector overlay can now be dismissed via the Android hardware back button.
+- **TextInput `setAutoCapitalize` Samsung fix**: Fixed `setAutoCapitalize` stripping `TYPE_NUMBER_FLAG_SIGNED` and `TYPE_NUMBER_FLAG_DECIMAL` flags on Samsung keyboards, which prevented users from typing minus signs in numeric inputs.
+- **TextInput/KeyboardAvoidingView IME height**: `KeyboardAvoidingView` and TextInput auto-scroll now respond correctly to IME height changes, such as toggling between the keyboard and emoji panel or when the predictive text bar appears.
+- **Pressable `android_ripple`**: The `android_ripple` prop now accepts `PlatformColor`.
+- **`Image.getSize` / `Image.getSizeWithHeaders`**: These now return the true source dimensions instead of Fresco's downsampled values.
+
+### Android Networking
+
+- **`OutOfMemoryError` handling**: `NetworkingModule` now correctly handles very large HTTP responses and will not OOM or crash.
+- **WebSocket `Cookie` header**: `WebSocketModule` no longer strips a `Cookie` header passed via the WebSocket constructor's `headers` option, allowing authentication cookies to be sent over WebSocket connections.
+- **Blob content provider with New Architecture**: The Blob content provider (used for `blob:` URLs to access binary data) now works correctly with the New Architecture.
+
+## Acknowledgements
+
+React Native 0.86 contains over 596 commits from 97 contributors. Thanks for all your hard work!
+
+{/* alex ignore special white */}
+
+We want to send a special thank you to those community members that shipped significant contributions in this release.
+
+- [Mathieu Acthernoene](https://github.com/zoontek) for edge-to-edge support on Android and StatusBar improvements
+- [Jakub Piasecki](https://github.com/j-piasecki) for ShadowTree and Yoga fixes
+- [Nick Gerleman](https://github.com/NickGerleman) for Text rendering fixes
+- [Peter Abbondanzo](https://github.com/Abbondanzo) for LogBox, ScrollView and Image fixes
+
+## Upgrade to 0.86
+
+:::info
+
+0.86 is now the latest stable version of React Native and 0.83.x moves to unsupported. For more information see [React Native's support policy](/releases).
+
+:::
+
+#### Upgrading
+
+Please use the [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) to view code changes between React Native versions for existing projects, in addition to the [Upgrading docs](/docs/upgrading).
+
+#### Create a new project
+
+```sh
+npx @react-native-community/cli@latest init MyProject --version latest
+```
+
+#### Expo
+
+For Expo projects, React Native 0.86 will be available as part of the `expo@canary` releases.

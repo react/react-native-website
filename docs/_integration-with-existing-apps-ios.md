@@ -1,5 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ThemedImage from '@theme/ThemedImage';
 import constants from '@site/core/TabsConstants';
 import CodeBlock from '@theme/CodeBlock';
 import RNTemplateRepoLink from '@site/core/RNTemplateRepoLink';
@@ -68,7 +69,13 @@ Add `node_modules/` to your `.gitignore` file (here the <RNTemplateRepoLink href
 
 Install the Command Line Tools. Choose **Settings... (or Preferences...)** in the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
 
-![Xcode Command Line Tools](/docs/assets/GettingStartedXcodeCommandLineTools.png)
+<ThemedImage
+alt="Xcode Command Line Tools configuration"
+sources={{
+    light: '/docs/assets/GettingStartedXcodeCommandLineTools.png',
+    dark: '/docs/assets/GettingStartedXcodeCommandLineToolsDark.png',
+  }}
+/>
 
 ### CocoaPods
 

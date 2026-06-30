@@ -25,7 +25,7 @@ Please correct this by running ``adb shell "date `date +%m%d%H%M%Y.%S%3N`"`` on 
 
 ## InteractionManager
 
-:::warning Deprecated
+:::warning[Deprecated]
 The `InteractionManager` behavior has been changed to be the same as `setImmediate`, which should be used instead.
 :::
 
