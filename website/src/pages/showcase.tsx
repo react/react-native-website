@@ -5,28 +5,24 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {useEffect, useState} from 'react';
+import {type PropsWithChildren, useEffect, useState} from 'react';
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import type users from '../../showcase.json';
-import IconExternalLink from '../theme/Icon/ExternalLink';
+import {ShowcaseApp, ShowcaseData} from '@site/src/types';
 import ThemedImage from '@theme/ThemedImage';
+import Layout from '@theme/Layout';
 
-type UserAppType = (typeof users)[keyof typeof users][number];
-
-const renderApp = (app: UserAppType, i: number) => (
-  <AppBox app={app} key={`app-${app.name}-${i}`} />
-);
+import IconExternalLink from '../theme/Icon/ExternalLink';
 
 function Section({
   children,
   background = 'light',
-}: React.PropsWithChildren<{background?: 'light' | 'dark'}>) {
+}: PropsWithChildren<{background?: 'light' | 'dark'}>) {
   return <section className={`Section ${background}`}>{children}</section>;
 }
 
-const AppBox = ({app}: {app: UserAppType}) => {
+const AppBox = ({app}: {app: ShowcaseApp}) => {
   const imgSource = useBaseUrl(
     app.icon.startsWith('http') ? app.icon : 'img/showcase/' + app.icon
   );
@@ -57,7 +53,7 @@ const AppBox = ({app}: {app: UserAppType}) => {
   );
 };
 
-const renderLinks = (app: UserAppType) => {
+const renderLinks = (app: ShowcaseApp) => {
   const links = [
     app.linkAppStore ? (
       <a key="ios" href={app.linkAppStore} target="_blank">
@@ -92,15 +88,17 @@ const renderLinks = (app: UserAppType) => {
   return <p className="showcaseLinks">{links}</p>;
 };
 
-const randomizeApps = apps =>
+const randomizeApps = (apps: ShowcaseApp[]) =>
   [...apps].filter(app => !app.group).sort(() => 0.5 - Math.random());
 
 const Showcase = () => {
   const {siteConfig} = useDocusaurusContext();
   const {meta, microsoft, shopify, wix, amazon, others} = siteConfig
-    .customFields.users as typeof users;
-  const [pinnedRandomizedApps, setPinnedRandomizedApps] = useState([]);
-  const [randomizedApps, setRandomizedApps] = useState([]);
+    .customFields.users as ShowcaseData;
+  const [pinnedRandomizedApps, setPinnedRandomizedApps] = useState<
+    ShowcaseApp[]
+  >([]);
+  const [randomizedApps, setRandomizedApps] = useState<ShowcaseApp[]>([]);
 
   useEffect(() => {
     setRandomizedApps(randomizeApps(others.filter(app => !app.pinned)));
@@ -140,7 +138,11 @@ const Showcase = () => {
             Meta’s product ecosystem, from Facebook Marketplace, Messenger
             Desktop, Ads Manager to the Meta Quest app and many more.
           </p>
-          <div className="logos">{meta.map(renderApp)}</div>
+          <div className="logos">
+            {meta.map((app, i) => (
+              <AppBox app={app} key={`app-${app.name}-${i}`} />
+            ))}
+          </div>
         </div>
         <div className="showcaseSection">
           <h2 className="withLogo">
@@ -166,7 +168,11 @@ const Showcase = () => {
             </a>{' '}
             for React Native Windows and macOS.
           </p>
-          <div className="logos">{microsoft.map(renderApp)}</div>
+          <div className="logos">
+            {microsoft.map((app, i) => (
+              <AppBox app={app} key={`app-${app.name}-${i}`} />
+            ))}
+          </div>
         </div>
         <div className="showcaseSection">
           <h2 className="withLogo">
@@ -185,7 +191,11 @@ const Showcase = () => {
             2016. Amazon also uses React Native to support customer-favorite
             devices such as the Kindle E-readers.
           </p>
-          <div className="logos">{amazon.map(renderApp)}</div>
+          <div className="logos">
+            {amazon.map((app, i) => (
+              <AppBox app={app} key={`app-${app.name}-${i}`} />
+            ))}
+          </div>
         </div>
         <div className="showcaseSection">
           <h2 className="withLogo">
@@ -206,7 +216,11 @@ const Showcase = () => {
             </a>
             .
           </p>
-          <div className="logos">{shopify.map(renderApp)}</div>
+          <div className="logos">
+            {shopify.map((app, i) => (
+              <AppBox app={app} key={`app-${app.name}-${i}`} />
+            ))}
+          </div>
         </div>
         <div className="showcaseSection">
           <h2 className="withLogo">
@@ -225,13 +239,21 @@ const Showcase = () => {
             variety of open source projects. Wix is an early adopter of React
             Native and uses it for its entire suite of applications.
           </p>
-          <div className="logos">{wix.map(renderApp)}</div>
+          <div className="logos">
+            {wix.map((app, i) => (
+              <AppBox app={app} key={`app-${app.name}-${i}`} />
+            ))}
+          </div>
         </div>
         <div className="showcaseSection showcaseCustomers">
           <h2>Users Showcase</h2>
           <div className="logos">
-            {pinnedRandomizedApps.map(renderApp)}
-            {randomizedApps.map(renderApp)}
+            {pinnedRandomizedApps.map((app, i) => (
+              <AppBox app={app} key={`app-${app.name}-${i}`} />
+            ))}
+            {randomizedApps.map((app, i) => (
+              <AppBox app={app} key={`app-${app.name}-${i}`} />
+            ))}
           </div>
         </div>
       </Section>

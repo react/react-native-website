@@ -7,23 +7,19 @@
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import {ShowcaseData} from '@site/src/types';
 
+import PartnersShowcase from './PartnersShowcase';
 import Section from '../Section';
 import SectionTitle from '../SectionTitle';
-
-import CallstackWordmark from '@site/static/img/showcase/callstack_wordmark.svg';
-import ExpoWordmark from '@site/static/img/showcase/expo-wordmark.svg';
-import InfiniteRedWordmark from '@site/static/img/showcase/infinite-red-wordmark.svg';
-import MicrosoftWordmark from '@site/static/img/showcase/microsoft-wordmark.svg';
-import SWMWordmark from '@site/static/img/showcase/swm-wordmark.svg';
 
 import styles from './styles.module.css';
 
 function Community() {
   const {siteConfig} = useDocusaurusContext();
-  const apps = Object.values(siteConfig.customFields.users)
+  const apps = Object.values(siteConfig.customFields?.users as ShowcaseData)
     .flat()
-    .filter(app => app.pinned);
+    .filter(app => Boolean(app.pinned));
 
   return (
     <Section>
@@ -71,39 +67,7 @@ function Community() {
           Today, React Native is supported by contributions from individuals and
           companies around the world including:
         </p>
-        <div className={styles.companiesContainer}>
-          <a
-            href="https://callstack.com/"
-            target="_blank"
-            rel="noopener noreferrer">
-            <CallstackWordmark />
-          </a>
-          <a
-            href="https://expo.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.expo}>
-            <ExpoWordmark />
-          </a>
-          <a
-            href="https://infinite.red/"
-            target="_blank"
-            rel="noopener noreferrer">
-            <InfiniteRedWordmark />
-          </a>
-          <a
-            href="https://www.microsoft.com/"
-            target="_blank"
-            rel="noopener noreferrer">
-            <MicrosoftWordmark />
-          </a>
-          <a
-            href="https://swmansion.com/"
-            target="_blank"
-            rel="noopener noreferrer">
-            <SWMWordmark />
-          </a>
-        </div>
+        <PartnersShowcase />
         <p>
           Additionally, our community is always shipping exciting new projects
           and expanding beyond Android and iOS with initiatives like{' '}
