@@ -348,12 +348,10 @@ Determines when the keyboard should stay visible after a tap.
 - `'never'` tapping outside of the focused text input when the keyboard is up dismisses the keyboard. When this happens, children won't receive the tap.
 - `'always'`, the keyboard will not dismiss automatically, and the scroll view will not catch taps, but children of the scroll view can catch taps.
 - `'handled'`, the keyboard will not dismiss automatically when the tap was handled by children of the scroll view (or captured by an ancestor).
-- `false`, **_deprecated_**, use `'never'` instead
-- `true`, **_deprecated_**, use `'always'` instead
 
-| Type                                                      | Default   |
-| --------------------------------------------------------- | --------- |
-| enum(`'always'`, `'never'`, `'handled'`, `false`, `true`) | `'never'` |
+| Type                                    | Default   |
+| --------------------------------------- | --------- |
+| enum(`'always'`, `'never'`, `'handled'`) | `'never'` |
 
 ---
 

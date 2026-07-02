@@ -211,7 +211,6 @@ export default {
       'dimensions',
       'easing',
       'i18nmanager',
-      'interactionmanager',
       'keyboard',
       'layoutanimation',
       'linking',

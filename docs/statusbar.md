@@ -253,25 +253,11 @@ The height of the status bar, which includes the notch height, if present.
 
 ### `animated`
 
-If the transition between status bar property changes should be animated. Supported for `backgroundColor`, `barStyle` and `hidden` properties.
+If the transition between status bar property changes should be animated. Supported for `barStyle` and `hidden` properties.
 
 | Type    | Required | Default |
 | ------- | -------- | ------- |
 | boolean | No       | `false` |
-
----
-
-### `backgroundColor` <div className="label android">Android</div>
-
-The background color of the status bar.
-
-:::warning
-Due to edge-to-edge enforcement introduced in Android 15, setting background color of the status bar is deprecated in API level 35 and setting it will have no effect. You can read more about our [edge-to-edge recommendations here](https://github.com/react-native-community/discussions-and-proposals/discussions/827).
-:::
-
-| Type            | Required | Default                                                                |
-| --------------- | -------- | ---------------------------------------------------------------------- |
-| [color](colors) | No       | default system StatusBar background color, or `'black'` if not defined |
 
 ---
 
@@ -435,26 +421,6 @@ Show or hide the status bar.
 | ----------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------- |
 | hidden <div className="label basic required">Required</div> | boolean                                            | Hide the status bar.                                    |
 | animation <div className="label ios">iOS</div>              | [StatusBarAnimation](statusbar#statusbaranimation) | Animation when changing the status bar hidden property. |
-
----
-
-### 🗑️ `setNetworkActivityIndicatorVisible()` <div className="label ios">iOS</div>
-
-:::warning[Deprecated]
-The status bar network activity indicator is not supported in iOS 13 and later. This will be removed in a future release.
-:::
-
-```tsx
-static setNetworkActivityIndicatorVisible(visible: boolean);
-```
-
-Control the visibility of the network activity indicator.
-
-**Parameters:**
-
-| Name                                                         | Type    | Description         |
-| ------------------------------------------------------------ | ------- | ------------------- |
-| visible <div className="label basic required">Required</div> | boolean | Show the indicator. |
 
 ---
 

@@ -59,7 +59,7 @@ There are also other third-party list libraries that are optimized for performan
 
 ### Dropping JS thread FPS because of doing a lot of work on the JavaScript thread at the same time
 
-"Slow Navigator transitions" is the most common manifestation of this, but there are other times this can happen. Using [`InteractionManager`](interactionmanager.md) can be a good approach, but if the user experience cost is too high to delay work during an animation, then you might want to consider [`LayoutAnimation`](layoutanimation.md).
+"Slow Navigator transitions" is the most common manifestation of this, but there are other times this can happen. Deferring work until the JS thread is idle (for example, with `requestIdleCallback`) can be a good approach, but if the user experience cost is too high to delay work during an animation, then you might want to consider [`LayoutAnimation`](layoutanimation.md).
 
 The [`Animated API`](animated.md) currently calculates each keyframe on-demand on the JavaScript thread unless you [set `useNativeDriver: true`](/blog/2017/02/14/using-native-driver-for-animated#how-do-i-use-this-in-my-app), while [`LayoutAnimation`](layoutanimation.md) leverages Core Animation and is unaffected by JS thread and main thread frame drops.
 

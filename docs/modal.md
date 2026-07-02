@@ -104,14 +104,6 @@ Inherits [View Props](view.md#props).
 
 ---
 
-### 🗑️ `animated`
-
-:::warning[Deprecated]
-Use the [`animationType`](modal.md#animationtype) prop instead.
-:::
-
----
-
 ### `animationType`
 
 The `animationType` prop controls how the modal animates.
