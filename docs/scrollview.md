@@ -349,8 +349,8 @@ Determines when the keyboard should stay visible after a tap.
 - `'always'`, the keyboard will not dismiss automatically, and the scroll view will not catch taps, but children of the scroll view can catch taps.
 - `'handled'`, the keyboard will not dismiss automatically when the tap was handled by children of the scroll view (or captured by an ancestor).
 
-| Type                                    | Default   |
-| --------------------------------------- | --------- |
+| Type                                     | Default   |
+| ---------------------------------------- | --------- |
 | enum(`'always'`, `'never'`, `'handled'`) | `'never'` |
 
 ---
