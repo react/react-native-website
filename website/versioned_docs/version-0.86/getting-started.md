@@ -1,5 +1,41 @@
----
-id: environment-setup
+RYKER
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('My First App'),
+          backgroundColor: Colors.blue,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Hello! Welcome to my app 👋',
+                style: TextStyle(fontSize: 24),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  print('Button clicked!');
+                },
+                child: Text('Tap Me'),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 title: Get Started with React Native
 hide_table_of_contents: true
 ---
