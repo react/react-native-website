@@ -84,6 +84,8 @@ Specifies font weight. The values 'normal' and 'bold' are supported for most fon
 
 Specifies text alignment. The value 'justify' is only supported on iOS and fallbacks to `left` on Android.
 
+> **_Note:_** Unlike [`<Text>`](text.md), `TextInput` treats `left` and `right` as physical values that do not flip in RTL mode. On `<Text>`, `textAlign: 'left'` behaves as logical `start` (aligns right in RTL), but on `TextInput` it always aligns left. For direction-aware alignment on `TextInput`, use `I18nManager.isRTL ? 'right' : 'left'`. See [#45255](https://github.com/facebook/react-native/issues/45255) for background.
+
 | Type                                               | Required |
 | -------------------------------------------------- | -------- |
 | enum('auto', 'left', 'right', 'center', 'justify') | No       |
