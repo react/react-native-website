@@ -67,7 +67,7 @@ Note that image sources required this way include size (width, height) info for 
 
 ### Bundling images in an asset catalog (iOS)
 
-By default the bundler copies each required image, along with every `@2x` and `@3x` variant, into your iOS app as a loose file next to the JavaScript bundle. On iOS you can instead have them compiled into an [asset catalog](https://developer.apple.com/documentation/xcode/managing-assets-with-asset-catalogs), so the system ships and loads only the scale a device needs and resolves each image in a single named lookup.
+By default the bundler copies each required image, along with every `@2x` and `@3x` variant, into your iOS app as a loose file next to the JavaScript bundle. On iOS you can instead have them compiled into an [asset catalog](https://developer.apple.com/documentation/xcode/managing-assets-with-asset-catalogs), so the system ships only the scale a device needs.
 
 To opt in, set the `RCTUseAssetCatalog` key to `true` in your app's `Info.plist`:
 
@@ -76,9 +76,9 @@ To opt in, set the `RCTUseAssetCatalog` key to `true` in your app's `Info.plist`
 <true/>
 ```
 
-With this enabled, the iOS build script (`react-native-xcode.sh`) compiles your bundled images into an `RNAssets.bundle` asset catalog at build time, and the native image loader resolves them from it by name. Your `require('./my-icon.png')` calls stay exactly the same, and no changes to your Xcode project are needed. Apps that don't set the key are unaffected.
+With this enabled, the iOS build script compiles your bundled images into an `RNAssets.bundle` asset catalog at build time. Your `require('./my-icon.png')` calls stay exactly the same, and no changes to your Xcode project are needed.
 
-After changing this setting, do a clean build. Incremental builds don't remove the image assets a previous build copied in with the other setting, so they would otherwise be shipped as unused dead weight.
+After changing this setting, make sure to do a clean build.
 
 ## Static Non-Image Resources
 
