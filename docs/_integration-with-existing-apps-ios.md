@@ -248,7 +248,7 @@ React Native initialization is now unbound to any specific part of an iOS app.
 
 React Native can be initialized using a class called `RCTReactNativeFactory`, that takes care of handling the React Native lifecycle for you.
 
-:::note `RCTAppDelegate` is deprecated
+:::note[`RCTAppDelegate` is deprecated]
 `RCTAppDelegate` is deprecated and will be removed in a future version of React Native. New apps should bootstrap from an app-owned `SceneDelegate` (see [Bootstrapping with SceneDelegate](#6-bootstrapping-with-scenedelegate)). Existing apps that subclass `RCTAppDelegate` should migrate to `RCTReactNativeFactory` directly.
 :::
 
@@ -675,12 +675,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 </TabItem>
 </Tabs>
 
-:::note Multi-window support
+:::note
 React Native currently supports a single React instance per process. If `UIApplicationSupportsMultipleScenes` is `true`, React Native fails during initialization by default (when using the New Architecture). Define `RN_ALLOW_MULTIPLE_SCENES=1` in your app target's `GCC_PREPROCESSOR_DEFINITIONS` (or pass `-DRN_ALLOW_MULTIPLE_SCENES=1` via `OTHER_CFLAGS`) only if you understand the risks (e.g. cross-talk of internal RN modules, or third-party libraries) and want to downgrade the failure to a warning.
 :::
 
-:::tip `reactNativeFactory` field
-It is important to expose `reactNativeFactory` on your `SceneDelegate` if you need utilities such as `RCTGetActiveReactNativeFactory()` to resolve the active factory at runtime.
+:::tip[`reactNativeFactory` field]
+It is important that you expose `reactNativeFactory` on your `SceneDelegate` if you need utilities such as `RCTGetActiveReactNativeFactory()` to resolve the active factory at runtime.
 :::
 
 ## 7. Test your integration
