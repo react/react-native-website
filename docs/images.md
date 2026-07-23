@@ -65,6 +65,21 @@ const icon = this.props.active
 
 Note that image sources required this way include size (width, height) info for the Image. If you need to scale the image dynamically (i.e. via flex), you may need to manually set `{width: undefined, height: undefined}` on the style attribute.
 
+### Bundling images in an asset catalog (iOS)
+
+By default the bundler copies each required image, along with every `@2x` and `@3x` variant, into your iOS app as a loose file next to the JavaScript bundle. On iOS you can instead have them compiled into an [asset catalog](https://developer.apple.com/documentation/xcode/managing-assets-with-asset-catalogs), so the system ships and loads only the scale a device needs and resolves each image in a single named lookup.
+
+To opt in, set the `RCTUseAssetCatalog` key to `true` in your app's `Info.plist`:
+
+```xml
+<key>RCTUseAssetCatalog</key>
+<true/>
+```
+
+With this enabled, the iOS build script (`react-native-xcode.sh`) compiles your bundled images into an `RNAssets.bundle` asset catalog at build time, and the native image loader resolves them from it by name. Your `require('./my-icon.png')` calls stay exactly the same, and no changes to your Xcode project are needed. Apps that don't set the key are unaffected.
+
+After changing this setting, do a clean build. Incremental builds don't remove the image assets a previous build copied in with the other setting, so they would otherwise be shipped as unused dead weight.
+
 ## Static Non-Image Resources
 
 The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html`, `.pdf` and more. See [bundler defaults](https://github.com/facebook/metro/blob/main/packages/metro-config/src/defaults/defaults.js#L16-L51) for the full list.
