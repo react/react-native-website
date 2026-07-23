@@ -248,9 +248,16 @@ React Native initialization is now unbound to any specific part of an iOS app.
 
 React Native can be initialized using a class called `RCTReactNativeFactory`, that takes care of handling the React Native lifecycle for you.
 
-Once the class is initialized, you can either start a React Native view providing a `UIWindow` object, or you can ask for the factory to generate a `UIView` that you can load in any `UIViewController.`
+:::note `RCTAppDelegate` is deprecated
+`RCTAppDelegate` is deprecated and will be removed in a future version of React Native. New apps should bootstrap from an app-owned `SceneDelegate` (see [Bootstrapping with SceneDelegate](#6-bootstrapping-with-scenedelegate)). Existing apps that subclass `RCTAppDelegate` should migrate to `RCTReactNativeFactory` directly.
+:::
 
-In the following example, we will create a ViewController that can load a React Native view as it's `view`.
+Once the class is initialized, you can either:
+
+- bootstrap a full app from your `SceneDelegate` (see [Bootstrapping with SceneDelegate](#6-bootstrapping-with-scenedelegate)), or
+- generate a `UIView` from the factory and load it in any `UIViewController` (the approach below).
+
+In the following example, we will create a ViewController that can load a React Native view as its `view`.
 
 #### Create the ReactViewController
 
@@ -268,7 +275,7 @@ Now open the `ReactViewController.m` file and apply the following changes
 +#import <React/RCTBundleURLProvider.h>
 +#import <RCTReactNativeFactory.h>
 +#import <RCTDefaultReactNativeFactoryDelegate.h>
-+#import <RCTAppDependencyProvider.h>
++#import <ReactAppDependencyProvider/RCTAppDependencyProvider.h>
 
 
 @interface ReactViewController ()
@@ -461,7 +468,222 @@ Finally, make sure to add the `UIViewControllerBasedStatusBarAppearance` key int
 
 ![Disable UIViewControllerBasedStatusBarAppearance](/docs/assets/disable-UIViewControllerBasedStatusBarAppearance.png)
 
-## 6. Test your integration
+## 6. Bootstrapping with SceneDelegate
+
+If your app uses the UIScene lifecycle (the default for apps created with recent versions of Xcode), React Native bootstrap happens in your app-owned `SceneDelegate`. Your `AppDelegate` stays as the process entry point (`@main`) and handles `UIApplication`-level callbacks such as push notifications.
+
+To bootstrap React Native with SceneDelegate:
+
+1. Declare `UIApplicationSceneManifest` in `Info.plist` and point it at your `SceneDelegate` class.
+2. Keep `UIApplicationSupportsMultipleScenes` set to `false`. React Native does not support multi-window / multi-instance apps yet; enabling this key causes React Native to fail during initialization due to an intentional assertion, unless you explicitly define `RN_ALLOW_MULTIPLE_SCENES` on your app target.
+3. Subclass `RCTDefaultReactNativeFactoryDelegate`, conform to `UIWindowSceneDelegate`, create an `RCTReactNativeFactory`, and call `startReactNativeWithModuleName:inWindow:connectionOptions:` from `scene:willConnectToSession:options:`.
+4. Forward deep links from your `SceneDelegate` to `RCTLinkingManager`.
+5. Keep push notifications and other `UIApplicationDelegate` callbacks on your `AppDelegate`.
+
+### Info.plist
+
+Add a scene manifest similar to the Community Template. At minimum you need:
+
+```xml
+<key>UIApplicationSceneManifest</key>
+<dict>
+  <key>UIApplicationSupportsMultipleScenes</key>
+  <false/>
+  <key>UISceneConfigurations</key>
+  <dict>
+    <key>UIWindowSceneSessionRoleApplication</key>
+    <array>
+      <dict>
+        <key>UISceneConfigurationName</key>
+        <string>Default Configuration</string>
+        <key>UISceneDelegateClassName</key>
+        <string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+      </dict>
+    </array>
+  </dict>
+</dict>
+```
+
+For Objective-C apps, use your SceneDelegate class name directly instead of `$(PRODUCT_MODULE_NAME).SceneDelegate`.
+
+### Create the SceneDelegate
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+Create `SceneDelegate.h`:
+
+```objc title="SceneDelegate.h"
+#import <RCTDefaultReactNativeFactoryDelegate.h>
+#import <RCTReactNativeFactory.h>
+#import <UIKit/UIKit.h>
+
+@interface SceneDelegate : RCTDefaultReactNativeFactoryDelegate <UIWindowSceneDelegate>
+
+@property (nonatomic, strong, nullable) UIWindow *window;
+@property (nonatomic, strong, nullable) RCTReactNativeFactory *reactNativeFactory;
+
+@end
+```
+
+Create `SceneDelegate.m`:
+
+```objc title="SceneDelegate.m"
+#import "SceneDelegate.h"
+
+#import <React/RCTBundleURLProvider.h>
+#import <React/RCTLinkingManager.h>
+#import <ReactAppDependencyProvider/RCTAppDependencyProvider.h>
+
+@implementation SceneDelegate
+
+- (void)scene:(UIScene *)scene
+    willConnectToSession:(UISceneSession *)session
+                 options:(UISceneConnectionOptions *)connectionOptions
+{
+  if (![scene isKindOfClass:[UIWindowScene class]]) {
+    return;
+  }
+
+  self.dependencyProvider = [RCTAppDependencyProvider new];
+  self.reactNativeFactory = [[RCTReactNativeFactory alloc] initWithDelegate:self];
+
+  UIWindowScene *windowScene = (UIWindowScene *)scene;
+  self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
+
+  [self.reactNativeFactory startReactNativeWithModuleName:@"HelloWorld"
+                                                 inWindow:self.window
+                                        connectionOptions:connectionOptions];
+}
+
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts
+{
+  [RCTLinkingManager scene:scene openURLContexts:URLContexts];
+}
+
+- (void)scene:(UIScene *)scene continueUserActivity:(NSUserActivity *)userActivity
+{
+  [RCTLinkingManager scene:scene continueUserActivity:userActivity];
+}
+
+- (NSURL *)bundleURL
+{
+#if DEBUG
+  return [RCTBundleURLProvider.sharedSettings jsBundleURLForBundleRoot:@"index"];
+#else
+  return [NSBundle.mainBundle URLForResource:@"main" withExtension:@"jsbundle"];
+#endif
+}
+
+@end
+```
+
+</TabItem>
+<TabItem value="swift">
+
+Create `SceneDelegate.swift`:
+
+```swift title="SceneDelegate.swift"
+import React
+import React_RCTAppDelegate
+import ReactAppDependencyProvider
+import UIKit
+
+class SceneDelegate: RCTDefaultReactNativeFactoryDelegate, UIWindowSceneDelegate {
+  var window: UIWindow?
+  var reactNativeFactory: RCTReactNativeFactory?
+
+  func scene(
+    _ scene: UIScene,
+    willConnectTo session: UISceneSession,
+    options connectionOptions: UIScene.ConnectionOptions
+  ) {
+    guard let windowScene = scene as? UIWindowScene else {
+      return
+    }
+
+    dependencyProvider = RCTAppDependencyProvider()
+    reactNativeFactory = RCTReactNativeFactory(delegate: self)
+    window = UIWindow(windowScene: windowScene)
+
+    reactNativeFactory?.startReactNative(
+      withModuleName: "HelloWorld",
+      in: window,
+      connectionOptions: connectionOptions
+    )
+  }
+
+  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    RCTLinkingManager.scene(scene, openURLContexts: URLContexts)
+  }
+
+  func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+    RCTLinkingManager.scene(scene, continue: userActivity)
+  }
+
+  override func bundleURL() -> URL? {
+    #if DEBUG
+    RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
+    #else
+    Bundle.main.url(forResource: "main", withExtension: "jsbundle")
+    #endif
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Application delegate responsibilities
+
+Your `AppDelegate` can remain minimal and only handle callbacks that belong to the application object, such as push notifications:
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+```objc title="AppDelegate.m"
+#import "AppDelegate.h"
+
+@implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application
+    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  return YES;
+}
+
+@end
+```
+
+</TabItem>
+<TabItem value="swift">
+
+```swift title="AppDelegate.swift"
+import UIKit
+
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+  ) -> Bool {
+    true
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+:::note Multi-window support
+React Native currently supports a single React instance per process. If `UIApplicationSupportsMultipleScenes` is `true`, React Native fails during initialization by default (when using the New Architecture). Define `RN_ALLOW_MULTIPLE_SCENES=1` in your app target's `GCC_PREPROCESSOR_DEFINITIONS` (or pass `-DRN_ALLOW_MULTIPLE_SCENES=1` via `OTHER_CFLAGS`) only if you understand the risks (e.g. cross-talk of internal RN modules, or third-party libraries) and want to downgrade the failure to a warning.
+:::
+
+:::tip `reactNativeFactory` field
+It is important to expose `reactNativeFactory` on your `SceneDelegate` if you need utilities such as `RCTGetActiveReactNativeFactory()` to resolve the active factory at runtime.
+:::
+
+## 7. Test your integration
 
 You have completed all the basic steps to integrate React Native with your application. Now we will start the [Metro bundler](https://metrobundler.dev/) to build your TypeScript application code into a bundle. Metro's HTTP server shares the bundle from `localhost` on your developer environment to a simulator or device. This allows for [hot reloading](https://reactnative.dev/blog/2016/03/24/introducing-hot-reloading).
 
@@ -528,7 +750,7 @@ REACT_NATIVE_XCODE="$REACT_NATIVE_PATH/scripts/react-native-xcode.sh"
 
 Now, if you build your app for Release, it will work as expected.
 
-## 7. Passing initial props to the React Native view
+## 8. Passing initial props to the React Native view
 
 In some case, you'd like to pass some information from the Native app to JavaScript. For example, you might want to pass the user id of the currently logged user to React Native, together with a token that can be used to retrieve information from a database.
 
@@ -605,6 +827,45 @@ export default App;
 These changes will tell React Native that your App component is now accepting some properties. The `RCTreactNativeFactory` will take care of passing them to the component when it's rendered.
 
 ### Update the Native code to pass the initial properties to JavaScript.
+
+#### SceneDelegate bootstrap
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+Modify `SceneDelegate.m` to pass initial properties when starting React Native:
+
+```diff title="SceneDelegate.m"
+  [self.reactNativeFactory startReactNativeWithModuleName:@"HelloWorld"
+                                                 inWindow:self.window
++                                       initialProperties:@{
++                                         @"userID": @"12345678",
++                                         @"token": @"secretToken"
++                                       }
+                                        connectionOptions:connectionOptions];
+```
+
+</TabItem>
+<TabItem value="swift">
+
+Modify `SceneDelegate.swift` to pass initial properties when starting React Native:
+
+```diff title="SceneDelegate.swift"
+    reactNativeFactory?.startReactNative(
+      withModuleName: "HelloWorld",
+      in: window,
++     initialProperties: [
++       "userID": "12345678",
++       "token": "secretToken"
++     ],
+      connectionOptions: connectionOptions
+    )
+```
+
+</TabItem>
+</Tabs>
+
+#### Embedded view controller
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">
