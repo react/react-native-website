@@ -6,19 +6,14 @@
  */
 
 .sidebar {
-  max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+  max-height: calc(
+    100vh - (var(--ifm-navbar-height) + var(--rn-subnav-height) + 2rem)
+  );
   overflow-y: auto;
   position: sticky;
-  top: var(--ifm-navbar-height);
+  top: calc(var(--ifm-navbar-height) + var(--rn-subnav-height));
   padding: 20px 12px 0 0;
   margin-left: -20px;
-}
-
-.sidebarHeader {
-  font-size: var(--ifm-h4-font-size);
-  font-weight: var(--ifm-font-weight-bold);
-  padding-left: 12px;
-  display: block;
 }
 
 .sidebarItemTitle {

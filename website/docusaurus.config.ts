@@ -212,6 +212,7 @@ const config: Config = {
             require.resolve('./src/css/index.scss'),
             require.resolve('./src/css/showcase.scss'),
             require.resolve('./src/css/versions.scss'),
+            require.resolve('./src/css/docs-secondary-nav.scss'),
           ],
         },
         gtag: {
@@ -426,31 +427,14 @@ const config: Config = {
       style: 'dark',
       items: [
         {
-          label: 'Development',
           type: 'dropdown',
+          label: 'Docs',
           position: 'right',
           items: [
-            {
-              label: 'Guides',
-              type: 'doc',
-              docId: 'getting-started',
-            },
-            {
-              label: 'Components',
-              type: 'doc',
-              docId: 'components-and-apis',
-            },
-            {
-              label: 'APIs',
-              type: 'doc',
-              docId: 'accessibilityinfo',
-            },
-            {
-              label: 'Architecture',
-              type: 'doc',
-              docId: 'architecture-overview',
-              docsPluginId: 'architecture',
-            },
+            {label: 'Guides', to: '/docs/getting-started'},
+            {label: 'Components', to: '/docs/components-and-apis'},
+            {label: 'APIs', to: '/docs/accessibilityinfo'},
+            {label: 'Architecture', to: '/architecture/overview'},
           ],
         },
         {
@@ -476,17 +460,6 @@ const config: Config = {
           to: '/blog',
           label: 'Blog',
           position: 'right',
-        },
-        {
-          type: 'docsVersionDropdown',
-          position: 'left',
-          dropdownActiveClassDisabled: true,
-          dropdownItemsAfter: [
-            {
-              to: '/versions',
-              label: 'All versions',
-            },
-          ],
         },
         {
           href: 'https://github.com/facebook/react-native',

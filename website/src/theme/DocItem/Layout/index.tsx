@@ -9,7 +9,6 @@ import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import {useWindowSize} from '@docusaurus/theme-common';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
-import CopyPageButton from 'docusaurus-plugin-copy-page-button/react';
 import DocItemPaginator from '@theme/DocItem/Paginator';
 import DocVersionBanner from '@theme/DocVersionBanner';
 import DocVersionBadge from '@theme/DocVersionBadge';
@@ -22,23 +21,6 @@ import ContentVisibility from '@theme/ContentVisibility';
 import type {Props} from '@theme/DocItem/Layout';
 
 import styles from './styles.module.css';
-
-function DocItemCopyPageButton({className}: {className?: string}) {
-  return (
-    <div className={clsx(styles.copyPageAction, className)}>
-      <CopyPageButton
-        customStyles={{
-          container: {className: styles.copyPageButtonContainer},
-          button: {
-            className: styles.copyPageButton,
-            style: {marginBottom: 0},
-          },
-          dropdown: {className: styles.copyPageDropdown},
-        }}
-      />
-    </div>
-  );
-}
 
 /**
  * Decide if the toc should be rendered, on mobile or desktop viewports
@@ -76,15 +58,7 @@ export default function DocItemLayout({children}: Props): ReactNode {
         <div className={styles.docItemContainer}>
           <article>
             <DocBreadcrumbs />
-            <div className={styles.docHeaderContainer}>
-              <DocVersionBadge />
-              <DocItemCopyPageButton
-                className={clsx(
-                  styles.copyPageArticleAction,
-                  docTOC.canRender && styles.copyPageArticleActionWithToc
-                )}
-              />
-            </div>
+            <DocVersionBadge />
             {docTOC.mobile}
             <DocItemContent>{children}</DocItemContent>
             <DocItemFooter />
@@ -92,12 +66,7 @@ export default function DocItemLayout({children}: Props): ReactNode {
           <DocItemPaginator />
         </div>
       </div>
-      {docTOC.desktop && (
-        <div className="col col--3">
-          <DocItemCopyPageButton className={styles.copyPageAsideAction} />
-          {docTOC.desktop}
-        </div>
-      )}
+      {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
     </div>
   );
 }
