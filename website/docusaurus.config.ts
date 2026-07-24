@@ -417,14 +417,6 @@ const config: Config = {
         },
       ],
     },
-    announcementBar: {
-      id: 'watch_keynote',
-      content:
-        'Re-watch the latest <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=NiYwlvXsBKw">React Native Keynote</a> from React Conf 2025',
-      backgroundColor: '#20232a',
-      textColor: '#fff',
-      isCloseable: false,
-    },
     navbar: {
       title: 'React Native',
       logo: {
