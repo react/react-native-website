@@ -754,6 +754,43 @@ html[data-theme="dark"] .homepage {
 
 /* Blog */
 
+// Compact multi-author blog grid: two columns (one on the smallest screens),
+// capped to a narrow width on desktop rather than spanning the content.
+.col--6[class*="authorCol"] {
+  --ifm-avatar-intro-margin: 0.7rem;
+
+  flex: 0 0 50%;
+
+  @media (max-width: 768px) {
+    flex: 0 0 100%;
+  }
+
+  [class*="authorImage"] {
+    --ifm-avatar-photo-size: 1.75rem;
+  }
+
+  [class*="authorName"] {
+    font-size: 0.9rem;
+  }
+
+  [class*="authorTitle"] {
+    font-size: 0.75rem;
+
+    // Don't truncate long titles.
+    display: block;
+    overflow: visible;
+    line-clamp: none;
+    -webkit-line-clamp: none;
+  }
+}
+
+// Cap the grid on desktop only; tablet keeps the full-width two columns.
+@media (min-width: 997px) {
+  .row:has(> [class*="authorCol"]) {
+    max-width: 560px;
+  }
+}
+
 .avatar__name {
   font-weight: 600;
   display: inline-flex;

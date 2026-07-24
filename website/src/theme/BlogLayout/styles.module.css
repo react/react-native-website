@@ -1,0 +1,19 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.blogPostMain {
+  max-width: 800px;
+  padding-block: 24px;
+  margin-inline: auto;
+}
+
+@media (min-width: 997px) {
+  .tocColumn {
+    flex: 0 0 200px;
+    max-width: 200px;
+  }
+}
