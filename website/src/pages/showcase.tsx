@@ -108,7 +108,8 @@ const Showcase = () => {
   return (
     <Layout
       title="Showcase"
-      description="Thousands of apps are using React Native, check out these apps!">
+      description="Thousands of apps are using React Native, check out these apps!"
+      wrapperClassName="showcase-wrapper">
       <Section background="dark">
         <div className="sectionContainer headerContainer">
           <h1>

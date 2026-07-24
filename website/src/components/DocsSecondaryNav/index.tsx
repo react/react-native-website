@@ -96,6 +96,16 @@ function getSection(
       showCopyButton: true,
     };
   }
+  if (pathname.startsWith('/releases') || pathname.startsWith('/versions')) {
+    // The releases docs and the standalone /versions listing share a "Releases"
+    // heading. Copy page applies to the releases docs, not the versions list.
+    return {
+      title: 'Releases',
+      activeSectionLink: null,
+      backLink: null,
+      showCopyButton: pathname.startsWith('/releases'),
+    };
+  }
   // Docs area (main docs + architecture): the active section follows the doc's
   // sidebar (Guides / Components / APIs / Architecture).
   return {

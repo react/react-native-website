@@ -26,6 +26,7 @@
       "libraries",
       "typescript",
       "strict-typescript-api",
+      "release-levels",
       "upgrading"
     ],
     "UI & Interaction": [
@@ -60,11 +61,6 @@
         "collapsed": false,
         "items": ["accessibility"]
       }
-    ],
-    "Releases": [
-      "releases/releases",
-      "releases/release-levels",
-      "releases/versioning-policy"
     ],
     "Debugging": [
       "debugging",

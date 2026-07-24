@@ -213,6 +213,7 @@ const config: Config = {
             require.resolve('./src/css/showcase.scss'),
             require.resolve('./src/css/versions.scss'),
             require.resolve('./src/css/docs-secondary-nav.scss'),
+            require.resolve('./src/css/releases.scss'),
           ],
         },
         gtag: {
@@ -265,6 +266,16 @@ const config: Config = {
         path: 'community',
         routeBasePath: '/community',
         sidebarPath: require.resolve('./sidebarsCommunity'),
+        ...commonDocsOptions,
+      } satisfies PluginContentDocs.Options,
+    ],
+    [
+      'content-docs',
+      {
+        id: 'releases',
+        path: 'releases',
+        routeBasePath: '/releases',
+        sidebarPath: require.resolve('./sidebarsReleases'),
         ...commonDocsOptions,
       } satisfies PluginContentDocs.Options,
     ],
@@ -436,6 +447,12 @@ const config: Config = {
             {label: 'APIs', to: '/docs/accessibilityinfo'},
             {label: 'Architecture', to: '/architecture/overview'},
           ],
+        },
+        {
+          to: '/releases/overview',
+          label: 'Releases',
+          position: 'right',
+          activeBaseRegex: '^/(releases|versions)',
         },
         {
           type: 'doc',

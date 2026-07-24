@@ -13,5 +13,9 @@
 @media (min-width: 997px) {
   .docItemCol {
     max-width: 75% !important;
+
+    /* Allow the column to shrink so wide children (e.g. scrollable tables) can
+       scroll instead of forcing the column past the viewport. */
+    min-width: 0;
   }
 }

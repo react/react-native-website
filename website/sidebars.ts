@@ -28,6 +28,7 @@ export default {
       'libraries',
       'typescript',
       'strict-typescript-api',
+      'release-levels',
       'upgrading',
     ],
     'UI & Interaction': [
@@ -62,11 +63,6 @@ export default {
         collapsed: false,
         items: ['accessibility'],
       },
-    ],
-    Releases: [
-      'releases/releases',
-      'releases/release-levels',
-      'releases/versioning-policy',
     ],
     Debugging: [
       'debugging',

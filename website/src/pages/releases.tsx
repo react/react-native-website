@@ -7,7 +7,7 @@
 import {Redirect} from '@docusaurus/router';
 
 const Releases = () => {
-  return <Redirect to="/docs/next/releases" />;
+  return <Redirect to="/releases/overview" />;
 };
 
 export default Releases;

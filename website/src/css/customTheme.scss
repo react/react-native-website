@@ -312,6 +312,44 @@ hr {
   margin-bottom: var(--ifm-spacing-vertical);
 }
 
+// The doc layout nests flex columns (.docRoot > .docMainContainer > .container,
+// then .row > .col). Each defaults to min-width: auto, so a wide child forces
+// the whole layout past the viewport. Zeroing min-width lets them shrink so a
+// horizontally scrollable child can scroll instead of overflowing the page.
+[class*="docMainContainer"],
+[class*="docMainContainer"] .container {
+  min-width: 0;
+}
+
+// Opt-in wrapper for wide markdown tables. Wrap the table in
+// `<div className="table-scroll">` in MDX. Tables are auto-wrapped in
+// `.table-wrapper` (border + overflow: hidden); make that box the horizontal
+// scroll container so it stays at the container width, the table fills it, and
+// the content scrolls inside only when it can't fit.
+.markdown .table-scroll .table-wrapper {
+  overflow-x: auto;
+}
+
+.markdown .table-scroll table {
+  // Fill the wrapper (override the base `table-layout: fixed`) and keep
+  // `display: table` on mobile, where the base switches tables to `display: block`.
+  display: table;
+  table-layout: auto;
+
+  // Keep cells on a single line; scroll horizontally instead of wrapping.
+  th,
+  td {
+    white-space: nowrap;
+  }
+
+  // Shaded, bold row-header column for the branch names (matches the schedule table).
+  td:first-child {
+    background-color: var(--ifm-table-head-background);
+    color: var(--ifm-font-color-base);
+    font-weight: var(--ifm-font-weight-bold);
+  }
+}
+
 .markdown {
   h2:first-child {
     margin-top: 0;

@@ -91,12 +91,42 @@
     },
     {
       "source": "/contributing/versioning-policy",
-      "destination": "/docs/next/releases/versioning-policy",
+      "destination": "/releases/versioning-policy",
       "permanent": true
     },
     {
       "source": "/releases/release-candidate-minor",
-      "destination": "/docs/next/releases/versioning-policy",
+      "destination": "/releases/versioning-policy",
+      "permanent": true
+    },
+    {
+      "source": "/docs/releases",
+      "destination": "/releases/overview",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/releases",
+      "destination": "/releases/overview",
+      "permanent": true
+    },
+    {
+      "source": "/docs/releases/versioning-policy",
+      "destination": "/releases/versioning-policy",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/releases/versioning-policy",
+      "destination": "/releases/versioning-policy",
+      "permanent": true
+    },
+    {
+      "source": "/docs/releases/release-levels",
+      "destination": "/docs/release-levels",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/releases/release-levels",
+      "destination": "/docs/next/release-levels",
       "permanent": true
     },
     {

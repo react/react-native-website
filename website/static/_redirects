@@ -18,8 +18,16 @@
 
 /contributing/how-to-contribute     /contributing/overview
 /contributing/how-to-file-an-issue  /contributing/how-to-report-a-bug
-/contributing/versioning-policy     /docs/next/releases/versioning-policy
-/releases/release-candidate-minor   /docs/next/releases/versioning-policy
+/contributing/versioning-policy     /releases/versioning-policy
+/releases/release-candidate-minor   /releases/versioning-policy
+
+# Release docs consolidated under the /releases section
+/docs/releases                          /releases/overview
+/docs/next/releases                     /releases/overview
+/docs/releases/versioning-policy        /releases/versioning-policy
+/docs/next/releases/versioning-policy   /releases/versioning-policy
+/docs/releases/release-levels           /docs/release-levels
+/docs/next/releases/release-levels      /docs/next/release-levels
 
 # Redirect New Architecture docs of all versions
 # Note: We had to delete the older versions to get redirects to work
