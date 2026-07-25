@@ -49,7 +49,11 @@ Select the "SDK Platforms" tab from within the SDK Manager, then check the box n
 
 Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `36.0.0` and `Android SDK Command-line Tools (latest)` are selected.
 
-Finally, click "Apply" to download and install the Android SDK and related build tools.
+Click "Apply" to download and install the Android SDK and related build tools.
+
+In the SDK Tools tab, check if Android SDK Command-line Tools is checked, if not, check it and click apply. This package is necessary for React Native commands on the command line to recognize the Android SDK on your system.
+
+With this done, the Android SDK should be ready to use.
 
 <h4>3. Configure the ANDROID_HOME environment variable</h4>
 
