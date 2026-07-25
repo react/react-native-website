@@ -56,6 +56,71 @@ export default App;
 `refreshing` is a controlled prop, this is why it needs to be set to `true` in the `onRefresh` function otherwise the refresh indicator will stop immediately.
 :::
 
+## Example Custom Refresh Control
+
+```SnackPlayer name=CustomRefreshControl&supportedPlatforms=ios,android
+import React from 'react';
+import {RefreshControl, ScrollView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+
+// You need to pass the props that you received to `RefreshControl`
+const CustomRefreshControl = (props) => {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  };
+
+  return (
+    <RefreshControl
+      refreshing={refreshing}
+      onRefresh={onRefresh}
+      {...props}
+    />
+  );
+};
+
+const App = () => {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+
+  return (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <ScrollView
+          contentContainerStyle={styles.scrollView}
+          refreshControl={<CustomRefreshControl />}>
+          <Text>Pull down to see RefreshControl indicator</Text>
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+    backgroundColor: 'pink',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+export default App;
+```
+
 ---
 
 # Reference
