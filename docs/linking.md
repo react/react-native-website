@@ -54,7 +54,53 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
 <TabItem value="ios">
 
 :::note
-On iOS, you'll need to add the `LinkingIOS` folder into your header search paths as described in step 3 [here](linking-libraries-ios#step-3). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
+On iOS, you'll need to add the `LinkingIOS` folder into your header search paths as described in step 3 [here](linking-libraries-ios#step-3). If you also want to listen to incoming app links during your app's execution, forward deep links from your `SceneDelegate`. If your app declares `UIApplicationSceneManifest` in `Info.plist`, `RCTLinkingManager` ignores the `AppDelegate` linking methods below - you must forward links from `SceneDelegate` instead.
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+```objc title="SceneDelegate.m"
+#import <React/RCTLinkingManager.h>
+
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts
+{
+  [RCTLinkingManager scene:scene openURLContexts:URLContexts];
+}
+```
+
+If your app is using [Universal Links](https://developer.apple.com/ios/universal-links/), add the following as well:
+
+```objc title="SceneDelegate.m"
+- (void)scene:(UIScene *)scene continueUserActivity:(NSUserActivity *)userActivity
+{
+  [RCTLinkingManager scene:scene continueUserActivity:userActivity];
+}
+```
+
+</TabItem>
+<TabItem value="swift">
+
+```swift title="SceneDelegate.swift"
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  RCTLinkingManager.scene(scene, openURLContexts: URLContexts)
+}
+```
+
+If your app is using [Universal Links](https://developer.apple.com/ios/universal-links/), add the following as well:
+
+```swift title="SceneDelegate.swift"
+func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+  RCTLinkingManager.scene(scene, continue: userActivity)
+}
+```
+
+</TabItem>
+</Tabs>
+
+<details>
+<summary>Apps without UIScene lifecycle</summary>
+
+If your app does not use `SceneDelegate`, add the following lines to your `AppDelegate` instead:
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">
@@ -109,6 +155,8 @@ func application(
 
 </TabItem>
 </Tabs>
+
+</details>
 
 :::
 
