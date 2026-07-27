@@ -73,20 +73,38 @@ export default App;
 
 ---
 
-### `experimental_backgroundImage`
+### `backgroundImage`
 
-<ExperimentalAPIWarning />
-
-`experimental_backgroundImage` provides the ability to draw a [`linear-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient) ([0.76.x+](https://github.com/facebook/react-native/blob/main/CHANGELOG-0.7x.md#v0760)) and [`radial-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient) ([0.80.x+](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0800)) using a web-like syntax.
+`backgroundImage` provides the ability to draw a [`linear-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient) and [`radial-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient) using a web-like syntax.
 
 ```tsx
 // Simple usage:
-<View style={{
-  experimental_backgroundImage: 'linear-gradient(45deg, blue, red)'
-}} />
-<View style={{
-  experimental_backgroundImage: 'radial-gradient(ellipse farthest-corner at 30% 40%, red, blue)'
-}} />
+<View style={{ backgroundImage: 'linear-gradient(45deg, blue, red)' }} />
+
+<View style={{ backgroundImage: 'radial-gradient(ellipse farthest-corner at 30% 40%, red, blue)' }} />
+
+// Also with PlatformColor:
+<View
+style={{
+  backgroundImage: [
+    {
+      type: 'linear-gradient',
+      direction: 'to bottom',
+      colorStops: [
+        {
+          color: Platform.select({
+            ios: PlatformColor('systemTealColor'),
+            android: PlatformColor('@android:color/holo_purple'),
+            default: 'blue',
+          }),
+          positions: ['0%'],
+        },
+        {color: 'green', positions: ['100%']},
+      ],
+    },
+  ],
+}}
+/>
 ```
 
 More complex examples of usage can be found in the RNTester app (with `PlatformColor` supports):
