@@ -855,6 +855,8 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 | ------------------------------------------------------------ | -------- |
 | enum(`'auto'`, `'left'`, `'right'`, `'center'`, `'justify'`) | `'auto'` |
 
+The default `'auto'` follows the resolved text direction. The physical values `'left'` and `'right'` are mirrored under a right-to-left layout direction — `'left'` is rendered on the visual right and `'right'` on the visual left, so `'left'` acts as the start edge in RTL. `'center'` and `'justify'` are not mirrored. (Dedicated `'start'`/`'end'` values are not yet supported; see [react-native#45255](https://github.com/facebook/react-native/issues/45255).)
+
 ---
 
 ### `textAlignVertical` <div className="label android">Android</div>
