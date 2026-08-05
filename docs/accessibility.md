@@ -12,9 +12,28 @@ Both Android and iOS provide APIs for integrating apps with assistive technologi
 Android and iOS differ slightly in their approaches, and thus the React Native implementations may vary by platform.
 :::
 
+## Accessibility Best Practices
+
+While React Native provides APIs for accessibility, building an accessible application also requires following platform guidelines and usability best practices.
+
+Keep these principles in mind:
+
+- Ensure all interactive elements have meaningful labels.
+- Keep touch targets large enough to interact with comfortably.
+- Do not rely on color alone to communicate information.
+- Support Dynamic Type and font scaling.
+- Test your application with TalkBack and VoiceOver.
+- Maintain logical focus order throughout the application.
+- Hide decorative elements from assistive technologies.
+
 ## Accessibility properties
 
 ### `accessible`
+### Best Practices
+
+- Avoid nested accessible elements unless necessary.
+- Group related content into one accessible element.
+- Decorative containers should remain inaccessible.
 
 When `true`, indicates that the view is discoverable by assistive technologies such as screen readers and hardware keyboards. Note that this does not necessarily mean that the view will be focused by VoiceOver or TalkBack. There are a number of reasons for this, such as VoiceOver disallowing nested accessibility elements, or TalkBack opting to focus some parent element instead.
 
@@ -32,6 +51,24 @@ On Android, `accessible` will be translated into native [`focusable`](<https://d
 In the above example, accessibility focus is only available on the first child view with the `accessible` property, and not for the parent or sibling without `accessible`.
 
 ### `accessibilityLabel`
+
+### Accessibility Label Guidelines
+
+A good accessibility label should:
+
+- Describe what the control does.
+- Be concise.
+- Avoid generic labels such as "Button" or "Click here".
+
+Good
+"Save Profile"
+"Delete Message"
+"Upload Resume"
+
+Bad
+"Tap"
+"Button"
+"Click Here"
 
 When a view is marked as accessible, it is a good practice to set an `accessibilityLabel` on the view, so that people who use VoiceOver or TalkBack know what element they have selected. A screen reader will verbalize this string when the associated element is selected.
 
@@ -70,6 +107,24 @@ In the above example, the screen reader announces `Input, Edit Box for Label for
 ### `accessibilityHint`
 
 An accessibility hint can be used to provide additional context to the user on the result of the action when it is not clear from the accessibility label alone.
+
+### When to Use Hints
+
+Hints should only be added when the action is not obvious.
+
+Good
+Label:
+"Delete File"
+Hint:
+"Permanently removes the file."
+
+Avoid
+Label:
+"Back"
+Hint:
+"Goes Back"
+
+because the action is already obvious.
 
 Provide the `accessibilityHint` property a custom string on your View, Text, or Touchable:
 
@@ -133,6 +188,16 @@ In the above example method `addOne` changes the state variable `count`. When th
 
 ### `accessibilityRole`
 
+### Choosing the Correct Role
+
+Always assign the role that best represents the component.
+For example:
+Button → button
+Image → image
+Switch → switch
+Slider → adjustable
+
+Search input → search
 `accessibilityRole` communicates the purpose of a component to the user of assistive technology.
 
 `accessibilityRole` can be one of the following:
