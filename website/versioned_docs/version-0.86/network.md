@@ -254,7 +254,6 @@ ws.onclose = e => {
 The following options are currently not working with `fetch`
 
 - `redirect:manual`
-- `credentials:omit`
 
 * Having same name headers on Android will result in only the latest one being present. A temporary solution can be found here: https://github.com/facebook/react-native/issues/18837#issuecomment-398779994.
 * Cookie based authentication is currently unstable. You can view some of the issues raised here: https://github.com/facebook/react-native/issues/23185
