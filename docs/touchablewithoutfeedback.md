@@ -456,7 +456,7 @@ Invoked on mount and on layout changes.
 
 ### `onLongPress`
 
-Called if the time after `onPressIn` lasts longer than 370 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
+Called if the time after `onPressIn` lasts longer than 500 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
 | Type     |
 | -------- |
