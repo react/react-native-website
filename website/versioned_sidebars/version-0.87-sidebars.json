@@ -1,0 +1,356 @@
+{
+  "docs": {
+    "The Basics": [
+      "getting-started",
+      "intro-react-native-components",
+      "intro-react",
+      "handling-text-input",
+      "using-a-scrollview",
+      "using-a-listview",
+      "troubleshooting",
+      "platform-specific-code",
+      "more-resources"
+    ],
+    "Environment setup": [
+      "environment-setup",
+      "set-up-your-environment",
+      "integration-with-existing-apps",
+      "integration-with-android-fragment",
+      "building-for-tv",
+      "out-of-tree-platforms"
+    ],
+    "Workflow": [
+      "running-on-device",
+      "fast-refresh",
+      "metro",
+      "libraries",
+      "typescript",
+      "strict-typescript-api",
+      "release-levels",
+      "upgrading"
+    ],
+    "UI & Interaction": [
+      "style",
+      "height-and-width",
+      "flexbox",
+      "images",
+      "colors",
+      {
+        "type": "category",
+        "label": "Interaction",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "handling-touches",
+          "navigation",
+          "animations",
+          "gesture-responder-system"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Connectivity",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["network", "security"]
+      },
+      {
+        "type": "category",
+        "label": "Inclusion",
+        "collapsible": false,
+        "collapsed": false,
+        "items": ["accessibility"]
+      }
+    ],
+    "Debugging": [
+      "debugging",
+      "react-native-devtools",
+      "debugging-native-code",
+      "debugging-release-builds",
+      "other-debugging-methods"
+    ],
+    "Testing": ["testing-overview"],
+    "Performance": [
+      "performance",
+      "build-speed",
+      "optimizing-flatlist-configuration",
+      "optimizing-javascript-loading",
+      "profiling"
+    ],
+    "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
+    "Codegen": [
+      "the-new-architecture/what-is-codegen",
+      "the-new-architecture/using-codegen",
+      "the-new-architecture/codegen-cli"
+    ],
+    "Native Development": [
+      {
+        "type": "doc",
+        "id": "native-platform",
+        "label": "Introduction"
+      },
+      {
+        "type": "category",
+        "label": "Modules",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          {
+            "type": "doc",
+            "id": "turbo-native-modules-introduction",
+            "label": "Android and iOS"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/pure-cxx-modules",
+            "label": "Cross-Platform with C++"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/advanced-topics-modules",
+            "label": "Advanced Topics"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Components",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          {
+            "type": "doc",
+            "id": "fabric-native-components-introduction",
+            "label": "Android & iOS"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/advanced-topics-components",
+            "label": "Advanced Topics"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Miscellaneous",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "doc",
+            "id": "appendix",
+            "label": "Appendix"
+          },
+          {
+            "type": "doc",
+            "id": "the-new-architecture/create-module-library"
+          }
+        ]
+      }
+    ],
+    "Android and iOS guides": [
+      {
+        "type": "category",
+        "label": "Android",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "headless-js-android",
+          "signed-apk-android",
+          "communication-android",
+          "react-native-gradle-plugin"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "iOS",
+        "collapsible": false,
+        "collapsed": false,
+        "items": [
+          "linking-libraries-ios",
+          "running-on-simulator-ios",
+          "communication-ios",
+          "app-extensions",
+          "publishing-to-app-store"
+        ]
+      }
+    ],
+    "Legacy Architecture": [
+      {
+        "type": "category",
+        "label": "Native Modules",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          "legacy/native-modules-intro",
+          "legacy/native-modules-android",
+          "legacy/native-modules-ios",
+          "legacy/native-modules-setup",
+          "legacy/local-library-setup"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Native Components",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          "legacy/native-components-android",
+          "legacy/native-components-ios",
+          "legacy/direct-manipulation"
+        ]
+      }
+    ]
+  },
+  "api": {
+    "APIs": [
+      "accessibilityinfo",
+      "alert",
+      "animated",
+      "animatedvalue",
+      "animatedvaluexy",
+      "appearance",
+      "appregistry",
+      "appstate",
+      "devsettings",
+      "dimensions",
+      "easing",
+      "i18nmanager",
+      "keyboard",
+      "layoutanimation",
+      "linking",
+      "panresponder",
+      "pixelratio",
+      "platform",
+      "platformcolor",
+      "roottag",
+      "share",
+      "stylesheet",
+      "systrace",
+      "transforms",
+      "vibration",
+      {
+        "type": "category",
+        "label": "Globals",
+        "collapsed": true,
+        "items": [
+          "global-__DEV__",
+          "global-AbortController",
+          "global-AbortSignal",
+          "global-alert",
+          "global-Blob",
+          "global-cancelAnimationFrame",
+          "global-cancelIdleCallback",
+          "global-clearInterval",
+          "global-clearTimeout",
+          "global-console",
+          "global-EventCounts",
+          "global-fetch",
+          "global-File",
+          "global-FileReader",
+          "global-FormData",
+          "global-global",
+          "global-Headers",
+          "global-intersectionobserver",
+          "global-intersectionobserverentry",
+          "global-navigator",
+          "global-performance",
+          "global-PerformanceEntry",
+          "global-PerformanceEventTiming",
+          "global-PerformanceLongTaskTiming",
+          "global-PerformanceMark",
+          "global-PerformanceMeasure",
+          "global-PerformanceObserver",
+          "global-PerformanceObserverEntryList",
+          "global-PerformanceResourceTiming",
+          "global-process",
+          "global-queueMicrotask",
+          "global-Request",
+          "global-requestAnimationFrame",
+          "global-requestIdleCallback",
+          "global-Response",
+          "global-setInterval",
+          "global-setTimeout",
+          "global-URL",
+          "global-URLSearchParams",
+          "global-WebSocket",
+          "global-window",
+          "global-XMLHttpRequest"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Hooks",
+        "collapsed": false,
+        "items": ["usecolorscheme", "usewindowdimensions"]
+      },
+      {
+        "type": "category",
+        "label": "Android APIs",
+        "collapsed": false,
+        "items": ["backhandler", "permissionsandroid", "toastandroid"]
+      },
+      {
+        "type": "category",
+        "label": "iOS APIs",
+        "collapsed": false,
+        "items": ["actionsheetios", "dynamiccolorios", "settings"]
+      }
+    ]
+  },
+  "components": {
+    "Core Components": [
+      "components-and-apis",
+      "activityindicator",
+      "button",
+      "flatlist",
+      "image",
+      "imagebackground",
+      "keyboardavoidingview",
+      "modal",
+      "pressable",
+      "refreshcontrol",
+      "scrollview",
+      "sectionlist",
+      "statusbar",
+      "switch",
+      "text",
+      "textinput",
+      "touchablehighlight",
+      "touchableopacity",
+      "touchablewithoutfeedback",
+      "view",
+      "virtualizedlist",
+      {
+        "type": "category",
+        "label": "Android Components",
+        "collapsed": false,
+        "items": ["drawerlayoutandroid", "touchablenativefeedback"]
+      },
+      {
+        "type": "category",
+        "label": "iOS Components",
+        "collapsed": false,
+        "items": ["inputaccessoryview", "safeareaview"]
+      }
+    ],
+    "Refs": ["nodes", "element-nodes", "text-nodes", "document-nodes"],
+    "Props": [
+      "image-style-props",
+      "layout-props",
+      "shadow-props",
+      "text-style-props",
+      "view-style-props"
+    ],
+    "Object Types": [
+      "boxshadowvalue",
+      "dropshadowvalue",
+      "layoutevent",
+      "pressevent",
+      "react-node",
+      "rect",
+      "targetevent",
+      "viewtoken"
+    ]
+  }
+}
