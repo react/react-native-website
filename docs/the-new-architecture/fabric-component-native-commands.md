@@ -99,7 +99,7 @@ In TypeScript, the `React.ElementRef` is deprecated. The correct type to use is 
 
 ## 2. Update the App code to use the new command
 
-Now you can use the command in the the app.
+Now you can use the command in the app.
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultJavaScriptSpecLanguage} values={constants.javaScriptSpecLanguages}>
 <TabItem value="typescript">
