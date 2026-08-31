@@ -19,7 +19,7 @@ The **Codegen** process is tightly coupled with the build of the app, and the sc
 For the sake of this guide, create a project using the React Native CLI as follows:
 
 <CodeBlock language="bash" title="shell">
-  {`npx @react-native-community/cli@latest init SampleApp --version ${getCurrentVersion()}`}
+  {`npx @react-native-community/cli@latest init SampleApp --version "${getCurrentVersion()}"`}
 </CodeBlock>
 
 **Codegen** is used to generate the glue-code for your custom modules or components. See the guides for Turbo Native Modules and Fabric Native Components for more details on how to create them.
