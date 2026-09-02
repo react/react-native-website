@@ -51,7 +51,7 @@
   },
   "resolutions": {
     "image-size": "^2",
-    "qs": "^6.15.2",
+    "qs": "^6.16.0",
     "serialize-javascript": "^7.0.5",
     "serve-handler/minimatch": "3.1.4",
     "uuid": "^11.1.1"
