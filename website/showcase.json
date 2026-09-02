@@ -350,6 +350,20 @@
       "icon": "brex.png",
       "linkAppStore": "https://apps.apple.com/us/app/brex/id1472905508",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.brex.mobile&hl=en_US&gl=US"
+    },
+    {
+      "name": "Starlink",
+      "icon": "starlink.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/starlink/id1537177988",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.starlink.mobile",
+      "pinned": true
+    },
+    {
+      "name": "Grok Bot",
+      "icon": "grok-bot.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/grok-bot/id6794501026",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=ai.x.grok.bot",
+      "pinned": true
     }
   ]
 }
