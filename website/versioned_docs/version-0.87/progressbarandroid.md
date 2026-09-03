@@ -19,15 +19,19 @@ const App = () => {
     <View style={styles.container}>
       <View style={styles.example}>
         <Text>Circle Progress Indicator</Text>
-        <ProgressBarAndroid />
+        <ProgressBarAndroid indeterminate styleAttr="Normal" />
       </View>
       <View style={styles.example}>
         <Text>Horizontal Progress Indicator</Text>
-        <ProgressBarAndroid styleAttr="Horizontal" />
+        <ProgressBarAndroid indeterminate styleAttr="Horizontal" />
       </View>
       <View style={styles.example}>
         <Text>Colored Progress Indicator</Text>
-        <ProgressBarAndroid styleAttr="Horizontal" color="#2196F3" />
+        <ProgressBarAndroid
+          indeterminate
+          styleAttr="Horizontal"
+          color="#2196F3"
+        />
       </View>
       <View style={styles.example}>
         <Text>Fixed Progress Value</Text>

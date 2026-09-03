@@ -26,7 +26,7 @@ import {
 } from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const STYLES = ['default', 'dark-content', 'light-content'];
+const STYLES = ['default', 'auto', 'dark-content', 'light-content'];
 const TRANSITIONS = ['fade', 'slide', 'none'];
 
 const App = () => {
@@ -134,7 +134,7 @@ import {
 } from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
-const STYLES = ['default', 'dark-content', 'light-content'] as const;
+const STYLES = ['default', 'auto', 'dark-content', 'light-content'] as const;
 const TRANSITIONS = ['fade', 'slide', 'none'] as const;
 
 const App = () => {
@@ -407,8 +407,9 @@ Status bar style type.
 
 **Constants:**
 
-| Value             | Type   | Description                                                |
-| ----------------- | ------ | ---------------------------------------------------------- |
-| `'default'`       | string | Default status bar style (dark for iOS, light for Android) |
-| `'light-content'` | string | White texts and icons                                      |
-| `'dark-content'`  | string | Dark texts and icons (requires API>=23 on Android)         |
+| Value             | Type   | Description                                                                                                                         |
+| ----------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `'default'`       | string | Default status bar style (light for Android, dark for iOS)                                                                          |
+| `'auto'`          | string | Automatically picks `light-content` or `dark-content` based on the current color scheme. Updates whenever the color scheme changes. |
+| `'light-content'` | string | White texts and icons                                                                                                               |
+| `'dark-content'`  | string | Dark texts and icons (requires API>=23 on Android)                                                                                  |

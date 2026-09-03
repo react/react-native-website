@@ -71,7 +71,7 @@
     "@react-native-website/lint-examples": "*",
     "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
     "@types/google.analytics": "^0.0.46",
-    "@types/react": "^19.2.17",
+    "@types/react": "19.2.17",
     "eslint": "^9.39.4",
     "glob": "^13.0.6",
     "prettier": "^3.9.6",

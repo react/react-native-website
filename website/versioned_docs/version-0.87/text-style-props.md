@@ -27,7 +27,6 @@ import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const fontStyles = ['normal', 'italic'];
 const fontVariants = [
-  undefined,
   'small-caps',
   'oldstyle-nums',
   'lining-nums',
@@ -628,7 +627,7 @@ const CustomSlider = ({
 
 type CustomPickerProps = {
   label: string;
-  data?: ArrayLike<any> | null;
+  data?: ArrayLike<string> | undefined;
   currentIndex: number;
   onSelected: (index: number) => void;
 };
@@ -676,7 +675,6 @@ const CustomPicker = ({
 
 const fontStyles = ['normal', 'italic'];
 const fontVariants = [
-  undefined,
   'small-caps',
   'oldstyle-nums',
   'lining-nums',

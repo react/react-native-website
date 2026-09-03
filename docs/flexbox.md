@@ -1099,12 +1099,17 @@ export default AlignSelfLayout;
 
 ```SnackPlayer name=Align%20Self&ext=tsx
 import {useState} from 'react';
-import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  type ViewStyle,
+} from 'react-native';
 import type {PropsWithChildren} from 'react';
-import type {FlexAlignType} from 'react-native';
 
 const AlignSelfLayout = () => {
-  const [alignSelf, setAlignSelf] = useState<FlexAlignType>('stretch');
+  const [alignSelf, setAlignSelf] = useState<ViewStyle['alignSelf']>('stretch');
 
   return (
     <PreviewLayout
@@ -1131,9 +1136,9 @@ const AlignSelfLayout = () => {
 
 type PreviewLayoutProps = PropsWithChildren<{
   label: string;
-  values: FlexAlignType[];
-  selectedValue: string;
-  setSelectedValue: (value: FlexAlignType) => void;
+  values: ViewStyle['alignSelf'][];
+  selectedValue: ViewStyle['alignSelf'];
+  setSelectedValue: (value: ViewStyle['alignSelf']) => void;
 }>;
 
 const PreviewLayout = ({

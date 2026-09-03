@@ -336,7 +336,7 @@ const useInitialURL = () => {
 
       // The setTimeout is just for testing purpose
       setTimeout(() => {
-        setUrl(initialUrl);
+        setUrl(initialUrl ?? null);
         setProcessing(false);
       }, 1000);
     };
@@ -390,7 +390,7 @@ const useInitialURL = () => {
 
       // The setTimeout is just for testing purpose
       setTimeout(() => {
-        setUrl(initialUrl);
+        setUrl(initialUrl ?? null);
         setProcessing(false);
       }, 1000);
     };

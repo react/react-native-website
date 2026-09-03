@@ -197,8 +197,7 @@ import {
   StyleSheet,
   Text,
   View,
-  FlexAlignType,
-  FlexStyle,
+  ViewStyle,
 } from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -217,7 +216,7 @@ const App = () => {
     alignItems: alignItemsArr[alignItems],
     direction: directions[direction],
     flexWrap: wraps[wrap],
-  } as FlexStyle;
+  };
 
   const changeSetting = (
     value: number,
@@ -307,29 +306,29 @@ const App = () => {
   );
 };
 
-const flexDirections = [
+const flexDirections: ViewStyle['flexDirection'][] = [
   'row',
   'row-reverse',
   'column',
   'column-reverse',
-] as FlexStyle['flexDirection'][];
-const justifyContents = [
+];
+const justifyContents: ViewStyle['justifyContent'][] = [
   'flex-start',
   'flex-end',
   'center',
   'space-between',
   'space-around',
   'space-evenly',
-] as FlexStyle['justifyContent'][];
-const alignItemsArr = [
+];
+const alignItemsArr: ViewStyle['alignItems'][] = [
   'flex-start',
   'flex-end',
   'center',
   'stretch',
   'baseline',
-] as FlexAlignType[];
-const wraps = ['nowrap', 'wrap', 'wrap-reverse'];
-const directions = ['inherit', 'ltr', 'rtl'];
+];
+const wraps: ViewStyle['flexWrap'][] = ['nowrap', 'wrap', 'wrap-reverse'];
+const directions: ViewStyle['direction'][] = ['inherit', 'ltr', 'rtl'];
 
 const styles = StyleSheet.create({
   container: {

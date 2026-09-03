@@ -95,8 +95,12 @@ import {
   View,
 } from 'react-native';
 
+type DrawerLayoutAndroidInstance = React.ComponentRef<
+  typeof DrawerLayoutAndroid
+>;
+
 const App = () => {
-  const drawer = useRef<DrawerLayoutAndroid>(null);
+  const drawer = useRef<DrawerLayoutAndroidInstance>(null);
   const [drawerPosition, setDrawerPosition] = useState<'left' | 'right'>(
     'left',
   );

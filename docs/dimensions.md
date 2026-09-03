@@ -26,9 +26,14 @@ If you are targeting foldable devices or devices which can change the screen siz
 
 ## Example
 
-```SnackPlayer name=Dimensions%20Example
+```SnackPlayer name=Dimensions%20Example&ext=tsx
 import {useState, useEffect} from 'react';
-import {StyleSheet, Text, Dimensions} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  Dimensions,
+  type DimensionsPayload,
+} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const windowDimensions = Dimensions.get('window');
@@ -43,8 +48,10 @@ const App = () => {
   useEffect(() => {
     const subscription = Dimensions.addEventListener(
       'change',
-      ({window, screen}) => {
-        setDimensions({window, screen});
+      ({window, screen}: DimensionsPayload) => {
+        if (window && screen) {
+          setDimensions({window, screen});
+        }
       },
     );
     return () => subscription?.remove();

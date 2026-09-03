@@ -82,8 +82,10 @@ import {
   View,
 } from 'react-native';
 
+type TextInputInstance = React.ComponentRef<typeof TextInput>;
+
 const App = () => {
-  const inputRef = useRef<TextInput>(null);
+  const inputRef = useRef<TextInputInstance>(null);
   const editText = useCallback(() => {
     inputRef.current?.setNativeProps({text: 'Edited Text'});
   }, []);

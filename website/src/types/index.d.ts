@@ -4,6 +4,7 @@ export type ShowcaseData = Record<string, ShowcaseApp[]>;
 
 export type PartnerLink = {
   href: string;
+  name: string;
   className?: string;
   logo: ReactNode;
 };

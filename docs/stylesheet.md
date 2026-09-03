@@ -60,7 +60,7 @@ static compose(style1: Object, style2: Object): Object | Object[];
 
 Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
 
-```SnackPlayer name=Compose
+```SnackPlayer name=Compose&ext=js
 import {StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

@@ -140,14 +140,16 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Forwarding%20setNativeProps&ext=tsx
-import {forwardRef} from 'react';
+import {forwardRef, ElementRef} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-const MyButton = forwardRef<View, {label: string}>((props, ref) => (
-  <View {...props} ref={ref} style={{marginTop: 50}}>
-    <Text>{props.label}</Text>
-  </View>
-));
+const MyButton = forwardRef<ElementRef<typeof View>, {label: string}>(
+  (props, ref) => (
+    <View {...props} ref={ref} style={{marginTop: 50}}>
+      <Text>{props.label}</Text>
+    </View>
+  ),
+);
 
 const App = () => (
   <TouchableOpacity>
@@ -229,8 +231,10 @@ import {
   View,
 } from 'react-native';
 
+type TextInputInstance = React.ComponentRef<typeof TextInput>;
+
 const App = () => {
-  const inputRef = useRef<TextInput>(null);
+  const inputRef = useRef<TextInputInstance>(null);
   const editText = useCallback(() => {
     inputRef.current?.setNativeProps({text: 'Edited Text'});
   }, []);
@@ -379,9 +383,12 @@ type Measurements = {
   height: number;
 };
 
+type TextInstance = React.ComponentRef<typeof Text>;
+type ViewInstance = React.ComponentRef<typeof View>;
+
 const App = () => {
-  const textContainerRef = useRef<View>(null);
-  const textRef = useRef<Text>(null);
+  const textContainerRef = useRef<ViewInstance>(null);
+  const textRef = useRef<TextInstance>(null);
   const [measure, setMeasure] = useState<Measurements | null>(null);
 
   useEffect(() => {

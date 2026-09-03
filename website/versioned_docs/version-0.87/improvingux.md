@@ -125,8 +125,10 @@ import {
   StyleSheet,
 } from 'react-native';
 
+type TextInputInstance = React.ComponentRef<typeof TextInput>;
+
 const App = () => {
-  const emailInput = useRef<TextInput>(null);
+  const emailInput = useRef<TextInputInstance>(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
@@ -325,8 +327,10 @@ import {
   StyleSheet,
 } from 'react-native';
 
+type TextInputInstance = React.ComponentRef<typeof TextInput>;
+
 const App = () => {
-  const emailInput = useRef<TextInput>(null);
+  const emailInput = useRef<TextInputInstance>(null);
   const [email, setEmail] = useState('');
 
   const submit = () => {

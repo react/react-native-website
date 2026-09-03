@@ -192,7 +192,8 @@ For example, when working with horizontal scrolling gestures, you would do the f
           x: scrollX
         }
       }
-    }]
+    }],
+    {useNativeEvent: true}
  )}
 ```
 
