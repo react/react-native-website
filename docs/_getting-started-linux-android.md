@@ -81,6 +81,22 @@ Follow the [Watchman installation guide](https://facebook.github.io/watchman/doc
 [Watchman](https://facebook.github.io/watchman/docs/install) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance and increased compatibility in certain edge cases (translation: you may be able to get by without installing this, but your mileage may vary; installing this now may save you from a headache later).
 :::
 
+<h3>Creating a new Application</h3>
+
+> The old `npx react-native init` command is deprecated.
+>
+> Use the community CLI instead:
+>
+>
+> ```shell
+> npx @react-native-community/cli init AwesomeProject
+> ```
+>
+> Replace `AwesomeProject` with your desired project name.
+>
+>
+This creates a new folder with all necessary files.
+
 <h2>Preparing the Android device</h2>
 
 You will need an Android device to run your React Native Android app. This can be either a physical Android device, or more commonly, you can use an Android Virtual Device which allows you to emulate an Android device on your computer.
@@ -104,6 +120,48 @@ We recommend configuring [VM acceleration](https://developer.android.com/studio/
 :::
 
 Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it.
+
+<h3>Running your React Native application</h3>
+
+<h4>Step 1: Start your application</h4>
+Open a new terminal inside your React Native project folder.
+
+> Run the following command:
+> ```shell
+> npm run android
+> ```
+> or
+> ```shell
+> npx react-native run-android
+> ```
+
+If everything is set up correctly, you should see your new app running in your Android emulator or device shortly.
+
+> If you can't get this to work, see the [`Troubleshooting`](https://reactnative.dev/docs/troubleshooting) page.
+
+<h4>Step 2: Start Metro</h4>
+
+you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[`Metro Docs`](https://metrobundler.dev/docs/concepts/)
+
+> To start Metro, run following command inside your React Native project folder:
+> ```shell
+> npx react-native start
+> ```
+> or 
+> ```shell
+> npm start
+> ```
+
+
+>If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more widely supported JavaScript.
+
+<h3>Modifying your app</h3>
+
+Now that you have successfully run the app, let's modify it.
+
+- Open `App.tsx` in your text editor of choice and edit some lines.
+- Press the <kbd>R</kbd> key or select `Reload` from the Dev Menu (<kbd>Ctrl</kbd> + <kbd>d</kbd>) to see your changes!
+
 
 <h3>That's it!</h3>
 
