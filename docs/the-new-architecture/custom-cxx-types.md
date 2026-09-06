@@ -114,7 +114,7 @@ In this files, we are defining the function that needs to be implemented in C++.
 
 Now, we need to implement the function that we declared in the JS specification.
 
-1. Open the `specs/NativeSampleModule.h` file and apply the following changes:
+1. Open the `shared/NativeSampleModule.h` file and apply the following changes:
 
 ```diff title="NativeSampleModule.h"
 #pragma once
