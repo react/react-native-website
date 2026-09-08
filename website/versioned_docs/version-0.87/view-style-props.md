@@ -118,67 +118,6 @@ More complex examples of usage can be found in the RNTester app (with `PlatformC
 
 ---
 
-### `backgroundPosition`
-
-Controls where the background gradient is placed inside the view. This is useful when `backgroundImage` is set, and you want to offset or center it instead of filling the full area.
-
-```tsx
-<View
-  style={{
-    backgroundImage: 'radial-gradient(circle, #ff6b6b, #4ecdc4)',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: '50px 50px',
-  }}
-/>
-```
-
-| Type                                                                                    |
-| --------------------------------------------------------------------------------------- |
-| string \| array of objects `{top: string, left: string, right: string, bottom: string}` |
-
----
-
-### `backgroundRepeat`
-
-Controls whether the background gradient is repeated, and how. This works together with `backgroundImage` to tile gradients across the view.
-
-```tsx
-<View
-  style={{
-    backgroundImage: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
-    backgroundRepeat: 'repeat',
-    backgroundSize: '20px 20px',
-  }}
-/>
-```
-
-| Type                                                                                               |
-| -------------------------------------------------------------------------------------------------- |
-| enum(`'repeat'`, `'space'`, `'round'`, `'no-repeat'`) \| array of objects `{x: string, y: string}` |
-
----
-
-### `backgroundSize`
-
-Controls the size of the background gradient. This is most useful when `backgroundImage` is set and the gradient should not fill the entire view by default.
-
-```tsx
-<View
-  style={{
-    backgroundImage: 'linear-gradient(90deg, #a8edea, #fed6e3)',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: '100px 100px',
-  }}
-/>
-```
-
-| Type                                                |
-| --------------------------------------------------- |
-| string \| array of objects `{x: number, y: number}` |
-
----
-
 ### `borderBottomColor`
 
 | Type               |
@@ -454,6 +393,76 @@ Sets the elevation of a view, using Android's underlying [elevation API](https:/
 | Type   |
 | ------ |
 | number |
+
+---
+
+### `experimental_backgroundPosition`
+
+<ExperimentalAPIWarning />
+
+Controls where the background gradient is placed inside the view. This is useful when `experimental_backgroundImage` is set, and you want to offset or center it instead of filling the full area.
+
+```tsx
+<View
+  style={{
+    experimental_backgroundImage:
+      'radial-gradient(circle, #ff6b6b, #4ecdc4)',
+    experimental_backgroundPosition: 'center',
+    experimental_backgroundRepeat: 'no-repeat',
+    experimental_backgroundSize: '50px 50px',
+  }}
+/>
+```
+
+| Type                                                                                    |
+| --------------------------------------------------------------------------------------- |
+| string \| array of objects `{top: string, left: string, right: string, bottom: string}` |
+
+---
+
+### `experimental_backgroundRepeat`
+
+<ExperimentalAPIWarning />
+
+Controls whether the background gradient is repeated, and how. This works together with `experimental_backgroundImage` to tile gradients across the view.
+
+```tsx
+<View
+  style={{
+    experimental_backgroundImage:
+      'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+    experimental_backgroundRepeat: 'repeat',
+    experimental_backgroundSize: '20px 20px',
+  }}
+/>
+```
+
+| Type                                                                                               |
+| -------------------------------------------------------------------------------------------------- |
+| enum(`'repeat'`, `'space'`, `'round'`, `'no-repeat'`) \| array of objects `{x: string, y: string}` |
+
+---
+
+### `experimental_backgroundSize`
+
+<ExperimentalAPIWarning />
+
+Controls the size of the background gradient. This is most useful when `experimental_backgroundImage` is set and the gradient should not fill the entire view by default.
+
+```tsx
+<View
+  style={{
+    experimental_backgroundImage:
+      'linear-gradient(90deg, #a8edea, #fed6e3)',
+    experimental_backgroundRepeat: 'no-repeat',
+    experimental_backgroundSize: '100px 100px',
+  }}
+/>
+```
+
+| Type                                                |
+| --------------------------------------------------- |
+| string \| array of objects `{x: number, y: number}` |
 
 ---
 
