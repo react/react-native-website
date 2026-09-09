@@ -1,4 +1,4 @@
----
+
 id: direct-manipulation
 title: Direct Manipulation
 ---
