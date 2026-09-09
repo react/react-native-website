@@ -825,6 +825,31 @@ Allows you to set all the font variants for a font. Can be set by using an array
 
 ---
 
+### `fontVariationSettings`
+
+Configures variation axes for a variable font. Each axis is identified by a four-character OpenType tag, such as `wght` for weight, `wdth` for width, `opsz` for optical size, or a custom axis supported by the font. Settings can be provided as an object or as a CSS-compatible string.
+
+The object and string forms below are equivalent; both set the wght axis to 500:
+
+```tsx
+<Text
+  style={{
+    fontVariationSettings: {wght: 500},
+    // Equivalent CSS-compatible string:
+    fontVariationSettings: "'wght' 500",
+  }}>
+  Variable font
+</Text>
+```
+
+For more information about variation axes and the CSS string syntax, see MDN's font-variation-settings (https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings) documentation.
+
+| Type                                         |
+| -------------------------------------------- |
+| string or object: `{[axis: string]: number}` |
+
+---
+
 ### `letterSpacing`
 
 Increase or decrease the spacing between characters. By default there is no extra letter spacing.
