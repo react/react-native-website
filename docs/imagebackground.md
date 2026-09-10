@@ -1,7 +1,11 @@
 ---
 id: imagebackground
-title: ImageBackground
+title: '🗑️ ImageBackground'
 ---
+
+:::warning[Deprecated]
+Use a [`View`](view.md) with an absolutely positioned [`Image`](image.md) instead.
+:::
 
 A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
 
