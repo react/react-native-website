@@ -199,6 +199,12 @@ These components may be useful for certain applications. For an exhaustive list 
     </a>
   </div>
   <div className="component">
+    <a href="./reactnativeversion">
+      <h3>ReactNativeVersion</h3>
+      <p>Exposes the resolved React Native package version on the JS side.</p>
+    </a>
+  </div>
+  <div className="component">
     <a href="./refreshcontrol">
       <h3>RefreshControl</h3>
       <p>This component is used inside a <code>ScrollView</code> to add pull to refresh functionality.</p>
