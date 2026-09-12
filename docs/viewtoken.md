@@ -22,6 +22,8 @@ title: ViewToken Object Type
 
 Unique numeric identifier assigned to the data element.
 
+When it does not return any value as a parameter it may come as null.
+
 | Type   | Optional |
 | ------ | -------- |
 | number | Yes      |
