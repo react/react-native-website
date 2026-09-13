@@ -46,4 +46,9 @@ For example, when you edit `useMemo(() => x * 2, [x])` to `useMemo(() => x * 10,
 
 Sometimes, this can lead to unexpected results. For example, even a `useEffect` with an empty array of dependencies would still re-run once during Fast Refresh. However, writing code resilient to an occasional re-running of `useEffect` is a good practice even without Fast Refresh. This makes it easier for you to later introduce new dependencies to it.
 
-Fast Refresh is not the only reason an Effect may run again during development. When [Strict Mode](https://react.dev/reference/react/StrictMode#fixing-bugs-found-by-re-running-effects-in-development) is enabled at the application root, React runs an additional development-only setup and cleanup cycle to help find missing cleanup. Fast Refresh re-runs Hooks after a code edit, whereas the Strict Mode check can run when a component first mounts. In both cases, Effects should implement complete cleanup and tolerate being restarted.
+Effects may also run again during development for reasons unrelated to Fast Refresh:
+
+- Fast Refresh re-runs Hooks after a code edit, ignoring dependency lists so the changes take effect.
+- When [Strict Mode](https://react.dev/reference/react/StrictMode#fixing-bugs-found-by-re-running-effects-in-development) is enabled at the application root, React runs an additional setup and cleanup cycle when a component first mounts to help find missing cleanup.
+
+In both cases, Effects should implement complete cleanup and tolerate being restarted.
