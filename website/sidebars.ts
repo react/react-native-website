@@ -214,6 +214,7 @@ export default {
       'pixelratio',
       'platform',
       'platformcolor',
+      'reactnativeversion',
       'roottag',
       'share',
       'stylesheet',
