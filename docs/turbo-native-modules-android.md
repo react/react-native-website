@@ -22,6 +22,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 
 public class NativeLocalStorageModule extends NativeLocalStorageSpec {
 
+  // NOTE: This should match the module name passed to TurboModuleRegistry.getEnforcing in the spec's file
   public static final String NAME = "NativeLocalStorage";
 
   public NativeLocalStorageModule(ReactApplicationContext reactContext) {
@@ -105,6 +106,7 @@ class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLo
   }
 
   companion object {
+    // NOTE: This should match the module name passed to TurboModuleRegistry.getEnforcing in the spec's file
     const val NAME = "NativeLocalStorage"
   }
 }
