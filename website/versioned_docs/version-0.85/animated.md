@@ -23,12 +23,11 @@ import {
   View,
   StyleSheet,
   Button,
-  useAnimatedValue,
 } from 'react-native';
 
 const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
-  const fadeAnim = useAnimatedValue(0);
+  const fadeAnim = new Animated.Value(0);
 
   const fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds
