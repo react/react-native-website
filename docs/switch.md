@@ -61,7 +61,7 @@ Inherits [View Props](view.md#props).
 If true the user won't be able to toggle the switch.
 
 | Type | Default |
-| ---- | ------- |
+|------|---------|
 | bool | `false` |
 
 ---
@@ -71,7 +71,7 @@ If true the user won't be able to toggle the switch.
 On iOS, custom color for the background. This background color can be seen either when the switch value is `false` or when the switch is disabled (and the switch is translucent).
 
 | Type               |
-| ------------------ |
+|--------------------|
 | [color](colors.md) |
 
 ---
@@ -81,7 +81,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 Invoked when the user tries to change the value of the switch. Receives the change event as an argument. If you want to only receive the new value, use `onValueChange` instead.
 
 | Type     |
-| -------- |
+|----------|
 | function |
 
 ---
@@ -91,7 +91,7 @@ Invoked when the user tries to change the value of the switch. Receives the chan
 Invoked when the user tries to change the value of the switch. Receives the new value as an argument. If you want to instead receive an event, use `onChange`.
 
 | Type     |
-| -------- |
+|----------|
 | function |
 
 ---
@@ -107,7 +107,47 @@ A ref setter that will be assigned an [element node](element-nodes) when mounted
 Color of the foreground switch grip. If this is set on iOS, the switch grip will lose its drop shadow.
 
 | Type               |
-| ------------------ |
+|--------------------|
+| [color](colors.md) |
+
+---
+
+### `thumbColorForFalse` <div className="label android">Android</div>
+
+Thumb color when the switch is off. Overrides `thumbColor` for the unchecked state.
+
+| Type               |
+|--------------------|
+| [color](colors.md) |
+
+---
+
+### `thumbColorForTrue` <div className="label android">Android</div>
+
+Thumb color when the switch is on. Overrides `thumbColor` for the checked state.
+
+| Type               |
+|--------------------|
+| [color](colors.md) |
+
+---
+
+### `thumbIcon` <div className="label android">Android</div>
+
+Drawable resource name(s) to display as an icon inside the thumb. Accepts a `{false, true}` object (like `trackColor`) so each state can have a different icon. Omit a key to show no icon for that state. Requires Material Design 3 (MaterialSwitch).
+
+| Type                                              |
+|---------------------------------------------------|
+| `{false?: string \| null, true?: string \| null}` |
+
+---
+
+### `thumbIconTint` <div className="label android">Android</div>
+
+Color tint applied to the thumb icon.
+
+| Type               |
+|--------------------|
 | [color](colors.md) |
 
 ---
@@ -119,7 +159,7 @@ Custom colors for the switch track.
 _iOS_: When the switch value is `false`, the track shrinks into the border. If you want to change the color of the background exposed by the shrunken track, use [`ios_backgroundColor`](switch.md#ios_backgroundColor).
 
 | Type                                                         |
-| ------------------------------------------------------------ |
+|--------------------------------------------------------------|
 | `md object: {false: [color](colors), true: [color](colors)}` |
 
 ---
@@ -129,5 +169,5 @@ _iOS_: When the switch value is `false`, the track shrinks into the border. If y
 The value of the switch. If true the switch will be turned on. Default value is false.
 
 | Type |
-| ---- |
+|------|
 | bool |
