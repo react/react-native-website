@@ -104,20 +104,20 @@ static addEventListener(
   handler: ({
     window,
     screen,
-  }: DimensionsValue) => void,
+  }: DimensionsPayload) => void,
 ): EventSubscription;
 ```
 
 Add an event handler. Supported events:
 
-- `change`: Fires when a property within the `Dimensions` object changes. The argument to the event handler is a [`DimensionsValue`](#dimensionsvalue) type object.
+- `change`: Fires when a property within the `Dimensions` object changes. The argument to the event handler is a [`DimensionsPayload`](#dimensionspayload) object.
 
 ---
 
 ### `get()`
 
 ```tsx
-static get(dim: 'window' | 'screen'): ScaledSize;
+static get(dim: string): DisplayMetrics | DisplayMetricsAndroid;
 ```
 
 Initial dimensions are set before `runApplication` is called so they should be available before any other require's are run, but may be updated later.
@@ -136,16 +136,18 @@ For Android the `window` dimension will be reduced by the size of status bar (if
 
 ## Type Definitions
 
-### DimensionsValue
+### DimensionsPayload
 
 **Properties:**
 
-| Name   | Type                                | Description                             |
-| ------ | ----------------------------------- | --------------------------------------- |
-| window | [ScaledSize](dimensions#scaledsize) | Size of the visible Application window. |
-| screen | [ScaledSize](dimensions#scaledsize) | Size of the device's screen.            |
+| Name                 | Type                                                      | Description                             |
+| -------------------- | --------------------------------------------------------- | --------------------------------------- |
+| window               | [DisplayMetrics](dimensions#displaymetrics)               | Size of the visible application window. |
+| screen               | [DisplayMetrics](dimensions#displaymetrics)               | Size of the device's screen.            |
+| windowPhysicalPixels | [DisplayMetricsAndroid](dimensions#displaymetricsandroid) | Physical pixels for the Android window. |
+| screenPhysicalPixels | [DisplayMetricsAndroid](dimensions#displaymetricsandroid) | Physical pixels for the Android screen. |
 
-### ScaledSize
+### DisplayMetrics
 
 | Type   |
 | ------ |
@@ -159,3 +161,11 @@ For Android the `window` dimension will be reduced by the size of status bar (if
 | height    | number |
 | scale     | number |
 | fontScale | number |
+
+### DisplayMetricsAndroid
+
+`DisplayMetricsAndroid` includes all [`DisplayMetrics`](dimensions#displaymetrics) properties and the following property:
+
+| Name       | Type   |
+| ---------- | ------ |
+| densityDpi | number |
