@@ -107,7 +107,7 @@ Received when the user is not actively interacting with the app. Useful in situa
 static addEventListener(
   type: AppStateEvent,
   listener: (state: AppStateStatus) => void,
-): NativeEventSubscription;
+): EventSubscription;
 ```
 
 Sets up a function that will be called whenever the specified event type on AppState occurs. Valid values for `eventType` are

@@ -98,7 +98,7 @@ static addEventListener(
     window,
     screen,
   }: DimensionsValue) => void,
-): EmitterSubscription;
+): EventSubscription;
 ```
 
 Add an event handler. Supported events:
