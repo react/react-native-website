@@ -1,7 +1,11 @@
 ---
 id: inputaccessoryview
-title: InputAccessoryView
+title: '🗑️ InputAccessoryView'
 ---
+
+:::warning[Deprecated]
+`InputAccessoryView` is deprecated and will be removed in a future release.
+:::
 
 A component which enables customization of the keyboard input accessory view on iOS. The input accessory view is displayed above the keyboard whenever a `TextInput` has focus. This component can be used to create custom toolbars.
 
