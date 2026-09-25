@@ -557,7 +557,7 @@ export default App;
 static addEventListener(
   type: 'url',
   handler: (event: {url: string}) => void,
-): EmitterSubscription;
+): EventSubscription;
 ```
 
 Add a handler to Linking changes by listening to the `url` event type and providing the handler.

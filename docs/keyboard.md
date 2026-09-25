@@ -76,7 +76,7 @@ export default Example;
 static addListener: (
   eventType: KeyboardEventName,
   listener: KeyboardEventListener,
-) => EmitterSubscription;
+) => EventSubscription;
 ```
 
 The `addListener` function connects a JavaScript function to an identified native keyboard notification event.
