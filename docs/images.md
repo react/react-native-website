@@ -250,19 +250,18 @@ On the user side, this lets you annotate the object with useful attributes such 
 
 ## Background Image via Nesting
 
-A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
-
-You might not want to use `<ImageBackground>` in some cases, since the implementation is basic. Refer to `<ImageBackground>`'s [documentation](imagebackground.md) for more insight, and create your own custom component when needed.
+To layer content over an image, render an absolutely positioned [`Image`](image.md) inside a [`View`](view.md), followed by the content that should appear on top.
 
 ```tsx
 return (
-  <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
+  <View style={{width: '100%', height: '100%'}}>
+    <Image source={...} style={StyleSheet.absoluteFillObject} />
     <Text>Inside</Text>
-  </ImageBackground>
+  </View>
 );
 ```
 
-Note that you must specify some width and height style attributes.
+Note that you must specify some width and height style attributes on the containing `View`.
 
 ## iOS Border Radius Styles
 

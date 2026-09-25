@@ -314,7 +314,7 @@ import {
   Text,
   StyleSheet,
   View,
-  ImageBackground,
+  Image,
   Animated,
   useWindowDimensions,
   useAnimatedValue,
@@ -356,13 +356,17 @@ const App = () => {
                 <View
                   style={{width: windowWidth, height: 250}}
                   key={imageIndex}>
-                  <ImageBackground source={{uri: image}} style={styles.card}>
+                  <View style={styles.card}>
+                    <Image
+                      source={{uri: image}}
+                      style={StyleSheet.absoluteFillObject}
+                    />
                     <View style={styles.textContainer}>
                       <Text style={styles.infoText}>
                         {'Image - ' + imageIndex}
                       </Text>
                     </View>
-                  </ImageBackground>
+                  </View>
                 </View>
               );
             })}
