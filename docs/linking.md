@@ -53,8 +53,93 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
 </TabItem>
 <TabItem value="ios">
 
-:::note
-On iOS, you'll need to add the `LinkingIOS` folder into your header search paths as described in step 3 [here](linking-libraries-ios#step-3). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
+On iOS, you'll need to add the `LinkingIOS` folder into your header search paths as described in step 3 [here](linking-libraries-ios#step-3). If you also want to listen to incoming app links during your app's execution, forward deep links from your `SceneDelegate`. If your app declares `UIApplicationSceneManifest` in `Info.plist`, `RCTLinkingManager` ignores the `AppDelegate` linking methods below - you must forward links from `SceneDelegate` instead.
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+```objc title="SceneDelegate.m"
+#import <React/RCTLinkingManager.h>
+
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts
+{
+  [RCTLinkingManager scene:scene openURLContexts:URLContexts];
+}
+```
+
+If your app is using [Universal Links](https://developer.apple.com/ios/universal-links/), add the following as well:
+
+```objc title="SceneDelegate.m"
+- (void)scene:(UIScene *)scene continueUserActivity:(NSUserActivity *)userActivity
+{
+  [RCTLinkingManager scene:scene continueUserActivity:userActivity];
+}
+```
+
+</TabItem>
+<TabItem value="swift">
+
+```swift title="SceneDelegate.swift"
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  RCTLinkingManager.scene(scene, openURLContexts: URLContexts)
+}
+```
+
+If your app is using [Universal Links](https://developer.apple.com/ios/universal-links/), add the following as well:
+
+```swift title="SceneDelegate.swift"
+func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+  RCTLinkingManager.scene(scene, continue: userActivity)
+}
+```
+
+</TabItem>
+</Tabs>
+
+These callbacks only cover links that arrive while the scene is connected. To handle linking in a cold-start (the app being launched by a custom URL scheme or a Universal Link), you also need to hand the scene's `UIScene.ConnectionOptions` to React Native when you bootstrap it, otherwise [`getInitialURL()`](#getinitialurl) resolves to `null`:
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+```objc title="SceneDelegate.m"
+- (void)scene:(UIScene *)scene
+    willConnectToSession:(UISceneSession *)session
+                 options:(UISceneConnectionOptions *)connectionOptions
+{
+  // ...
+  [self.reactNativeFactory startReactNativeWithModuleName:@"HelloWorld"
+                                                 inWindow:self.window
+                                        connectionOptions:connectionOptions];
+}
+```
+
+</TabItem>
+<TabItem value="swift">
+
+```swift title="SceneDelegate.swift"
+func scene(
+  _ scene: UIScene,
+  willConnectTo session: UISceneSession,
+  options connectionOptions: UIScene.ConnectionOptions
+) {
+  // ...
+  reactNativeFactory?.startReactNative(
+    withModuleName: "HelloWorld",
+    in: window,
+    connectionOptions: connectionOptions
+  )
+}
+```
+
+</TabItem>
+</Tabs>
+
+See [Bootstrapping with SceneDelegate](integration-with-existing-apps#6-bootstrapping-with-scenedelegate) for the full `SceneDelegate` setup.
+
+<details>
+<summary>Apps without UIScene lifecycle</summary>
+
+If your app does not use `SceneDelegate`, add the following lines to your `AppDelegate` instead:
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">
@@ -110,10 +195,12 @@ func application(
 </TabItem>
 </Tabs>
 
-:::
+</details>
 
 </TabItem>
 </Tabs>
+
+---
 
 ### Handling Deep Links
 
