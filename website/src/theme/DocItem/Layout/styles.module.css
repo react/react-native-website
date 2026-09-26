@@ -10,94 +10,12 @@
   margin-top: 0;
 }
 
-.docHeaderContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.copyPageAsideAction {
-  margin-bottom: 1rem;
-}
-
-div[class^="copyPageArticleAction"] {
-  margin-bottom: 0;
-}
-
-.copyPageArticleAction {
-  margin-left: auto;
-}
-
-button[class^="copyPageButton"] {
-  border-radius: var(--ifm-global-radius);
-  border-color: var(--ifm-color-gray-500);
-
-  &:hover {
-    background-color: var(--ifm-menu-color-background-hover) !important;
-    border-color: var(--ifm-color-gray-400) !important;
-  }
-
-  svg {
-    opacity: 0.75;
-  }
-}
-
-div[class^="copyPageDropdown"] {
-  border-color: var(--ifm-table-border-color) !important;
-
-  button[class^="dropdownItem"] {
-    border-bottom-color: var(--ifm-table-border-color) !important;
-
-    &:hover {
-      background-color: var(--ifm-menu-color-background-hover);
-    }
-
-    &:not([data-copy-page-action="copy"], [data-copy-page-action="view"]) {
-      div[class^="itemTitle"] {
-        margin-bottom: 0;
-      }
-
-      div[class^="itemDescription"] {
-        display: none;
-      }
-    }
-  }
-
-  div[class^="itemDescription"] {
-    font-weight: 300;
-    font-size: 12px;
-  }
-}
-
-[data-theme="dark"] {
-  button[class^="copyPageButton"] {
-    &:hover {
-      background-color: var(--dark) !important;
-      border-color: var(--ifm-color-gray-800) !important;
-    }
-  }
-
-  button[class^="dropdownItem"] {
-    &:hover {
-      background-color: var(--dark);
-    }
-  }
-
-  div[class^="copyPageDropdown"] {
-    background-color: var(--ifm-navbar-background-color);
-
-    div[class^="itemDescription"] {
-      color: var(--ifm-color-gray-600) !important;
-    }
-  }
-}
-
 @media (min-width: 997px) {
   .docItemCol {
     max-width: 75% !important;
-  }
 
-  .copyPageArticleActionWithToc {
-    display: none;
+    /* Allow the column to shrink so wide children (e.g. scrollable tables) can
+       scroll instead of forcing the column past the viewport. */
+    min-width: 0;
   }
 }

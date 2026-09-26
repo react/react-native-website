@@ -23,9 +23,6 @@ export default function BlogSidebarDesktop({sidebar}: Props) {
           message: 'Blog recent posts navigation',
           description: 'The ARIA label for recent posts in the blog sidebar',
         })}>
-        <div className={clsx(styles.sidebarHeader, 'margin-bottom--md')}>
-          {sidebar.title}
-        </div>
         <ul className={clsx(styles.sidebarItemList, 'clean-list')}>
           {sidebar.items.map(item => {
             const postYear = item.permalink.split('/')[2];

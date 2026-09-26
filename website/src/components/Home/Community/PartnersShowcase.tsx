@@ -19,24 +19,29 @@ import styles from './styles.module.css';
 const PARTNERS = [
   {
     href: 'https://callstack.com/',
-    logo: <CallstackWordmark />,
+    name: 'Callstack',
+    logo: <CallstackWordmark aria-hidden />,
   },
   {
     href: 'https://expo.dev/',
+    name: 'Expo',
     className: styles.expo,
-    logo: <ExpoWordmark />,
+    logo: <ExpoWordmark aria-hidden />,
   },
   {
     href: 'https://infinite.red/',
-    logo: <InfiniteRedWordmark />,
+    name: 'Infinite Red',
+    logo: <InfiniteRedWordmark aria-hidden />,
   },
   {
     href: 'https://www.microsoft.com/',
-    logo: <MicrosoftWordmark />,
+    name: 'Microsoft',
+    logo: <MicrosoftWordmark aria-hidden />,
   },
   {
     href: 'https://swmansion.com/',
-    logo: <SWMWordmark />,
+    name: 'Software Mansion',
+    logo: <SWMWordmark aria-hidden />,
   },
 ];
 
@@ -49,13 +54,14 @@ export default function PartnersShowcase() {
 
   return (
     <div className={styles.partnersContainer}>
-      {partners.map(({href, className, logo}) => (
+      {partners.map(({href, name, className, logo}) => (
         <a
           key={href}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={className}>
+          className={className}
+          aria-label={name}>
           {logo}
         </a>
       ))}

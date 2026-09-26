@@ -312,6 +312,44 @@ hr {
   margin-bottom: var(--ifm-spacing-vertical);
 }
 
+// The doc layout nests flex columns (.docRoot > .docMainContainer > .container,
+// then .row > .col). Each defaults to min-width: auto, so a wide child forces
+// the whole layout past the viewport. Zeroing min-width lets them shrink so a
+// horizontally scrollable child can scroll instead of overflowing the page.
+[class*="docMainContainer"],
+[class*="docMainContainer"] .container {
+  min-width: 0;
+}
+
+// Opt-in wrapper for wide markdown tables. Wrap the table in
+// `<div className="table-scroll">` in MDX. Tables are auto-wrapped in
+// `.table-wrapper` (border + overflow: hidden); make that box the horizontal
+// scroll container so it stays at the container width, the table fills it, and
+// the content scrolls inside only when it can't fit.
+.markdown .table-scroll .table-wrapper {
+  overflow-x: auto;
+}
+
+.markdown .table-scroll table {
+  // Fill the wrapper (override the base `table-layout: fixed`) and keep
+  // `display: table` on mobile, where the base switches tables to `display: block`.
+  display: table;
+  table-layout: auto;
+
+  // Keep cells on a single line; scroll horizontally instead of wrapping.
+  th,
+  td {
+    white-space: nowrap;
+  }
+
+  // Shaded, bold row-header column for the branch names (matches the schedule table).
+  td:first-child {
+    background-color: var(--ifm-table-head-background);
+    color: var(--ifm-font-color-base);
+    font-weight: var(--ifm-font-weight-bold);
+  }
+}
+
 .markdown {
   h2:first-child {
     margin-top: 0;
@@ -753,6 +791,43 @@ html[data-theme="dark"] .homepage {
 }
 
 /* Blog */
+
+// Compact multi-author blog grid: two columns (one on the smallest screens),
+// capped to a narrow width on desktop rather than spanning the content.
+.col--6[class*="authorCol"] {
+  --ifm-avatar-intro-margin: 0.7rem;
+
+  flex: 0 0 50%;
+
+  @media (max-width: 768px) {
+    flex: 0 0 100%;
+  }
+
+  [class*="authorImage"] {
+    --ifm-avatar-photo-size: 1.75rem;
+  }
+
+  [class*="authorName"] {
+    font-size: 0.9rem;
+  }
+
+  [class*="authorTitle"] {
+    font-size: 0.75rem;
+
+    // Don't truncate long titles.
+    display: block;
+    overflow: visible;
+    line-clamp: none;
+    -webkit-line-clamp: none;
+  }
+}
+
+// Cap the grid on desktop only; tablet keeps the full-width two columns.
+@media (min-width: 997px) {
+  .row:has(> [class*="authorCol"]) {
+    max-width: 560px;
+  }
+}
 
 .avatar__name {
   font-weight: 600;
@@ -2257,13 +2332,21 @@ html[data-theme="dark"] .docsRating {
 
 /* Blog */
 
+// Keep blog anchors clear of the sticky DocsSecondaryNav.
+html.blog-wrapper {
+  scroll-padding-top: calc(var(--ifm-navbar-height) + var(--rn-subnav-height));
+}
+
 .blog-wrapper .main-wrapper {
   h3[class*="sidebarItemTitle"] {
     color: var(--ifm-font-color-secondary);
   }
 
   div[class*="tableOfContents"] {
-    top: calc(var(--ifm-navbar-height));
+    top: calc(var(--ifm-navbar-height) + var(--rn-subnav-height));
+    max-height: calc(
+      100vh - (var(--ifm-navbar-height) + var(--rn-subnav-height) + 2rem)
+    );
   }
 
   .table-of-contents {

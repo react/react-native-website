@@ -27,7 +27,6 @@ import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const fontStyles = ['normal', 'italic'];
 const fontVariants = [
-  undefined,
   'small-caps',
   'oldstyle-nums',
   'lining-nums',
@@ -628,7 +627,7 @@ const CustomSlider = ({
 
 type CustomPickerProps = {
   label: string;
-  data?: ArrayLike<any> | null;
+  data?: ArrayLike<string> | undefined;
   currentIndex: number;
   onSelected: (index: number) => void;
 };
@@ -676,7 +675,6 @@ const CustomPicker = ({
 
 const fontStyles = ['normal', 'italic'];
 const fontVariants = [
-  undefined,
   'small-caps',
   'oldstyle-nums',
   'lining-nums',
@@ -824,6 +822,31 @@ Allows you to set all the font variants for a font. Can be set by using an array
 | Type                                                                                                                 | Default |
 | -------------------------------------------------------------------------------------------------------------------- | ------- |
 | array of enum(`'small-caps'`, `'oldstyle-nums'`, `'lining-nums'`, `'tabular-nums'`, `'proportional-nums'`) or string | `[]`    |
+
+---
+
+### `fontVariationSettings`
+
+Configures variation axes for a variable font. Each axis is identified by a four-character OpenType tag, such as `wght` for weight, `wdth` for width, `opsz` for optical size, or a custom axis supported by the font. Settings can be provided as an object or as a CSS-compatible string.
+
+The object and string forms below are equivalent; both set the wght axis to 500:
+
+```tsx
+<Text
+  style={{
+    fontVariationSettings: {wght: 500},
+    // Equivalent CSS-compatible string:
+    fontVariationSettings: "'wght' 500",
+  }}>
+  Variable font
+</Text>
+```
+
+For more information about variation axes and the CSS string syntax, see MDN's font-variation-settings (https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings) documentation.
+
+| Type                                         |
+| -------------------------------------------- |
+| string or object: `{[axis: string]: number}` |
 
 ---
 

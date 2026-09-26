@@ -50,7 +50,7 @@ export default TextInputExample;
 
 Two methods exposed via the native element are `.focus()` and `.blur()` that will focus or blur the TextInput programmatically.
 
-Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=true`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
+Note that some props are only available with `multiline={true/false}`:
 
 ```SnackPlayer name=Multiline%20TextInput%20Example
 import {useState} from 'react';

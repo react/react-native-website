@@ -484,6 +484,16 @@ Styling for internal View for `ListHeaderComponent`.
 
 ---
 
+### `ListItemComponent`
+
+Each data item is rendered using this element, as an alternative to `renderItem`. It receives the same props, and takes precedence over `renderItem` when both are provided.
+
+| Type               |
+| ------------------ |
+| component, element |
+
+---
+
 ### `columnWrapperStyle`
 
 Optional custom style for multi-item rows generated when `numColumns > 1`.

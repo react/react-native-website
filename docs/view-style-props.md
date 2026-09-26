@@ -73,20 +73,38 @@ export default App;
 
 ---
 
-### `experimental_backgroundImage`
+### `backgroundImage`
 
-<ExperimentalAPIWarning />
-
-`experimental_backgroundImage` provides the ability to draw a [`linear-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient) ([0.76.x+](https://github.com/facebook/react-native/blob/main/CHANGELOG-0.7x.md#v0760)) and [`radial-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient) ([0.80.x+](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0800)) using a web-like syntax.
+`backgroundImage` provides the ability to draw a [`linear-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient) and [`radial-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient) using a web-like syntax.
 
 ```tsx
 // Simple usage:
-<View style={{
-  experimental_backgroundImage: 'linear-gradient(45deg, blue, red)'
-}} />
-<View style={{
-  experimental_backgroundImage: 'radial-gradient(ellipse farthest-corner at 30% 40%, red, blue)'
-}} />
+<View style={{ backgroundImage: 'linear-gradient(45deg, blue, red)' }} />
+
+<View style={{ backgroundImage: 'radial-gradient(ellipse farthest-corner at 30% 40%, red, blue)' }} />
+
+// Also with PlatformColor:
+<View
+style={{
+  backgroundImage: [
+    {
+      type: 'linear-gradient',
+      direction: 'to bottom',
+      colorStops: [
+        {
+          color: Platform.select({
+            ios: PlatformColor('systemTealColor'),
+            android: PlatformColor('@android:color/holo_purple'),
+            default: 'blue',
+          }),
+          positions: ['0%'],
+        },
+        {color: 'green', positions: ['100%']},
+      ],
+    },
+  ],
+}}
+/>
 ```
 
 More complex examples of usage can be found in the RNTester app (with `PlatformColor` supports):
@@ -97,6 +115,67 @@ More complex examples of usage can be found in the RNTester app (with `PlatformC
 | Type                                                                                                                                                                                               |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | string, array of objects: `{type: 'linear-gradient', direction: string, colorStops: object[] }`, `{type: 'radial-gradient', shape: string, position: object, size: string, colorStops: object[] }` |
+
+---
+
+### `backgroundPosition`
+
+Controls where the background gradient is placed inside the view. This is useful when `backgroundImage` is set, and you want to offset or center it instead of filling the full area.
+
+```tsx
+<View
+  style={{
+    backgroundImage: 'radial-gradient(circle, #ff6b6b, #4ecdc4)',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '50px 50px',
+  }}
+/>
+```
+
+| Type                                                                                    |
+| --------------------------------------------------------------------------------------- |
+| string \| array of objects `{top: string, left: string, right: string, bottom: string}` |
+
+---
+
+### `backgroundRepeat`
+
+Controls whether the background gradient is repeated, and how. This works together with `backgroundImage` to tile gradients across the view.
+
+```tsx
+<View
+  style={{
+    backgroundImage: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+    backgroundRepeat: 'repeat',
+    backgroundSize: '20px 20px',
+  }}
+/>
+```
+
+| Type                                                                                               |
+| -------------------------------------------------------------------------------------------------- |
+| enum(`'repeat'`, `'space'`, `'round'`, `'no-repeat'`) \| array of objects `{x: string, y: string}` |
+
+---
+
+### `backgroundSize`
+
+Controls the size of the background gradient. This is most useful when `backgroundImage` is set and the gradient should not fill the entire view by default.
+
+```tsx
+<View
+  style={{
+    backgroundImage: 'linear-gradient(90deg, #a8edea, #fed6e3)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '100px 100px',
+  }}
+/>
+```
+
+| Type                                                |
+| --------------------------------------------------- |
+| string \| array of objects `{x: number, y: number}` |
 
 ---
 
@@ -353,8 +432,9 @@ Adds a shadow effect to an element, with the ability to control the position, co
 These shadows can be composed together so that a single `boxShadow` can be comprised of multiple different shadows.
 
 `boxShadow` takes either a string which mimics the [web syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow#syntax) or an array of [BoxShadowValue](./boxshadowvalue) objects.
-| Type |
-| --------------------------- |
+
+| Type                                      |
+| ----------------------------------------- |
 | array of BoxShadowValue objects \| string |
 
 ### `cursor` <div className="label ios">iOS</div>
@@ -412,9 +492,10 @@ The following filter functions work on Android only:
 :::
 
 `filter` takes either an array of objects comprising of the above filter functions or a string which mimics the [web syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/filter#syntax).
-| Type |
-| ------ |
-| array of objects: `{brightness: number\|string}`, `{opacity: number\|string}`, `{blur: number\|string}`, `{contrast: number\|string}`, `{dropShadow: DropShadowValue\|string}`, `{grayscale: number\|string}`, `{hueRotate: number\|string}`, `{invert: number\|string}`, `{sepia: number\|string}`, `{saturate: number\|string}` or string|
+
+| Type                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| array of objects: `{brightness: number\|string}`, `{opacity: number\|string}`, `{blur: number\|string}`, `{contrast: number\|string}`, `{dropShadow: DropShadowValue\|string}`, `{grayscale: number\|string}`, `{hueRotate: number\|string}`, `{invert: number\|string}`, `{sepia: number\|string}`, `{saturate: number\|string}` or string |
 
 ---
 

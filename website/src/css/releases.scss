@@ -1,0 +1,44 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.releases-header {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+
+  h1 {
+    margin: 0;
+    padding: 28px 0;
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+}
+
+// Tables are auto-wrapped in `.table-wrapper` (border + `overflow: hidden`), so
+// make that box the scroll container: it stays put and content scrolls inside.
+.markdown .releases-schedule-table .table-wrapper {
+  overflow-x: auto;
+}
+
+// Content-sized columns (override the base `table-layout: fixed`); keep
+// `display: table` on mobile, where the base switches tables to `display: block`.
+.markdown .releases-schedule-table table {
+  display: table;
+  table-layout: auto;
+}
+
+.markdown .releases-schedule-table th,
+.markdown .releases-schedule-table td {
+  white-space: nowrap;
+  min-width: 100px;
+}
+
+// Shaded, bold row-header column for the Version cells (matches /versions).
+.markdown .releases-schedule-table table tbody td:first-child {
+  background-color: var(--ifm-table-head-background);
+  color: var(--ifm-font-color-base);
+  font-weight: var(--ifm-font-weight-bold);
+  text-align: left;
+}

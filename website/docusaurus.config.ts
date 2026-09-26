@@ -212,6 +212,8 @@ const config: Config = {
             require.resolve('./src/css/index.scss'),
             require.resolve('./src/css/showcase.scss'),
             require.resolve('./src/css/versions.scss'),
+            require.resolve('./src/css/docs-secondary-nav.scss'),
+            require.resolve('./src/css/releases.scss'),
           ],
         },
         gtag: {
@@ -264,6 +266,16 @@ const config: Config = {
         path: 'community',
         routeBasePath: '/community',
         sidebarPath: require.resolve('./sidebarsCommunity'),
+        ...commonDocsOptions,
+      } satisfies PluginContentDocs.Options,
+    ],
+    [
+      'content-docs',
+      {
+        id: 'releases',
+        path: 'releases',
+        routeBasePath: '/releases',
+        sidebarPath: require.resolve('./sidebarsReleases'),
         ...commonDocsOptions,
       } satisfies PluginContentDocs.Options,
     ],
@@ -417,14 +429,6 @@ const config: Config = {
         },
       ],
     },
-    announcementBar: {
-      id: 'watch_keynote',
-      content:
-        'Re-watch the latest <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=NiYwlvXsBKw">React Native Keynote</a> from React Conf 2025',
-      backgroundColor: '#20232a',
-      textColor: '#fff',
-      isCloseable: false,
-    },
     navbar: {
       title: 'React Native',
       logo: {
@@ -434,32 +438,21 @@ const config: Config = {
       style: 'dark',
       items: [
         {
-          label: 'Development',
           type: 'dropdown',
+          label: 'Docs',
           position: 'right',
           items: [
-            {
-              label: 'Guides',
-              type: 'doc',
-              docId: 'getting-started',
-            },
-            {
-              label: 'Components',
-              type: 'doc',
-              docId: 'components-and-apis',
-            },
-            {
-              label: 'APIs',
-              type: 'doc',
-              docId: 'accessibilityinfo',
-            },
-            {
-              label: 'Architecture',
-              type: 'doc',
-              docId: 'architecture-overview',
-              docsPluginId: 'architecture',
-            },
+            {label: 'Guides', to: '/docs/getting-started'},
+            {label: 'Components', to: '/docs/components-and-apis'},
+            {label: 'APIs', to: '/docs/accessibilityinfo'},
+            {label: 'Architecture', to: '/architecture/overview'},
           ],
+        },
+        {
+          to: '/releases/overview',
+          label: 'Releases',
+          position: 'right',
+          activeBaseRegex: '^/(releases|versions)',
         },
         {
           type: 'doc',
@@ -484,17 +477,6 @@ const config: Config = {
           to: '/blog',
           label: 'Blog',
           position: 'right',
-        },
-        {
-          type: 'docsVersionDropdown',
-          position: 'left',
-          dropdownActiveClassDisabled: true,
-          dropdownItemsAfter: [
-            {
-              to: '/versions',
-              label: 'All versions',
-            },
-          ],
         },
         {
           href: 'https://github.com/facebook/react-native',

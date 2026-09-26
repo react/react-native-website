@@ -1,0 +1,151 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * Offsets that keep the sticky doc sidebar, table of contents and anchor
+ * scrolling clear of the sticky DocsSecondaryNav. Scoped to `.plugin-docs`, the
+ * class Docusaurus sets on <html> for every content-docs page (the pages that
+ * render the secondary nav).
+ */
+
+:root {
+  --rn-subnav-height: 3rem;
+}
+
+html.plugin-docs {
+  scroll-padding-top: calc(var(--ifm-navbar-height) + var(--rn-subnav-height));
+}
+
+@media (min-width: 997px) {
+  // Position the sticky sidebar like the blog sidebar: drop the theme's
+  // negative margin and instead stick the viewport just below the secondary
+  // nav. This keeps the first item's normal top spacing at every scroll
+  // position (the negative-margin mechanism otherwise drifts once a second
+  // sticky bar is added above it).
+  html.plugin-docs aside[class^="theme-doc-sidebar-container"] {
+    margin-top: 0;
+  }
+
+  html.plugin-docs aside[class^="theme-doc-sidebar-container"] > div {
+    top: calc(var(--ifm-navbar-height) + var(--rn-subnav-height));
+    max-height: calc(
+      100vh - (var(--ifm-navbar-height) + var(--rn-subnav-height))
+    );
+  }
+
+  // The viewport now clears both bars, so the content box no longer needs the
+  // theme's navbar-height top padding.
+  html.plugin-docs aside[class^="theme-doc-sidebar-container"] > div > div {
+    padding-top: 0;
+  }
+
+  html.plugin-docs div[class^="tableOfContents"] {
+    top: calc(var(--ifm-navbar-height) + var(--rn-subnav-height) + 34px);
+    max-height: calc(
+      100vh - (var(--ifm-navbar-height) + var(--rn-subnav-height) + 2rem)
+    );
+  }
+}
+
+/**
+ * Docs version dropdown. Reuses the theme navbar dropdown, styled to match the
+ * other outlined controls in this nav but with fully rounded corners for
+ * differentiation. Only the "Next" version is highlighted in the brand blue;
+ * released versions use the same white/grey outline as the other dropdowns.
+ */
+
+[class*="versionDropdown"] {
+  .navbar__item {
+    // Keep it visible on mobile too — Infima hides navbar items below 996px.
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar__link {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.9rem;
+    font-weight: var(--ifm-font-weight-normal);
+
+    // Match the section dropdown button's compact height (it uses the browser
+    // default line-height rather than the taller inherited base).
+    line-height: normal;
+    color: var(--ifm-font-color-base);
+    background: transparent;
+    border: 1px solid var(--ifm-color-emphasis-400);
+    border-radius: 999px;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+
+    // Match the section dropdown caret: nudged down and dimmed to grey.
+    &:after {
+      opacity: 0.6;
+      transform: translateY(-1px);
+      border-width: 0.3rem 0.3rem 0;
+      margin-left: 0.35rem;
+    }
+
+    &:hover {
+      color: var(--ifm-font-color-base);
+      background-color: var(--ifm-menu-color-background-hover);
+      border-color: var(--ifm-color-gray-500);
+    }
+  }
+}
+
+[class*="dropdown"] {
+  .dropdown__menu {
+    border: 1px solid var(--ifm-table-border-color);
+    transform: translateY(4px);
+    overflow: visible;
+
+    // Make sure that menu does not close on hover, with dropdown portion detached via transform
+    &:before {
+      content: "";
+      position: absolute;
+      height: 5px;
+      top: -5px;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+[data-theme="dark"] [class*="dropdown"] {
+  .dropdown__menu {
+    background-color: color-mix(in srgb, var(--light), black 40%);
+  }
+}
+
+// Placed before the `[data-version-next]` block so the brand-blue "Next" state
+// still wins.
+[data-theme="dark"] [class*="versionDropdown"] .navbar__link {
+  background-color: color-mix(in srgb, var(--light), black 25%);
+  border-color: var(--ifm-hr-border-color);
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--light), black 10%);
+    border-color: var(--ifm-color-gray-800);
+  }
+}
+
+[class*="versionDropdown"][data-version-next] .navbar__link {
+  color: var(--ifm-button-color, #fff);
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+
+  &:hover {
+    color: var(--ifm-button-color, #fff);
+    background-color: var(--ifm-color-primary);
+    border-color: var(--ifm-color-primary);
+    filter: brightness(0.92);
+  }
+}
