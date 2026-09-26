@@ -53,7 +53,6 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
 </TabItem>
 <TabItem value="ios">
 
-:::note
 On iOS, you'll need to add the `LinkingIOS` folder into your header search paths as described in step 3 [here](linking-libraries-ios#step-3). If you also want to listen to incoming app links during your app's execution, forward deep links from your `SceneDelegate`. If your app declares `UIApplicationSceneManifest` in `Info.plist`, `RCTLinkingManager` ignores the `AppDelegate` linking methods below - you must forward links from `SceneDelegate` instead.
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
@@ -96,6 +95,46 @@ func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
 
 </TabItem>
 </Tabs>
+
+These callbacks only cover links that arrive while the scene is connected. To handle linking in a cold-start (the app being launched by a custom URL scheme or a Universal Link), you also need to hand the scene's `UIScene.ConnectionOptions` to React Native when you bootstrap it, otherwise [`getInitialURL()`](#getinitialurl) resolves to `null`:
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+```objc title="SceneDelegate.m"
+- (void)scene:(UIScene *)scene
+    willConnectToSession:(UISceneSession *)session
+                 options:(UISceneConnectionOptions *)connectionOptions
+{
+  // ...
+  [self.reactNativeFactory startReactNativeWithModuleName:@"HelloWorld"
+                                                 inWindow:self.window
+                                        connectionOptions:connectionOptions];
+}
+```
+
+</TabItem>
+<TabItem value="swift">
+
+```swift title="SceneDelegate.swift"
+func scene(
+  _ scene: UIScene,
+  willConnectTo session: UISceneSession,
+  options connectionOptions: UIScene.ConnectionOptions
+) {
+  // ...
+  reactNativeFactory?.startReactNative(
+    withModuleName: "HelloWorld",
+    in: window,
+    connectionOptions: connectionOptions
+  )
+}
+```
+
+</TabItem>
+</Tabs>
+
+See [Bootstrapping with SceneDelegate](integration-with-existing-apps#6-bootstrapping-with-scenedelegate) for the full `SceneDelegate` setup.
 
 <details>
 <summary>Apps without UIScene lifecycle</summary>
@@ -158,10 +197,10 @@ func application(
 
 </details>
 
-:::
-
 </TabItem>
 </Tabs>
+
+---
 
 ### Handling Deep Links
 

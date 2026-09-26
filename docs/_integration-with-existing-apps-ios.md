@@ -470,12 +470,16 @@ Finally, make sure to add the `UIViewControllerBasedStatusBarAppearance` key int
 
 ## 6. Bootstrapping with SceneDelegate
 
+:::info[Requires React Native 0.88 or later]
+The `SceneDelegate` APIs described in this section require React Native 0.88 or later. Earlier releases do not provide the `connectionOptions:` overloads of `startReactNative` nor the `SceneDelegate` methods on `RCTLinkingManager`.
+:::
+
 If your app uses the UIScene lifecycle (the default for apps created with recent versions of Xcode), React Native bootstrap happens in your app-owned `SceneDelegate`. Your `AppDelegate` stays as the process entry point (`@main`) and handles `UIApplication`-level callbacks such as push notifications.
 
 To bootstrap React Native with SceneDelegate:
 
 1. Declare `UIApplicationSceneManifest` in `Info.plist` and point it at your `SceneDelegate` class.
-2. Keep `UIApplicationSupportsMultipleScenes` set to `false`. React Native does not support multi-window / multi-instance apps yet; enabling this key causes React Native to fail during initialization due to an intentional assertion, unless you explicitly define `RN_ALLOW_MULTIPLE_SCENES` on your app target.
+2. Keep `UIApplicationSupportsMultipleScenes` set to `false`. React Native does not support multi-window / multi-instance apps yet.
 3. Subclass `RCTDefaultReactNativeFactoryDelegate`, conform to `UIWindowSceneDelegate`, create an `RCTReactNativeFactory`, and call `startReactNativeWithModuleName:inWindow:connectionOptions:` from `scene:willConnectToSession:options:`.
 4. Forward deep links from your `SceneDelegate` to `RCTLinkingManager`.
 5. Keep push notifications and other `UIApplicationDelegate` callbacks on your `AppDelegate`.
@@ -676,11 +680,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 </Tabs>
 
 :::note
-React Native currently supports a single React instance per process. If `UIApplicationSupportsMultipleScenes` is `true`, React Native fails during initialization by default (when using the New Architecture). Define `RN_ALLOW_MULTIPLE_SCENES=1` in your app target's `GCC_PREPROCESSOR_DEFINITIONS` (or pass `-DRN_ALLOW_MULTIPLE_SCENES=1` via `OTHER_CFLAGS`) only if you understand the risks (e.g. cross-talk of internal RN modules, or third-party libraries) and want to downgrade the failure to a warning.
+React Native currently supports a single instance per process, so multiple scenes are not supported. Keep `UIApplicationSupportsMultipleScenes` set to `false`.
 :::
 
 :::tip[`reactNativeFactory` field]
-It is important that you expose `reactNativeFactory` on your `SceneDelegate` if you need utilities such as `RCTGetActiveReactNativeFactory()` to resolve the active factory at runtime.
+Store the `RCTReactNativeFactory` in a property on your `SceneDelegate` so that it is retained for the lifetime of the scene. If it is only held by a local variable, it is deallocated as soon as `scene:willConnectToSession:options:` returns and React Native tears down with it.
 :::
 
 ## 7. Test your integration
