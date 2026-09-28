@@ -236,20 +236,6 @@ If `true`, focuses the input. The default value is `false`.
 
 ---
 
-### 🗑️ `blurOnSubmit`
-
-:::warning[Deprecated]
-Note that `submitBehavior` now takes the place of `blurOnSubmit` and will override any behavior defined by `blurOnSubmit`. See [submitBehavior](textinput#submitbehavior).
-:::
-
-If `true`, the text field will blur when submitted. The default value is true for single-line fields and false for multiline fields. Note that for multiline fields, setting `blurOnSubmit` to `true` means that pressing return will blur the field and trigger the `onSubmitEditing` event instead of inserting a newline into the field.
-
-| Type |
-| ---- |
-| bool |
-
----
-
 ### `caretHidden`
 
 If `true`, caret is hidden. The default value is `false`.
