@@ -149,6 +149,10 @@ Returns the scaling factor for font sizes. This is the ratio that is used to cal
 
 If a font scale is not set, this returns the device pixel ratio.
 
+:::note
+On Android 14 and newer, the system scales fonts [non-linearly](https://developer.android.com/about/versions/14/features#non-linear-font-scaling) once the user's font scale is 1.05 or higher: small fonts grow by roughly the full factor, while larger fonts grow progressively less (for example, a 30sp font does not grow at all until the setting exceeds 1.5). `getFontScale()` still returns the linear preference value (such as `1.3`), so multiplying a font size by it will overestimate the rendered size of large text on these devices.
+:::
+
 ---
 
 ### `getPixelSizeForLayoutSize()`
