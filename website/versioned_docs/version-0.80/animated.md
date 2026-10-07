@@ -13,7 +13,7 @@ The core workflow for creating an animation is to create an `Animated.Value`, ho
 
 The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
 
-```SnackPlayer name=Animated%20Example
+```SnackPlayer name=Animated%20Example&supportedPlatforms=ios,android
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import {
   Animated,
