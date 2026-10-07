@@ -2079,7 +2079,7 @@ export default App;
 
 - [`gap`](layout-props#gap) sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`.
 
-You can use `flexWrap` and `alignContent` along with `gap` to add consistent spacing between items.
+You can use `flexWrap` and `alignContent` along with `gap` to add consistent spacing between items. Gap properties accept numeric values (in points) or percentage strings (e.g. `'10%'` on the [New Architecture](/architecture/landing-page)).
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
