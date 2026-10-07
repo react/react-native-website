@@ -32,7 +32,7 @@
     "@eslint/css": "^1.4.0",
     "@eslint/js": "^9.39.4",
     "@manypkg/cli": "^0.25.1",
-    "@typescript-eslint/parser": "^8.69.0",
+    "@typescript-eslint/eslint-plugin": "^8.71.0",
     "alex": "^11.0.1",
     "case-police": "^2.2.1",
     "eslint": "^9.39.4",
@@ -42,12 +42,12 @@
     "eslint-plugin-mdx": "^3.8.1",
     "eslint-plugin-prettier": "^5.5.6",
     "eslint-plugin-yml": "^3.8.1",
-    "globals": "^17.12.0",
+    "globals": "^17.13.0",
     "husky": "^9.1.7",
     "prettier": "^3.9.6",
     "pretty-quick": "^4.2.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.69.0"
+    "typescript-eslint": "^8.71.0"
   },
   "resolutions": {
     "image-size": "^2",

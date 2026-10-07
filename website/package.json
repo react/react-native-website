@@ -58,7 +58,7 @@
     "@docusaurus/preset-classic": "3.10.2",
     "@docusaurus/theme-mermaid": "3.10.2",
     "docusaurus-plugin-copy-page-button": "^0.8.4",
-    "docusaurus-plugin-sass": "^0.2.6",
+    "docusaurus-plugin-sass": "^0.2.7",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-github-btn": "^1.4.0"
@@ -67,19 +67,19 @@
     "@docusaurus/module-type-aliases": "3.10.2",
     "@docusaurus/tsconfig": "3.10.2",
     "@docusaurus/types": "3.10.2",
-    "@prettier/plugin-oxc": "^0.2.2",
+    "@prettier/plugin-oxc": "^0.2.3",
     "@react-native-website/lint-examples": "*",
     "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
     "@types/google.analytics": "^0.0.46",
-    "@types/react": "19.2.17",
+    "@types/react": "19.2.18",
     "eslint": "^9.39.4",
     "glob": "^13.0.6",
     "prettier": "^3.9.6",
     "remark-cli": "^12.0.1",
-    "sass": "1.102.0",
-    "stylelint": "^17.14.1",
+    "sass": "1.105.1",
+    "stylelint": "^17.16.0",
     "stylelint-config-standard-scss": "^17.0.0",
-    "stylelint-scss": "^7.2.0",
+    "stylelint-scss": "^7.3.0",
     "typescript": "^6.0.3"
   }
 }
