@@ -545,13 +545,13 @@ See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/bottom)
 
 ### `columnGap`
 
-`columnGap` works like `column-gap` in CSS. Only pixel units are supported in React Native.
+`columnGap` works like `column-gap` in CSS. It accepts numbers (in points) or percentage strings (e.g. `'10%'`). Percentage values are supported on the [New Architecture](/architecture/landing-page).
 
 See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap) for more details.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
@@ -671,13 +671,13 @@ See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wr
 
 ### `gap`
 
-`gap` works like `gap` in CSS. Only pixel units are supported in React Native.
+`gap` works like `gap` in CSS. It is a shorthand for `rowGap` and `columnGap`. It accepts numbers (in points) or percentage strings (e.g. `'10%'`). Percentage values are supported on the [New Architecture](/architecture/landing-page).
 
 See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/gap) for more details.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 
@@ -1295,13 +1295,13 @@ See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/right) 
 
 ### `rowGap`
 
-`rowGap` works like `row-gap` in CSS. Only pixel units are supported in React Native.
+`rowGap` works like `row-gap` in CSS. It accepts numbers (in points) or percentage strings (e.g. `'10%'`). Percentage values are supported on the [New Architecture](/architecture/landing-page).
 
 See [MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap) for more details.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type           | Required |
+| -------------- | -------- |
+| number, string | No       |
 
 ---
 

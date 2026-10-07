@@ -209,6 +209,14 @@ The skew transformations require a string so that the transform may be expressed
 }
 ```
 
+The translate transformations (`translateX` and `translateY`) accept numbers (points) or percentage strings (e.g. `'50%'`, `'100%'`). When using percentages, the offset is relative to the element's width (for `translateX`) or height (for `translateY`). Percentage translation is supported on the [New Architecture](/architecture/landing-page). For example:
+
+```js
+{
+  transform: [{translateX: '50%'}, {translateY: 100}],
+}
+```
+
 ### Matrix Transform
 
 The `matrix` transform accepts a 4x4 transformation matrix as an array of 16 numbers. This allows you to apply complex transformations that combine translation, rotation, scaling, and skewing in a single operation.
@@ -260,9 +268,9 @@ For example, to apply a combination of scale and skew:
 Matrix transforms are useful when you need to apply pre-calculated transformation matrices, such as those from animation libraries or when building UI editor applications. For basic transformations, it's recommended to use the individual transform properties (scale, rotate, translate, etc.) as they are more readable.
 :::
 
-| Type                                                                                                                                                                                                                                                                                                          | Required |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| array of objects: `{matrix: number[]}`, `{perspective: number}`, `{rotate: string}`, `{rotateX: string}`, `{rotateY: string}`, `{rotateZ: string}`, `{scale: number}`, `{scaleX: number}`, `{scaleY: number}`, `{translateX: number}`, `{translateY: number}`, `{skewX: string}`, `{skewY: string}` or string | No       |
+| Type                                                                                                                                                                                                                                                                                                                              | Required |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| array of objects: `{matrix: number[]}`, `{perspective: number}`, `{rotate: string}`, `{rotateX: string}`, `{rotateY: string}`, `{rotateZ: string}`, `{scale: number}`, `{scaleX: number}`, `{scaleY: number}`, `{translateX: number \| string}`, `{translateY: number \| string}`, `{skewX: string}`, `{skewY: string}` or string | No       |
 
 ---
 
