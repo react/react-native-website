@@ -268,7 +268,26 @@ For some applications it may be appropriate to provide a custom `NSURLSessionCon
 #import <React/RCTHTTPRequestHandler.h>
 ```
 
-`RCTSetCustomNSURLSessionConfigurationProvider` should be called early in the application life cycle such that it is readily available when needed by React, for instance:
+`RCTSetCustomNSURLSessionConfigurationProvider` should be called early in the application life cycle such that it is readily available when needed by React.
+
+For apps using the UIScene lifecycle, call it from `scene:willConnectToSession:options:` before starting React Native:
+
+```objectivec
+- (void)scene:(UIScene *)scene
+    willConnectToSession:(UISceneSession *)session
+                 options:(UISceneConnectionOptions *)connectionOptions
+{
+  RCTSetCustomNSURLSessionConfigurationProvider(^NSURLSessionConfiguration *{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    // configure the session
+    return configuration;
+  });
+
+  // set up React Native
+}
+```
+
+For apps without the UIScene lifecycle, call it from `application:didFinishLaunchingWithOptions:` before starting React Native:
 
 ```objectivec
 -(void)application:(__unused UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
