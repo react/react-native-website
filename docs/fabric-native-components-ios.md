@@ -70,7 +70,10 @@ Demo
 
 After creating the header file and the implementation file, you can start implementing them.
 
-This is the code for the `RCTWebView.h` file, which declares the component interface.
+This is the code for the header file, which declares the component interface.
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
 
 ```objc title="Demo/RCTWebView/RCTWebView.h"
 #import <React/RCTViewComponentView.h>
@@ -87,9 +90,28 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 ```
 
+</TabItem>
+<TabItem value="swift">
+
+```swift title="Demo/RCTWebView/RCTWebView.swift"
+import React
+import UIKit
+
+@objc(RCTWebView)
+class RCTWebView: RCTViewComponentView {
+    // You would declare native methods you'd want to access from the view here
+}
+```
+
+</TabItem>
+</Tabs>
+
 This class defines an `RCTWebView` which extends the `RCTViewComponentView` class. This is the base class for all the native components and it is provided by React Native.
 
-The code for the implementation file (`RCTWebView.mm`) is the following:
+The code for the implementation file is the following:
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
 
 ```objc title="Demo/RCTWebView/RCTWebView.mm"
 #import "RCTWebView.h"
@@ -183,6 +205,102 @@ using namespace facebook::react;
 
 @end
 ```
+
+</TabItem>
+<TabItem value="swift">
+
+```swift title="Demo/RCTWebView/RCTWebView.swift"
+import React
+import WebKit
+
+@objc(RCTWebView)
+class RCTWebView: RCTViewComponentView {
+    private var sourceURL: URL?
+    private var webView: WKWebView!
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupWebView()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupWebView()
+    }
+
+    private func setupWebView() {
+        // highlight-start
+        webView = WKWebView()
+        webView.navigationDelegate = self
+        addSubview(webView)
+        // highlight-end
+    }
+
+    override func updateProps(_ props: Props, oldProps: Props) {
+        guard let oldViewProps = _props as? CustomWebViewProps,
+              let newViewProps = props as? CustomWebViewProps else {
+            super.updateProps(props, oldProps: oldProps)
+            return
+        }
+
+        // Handle your props here
+        if oldViewProps.sourceURL != newViewProps.sourceURL {
+            let urlString = String(cString: newViewProps.sourceURL)
+            sourceURL = URL(string: urlString)
+            // highlight-start
+            if urlIsValid(newViewProps.sourceURL) {
+                if let url = sourceURL {
+                    webView.load(URLRequest(url: url))
+                }
+            }
+            // highlight-end
+        }
+
+        super.updateProps(props, oldProps: oldProps)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        webView.frame = bounds
+    }
+
+    // highlight-start
+    private func urlIsValid(_ propString: String) -> Bool {
+        if !propString.isEmpty && sourceURL == nil {
+            let result = CustomWebViewEventEmitter.OnScriptLoaded(
+                result: .error
+            )
+            eventEmitter.onScriptLoaded(result)
+            return false
+        }
+        return true
+    }
+
+    private var eventEmitter: CustomWebViewEventEmitter {
+        return _eventEmitter as! CustomWebViewEventEmitter
+    }
+    // highlight-end
+
+    @objc static func componentDescriptorProvider() -> ComponentDescriptorProvider {
+        return concreteComponentDescriptorProvider<CustomWebViewComponentDescriptor>()
+    }
+}
+
+// MARK: - WKNavigationDelegate
+extension RCTWebView: WKNavigationDelegate {
+    // highlight-start
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        let result = CustomWebViewEventEmitter.OnScriptLoaded(
+            result: .success
+        )
+        eventEmitter.onScriptLoaded(result)
+    }
+    // highlight-end
+}
+```
+
+</TabItem>
+</Tabs>
 
 This code is written in Objective-C++ and contains various details:
 
