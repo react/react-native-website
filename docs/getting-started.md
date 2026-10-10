@@ -1,8 +1,8 @@
----
+import {defineConfig, globalIgnores} from 'eslint/config';
 id: environment-setup
 title: Get Started with React Native
 hide_table_of_contents: true
----
+import globals from 'globals';
 
 import PlatformSupport from '@site/src/theme/PlatformSupport';
 import BoxLink from '@site/src/theme/BoxLink';
