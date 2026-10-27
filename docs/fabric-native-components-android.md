@@ -38,6 +38,7 @@ package com.webview;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -46,6 +47,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.uimanager.UIManagerHelper;
 import com.facebook.react.uimanager.events.Event;
+import com.facebook.react.uimanager.events.EventDispatcher;
 
 public class ReactWebView extends WebView {
   public ReactWebView(Context context) {
@@ -64,7 +66,8 @@ public class ReactWebView extends WebView {
   }
 
   private void configureComponent() {
-    this.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+    this.getSettings().setJavaScriptEnabled(true);
+    this.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     this.setWebViewClient(new WebViewClient() {
       @Override
       public void onPageFinished(WebView view, String url) {
@@ -74,7 +77,7 @@ public class ReactWebView extends WebView {
   }
 
   public void emitOnScriptLoaded(OnScriptLoadedEventResult result) {
-    ReactContext reactContext = (ReactContext) context;
+    ReactContext reactContext = (ReactContext) getContext();
     int surfaceId = UIManagerHelper.getSurfaceId(reactContext);
     EventDispatcher eventDispatcher = UIManagerHelper.getEventDispatcherForReactTag(reactContext, getId());
     WritableMap payload = Arguments.createMap();
@@ -142,6 +145,7 @@ class ReactWebView: WebView {
   }
 
   private fun configureComponent() {
+    this.settings.javaScriptEnabled = true
     this.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
     this.webViewClient = object : WebViewClient() {
       override fun onPageFinished(view: WebView, url: String) {
@@ -186,6 +190,8 @@ class ReactWebView: WebView {
 The `ReactWebView` extends the Android `WebView` so you can reuse all the properties already defined by the platform with ease.
 
 The class defines the three Android constructors but defers their actual implementation to the private `configureComponent` function. This function takes care of initializing all the components specific properties: in this case you are setting the layout of the `WebView` and you are defining the `WebClient` that you use to customize the behavior of the `WebView`. In this code, the `ReactWebView` emits an event when the page finishes loading, by implementing the `WebClient`'s `onPageFinished` method.
+
+`configureComponent` also enables JavaScript. The Android `WebView` [disables it by default](<https://developer.android.com/reference/android/webkit/WebSettings#setJavaScriptEnabled(boolean)>). The `WKWebView` used on iOS enables it. Without this line, the same component would run web content differently on the two platforms. Only enable JavaScript for content you trust.
 
 The code then defines a helper function to actually emit an event. To emit an event, you have to:
 
