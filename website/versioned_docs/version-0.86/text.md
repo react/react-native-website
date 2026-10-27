@@ -312,6 +312,8 @@ Specifies whether fonts should be scaled down automatically to fit given style c
 
 Specifies whether fonts should scale to respect Text Size accessibility settings.
 
+On Android 14 and newer, scaling is [non-linear](https://developer.android.com/about/versions/14/features#non-linear-font-scaling): as the user's font scale setting grows, large fonts are scaled up less than small ones.
+
 | Type    | Default |
 | ------- | ------- |
 | boolean | `true`  |
