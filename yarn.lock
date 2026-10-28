@@ -15501,9 +15501,9 @@ serialize-error@^2.1.0:
   integrity sha512-ghgmKt5o4Tly5yEG/UJp8qTd0AN7Xalw4XBtDEKP655B699qMEtra1WlXeE6WIvdEG481JvRxULKsInq/iNysw==
 
 serialize-javascript@^6.0.0, serialize-javascript@^6.0.1, serialize-javascript@^7.0.5:
-  version "7.0.6"
-  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-7.0.6.tgz#f2f20c8af0757e4d8fa329d0210636da0682ddef"
-  integrity sha512-ATTK5Q4gFVg0YDp1my2vqygyvhcklD/UV5GIlYHooGTn/NogJqIzpetkD6E5kmuVULqz/S9inUL25XcAgDRJQg==
+  version "7.1.4"
+  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-7.1.4.tgz#477af55bdec0d831fa3b209245f673217fd27380"
+  integrity sha512-FqlEuoTq/zRmA4Lg6aOqyH3lCHbUtCB0bmHCeFniX2GBdDqMJM3FwdvEhlE5Pim1dlt2FfBdVPmUNNiGhhKqpw==
 
 serve-handler@^6.1.7:
   version "6.1.7"
