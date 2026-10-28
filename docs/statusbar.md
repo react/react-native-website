@@ -273,7 +273,7 @@ On Android, this will only have an impact on API versions 23 and above.
 
 ### `hidden`
 
-If the status bar is hidden.
+If the status bar is hidden. Has no effect on iPhone Duo, where the status bar is in a vertical bar.
 
 | Type    | Required | Default |
 | ------- | -------- | ------- |
@@ -290,6 +290,16 @@ The transition effect when showing and hiding the status bar using the `hidden` 
 | [StatusBarAnimation](statusbar#statusbaranimation) | `'fade'` |
 
 ## Methods
+
+### `getVerticalBarEdgeIOS()` <div className="label ios">iOS</div>
+
+```tsx
+static getVerticalBarEdgeIOS(): StatusBarVerticalBarEdgeIOS | null;
+```
+
+Get the edge where the system places the vertical bar that holds the status bar beside the content, such as the side rail on iPhone Duo. Returns `null` when the system places no vertical bar, such as on other devices, in orientations that keep the status bar at the top, or before iOS 27.1. To update when the edge changes, use the [`useVerticalBarEdgeIOS`](useverticalbaredgeios) hook.
+
+---
 
 ### `popStackEntry()`
 
@@ -366,7 +376,7 @@ Set the status bar style.
 static setHidden(hidden: boolean, animation?: StatusBarAnimation);
 ```
 
-Show or hide the status bar.
+Show or hide the status bar. Has no effect on iPhone Duo, where the status bar is in a vertical bar.
 
 **Parameters:**
 
@@ -413,3 +423,20 @@ Status bar style type.
 | `'auto'`          | string | Automatically picks `light-content` or `dark-content` based on the current color scheme. Updates whenever the color scheme changes. |
 | `'light-content'` | string | White texts and icons                                                                                                               |
 | `'dark-content'`  | string | Dark texts and icons (requires API>=23 on Android)                                                                                  |
+
+---
+
+### StatusBarVerticalBarEdgeIOS
+
+The edge where the system places the vertical bar that holds the status bar, such as the side rail on iPhone Duo.
+
+| Type |
+| ---- |
+| enum |
+
+**Constants:**
+
+| Value        | Type   | Description                               |
+| ------------ | ------ | ----------------------------------------- |
+| `'leading'`  | string | The vertical bar is on the leading edge.  |
+| `'trailing'` | string | The vertical bar is on the trailing edge. |

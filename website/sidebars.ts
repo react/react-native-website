@@ -274,7 +274,11 @@ export default {
         type: 'category',
         label: 'Hooks',
         collapsed: false,
-        items: ['usecolorscheme', 'usewindowdimensions'],
+        items: [
+          'usecolorscheme',
+          'useverticalbaredgeios',
+          'usewindowdimensions',
+        ],
       },
       {
         type: 'category',
