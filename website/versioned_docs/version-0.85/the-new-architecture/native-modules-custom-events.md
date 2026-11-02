@@ -316,7 +316,7 @@ First, you need to import a couple of types that you need to use to create the e
 - `import com.facebook.react.bridge.Arguments`
 - `import com.facebook.react.bridge.WritableMap`
 
-Secondly, you need to implement the logic that actually emits the event to JS. In case of complex types, like the `KeyValuePair` defined in the specs, Codegen will generate a function that expects a `ReadableMap` as a parameter. You can create the `ReadableMap` by using the `Arguments.createMap()` factory method, and use the `apply` function to populate the map. It's your responsibility to make sure that the the keys you are using in the map are the same properties that are defined in the spec type in JS.
+Secondly, you need to implement the logic that actually emits the event to JS. In case of complex types, like the `KeyValuePair` defined in the specs, Codegen will generate a function that expects a `ReadableMap` as a parameter. You can create the `ReadableMap` by using the `Arguments.createMap()` factory method, and use the `apply` function to populate the map. It's your responsibility to make sure that the keys you are using in the map are the same properties that are defined in the spec type in JS.
 
 </TabItem>
 <TabItem value="ios" label="iOS">
@@ -361,7 +361,7 @@ NS_ASSUME_NONNULL_END
 
 The `NativeLocalStorageSpecBase` is a base class that provides the `emitOnKeyAdded` method and its basic implementation and boilerplate. Thanks to this class, you don't have to handle all the conversion between Objective-C and JSI that is required to send the event to JS.
 
-In case of complex types, like the `KeyValuePair` defined in the specs, Codegen will generate a generic dictionary that you can populate on the native side. It's your responsibility to make sure that the the keys you are using in the dictionary are the same properties that are defined in the spec type in JS.
+In case of complex types, like the `KeyValuePair` defined in the specs, Codegen will generate a generic dictionary that you can populate on the native side. It's your responsibility to make sure that the keys you are using in the dictionary are the same properties that are defined in the spec type in JS.
 
 </TabItem>
 </Tabs>
