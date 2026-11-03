@@ -43,6 +43,7 @@ To create a new Expo project, run the following in your terminal:
 ```shell
 npx create-expo-app@latest
 ```
+The creation script will ask you the name of your new app.
 
 Once you’ve created your app, check out the rest of Expo’s getting started guide to start developing your app.
 
