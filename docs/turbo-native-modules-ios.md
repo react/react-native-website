@@ -60,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RCTNativeLocalStorage : NSObject <NativeLocalStorageSpec>
 
 @end
+
+NS_ASSUME_NONNULL_END
 ```
 
 Then update our implementation to use `NSUserDefaults` with a custom [suite name](https://developer.apple.com/documentation/foundation/nsuserdefaults/1409957-initwithsuitename).
