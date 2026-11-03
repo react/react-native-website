@@ -296,6 +296,7 @@ export default {
       'activityindicator',
       'button',
       'flatlist',
+      'fragment',
       'image',
       'imagebackground',
       'keyboardavoidingview',
