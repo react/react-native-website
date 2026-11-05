@@ -27,7 +27,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-jest": "^29.16.6",
     "eslint-plugin-react": "^7.37.5",
-    "glob": "^13.0.6",
+    "glob": "^14.0.2",
     "prettier": "^3.9.10",
     "react": "^19.2.8",
     "react-native": "^0.87.1",
