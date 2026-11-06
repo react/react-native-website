@@ -291,6 +291,26 @@ The transition effect when showing and hiding the status bar using the `hidden` 
 
 ## Methods
 
+### `getVerticalBarEdgeIOS()` <div className="label ios">iOS</div>
+
+```tsx
+static getVerticalBarEdgeIOS(): 'leading' | 'trailing' | null;
+```
+
+The edge of the vertical bar that holds the status bar. Returns `'leading'`, `'trailing'`, or `null` when there is no vertical bar, on other platforms, or before iOS 27.1.
+
+---
+
+### `useVerticalBarEdgeIOS()` <div className="label ios">iOS</div>
+
+```tsx
+function useVerticalBarEdgeIOS(): 'leading' | 'trailing' | null;
+```
+
+The edge of the vertical bar that holds the status bar, updated when it changes. Returns `'leading'`, `'trailing'`, or `null` when there is no vertical bar, on other platforms, or before iOS 27.1.
+
+---
+
 ### `popStackEntry()`
 
 ```tsx
