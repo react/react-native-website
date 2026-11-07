@@ -130,7 +130,7 @@
     {
       "name": "Spaces: Follow Businesses",
       "icon": "spaces.webp",
-      "linkAppStore": "https://itunes.apple.com/us/app/wix-com/id1099748482",
+      "linkAppStore": "https://apps.apple.com/us/app/spaces-follow-businesses/id1099748482",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.android"
     },
     {
@@ -303,14 +303,14 @@
     {
       "name": "Gyroscope",
       "icon": "gyroscope.png",
-      "linkAppStore": "https://itunes.apple.com/app/apple-store/id1104085053?pt=117927205&ct=website&mt=8",
+      "linkAppStore": "https://apps.apple.com/us/app/gyroscope/id1104085053",
       "infoLink": "https://blog.gyrosco.pe/building-the-app-1dac1a97d253",
       "infoTitle": "Building a visualization experience with React Native"
     },
     {
       "name": "JD（手机京东）",
       "icon": "jdcom.png",
-      "linkAppStore": "https://itunes.apple.com/cn/app/shou-ji-jing-dong-xin-ren/id414245413?mt=8",
+      "linkAppStore": "https://apps.apple.com/cn/app/shou-ji-jing-dong-xin-ren/id414245413",
       "linkPlayStore": "https://app.jd.com/android.html",
       "infoLink": "https://ir.jd.com/phoenix.zhtml?c=253315&p=irol-homeProfile",
       "infoTitle": "JD.com is China’s largest ecommerce company by revenue and a member of the Fortune Global 500."
