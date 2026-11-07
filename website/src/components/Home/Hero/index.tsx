@@ -23,7 +23,7 @@ function Hero() {
       <div className={styles.socialLinks}>
         <a
           className="twitter-follow-button"
-          href={`https://twitter.com/reactnative?ref_src=twsrc%5Etfw`}
+          href="https://x.com/reactnative"
           data-show-count="false"
           data-size="large">
           Follow @reactnative

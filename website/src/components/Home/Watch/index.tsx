@@ -16,7 +16,7 @@ enum VideoId {
   Why = 'wUDeLT6WXnQ',
   Keynote2025 = 'NiYwlvXsBKw',
   Keynote2024 = 'Q5SMmKb7qVI',
-  FB2019 = 'NCAY0HIfrwc',
+  ReactUniverse2025 = 'JEQ2g3BBKTg',
 }
 
 function Watch() {
@@ -34,11 +34,7 @@ function Watch() {
             Find the latest on{' '}
             <a href="https://bsky.app/profile/reactnative.dev">
               Bluesky
-            </a> and{' '}
-            <a href="https://twitter.com/intent/follow?screen_name=reactnative&region=follow_link">
-              X
-            </a>
-            .
+            </a> and <a href="https://x.com/reactnative">X</a>.
           </>
         }
       />
@@ -143,36 +139,36 @@ function Watch() {
         </div>
         <div
           role="button"
-          aria-label="Play: FB 2019: Mobile innovation with React Native"
+          aria-label="Play: React Universe Conf 2025 Keynote"
           className={[
             styles.videoContainer,
-            playingId === VideoId.FB2019
+            playingId === VideoId.ReactUniverse2025
               ? styles.videoContainerPlaying
               : styles.videoContainerHover,
           ].join(' ')}
-          onClick={() => setPlayingId(VideoId.FB2019)}>
-          {playingId === VideoId.FB2019 ? (
+          onClick={() => setPlayingId(VideoId.ReactUniverse2025)}>
+          {playingId === VideoId.ReactUniverse2025 ? (
             <iframe
-              src={`https://www.youtube.com/embed/${VideoId.FB2019}?autoplay=1`}
-              title="Mobile Innovation with React Native, ComponentKit, and Litho"
+              src={`https://www.youtube.com/embed/${VideoId.ReactUniverse2025}?autoplay=1`}
+              title="React Universe Conf 2025 Keynote"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className={styles.video}
             />
           ) : (
             <img
-              src={`https://img.youtube.com/vi/${VideoId.FB2019}/maxresdefault.jpg`}
-              alt="Mobile Innovation with React Native, ComponentKit, and Litho"
+              src={`https://img.youtube.com/vi/${VideoId.ReactUniverse2025}/maxresdefault.jpg`}
+              alt="React Universe Conf 2025 Keynote"
               className={styles.video}
             />
           )}
           <div className={styles.videoInfo}>
             <h4>
-              FB 2019
+              React Universe Conf 2025
               <br />
-              Mobile innovation with React Native
+              Keynote
             </h4>
-            <p>45:29</p>
+            <p>28:48</p>
           </div>
         </div>
       </div>
