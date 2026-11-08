@@ -34,11 +34,7 @@ function Watch() {
             Find the latest on{' '}
             <a href="https://bsky.app/profile/reactnative.dev">
               Bluesky
-            </a> and{' '}
-            <a href="https://twitter.com/intent/follow?screen_name=reactnative&region=follow_link">
-              X
-            </a>
-            .
+            </a> and <a href="https://x.com/reactnative">X</a>.
           </>
         }
       />
