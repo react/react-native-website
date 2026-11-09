@@ -136,7 +136,7 @@ The Memory panel allows you to take a heap snapshot and view the memory usage of
 
 ## React DevTools features
 
-In the integrated Components and Profiler panels, you'll find all the features of the [React DevTools](https://react.dev/learn/react-developer-tools) browser extension. These work seamlessly in React Native DevTools.
+In the integrated Components, Profiler, and Suspense panels, you'll find all the features of the [React DevTools](https://react.dev/learn/react-developer-tools) browser extension. These work seamlessly in React Native DevTools.
 
 ### React Components
 
@@ -171,6 +171,15 @@ Re-renders can be a significant contributor to performance issues in React apps.
 The React Profiler panel allows you to record performance profiles to understand the timing of component renders and React commits.
 
 For more info, see the [original 2018 guide](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html#reading-performance-data) (note that parts of this may be outdated).
+
+### React Suspense <div className="label primary">Since 0.90</div>
+
+![Selecting a Suspense boundary in the React Suspense panel, alongside a device](/docs/assets/debugging-rndt-react-suspense.jpg)
+
+The React Suspense panel allows you to inspect the [`<Suspense>`](https://react.dev/reference/react/Suspense) boundaries in your app, and see what caused each one to suspend.
+
+- The boundary map lays out each boundary as it appears on screen, and the timeline below it steps through the order in which they revealed their content.
+- Select a boundary to see what it was suspended by, such as a `React.lazy()` component or a promise read with `use()`.
 
 ## Reconnecting DevTools
 
