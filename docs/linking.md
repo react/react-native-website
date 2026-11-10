@@ -39,7 +39,7 @@ If you want to enable deep links in your app, please read the below guide:
 <TabItem value="android">
 
 :::info
-For instructions on how to add support for deep linking on Android, refer to [Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](https://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
+For instructions on how to add support for deep linking on Android, refer to [Create Deep Links to App Content - Add intent filters for incoming links](https://developer.android.com/training/app-links/create-deeplinks#adding-filters).
 :::
 
 If you wish to receive the intent in an existing instance of MainActivity, you may set the `launchMode` of MainActivity to `singleTask` in `AndroidManifest.xml`. See [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.html) documentation for more information.
@@ -709,7 +709,7 @@ static getInitialURL(): Promise<string | null>;
 If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`.
 
 :::info
-To support deep linking on Android, refer https://developer.android.com/training/app-indexing/deep-linking.html#handling-intents.
+To support deep linking on Android, refer to [Create Deep Links to App Content - Read data from incoming intents](https://developer.android.com/training/app-links/create-deeplinks#handling-intents).
 :::
 
 :::tip
