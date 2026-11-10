@@ -87,7 +87,7 @@ Provide the `accessibilityHint` property a custom string on your View, Text, or 
 
 <div className="label ios basic">iOS</div>
 
-In the above example, VoiceOver will read the hint after the label, if the user has hints enabled in the device's VoiceOver settings. Read more about guidelines for `accessibilityHint` in the [iOS Developer Docs](https://developer.apple.com/documentation/objectivec/nsobject/1615093-accessibilityhint)
+In the above example, VoiceOver will read the hint after the label, if the user has hints enabled in the device's VoiceOver settings. Read more about guidelines for `accessibilityHint` in the [iOS Developer Docs](https://developer.apple.com/documentation/objectivec/nsobject-swift.class/accessibilityhint)
 
 <div className="label android basic">Android</div>
 
@@ -95,7 +95,7 @@ In the above example, TalkBack will read the hint after the label. At this time,
 
 ### `accessibilityLanguage` <div className="label ios">iOS</div>
 
-By using the `accessibilityLanguage` property, the screen reader will understand which language to use while reading the element's **label**, **value**, and **hint**. The provided string value must follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
+By using the `accessibilityLanguage` property, the screen reader will understand which language to use while reading the element's **label**, **value**, and **hint**. The provided string value must follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47/).
 
 ```tsx
 <View
@@ -604,4 +604,4 @@ VoiceOver isn't available via the simulator, but you can use Accessibility Inspe
 
 ## Additional Resources
 
-- [Making React Native Apps Accessible](https://engineering.fb.com/ios/making-react-native-apps-accessible/)
+- [Making React Native Apps Accessible](https://engineering.fb.com/2015/11/23/android/making-react-native-apps-accessible/)
