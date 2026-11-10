@@ -2,7 +2,7 @@
 id: testing-overview
 title: Testing
 author: Vojtech Novak
-authorURL: 'https://twitter.com/vonovak'
+authorURL: 'https://x.com/vonovak'
 description: This guide introduces React Native developers to the key concepts behind testing, how to write good tests, and what kinds of tests you can incorporate into your workflow.
 ---
 
@@ -284,4 +284,4 @@ We hope you enjoyed reading and learned something from this guide. There are man
 
 ---
 
-_This guide originally authored and contributed in full by [Vojtech Novak](https://twitter.com/vonovak)._
+_This guide originally authored and contributed in full by [Vojtech Novak](https://x.com/vonovak)._
