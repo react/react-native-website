@@ -267,6 +267,8 @@ Try to cover the vital parts of your app with E2E tests: authentication flow, co
 
 There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](https://appium.io/) or [Maestro](https://maestro.mobile.dev/).
 
+[e2e](https://github.com/tester-army/e2e) is another option for testing Android and iOS apps. It combines natural-language agent steps with locator assertions and includes an [Expo example](https://github.com/tester-army/e2e/tree/main/examples/with-expo).
+
 <img src="/docs/assets/p_tests-e2e.svg" alt=" " />
 
 ## Summary
@@ -281,6 +283,7 @@ We hope you enjoyed reading and learned something from this guide. There are man
 - [Detox](https://github.com/wix/detox/)
 - [Appium](https://appium.io/)
 - [Maestro](https://maestro.mobile.dev/)
+- [e2e](https://github.com/tester-army/e2e)
 
 ---
 
