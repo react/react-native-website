@@ -33,11 +33,9 @@ async function toJsxNode(node: Code) {
   const params = parseParams(node.meta ?? undefined);
 
   // Gather necessary Params
-  const name = params.name ? decodeURIComponent(params.name) : 'Example';
-  const description = params.description
-    ? decodeURIComponent(params.description)
-    : 'Example usage';
-  const ext = params.ext ? decodeURIComponent(params.ext) : 'tsx';
+  const name = params.name || 'Example';
+  const description = params.description || 'Example usage';
+  const ext = params.ext || 'tsx';
   const filename = `App.${ext}`;
   const files = encodeURIComponent(
     JSON.stringify({
