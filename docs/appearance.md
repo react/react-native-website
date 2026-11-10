@@ -18,21 +18,21 @@ The `Appearance` module exposes information about the user's appearance preferen
 <TabItem value="web">
 
 :::info
-The `Appearance` API is inspired by the [Media Queries draft](https://drafts.csswg.org/mediaqueries-5/) from the W3C. The color scheme preference is modeled after the [`prefers-color-scheme` CSS media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
+The `Appearance` API is inspired by the [Media Queries draft](https://drafts.csswg.org/mediaqueries-5/) from the W3C. The color scheme preference is modeled after the [`prefers-color-scheme` CSS media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme).
 :::
 
 </TabItem>
 <TabItem value="android">
 
 :::info
-The color scheme preference will map to the user's Light or [Dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) preference on Android 10 (API level 29) devices and higher.
+The color scheme preference will map to the user's Light or [Dark theme](https://developer.android.com/develop/ui/views/theming/darktheme) preference on Android 10 (API level 29) devices and higher.
 :::
 
 </TabItem>
 <TabItem value="ios">
 
 :::info
-The color scheme preference will map to the user's Light or [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/) preference on iOS 13 devices and higher.
+The color scheme preference will map to the user's Light or [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/dark-mode) preference on iOS 13 devices and higher.
 :::
 
 :::note
