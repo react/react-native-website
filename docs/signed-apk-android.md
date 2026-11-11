@@ -41,7 +41,7 @@ It will output the directory of the JDK, which will look something like this:
 /Library/Java/JavaVirtualMachines/jdkX.X.X_XXX.jdk/Contents/Home
 ```
 
-Navigate to that directory by using the command `cd /your/jdk/path` and use the keytool command with sudo permission as shown below.
+Navigate to that directory by using the command `cd /your/jdk/path` and use the keytool command with sudo permission as shown below. Remember to edit `my-upload-key` and `my-key-alias`.
 
 ```shell
 sudo keytool -genkey -v -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
@@ -54,7 +54,8 @@ Remember to keep the keystore file private. In case you've lost upload key or it
 ## Setting up Gradle variables
 
 1. Place the `my-upload-key.keystore` file under the `android/app` directory in your project folder.
-2. Edit the file `~/.gradle/gradle.properties` or `android/gradle.properties`, and add the following (replace `*****` with the correct keystore password, alias and key password),
+2. Edit the file `~/.gradle/gradle.properties` or `android/gradle.properties`, and add the following
+3. Replace `*****` with the correct keystore (line 3) and key (line 4) passwords, if you were not prompted to create a key password it will be the same as keystore password
 
 ```
 MYAPP_UPLOAD_STORE_FILE=my-upload-key.keystore
