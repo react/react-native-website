@@ -23,7 +23,7 @@ const isProductionDeployment =
   (!!process.env.VERCEL && process.env.VERCEL_ENV === 'production');
 
 const lastVersion = versions[0];
-const copyright = `Copyright © Meta Platforms, Inc.`;
+const copyright = `Copyright © React a Series of LF Projects, LLC and its contributors.`;
 
 export type EditUrlButton = {
   label: string;
@@ -87,7 +87,7 @@ const config: Config = {
   title: 'React Native',
   tagline:
     'A framework for building native apps for Android, iOS, and more using React',
-  organizationName: 'Meta Platforms, Inc.',
+  organizationName: 'The React Foundation',
   projectName: 'react-native',
   url: 'https://reactnative.dev',
   baseUrl: '/',
@@ -149,7 +149,7 @@ const config: Config = {
         name: 'React Native · Learn once, write anywhere',
         description:
           'A framework for building native apps for Android, iOS, and more using React',
-        publisher: 'Meta Platforms, Inc.',
+        publisher: 'The React Foundation',
         potentialAction: [
           {
             '@type': 'SearchAction',
@@ -565,19 +565,20 @@ const config: Config = {
             },
             {
               label: 'Privacy Policy',
-              href: 'https://opensource.fb.com/legal/privacy/',
+              href: 'https://lfprojects.org/policies/privacy-policy/',
             },
             {
-              label: 'Terms of Service',
-              href: 'https://opensource.fb.com/legal/terms/',
+              label: 'Terms of Use',
+              href: 'https://lfprojects.org/policies/terms-of-use/',
             },
           ],
         },
       ],
       logo: {
-        alt: 'Meta Open Source Logo',
-        src: 'img/oss_logo.svg',
-        href: 'https://opensource.fb.com/',
+        alt: 'The React Foundation Logo',
+        src: 'img/foundation-logo.svg',
+        href: 'https://react.foundation/',
+        target: '_blank',
       },
       copyright,
     },
