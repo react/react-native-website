@@ -113,6 +113,10 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
+## Implementation detail
+
+Internally this is implemented as a `Touchable` that has been stylized to look like the platform specific button.  This component utilizes neither `UIButton` (iOS) nor `android.widget.Button`.
+
 ---
 
 # Reference
