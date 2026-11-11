@@ -459,7 +459,7 @@ Assign this property to a custom function which will be called when someone perf
 
 ### `onAccessibilityTap` <div className="label ios">iOS</div>
 
-Use this property to assign a custom function to be called when someone activates an accessible element by double tapping on it while it's selected.
+Use this property to assign a custom function to be called when someone activates an accessible element by double tapping on it while it's selected. Note that, when this property is false, VoiceOver sends taps to the center of the element. If the center of the element is not tappable, the tap will not work, and you will need to set a custom action via this property.
 
 ### `onMagicTap` <div className="label ios">iOS</div>
 
