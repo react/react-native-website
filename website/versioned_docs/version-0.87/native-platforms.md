@@ -16,11 +16,11 @@ You might have previously been familiar with:
 - [Legacy Native Modules](./legacy/native-modules-intro);
 - [Legacy Native Components](./legacy/native-components-android);
 
-These are our deprecated native module and component API. You can still use many of these legacy libraries with the New Architecture thanks to our interop layers. You should consider:
+These are our deprecated native module and component APIs. You can still use many of these legacy libraries with the New Architecture thanks to the built-in [Interop Layer](/blog/2024/10/23/the-new-architecture-is-here#gradual-migration). You do not need all your dependencies to support the New Architecture before using it. You can check library compatibility on [React Native Directory](https://reactnative.directory/). Over time, you should consider:
 
 - using alternative libraries,
 - upgrading to newer library versions that have first-class support for the New Architecture, or
-- port these libraries yourself to Turbo Native Modules or Fabric Native Components.
+- porting these libraries yourself to Turbo Native Modules or Fabric Native Components.
 
 :::
 

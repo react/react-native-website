@@ -46,6 +46,29 @@ yarn add react@{{REACT_VERSION}}
 </TabItem>
 </Tabs>
 
+#### Dependency compatibility and the New Architecture
+
+When upgrading to React Native 0.76 or newer, the New Architecture is enabled by default. A common question when upgrading dependencies is whether all third-party libraries in your project must explicitly support the New Architecture before you can upgrade.
+
+**You do not need all your dependencies to support the New Architecture before upgrading.**
+
+React Native includes an automatic **Interop Layer** enabled by default. The Interop Layer allows legacy Native Modules and legacy Native Components to continue functioning on the New Architecture without requiring updates from library authors or immediate changes in application code.
+
+##### Checking library compatibility
+
+To check if the community libraries in your project support the New Architecture:
+
+- Search for the package on [React Native Directory](https://reactnative.directory/). Libraries compatible with the New Architecture display a **New Architecture** badge indicating support for Turbo Native Modules and Fabric.
+- Check the library's repository and release notes for React Native 0.76+ compatibility or New Architecture migration guides.
+
+##### Handling incompatible dependencies
+
+While the Interop Layer supports the majority of legacy libraries, some edge cases (such as libraries that manipulate custom native shadow nodes directly or rely on deprecated internal APIs) might encounter issues:
+
+- Check if an updated version of the library is available that officially supports the New Architecture.
+- If the library is unmaintained, search for maintained community alternatives on [React Native Directory](https://reactnative.directory/).
+- If an essential dependency cannot yet run on the New Architecture and has no replacement, you can temporarily [opt out of the New Architecture](/architecture/landing-page#should-i-use-the-new-architecture-today) for Android and iOS until the library is updated.
+
 ### 3. Upgrade your project files
 
 The new release may contain updates to other files that are generated when you run `npx react-native init`, those files are listed after the `package.json` in the [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) page. If there aren't other changes then you only need to rebuild the project to continue developing. In case there are changes you need to manually apply them into your project.
