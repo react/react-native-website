@@ -253,9 +253,11 @@ ws.onclose = e => {
 
 The following options are currently not working with `fetch`
 
-- Having same name headers on Android will result in only the latest one being present. A temporary solution can be found here: https://github.com/react/react-native/issues/18837#issuecomment-398779994.
-- Cookie based authentication is currently unstable. You can view some of the issues raised here: https://github.com/react/react-native/issues/23185
-- As a minimum on iOS, when redirected through a `302`, if a `Set-Cookie` header is present, the cookie is not set properly. Since the redirect cannot be handled manually this might cause a scenario where infinite requests occur if the redirect is the result of an expired session.
+- `redirect:manual`
+
+* Having same name headers on Android will result in only the latest one being present. A temporary solution can be found here: https://github.com/react/react-native/issues/18837#issuecomment-398779994.
+* Cookie based authentication is currently unstable. You can view some of the issues raised here: https://github.com/react/react-native/issues/23185
+* As a minimum on iOS, when redirected through a `302`, if a `Set-Cookie` header is present, the cookie is not set properly. Since the redirect cannot be handled manually this might cause a scenario where infinite requests occur if the redirect is the result of an expired session.
 
 ## Configuring NSURLSession on iOS
 
