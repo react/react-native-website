@@ -10,13 +10,18 @@ A common way to use this API is to call it before updating the state hook in fun
 :::note
 On **Android**, when using the **Legacy Architecture**, you need to enable layout animations via `UIManager`. This flag enables layout animations globally and only needs to be called once (for example, in your app's root entry file `index.js` or root component) before triggering any layout animation:
 
+> ⚠️ **Note (React Native 0.79+)**:  
+> `UIManager.setLayoutAnimationEnabledExperimental(true)` is **no longer needed** in React Native 0.79+ and above. It is enabled by default now.
+
+If you're using an older version (before 0.79), you can still use:
+
 ```js
 if (Platform.OS === 'android') {
   if (UIManager.setLayoutAnimationEnabledExperimental) {
     UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 }
-```
+
 
 On the **New Architecture**, layout animations are enabled automatically, and calling `setLayoutAnimationEnabledExperimental` is unnecessary (it is a no-op).
 :::
