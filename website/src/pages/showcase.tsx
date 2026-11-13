@@ -93,8 +93,8 @@ const randomizeApps = (apps: ShowcaseApp[]) =>
 
 const Showcase = () => {
   const {siteConfig} = useDocusaurusContext();
-  const {meta, microsoft, shopify, wix, amazon, others} = siteConfig
-    .customFields.users as ShowcaseData;
+  const {meta, microsoft, wix, amazon, others} = siteConfig.customFields
+    .users as ShowcaseData;
   const [pinnedRandomizedApps, setPinnedRandomizedApps] = useState<
     ShowcaseApp[]
   >([]);
@@ -194,31 +194,6 @@ const Showcase = () => {
           </p>
           <div className="logos">
             {amazon.map((app, i) => (
-              <AppBox app={app} key={`app-${app.name}-${i}`} />
-            ))}
-          </div>
-        </div>
-        <div className="showcaseSection">
-          <h2 className="withLogo">
-            <ThemedImage
-              alt="Shopify logo"
-              width={160}
-              sources={{
-                light: useBaseUrl('/img/showcase/shopify_logo_whitebg.svg'),
-                dark: useBaseUrl('/img/showcase/shopify_logo_darkbg.svg'),
-              }}
-            />
-          </h2>
-          <p className="showcaseSectionDescription">
-            All mobile apps at Shopify are built using React Native. You can
-            read more about React Native development at Shopify on our{' '}
-            <a href="https://shopify.engineering/topics/mobile" target="_blank">
-              blog
-            </a>
-            .
-          </p>
-          <div className="logos">
-            {shopify.map((app, i) => (
               <AppBox app={app} key={`app-${app.name}-${i}`} />
             ))}
           </div>

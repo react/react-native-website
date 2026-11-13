@@ -98,34 +98,6 @@
       "infoTitle": "Purpose-built for reading, Kindle e-readers let you take your stories wherever you go"
     }
   ],
-  "shopify": [
-    {
-      "name": "Shopify",
-      "icon": "shopify.png",
-      "linkAppStore": "https://apps.apple.com/us/app/shopify-your-ecommerce-store/id371294472",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.mobile&hl=en_US&gl=US",
-      "pinned": true
-    },
-    {
-      "name": "Shop: All your favorite brands",
-      "icon": "shop.webp",
-      "linkAppStore": "https://apps.apple.com/ca/app/shop-package-order-tracker/id1223471316",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.arrive&hl=en_US&gl=US",
-      "pinned": true
-    },
-    {
-      "name": "Shopify Inbox",
-      "icon": "shopify-inbox.webp",
-      "linkAppStore": "https://apps.apple.com/us/app/shopify-inbox/id1301681854",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.ping&gl=US"
-    },
-    {
-      "name": "Shopify Point of Sale",
-      "icon": "pos.webp",
-      "linkAppStore": "https://apps.apple.com/us/app/shopify-point-of-sale-pos/id686830644",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.pos&gl=US"
-    }
-  ],
   "wix": [
     {
       "name": "Spaces: Follow Businesses",
