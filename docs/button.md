@@ -219,16 +219,6 @@ If `true`, disable all interactions for this component.
 
 ---
 
-### `hasTVPreferredFocus` <div className="label tv">TV</div>
-
-TV preferred focus.
-
-| Type | Default |
-| ---- | ------- |
-| bool | `false` |
-
----
-
 ### `nextFocusDown` <div className="label android">Android</div><div className="label tv">TV</div>
 
 Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).

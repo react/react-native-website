@@ -146,16 +146,6 @@ The color of the underlay that will show through when the touch is active.
 
 ---
 
-### `hasTVPreferredFocus` <div className="label ios">iOS</div>
-
-_(Apple TV only)_ TV preferred focus (see documentation for the View component).
-
-| Type |
-| ---- |
-| bool |
-
----
-
 ### `nextFocusDown` <div className="label android">Android</div>
 
 TV next focus down (see documentation for the View component).

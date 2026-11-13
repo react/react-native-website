@@ -106,16 +106,6 @@ Check TouchableNativeFeedback.canUseNativeForeground() first, as this is only av
 
 ---
 
-### `hasTVPreferredFocus` <div className="label android">Android</div>
-
-TV preferred focus (see documentation for the View component).
-
-| Type |
-| ---- |
-| bool |
-
----
-
 ### `nextFocusDown` <div className="label android">Android</div>
 
 TV next focus down (see documentation for the View component).
