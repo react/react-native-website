@@ -64,7 +64,7 @@ const App = () => {
         keyboardType="default"
         returnKeyType="next"
         onSubmitEditing={() => emailInput.current.focus()}
-        blurOnSubmit={false}
+        submitBehavior="submit"
       />
       <TextInput
         style={styles.input}
@@ -77,7 +77,7 @@ const App = () => {
         keyboardType="email-address"
         returnKeyType="send"
         onSubmitEditing={submit}
-        blurOnSubmit={true}
+        submitBehavior="blurAndSubmit"
       />
     </View>
   );
@@ -160,7 +160,7 @@ const App = () => {
         keyboardType="default"
         returnKeyType="next"
         onSubmitEditing={() => emailInput.current?.focus()}
-        blurOnSubmit={false}
+        submitBehavior="submit"
       />
       <TextInput
         style={styles.input}
@@ -173,7 +173,7 @@ const App = () => {
         keyboardType="email-address"
         returnKeyType="send"
         onSubmitEditing={submit}
-        blurOnSubmit={true}
+        submitBehavior="blurAndSubmit"
       />
     </View>
   );
@@ -262,7 +262,7 @@ const App = () => {
           keyboardType="email-address"
           returnKeyType="send"
           onSubmitEditing={submit}
-          blurOnSubmit={true}
+          submitBehavior="blurAndSubmit"
         />
         <View>
           <Button title="Sign Up" onPress={submit} />
@@ -361,7 +361,7 @@ const App = () => {
           keyboardType="email-address"
           returnKeyType="send"
           onSubmitEditing={submit}
-          blurOnSubmit={true}
+          submitBehavior="blurAndSubmit"
         />
         <View>
           <Button title="Sign Up" onPress={submit} />
