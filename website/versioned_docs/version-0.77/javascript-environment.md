@@ -86,8 +86,8 @@ Many standard functions are also available on all the supported JavaScript runti
 
 - [CommonJS `require`](https://nodejs.org/docs/latest/api/modules.html)
 - `md [console.{log, warn, error, info, debug, trace, table, group, groupCollapsed, groupEnd}](https://developer.chrome.com/devtools/docs/console-api)`
-- [`XMLHttpRequest`, `fetch`](network.md#content)
-- [`{set, clear}{Timeout, Interval, Immediate}, {request, cancel}AnimationFrame`](timers.md#content)
+- [`XMLHttpRequest`, `fetch`](network.md)
+- [`{set, clear}{Timeout, Interval, Immediate}, {request, cancel}AnimationFrame`](timers.md)
 
 #### ECMAScript 2015 (ES6)
 

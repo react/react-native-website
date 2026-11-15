@@ -68,7 +68,7 @@ In order to use iOS Keychain services or Android Secure Shared Preferences, you 
 - [expo-secure-store](https://docs.expo.dev/versions/latest/sdk/securestore/)
 - [react-native-keychain](https://github.com/oblador/react-native-keychain)
 
-:::warning Caution
+:::warning[Caution]
 **Be mindful of unintentionally storing or exposing sensitive info.** This could happen accidentally, for example saving sensitive form data in redux state and persisting the whole state tree in Async Storage. Or sending user tokens and personal info to an application monitoring service such as Sentry or Crashlytics.
 :::
 
@@ -127,7 +127,7 @@ Using https endpoints could still leave your data vulnerable to interception. Wi
 
 **SSL pinning** is a technique that can be used on the client side to avoid this attack. It works by embedding (or pinning) a list of trusted certificates to the client during development, so that only the requests signed with one of the trusted certificates will be accepted, and any self-signed certificates will not be.
 
-:::warning Caution
+:::warning[Caution]
 When using SSL pinning, you should be mindful of certificate expiry. Certificates expire every 1-2 years and when one does, it’ll need to be updated in the app as well as on the server. As soon as the certificate on the server has been updated, any apps with the old certificate embedded in them will cease to work.
 :::
 

@@ -10,7 +10,6 @@ The `style` prop can be a plain old JavaScript object. That's what we usually us
 As a component grows in complexity, it is often cleaner to use `StyleSheet.create` to define several styles in one place. Here's an example:
 
 ```SnackPlayer name=Style
-import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 const LotsOfStyles = () => {
@@ -49,4 +48,4 @@ Now you can make your text beautiful. The next step in becoming a style expert i
 
 ## Known issues
 
-- [react-native#29308](https://github.com/facebook/react-native/issues/29308#issuecomment-792864162): In some cases React Native does not match how CSS works on the web, for example the touch area never extends past the parent view bounds and on Android negative margin is not supported.
+- [react-native#29308](https://github.com/react/react-native/issues/29308#issuecomment-792864162): In some cases React Native does not match how CSS works on the web, for example the touch area never extends past the parent view bounds and on Android negative margin is not supported.

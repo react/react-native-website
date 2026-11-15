@@ -33,7 +33,7 @@ const MarkdownInlineCode = React.memo(function MarkdownInlineCodeInner(
 
 // Gives the ability to use basic Markdown links inside inline code blocks
 // We use RegExp because a full Markdown parser would be quite heavy
-// See https://github.com/facebook/react-native-website/pull/3807
+// See https://github.com/react/react-native-website/pull/3807
 function linkify(input) {
   // Inspired by https://github.com/gakimball/transform-markdown-links
   // Thank you: http://stackoverflow.com/a/32382702 (with some modifications)

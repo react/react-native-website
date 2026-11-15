@@ -1,3 +1,4 @@
+import {getCoreBranchNameForCurrentVersion} from '@site/src/getCoreBranchNameForCurrentVersion';
 import {getCurrentVersion} from '@site/src/getCurrentVersion';
 import CodeBlock from '@theme/CodeBlock';
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
@@ -70,7 +71,7 @@ export default TurboModuleRegistry.getEnforcing<Spec>(
 
 ## 2. Configure Codegen
 
-The next step is to configure [Codegen](what-is-codegen.md) in your `package.json`. Update the file to include:
+The next step is to configure [Codegen](what-is-codegen.mdx) in your `package.json`. Update the file to include:
 
 ```json title="package.json"
      "start": "react-native start",
@@ -227,7 +228,7 @@ The final step is to register the new C++ Turbo Native Module in the runtime, so
 1. From the folder `SampleApp/android/app/src/main/jni`, run the following command:
 
 <CodeBlock language="sh" title="shell">
-{`curl -O https://raw.githubusercontent.com/facebook/react-native/${getCurrentVersion() === 'latest' ? '' : 'v'}${getCurrentVersion()}/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp`}
+{`curl -O https://raw.githubusercontent.com/facebook/react-native/${getCoreBranchNameForCurrentVersion()}/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp`}
 </CodeBlock>
 
 2. Then, modify this file as follows:
@@ -331,10 +332,10 @@ The ModuleProvider is an Objective-C++ that glues together the Pure C++ module w
 
 1. From Xcode, select the `SampleApp` project and press <kbd>⌘</kbd> + <kbd>N</kbd> to create a new file.
 2. Select the `Cocoa Touch Class` template
-3. Add the name `SampleNativeModuleProvider` (keep the other field as `Subclass of: NSObject` and `Language: Objective-C`)
+3. Add the name `NativeSampleModuleProvider` (keep the other field as `Subclass of: NSObject` and `Language: Objective-C`)
 4. Click Next to generate the files.
-5. Rename the `SampleNativeModuleProvider.m` to `SampleNativeModuleProvider.mm`. The `mm` extension denotes an Objective-C++ file.
-6. Implement the content of the `SampleNativeModuleProvider.h` with the following:
+5. Rename the `NativeSampleModuleProvider.m` to `NativeSampleModuleProvider.mm`. The `mm` extension denotes an Objective-C++ file.
+6. Implement the content of the `NativeSampleModuleProvider.h` with the following:
 
 ```objc title="NativeSampleModuleProvider.h"
 
@@ -352,7 +353,7 @@ NS_ASSUME_NONNULL_END
 
 This declares a `NativeSampleModuleProvider` object that conforms to the `RCTModuleProvider` protocol.
 
-7. Implement the content of the `SampleNativeModuleProvider.mm` with the following:
+7. Implement the content of the `NativeSampleModuleProvider.mm` with the following:
 
 ```objc title="NativeSampleModuleProvider.mm"
 

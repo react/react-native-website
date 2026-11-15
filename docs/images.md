@@ -30,7 +30,7 @@ You can use the `@2x` and `@3x` suffixes to provide images for different screen 
 <Image source={require('./img/check.png')} />
 ```
 
-...the bundler will bundle and serve the image corresponding to device's screen density. For example, `check@2x.png`, will be used on an iPhone 7, while`check@3x.png` will be used on an iPhone 7 Plus or a Nexus 5. If there is no image matching the screen density, the closest best option will be selected.
+...the bundler will bundle and serve the image corresponding to device's screen density. For example, `check@2x.png`, will be used on an iPhone 7, while `check@3x.png` will be used on an iPhone 7 Plus or a Nexus 5. If there is no image matching the screen density, the closest best option will be selected.
 
 On Windows, you might need to restart the bundler if you add new images to your project.
 
@@ -65,9 +65,24 @@ const icon = this.props.active
 
 Note that image sources required this way include size (width, height) info for the Image. If you need to scale the image dynamically (i.e. via flex), you may need to manually set `{width: undefined, height: undefined}` on the style attribute.
 
+### Bundling images in an asset catalog (iOS)
+
+By default the bundler copies each required image, along with every `@2x` and `@3x` variant, into your iOS app as a loose file next to the JavaScript bundle. On iOS you can instead have them compiled into an [asset catalog](https://developer.apple.com/documentation/xcode/managing-assets-with-asset-catalogs), so the system ships only the scale a device needs.
+
+To opt in, set the `RCTUseAssetCatalog` key to `true` in your app's `Info.plist`:
+
+```xml
+<key>RCTUseAssetCatalog</key>
+<true/>
+```
+
+With this enabled, the iOS build script compiles your bundled images into an `RNAssets.bundle` asset catalog at build time. Your `require('./my-icon.png')` calls stay exactly the same, and no changes to your Xcode project are needed.
+
+After changing this setting, make sure to do a clean build.
+
 ## Static Non-Image Resources
 
-The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [bundler defaults](https://github.com/facebook/metro/blob/master/packages/metro-config/src/defaults/defaults.js#L14-L44) for the full list.
+The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html`, `.pdf` and more. See [bundler defaults](https://github.com/facebook/metro/blob/main/packages/metro-config/src/defaults/defaults.js#L16-L51) for the full list.
 
 You can add support for other types by adding an [`assetExts` resolver option](https://metrobundler.dev/docs/configuration#resolver-options) in your [Metro configuration](https://metrobundler.dev/docs/configuration).
 
@@ -99,7 +114,7 @@ These approaches provide no safety checks. It's up to you to guarantee that thos
 
 ## Network Images
 
-Many of the images you will display in your app will not be available at compile time, or you will want to load some dynamically to keep the binary size down. Unlike with static resources, _you will need to manually specify the dimensions of your image_. It's highly recommended that you use https as well in order to satisfy [App Transport Security](publishing-to-app-store.md#1-enable-app-transport-security) requirements on iOS.
+Many of the images you will display in your app will not be available at compile time, or you will want to load some dynamically to keep the binary size down. Unlike with static resources, _you will need to manually specify the dimensions of your image_. It's highly recommended that you use https as well in order to satisfy [App Transport Security](https://developer.apple.com/documentation/security/preventing_insecure_network_connections) requirements on iOS.
 
 ```tsx
 // GOOD
@@ -235,19 +250,18 @@ On the user side, this lets you annotate the object with useful attributes such 
 
 ## Background Image via Nesting
 
-A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
-
-You might not want to use `<ImageBackground>` in some cases, since the implementation is basic. Refer to `<ImageBackground>`'s [documentation](imagebackground.md) for more insight, and create your own custom component when needed.
+To layer content over an image, render an absolutely positioned [`Image`](image.md) inside a [`View`](view.md), followed by the content that should appear on top.
 
 ```tsx
 return (
-  <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
+  <View style={{width: '100%', height: '100%'}}>
+    <Image source={...} style={StyleSheet.absoluteFill} />
     <Text>Inside</Text>
-  </ImageBackground>
+  </View>
 );
 ```
 
-Note that you must specify some width and height style attributes.
+Note that you must specify some width and height style attributes on the containing `View`.
 
 ## iOS Border Radius Styles
 
@@ -264,7 +278,7 @@ Image decoding can take more than a frame-worth of time. This is one of the majo
 
 ## Configuring iOS Image Cache Limits
 
-On iOS, we expose an API to override React Native's default image cache limits. This should be called from within your native AppDelegate code (e.g. within `didFinishLaunchingWithOptions`).
+On iOS, we expose an API to override React Native's default image cache limits. Call this early during app startup from your `SceneDelegate` (in `scene:willConnectToSession:options:`) or from `AppDelegate` if you are not using the UIScene lifecycle (for example, within `application:didFinishLaunchingWithOptions:`).
 
 ```objectivec
 RCTSetImageCacheLimits(4*1024*1024, 200*1024*1024);

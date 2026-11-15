@@ -61,7 +61,7 @@ An offset rectangle applied to the root's bounding box when calculating intersec
 
 ### `rnRootThresholds` ⚠️
 
-:::warning Non-standard
+:::warning[Non-standard]
 This is a React Native specific extension.
 :::
 

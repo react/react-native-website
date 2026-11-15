@@ -3,7 +3,7 @@ title: Communities
 description: The React Native Community
 ---
 
-The React Native ecosystem is far and wide, and people can be part of it in many forms; here you will find but a partial list of different ways one developer can be part of it. If you know of other, or want to help expand this page, [submit a PR](https://github.com/facebook/react-native-website/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc)!
+The React Native ecosystem is far and wide, and people can be part of it in many forms; here you will find but a partial list of different ways one developer can be part of it. If you know of other, or want to help expand this page, [submit a PR](https://github.com/react/react-native-website/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc)!
 
 ### Local communities
 
@@ -34,4 +34,4 @@ React Native tagged content can be found on many platforms, such as:
 - [Hacker News](https://hn.algolia.com/?q=react-native)
 - [r/reactnative/](https://www.reddit.com/r/reactnative/)
 
-These are places where you can share React Native projects, articles and tutorials as well as start discussions and ask for feedback on React Native related topics. (but remember to give some love to the [main documentation](https://github.com/facebook/react-native-website) too!)
+These are places where you can share React Native projects, articles and tutorials as well as start discussions and ask for feedback on React Native related topics. (but remember to give some love to the [main documentation](https://github.com/react/react-native-website) too!)

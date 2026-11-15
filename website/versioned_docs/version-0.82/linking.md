@@ -87,7 +87,7 @@ If your app is using [Universal Links](https://developer.apple.com/ios/universal
 <TabItem value="swift">
 
 ```swift title="AppDelegate.swift"
-override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
   return RCTLinkingManager.application(app, open: url, options: options)
 }
 ```
@@ -95,7 +95,7 @@ override func application(_ app: UIApplication, open url: URL, options: [UIAppli
 If your app is using [Universal Links](https://developer.apple.com/ios/universal-links/), you'll need to add the following code as well:
 
 ```swift title="AppDelegate.swift"
-override func application(
+func application(
   _ application: UIApplication,
   continue userActivity: NSUserActivity,
   restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
@@ -137,7 +137,7 @@ You can handle these events with `Linking.getInitialURL()` - it returns a Promis
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
 const supportedURL = 'https://google.com';
@@ -185,7 +185,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=tsx
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
 const supportedURL = 'https://google.com';
@@ -243,7 +243,7 @@ export default App;
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Button, Linking, StyleSheet, View} from 'react-native';
 
 const OpenSettingsButton = ({children}) => {
@@ -278,7 +278,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=tsx
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Button, Linking, StyleSheet, View} from 'react-native';
 
 type OpenSettingsButtonProps = {
@@ -322,7 +322,7 @@ export default App;
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {Linking, StyleSheet, Text, View} from 'react-native';
 
 const useInitialURL = () => {
@@ -376,7 +376,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=tsx
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {Linking, StyleSheet, Text, View} from 'react-native';
 
 const useInitialURL = () => {
@@ -435,7 +435,7 @@ export default App;
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=android&ext=js
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
 const SendIntentButton = ({action, extras, children}) => {
@@ -485,7 +485,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Linking%20Example&ext=tsx
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
 type SendIntentButtonProps = {
@@ -557,7 +557,7 @@ export default App;
 static addEventListener(
   type: 'url',
   handler: (event: {url: string}) => void,
-): EmitterSubscription;
+): EventSubscription;
 ```
 
 Add a handler to Linking changes by listening to the `url` event type and providing the handler.

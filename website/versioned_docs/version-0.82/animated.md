@@ -15,14 +15,20 @@ Don't modify the animated value directly. You can use the [`useRef` Hook](https:
 
 The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
 
-```SnackPlayer name=Animated%20Example
-import React, {useRef} from 'react';
+```SnackPlayer name=Animated%20Example&supportedPlatforms=ios,android
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
-import {Animated, Text, View, StyleSheet, Button} from 'react-native';
+import {
+  Animated,
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  useAnimatedValue,
+} from 'react-native';
 
 const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeAnim = useAnimatedValue(0);
 
   const fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds

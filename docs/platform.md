@@ -6,7 +6,6 @@ title: Platform
 ## Example
 
 ```SnackPlayer name=Platform%20API%20Example&supportedPlatforms=ios,android
-import React from 'react';
 import {Platform, StyleSheet, Text, ScrollView} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -74,6 +73,7 @@ Returns an object which contains all available common and specific constants rel
 
 | <div className="widerColumn">Name</div>                   | Type    | Optional | Description                                                                                                                                                                                       |
 | --------------------------------------------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| isDisableAnimations                                       | boolean | Yes      | Whether animations should be disabled. When not set, defaults to the value of `isTesting`.                                                                                                        |
 | isTesting                                                 | boolean | No       |                                                                                                                                                                                                   |
 | reactNativeVersion                                        | object  | No       | Information about React Native version. Keys are `major`, `minor`, `patch` with optional `prerelease` and values are `number`s.                                                                   |
 | Version <div className="label android">Android</div>      | number  | No       | OS version constant specific to Android.                                                                                                                                                          |
@@ -89,6 +89,20 @@ Returns an object which contains all available common and specific constants rel
 | interfaceIdiom <div className="label ios">iOS</div>       | string  | No       | The interface type for the device. Read more about [UIUserInterfaceIdiom](https://developer.apple.com/documentation/uikit/uiuserinterfaceidiom).                                                  |
 | osVersion <div className="label ios">iOS</div>            | string  | No       | OS version constant specific to iOS.                                                                                                                                                              |
 | systemName <div className="label ios">iOS</div>           | string  | No       | OS name constant specific to iOS.                                                                                                                                                                 |
+
+---
+
+### `isDisableAnimations`
+
+```tsx
+static isDisableAnimations: boolean;
+```
+
+Returns `true` when animations are turned off, usually during automated tests. Falls back to [`isTesting`](#istesting) if not set. On Android, it can be set with the `IS_DISABLE_ANIMATIONS` system property.
+
+| Type    |
+| ------- |
+| boolean |
 
 ---
 

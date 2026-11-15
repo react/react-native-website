@@ -43,7 +43,6 @@ React Native has many Core Components for everything from controls to activity i
 In the next section, you will start combining these Core Components to learn about how React works. Have a play with them here now!
 
 ```SnackPlayer name=Hello%20World
-import React from 'react';
 import {View, Text, Image, ScrollView, TextInput} from 'react-native';
 
 const App = () => {

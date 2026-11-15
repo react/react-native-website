@@ -107,7 +107,6 @@ Now you can use the command in the the app.
 Open the `App.tsx` file and modify it as it follows:
 
 ```diff title="App.tsx"
-import React from 'react';
 -import {Alert, StyleSheet, View} from 'react-native';
 -import WebView from '../specs/WebViewNativeComponent';
 +import {Alert, StyleSheet, Pressable, Text, View} from 'react-native';
@@ -186,7 +185,6 @@ export default App;
 Open the `App.tsx` file and modify it as it follows:
 
 ```diff title="App.jsx"
-import React from 'react';
 -import {Alert, StyleSheet, View} from 'react-native';
 -import WebView from '../specs/WebViewNativeComponent';
 +import {Alert, StyleSheet, Pressable, Text, View} from 'react-native';

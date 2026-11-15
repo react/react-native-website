@@ -15,7 +15,6 @@ Virtualization massively improves memory consumption and performance of large li
 <TabItem value="javascript">
 
 ```SnackPlayer name=VirtualizedListExample&ext=js
-import React from 'react';
 import {View, VirtualizedList, StyleSheet, Text, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -71,7 +70,6 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=VirtualizedListExample&ext=tsx
-import React from 'react';
 import {View, VirtualizedList, StyleSheet, Text, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -300,7 +298,7 @@ Styling for internal View for `ListHeaderComponent`.
 
 ### `disableVirtualization`
 
-:::warning Deprecated
+:::warning[Deprecated]
 Virtualization provides significant performance and memory optimizations, but fully unmounts react instances that are outside of the render window. You should only need to disable this for debugging purposes.
 :::
 

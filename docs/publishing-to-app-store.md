@@ -3,6 +3,8 @@ id: publishing-to-app-store
 title: Publishing to Apple App Store
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+
 The publishing process is the same as any other native iOS app, with some additional considerations to take into account.
 
 :::info
@@ -13,20 +15,17 @@ If you are using Expo, read the Expo guide for [Deploying to App Stores](https:/
 
 Building an app for distribution in the App Store requires using the `Release` scheme in Xcode. Apps built for `Release` will automatically disable the in-app Dev Menu, which will prevent your users from inadvertently accessing the menu in production. It will also bundle the JavaScript locally, so you can put the app on a device and test whilst not connected to the computer.
 
-To configure your app to be built using the `Release` scheme, go to **Product** → **Scheme** → **Edit Scheme**. Select the **Run** tab in the sidebar, then set the Build Configuration dropdown to `Release`.
+To configure your app to be built using the `Release` scheme, go to **Product** → **Scheme** → **Edit Scheme**. Select the **Run** tab in the sidebar, then set the **Build Configuration** dropdown to `Release`.
 
-![](/docs/assets/ConfigureReleaseScheme.png)
+<ThemedImage
+alt="Xcode Release Scheme configuration"
+sources={{
+    light: '/docs/assets/ConfigureReleaseScheme.png',
+    dark: '/docs/assets/ConfigureReleaseSchemeDark.png',
+  }}
+/>
 
 #### Pro Tips
-
-As your App Bundle grows in size, you may start to see a blank screen flash between your splash screen and the display of your root application view. If this is the case, you can add the following code to `AppDelegate.m` in order to keep your splash screen displayed during the transition.
-
-```objectivec
-  // Place this code after "[self.window makeKeyAndVisible]" and before "return YES;"
-  UIStoryboard *sb = [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
-  UIViewController *vc = [sb instantiateInitialViewController];
-  rootView.loadingView = vc.view;
-```
 
 The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
 

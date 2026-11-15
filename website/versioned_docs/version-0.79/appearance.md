@@ -96,7 +96,7 @@ Supported color schemes:
 ```tsx
 static addChangeListener(
   listener: (preferences: {colorScheme: 'light' | 'dark' | null}) => void,
-): NativeEventSubscription;
+): EventSubscription;
 ```
 
 Add an event handler that is fired when appearance preferences change.

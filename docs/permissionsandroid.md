@@ -17,7 +17,6 @@ If a user has previously turned off a permission that you prompt for, the OS wil
 ### Example
 
 ```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
-import React from 'react';
 import {
   Button,
   PermissionsAndroid,

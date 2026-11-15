@@ -393,14 +393,14 @@ If everything is set up correctly, your device will be listed as the build targe
 ![](/docs/assets/RunningOnDeviceReady.png)
 
 :::note
-If you run into any issues, please take a look at Apple's [Launching Your App on a Device](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/LaunchingYourApponDevices/LaunchingYourApponDevices.html#//apple_ref/doc/uid/TP40012582-CH27-SW4) docs.
+If you run into any issues, please take a look at Apple's [Launching Your App on a Device](https://help.apple.com/xcode/mac/current/#/dev60b6fbbc7) docs.
 :::
 
 <h2>Connecting to the development server</h2>
 
 You can also iterate quickly on a device using the development server. You only have to be on the same Wi-Fi network as your computer. Shake your device to open the [Dev Menu](debugging.md#opening-the-dev-menu), then enable Fast Refresh. Your app will reload whenever your JavaScript code has changed.
 
-![](/docs/assets/debugging-dev-menu-076.jpg)
+![](/docs/assets/debugging-dev-menu-083.jpg)
 
 ### Troubleshooting
 

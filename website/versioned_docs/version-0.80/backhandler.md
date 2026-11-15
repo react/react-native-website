@@ -50,7 +50,7 @@ subscription.remove();
 The following example implements a scenario where you confirm if the user wants to exit the app:
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {Text, StyleSheet, BackHandler, Alert} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-`BackHandler.addEventListener` creates an event listener & returns a `NativeEventSubscription` object which should be cleared using `NativeEventSubscription.remove` method.
+`BackHandler.addEventListener` creates an event listener & returns an `EventSubscription` object which should be cleared using the `EventSubscription.remove` method.
 
 ## Usage with React Navigation
 
@@ -122,7 +122,7 @@ If you are using React Navigation to navigate across different screens, you can 
 static addEventListener(
   eventName: BackPressEventName,
   handler: () => boolean | null | undefined,
-): NativeEventSubscription;
+): EventSubscription;
 ```
 
 ---

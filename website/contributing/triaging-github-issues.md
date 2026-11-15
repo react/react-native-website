@@ -2,7 +2,7 @@
 title: Triaging GitHub Issues
 ---
 
-Start out by looking at issues that need triage, as identified by the ["Needs: Triage" label](https://github.com/facebook/react-native/issues?q=is%3Aissue+is%3Aopen+label%3A%22Needs%3A+Triage+%3Amag%3A%22).
+Start out by looking at issues that need triage, as identified by the ["Needs: Triage" label](https://github.com/react/react-native/issues?q=is%3Aissue+is%3Aopen+label%3A%22Needs%3A+Triage+%3Amag%3A%22).
 
 - Is this a request for code-level help with an individual app? Would this be a better fit for Stack Overflow? If so, apply the "Resolution: For Stack Overflow" label.
 - Does this issue make appropriate use of the template? If not, apply the "Needs: Template" label.
@@ -27,7 +27,7 @@ If the issue contains an unformatted block of code, surround it with three back 
 
 Are there any labels you can add to help categorize it better? If the issue only affects Android apps, you may add a "Platform: Android" label. Perhaps the issue only manifests itself when developing on Windows, in which case you might add the "Platform: Windows" label.
 
-We have a long list of [labels](https://github.com/facebook/react-native/issues/labels), please take a look and see if anything might apply!
+We have a long list of [labels](https://github.com/react/react-native/issues/labels), please take a look and see if anything might apply!
 
 ## Handling Duplicates
 

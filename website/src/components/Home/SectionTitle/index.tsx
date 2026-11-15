@@ -5,23 +5,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import {ReactNode} from 'react';
 
 import styles from './styles.module.css';
 
-function SectionTitle({
-  title,
-  description,
-}: {
+type Props = {
   title: string;
-  description?: React.ReactNode;
-}) {
+  description?: ReactNode;
+};
+
+function SectionTitle({title, description}: Props) {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>{title}</h1>
-      {description ? (
-        <h3 className={styles.description}>{description}</h3>
-      ) : null}
+      <h2 className={styles.title}>{title}</h2>
+      {description ? <p className={styles.description}>{description}</p> : null}
     </div>
   );
 }

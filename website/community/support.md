@@ -7,7 +7,7 @@ If you need help with your React Native app, the right place to go depends on th
 
 ### Repository
 
-The core of **React Native** is worked on full-time by Meta's React Native team. But there are far more people in the community who make key contributions and fix things. If the issue you are facing is code related, you should check the open issues in the [main repository](https://github.com/facebook/react-native/issues).
+The core of **React Native** is worked on full-time by Meta's React Native team. But there are far more people in the community who make key contributions and fix things. If the issue you are facing is code related, you should check the open issues in the [main repository](https://github.com/react/react-native/issues).
 
 If you cannot find an existing issue, please refer to [How to report a bug](/contributing/how-to-report-a-bug).
 

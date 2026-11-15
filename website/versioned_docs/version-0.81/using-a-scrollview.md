@@ -8,7 +8,6 @@ The [ScrollView](scrollview.md) is a generic scrolling container that can contai
 This example creates a vertical `ScrollView` with both images and text mixed together.
 
 ```SnackPlayer name=Using%20ScrollView
-import React from 'react';
 import {Image, ScrollView, Text} from 'react-native';
 
 const logo = {

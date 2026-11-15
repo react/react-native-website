@@ -34,7 +34,7 @@ To make this work on mobile, we need to use Android and iOS APIs:
 
 ### 1. Declare Typed Specification
 
-React Native provides a tool called [Codegen](/the-new-architecture/what-is-codegen.md), which takes a specification written in TypeScript or Flow and generates platform specific code for Android and iOS. The specification declares the methods and data types that will pass back and forth between your native code and the React Native JavaScript runtime. A Turbo Native Module is both your specification, the native code you write, and the Codegen interfaces generated from your specification.
+React Native provides a tool called [Codegen](/the-new-architecture/what-is-codegen.mdx), which takes a specification written in TypeScript or Flow and generates platform specific code for Android and iOS. The specification declares the methods and data types that will pass back and forth between your native code and the React Native JavaScript runtime. A Turbo Native Module is both your specification, the native code you write, and the Codegen interfaces generated from your specification.
 
 To create a specs file:
 
@@ -43,6 +43,10 @@ To create a specs file:
 
 :::info
 You can see all of the types you can use in your specification and the native types that are generated in the [Appendix](/appendix.md) documentation.
+:::
+
+:::info
+If you want to change the name of your module and the related specs file, make sure to always use 'Native' as prefix (e.g. `NativeStorage` or `NativeUsersDefault`).
 :::
 
 Here is an implementation of the `localStorage` specification:
@@ -158,7 +162,7 @@ The `TurboModuleRegistry` supports 2 modes of retrieving a Turbo Native Module:
 - `getEnforcing<T>(name: string): T` which will throw an exception if the Turbo Native Module is unavailable. This assumes the module is always available.
 
 ```tsx title="App.tsx"
-import React from 'react';
+import {useEffect, useState, type JSX} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -171,14 +175,14 @@ import NativeLocalStorage from './specs/NativeLocalStorage';
 
 const EMPTY = '<empty>';
 
-function App(): React.JSX.Element {
-  const [value, setValue] = React.useState<string | null>(null);
+function App(): JSX.Element {
+  const [value, setValue] = useState<string | null>(null);
 
-  const [editingValue, setEditingValue] = React.useState<
-    string | null
-  >(null);
+  const [editingValue, setEditingValue] = useState<string | null>(
+    null,
+  );
 
-  React.useEffect(() => {
+  useEffect(() => {
     const storedValue = NativeLocalStorage?.getItem('myKey');
     setValue(storedValue ?? '');
   }, []);

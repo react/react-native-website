@@ -8,7 +8,7 @@ title: Animated.ValueXY
 ## Example
 
 ```SnackPlayer name=Animated.ValueXY%20Example
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import {Animated, PanResponder, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

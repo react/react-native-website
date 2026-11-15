@@ -72,7 +72,7 @@ const Component = Platform.select({
 <Component />;
 ```
 
-### Detecting the Android version <div className="label android" title="This section is related to Android platform">Android</div>
+### Detecting the Android version <div className="label android">Android</div>
 
 On Android, the `Platform` module can also be used to detect the version of the Android Platform in which the app is running:
 
@@ -86,7 +86,7 @@ if (Platform.Version === 25) {
 
 **Note**: `Version` is set to the Android API version not the Android OS version. To find a mapping please refer to [Android Version History](https://en.wikipedia.org/wiki/Android_version_history#Overview).
 
-### Detecting the iOS version <div className="label ios" title="This section is related to iOS platform">iOS</div>
+### Detecting the iOS version <div className="label ios">iOS</div>
 
 On iOS, the `Version` is a result of `-[UIDevice systemVersion]`, which is a string with the current version of the operating system. An example of the system version is "10.3". For example, to detect the major version number on iOS:
 

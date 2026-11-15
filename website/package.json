@@ -5,9 +5,9 @@
   "private": true,
   "license": "CC-BY-4.0",
   "homepage": "https://reactnative.dev/",
-  "repository": "github:facebook/react-native-website",
+  "repository": "github:react/react-native-website",
   "bugs": {
-    "url": "https://github.com/facebook/react-native-website/issues"
+    "url": "https://github.com/react/react-native-website/issues"
   },
   "scripts": {
     "docusaurus": "docusaurus",
@@ -24,13 +24,19 @@
     "format:style": "prettier --write src/**/*.scss",
     "format:examples": "eslint-examples-jsx --fix && eslint-examples-tsx --fix",
     "prettier": "yarn format:style",
-    "lint": "yarn lint:website",
+    "lint": "yarn --cwd ../ lint:website",
+    "lint:styles": "stylelint **/*.{scss,css}",
     "lint:examples": "eslint-examples-jsx && eslint-examples-tsx && tsc-examples",
     "lint:markdown:images": "node ../scripts/src/image-check.ts",
     "lint:markdown:links": "remark ../docs --quiet -r .remarkrc.withBrokenLinks.mjs",
-    "ci:lint": "yarn lint:examples && yarn lint:markdown:images && prettier --check src/**/*.scss",
+    "ci:lint": "yarn lint && yarn lint:styles && yarn lint:examples && yarn lint:markdown:images && prettier --check src/**/*.scss",
     "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --padding '40px' --background 'rgb(32, 35, 42)' --icon-only --opaque true",
-    "update-redirects": "node ../scripts/src/update-redirects.ts"
+    "update-redirects": "node ../scripts/src/update-redirects.ts",
+    "build:vercel": "docusaurus build",
+    "build:vercel:fast": "VERCEL=1 VERCEL_ENV=preview docusaurus build",
+    "deploy:vercel": "vercel",
+    "deploy:vercel:prod": "vercel --prod",
+    "dev:vercel": "vercel dev"
   },
   "browserslist": {
     "production": [
@@ -45,29 +51,35 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "3.9.2",
-    "@docusaurus/faster": "3.9.2",
-    "@docusaurus/plugin-google-gtag": "3.9.2",
-    "@docusaurus/plugin-pwa": "3.9.2",
-    "@docusaurus/preset-classic": "3.9.2",
-    "docusaurus-plugin-sass": "^0.2.6",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/faster": "3.10.2",
+    "@docusaurus/plugin-google-gtag": "3.10.2",
+    "@docusaurus/plugin-pwa": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@docusaurus/theme-mermaid": "3.10.2",
+    "docusaurus-plugin-copy-page-button": "^0.8.5",
+    "docusaurus-plugin-sass": "^0.2.7",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "react-github-btn": "^1.4.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.9.2",
-    "@docusaurus/tsconfig": "3.9.2",
-    "@docusaurus/types": "3.9.2",
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
+    "@prettier/plugin-oxc": "^0.2.3",
     "@react-native-website/lint-examples": "*",
     "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
     "@types/google.analytics": "^0.0.46",
-    "@types/react": "^19.1.17",
-    "eslint": "^9.39.1",
-    "glob": "^13.0.0",
-    "prettier": "^3.6.2",
+    "@types/react": "19.2.18",
+    "eslint": "^9.39.4",
+    "glob": "^14.0.2",
+    "prettier": "^3.9.10",
     "remark-cli": "^12.0.1",
-    "sass": "1.94.2",
-    "typescript": "^5.9.3"
+    "sass": "1.105.1",
+    "stylelint": "^17.16.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "stylelint-scss": "^7.3.0",
+    "typescript": "^6.0.3"
   }
 }

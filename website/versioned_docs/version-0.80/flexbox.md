@@ -21,7 +21,6 @@ The defaults are different, with `flexDirection` defaulting to `column` instead 
 In the following example, the red, orange, and green views are all children in the container view that has `flex: 1` set. The red view uses `flex: 1` , the orange view uses `flex: 2`, and the green view uses `flex: 3` . **1+2+3 = 6**, which means that the red view will get `1/6` of the space, the orange `2/6` of the space, and the green `3/6` of the space.
 
 ```SnackPlayer name=Flex%20Example
-import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 const Flex = () => {
@@ -69,7 +68,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/flex-direction
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Direction&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const FlexDirectionBasics = () => {
@@ -168,7 +167,7 @@ export default FlexDirectionBasics;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Flex%20Direction&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -286,7 +285,7 @@ Layout [`direction`](layout-props#direction) specifies the direction in which ch
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Direction&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const DirectionLayout = () => {
@@ -385,7 +384,7 @@ export default DirectionLayout;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Flex%20Direction&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -513,7 +512,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/justify-conten
 <TabItem value="javascript">
 
 ```SnackPlayer name=Justify%20Content&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const JustifyContentBasics = () => {
@@ -619,7 +618,7 @@ export default JustifyContentBasics;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Justify%20Content&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -756,7 +755,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/align-items-se
 <TabItem value="javascript">
 
 ```SnackPlayer name=Align%20Items&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const AlignItemsLayout = () => {
@@ -865,7 +864,7 @@ export default AlignItemsLayout;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Align%20Items&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -989,7 +988,7 @@ export default AlignItemsLayout;
 <TabItem value="javascript">
 
 ```SnackPlayer name=Align%20Self&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const AlignSelfLayout = () => {
@@ -1099,7 +1098,7 @@ export default AlignSelfLayout;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Align%20Self&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 import type {FlexAlignType} from 'react-native';
@@ -1241,7 +1240,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/align-content)
 <TabItem value="javascript">
 
 ```SnackPlayer name=Align%20Content&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const AlignContentLayout = () => {
@@ -1353,7 +1352,7 @@ export default AlignContentLayout;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Align%20Content&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -1482,7 +1481,7 @@ When wrapping lines, `alignContent` can be used to specify how the lines are pla
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Wrap&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const FlexWrapLayout = () => {
@@ -1585,7 +1584,7 @@ export default FlexWrapLayout;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Flex%20Wrap&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -1713,7 +1712,7 @@ You can learn more [here](https://www.yogalayout.dev/docs/styling/flex-basis-gro
 <TabItem value="javascript">
 
 ```SnackPlayer name=Flex%20Basis%2C%20Grow%2C%20and%20Shrink&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 
 const App = () => {
@@ -1887,7 +1886,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Flex%20Basis%2C%20Grow%2C%20and%20Shrink&ext=tsx
-import React, {useState} from 'react';
+import {useState, type Dispatch, type SetStateAction} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 import type {ViewStyle} from 'react-native';
 
@@ -1962,7 +1961,7 @@ const App = () => {
 
 type BoxInfoProps = ViewStyle & {
   color: string;
-  setStyle: React.Dispatch<React.SetStateAction<ViewStyle>>;
+  setStyle: Dispatch<SetStateAction<ViewStyle>>;
 };
 
 const BoxInfo = ({
@@ -2080,13 +2079,13 @@ export default App;
 
 - [`gap`](layout-props#gap) sets the size of the gap (gutter) between rows and columns. It is a shorthand for `rowGap` and `columnGap`.
 
-You can use `flexWrap` and `alignContent` along with `gap` to add consistent spacing between items.
+You can use `flexWrap` and `alignContent` along with `gap` to add consistent spacing between items. Gap properties accept numeric values (in points) or percentage strings (e.g. `'10%'` on the [New Architecture](/architecture/landing-page)).
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=Row%20Gap%20and%20Column%20Gap&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 
 const RowGapAndColumnGap = () => {
@@ -2188,7 +2187,7 @@ export default RowGapAndColumnGap;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Row%20Gap%20and%20Column%20Gap&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 import type {PropsWithChildren} from 'react';
 
@@ -2313,7 +2312,7 @@ Both `width` and `height` can take the following values:
 <TabItem value="javascript">
 
 ```SnackPlayer name=Width%20and%20Height&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -2439,7 +2438,7 @@ export default WidthHeightBasics;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Width%20and%20Height&ext=tsx
-import React, {useState, PropsWithChildren} from 'react';
+import {useState, PropsWithChildren} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -2589,7 +2588,7 @@ The `position` type of an element defines how it is positioned relative to eithe
 <TabItem value="javascript">
 
 ```SnackPlayer name=Position&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const PositionLayout = () => {
@@ -2719,7 +2718,7 @@ export default PositionLayout;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Position&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import type {PropsWithChildren} from 'react';
 

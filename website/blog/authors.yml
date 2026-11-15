@@ -366,3 +366,61 @@ vzaidman:
     github: vzaidman
     threads: vzaidman
   image_url: https://github.com/vzaidman.png
+
+alanleedev:
+  name: Alan Lee
+  title: Software Engineer @ Meta
+  socials:
+    github: alanleedev
+  image_url: https://github.com/alanleedev.png
+
+lukaszchludzinski:
+  name: Łukasz Chludziński
+  title: Engineering Manager @ Callstack
+  socials:
+    x: lukasz_app
+    github: lukasz-app
+  image_url: https://github.com/lukasz-app.png
+
+janjaworski:
+  name: Jan Jaworski
+  title: Software Engineer @ Callstack
+  socials:
+    x: jaworek3211
+    github: jaworek
+  image_url: https://github.com/jaworek.png
+
+markusleyendecker:
+  name: Markus Leyendecker
+  title: Product Manager @ Meta
+  socials:
+    github: mliond
+  image_url: https://github.com/mliond.png
+
+CalixTang:
+  name: Calix Tang
+  title: Software Engineer @ Meta
+  socials:
+    github: CalixTang
+  image_url: https://github.com/CalixTang.png
+
+zoontek:
+  name: Mathieu Acthernoene
+  title: Software Engineer @ Expo
+  socials:
+    github: zoontek
+  image_url: https://github.com/zoontek.png
+
+bartlomiejbloniarz:
+  name: Bartłomiej Błoniarz
+  title: Software Engineer @ Software Mansion
+  socials:
+    github: bartlomiejbloniarz
+  image_url: https://github.com/bartlomiejbloniarz.png
+
+zeyap:
+  name: Zeya Peng
+  title: Software Engineer @ Meta
+  socials:
+    github: zeyap
+  image_url: https://github.com/zeyap.png

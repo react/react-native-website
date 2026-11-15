@@ -1,4 +1,3 @@
-import React from 'react';
 import IOSContent from './fabric-native-components-ios.md';
 import AndroidContent from './fabric-native-components-android.md';
 

@@ -15,7 +15,7 @@ It is possible to have multiple `StatusBar` components mounted at the same time.
 <TabItem value="javascript">
 
 ```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   Button,
   Platform,
@@ -123,7 +123,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   Button,
   Platform,
@@ -438,7 +438,11 @@ Show or hide the status bar.
 
 ---
 
-### `setNetworkActivityIndicatorVisible()` <div className="label ios">iOS</div>
+### 🗑️ `setNetworkActivityIndicatorVisible()` <div className="label ios">iOS</div>
+
+:::warning[Deprecated]
+The status bar network activity indicator is not supported in iOS 13 and later. This will be removed in a future release.
+:::
 
 ```tsx
 static setNetworkActivityIndicatorVisible(visible: boolean);

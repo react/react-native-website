@@ -26,7 +26,6 @@ If you need section support, use [`<SectionList>`](sectionlist.md).
 <TabItem value="javascript">
 
 ```SnackPlayer name=Simple%20FlatList%20Example&ext=js
-import React from 'react';
 import {View, FlatList, StyleSheet, Text, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -86,7 +85,6 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Simple%20FlatList%20Example&ext=tsx
-import React from 'react';
 import {View, FlatList, StyleSheet, Text, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -151,14 +149,14 @@ To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop.
 
 More complex, selectable example below.
 
-- By passing `extraData={selectedId}` to `FlatList` we make sure `FlatList` itself will re-render when the state changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is a `PureComponent` and the prop comparison will not show any changes.
+- Passing `extraData={selectedId}` to `FlatList` ensures that `FlatList` re-renders when `selectedId` changes. Because `FlatList` implements `PureComponent`, it only re-renders if its props change. While `renderItem` in this example is recreated on each render because it is defined inline, passing `extraData` is essential whenever `renderItem` has a stable reference (such as when memoized or defined outside the component) so that `FlatList` knows that an external dependency has updated.
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=flatlist-selectable&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   FlatList,
   StatusBar,
@@ -242,7 +240,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=flatlist-selectable&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   FlatList,
   StatusBar,

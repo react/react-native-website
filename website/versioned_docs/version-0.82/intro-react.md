@@ -22,7 +22,6 @@ If you want to dig deeper, we encourage you to check out [React’s official doc
 The rest of this introduction to React uses cats in its examples: friendly, approachable creatures that need names and a cafe to work in. Here is your very first Cat component:
 
 ```SnackPlayer name=Your%20Cat
-import React from 'react';
 import {Text} from 'react-native';
 
 const Cat = () => {
@@ -32,10 +31,9 @@ const Cat = () => {
 export default Cat;
 ```
 
-Here is how you do it: To define your `Cat` component, first use JavaScript’s [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to import React and React Native’s [`Text`](/docs/next/text) Core Component:
+Here is how you do it: To define your `Cat` component, first use JavaScript’s [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to import React Native’s [`Text`](/docs/next/text) Core Component:
 
 ```tsx
-import React from 'react';
 import {Text} from 'react-native';
 ```
 
@@ -76,7 +74,6 @@ Now take a closer look at that `return` statement. `<Text>Hello, I am your cat!<
 React and React Native use **JSX,** a syntax that lets you write elements inside JavaScript like so: `<Text>Hello, I am your cat!</Text>`. The React docs have [a comprehensive guide to JSX](https://react.dev/learn/writing-markup-with-jsx) you can refer to learn even more. Because JSX is JavaScript, you can use variables inside it. Here you are declaring a name for the cat, `name`, and embedding it with curly braces inside `<Text>`.
 
 ```SnackPlayer name=Curly%20Braces
-import React from 'react';
 import {Text} from 'react-native';
 
 const Cat = () => {
@@ -93,7 +90,6 @@ Any JavaScript expression will work between curly braces, including function cal
 <TabItem value="javascript">
 
 ```SnackPlayer name=Curly%20Braces&ext=js
-import React from 'react';
 import {Text} from 'react-native';
 
 const getFullName = (firstName, secondName, thirdName) => {
@@ -111,7 +107,6 @@ export default Cat;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Curly%20Braces&ext=tsx
-import React from 'react';
 import {Text} from 'react-native';
 
 const getFullName = (
@@ -134,10 +129,6 @@ export default Cat;
 
 You can think of curly braces as creating a portal into JS functionality in your JSX!
 
-:::tip
-Because JSX is included in the React library, it won’t work if you don’t have `import React from 'react'` at the top of your file!
-:::
-
 ## Custom Components
 
 You’ve already met [React Native’s Core Components](intro-react-native-components). React lets you nest these components inside each other to create new components. These nestable, reusable components are at the heart of the React paradigm.
@@ -145,7 +136,6 @@ You’ve already met [React Native’s Core Components](intro-react-native-compo
 For example, you can nest [`Text`](text) and [`TextInput`](textinput) inside a [`View`](view) below, and React Native will render them together:
 
 ```SnackPlayer name=Custom%20Components
-import React from 'react';
 import {Text, TextInput, View} from 'react-native';
 
 const Cat = () => {
@@ -190,7 +180,6 @@ On Android, you usually put your views inside `LinearLayout`, `FrameLayout`, `Re
 You can render this component multiple times and in multiple places without repeating your code by using `<Cat>`:
 
 ```SnackPlayer name=Multiple%20Components
-import React from 'react';
 import {Text, View} from 'react-native';
 
 const Cat = () => {
@@ -227,7 +216,6 @@ You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique
 <TabItem value="javascript">
 
 ```SnackPlayer name=Multiple%20Props&ext=js
-import React from 'react';
 import {Text, View} from 'react-native';
 
 const Cat = props => {
@@ -255,7 +243,6 @@ export default Cafe;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Multiple%20Props&ext=tsx
-import React from 'react';
 import {Text, View} from 'react-native';
 
 type CatProps = {
@@ -289,7 +276,6 @@ export default Cafe;
 Most of React Native’s Core Components can be customized with props, too. For example, when using [`Image`](image), you pass it a prop named [`source`](image#source) to define what image it shows:
 
 ```SnackPlayer name=Props
-import React from 'react';
 import {Text, View, Image} from 'react-native';
 
 const CatApp = () => {
@@ -333,7 +319,7 @@ You can add state to a component by calling [React’s `useState` Hook](https://
 <TabItem value="javascript">
 
 ```SnackPlayer name=State&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Button, Text, View} from 'react-native';
 
 const Cat = props => {
@@ -371,7 +357,7 @@ export default Cafe;
 <TabItem value="typescript">
 
 ```SnackPlayer name=State&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Button, Text, View} from 'react-native';
 
 type CatProps = {
@@ -415,7 +401,7 @@ export default Cafe;
 First, you will want to import `useState` from React like so:
 
 ```tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 ```
 
 Then you declare the component’s state by calling `useState` inside its function. In this example, `useState` creates an `isHungry` state variable:
@@ -460,7 +446,8 @@ Now, when someone presses the button, `onPress` will fire, calling the `setIsHun
 ```
 
 :::info
-You might’ve noticed that although `isHungry` is a [const](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is when a state-setting function like `setIsHungry` is called, its component will re-render. In this case the `Cat` function will run again—and this time, `useState` will give us the next value of `isHungry`.
+You might’ve noticed that although `isHungry` is a [const](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! The `const` keyword here does not mean that the state itself is immutable. Rather, it means that the reference to the object, that contains the state and the function to update it, will not change.
+What is happening is when a state-setting function like `setIsHungry` is called, its component will re-render. In this case the `Cat` function will run again—and this time, `useState` will give us the next value of `isHungry`.
 :::
 
 Finally, put your cats inside a `Cafe` component:

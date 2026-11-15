@@ -8,7 +8,6 @@ title: Image Style Props
 ### Image Resize Mode
 
 ```SnackPlayer name=Image%20Resize%20Modes%20Example
-import React from 'react';
 import {View, Image, Text, StyleSheet, ScrollView} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -82,7 +81,6 @@ export default DisplayAnImageWithStyle;
 ### Image Border
 
 ```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Example
-import React from 'react';
 import {Image, StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -118,7 +116,6 @@ export default DisplayAnImageWithStyle;
 ### Image Border Radius
 
 ```SnackPlayer name=Style%20Border%20Radius%20Example
-import React from 'react';
 import {View, Image, StyleSheet, Text, ScrollView} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -184,7 +181,6 @@ export default DisplayAnImageWithStyle;
 ### Image Tint
 
 ```SnackPlayer name=Style%20tintColor%20Function%20Component
-import React from 'react';
 import {Image, StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

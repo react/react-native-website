@@ -7,14 +7,20 @@
 
 // Forked from: https://github.com/davidtheclark/remark-lint-no-dead-urls
 
-import {Method, RequestError} from 'got';
-import {Root} from 'mdast';
+import {type Method, RequestError} from 'got';
 import {URL} from 'node:url';
 import {lintRule} from 'unified-lint-rule';
 import {visit} from 'unist-util-visit';
-import type {VFile} from 'vfile';
+import {type VFile} from 'vfile';
 
-import {fetch} from './lib.js';
+import {fetch} from './lib.ts';
+import type {MDASTNode} from './types.d.ts';
+
+export type Options = {
+  baseUrl?: string;
+  skipUrlPatterns?: RegExp[];
+  headers?: Record<string, string>;
+};
 
 const linkCache = new Map();
 
@@ -32,11 +38,7 @@ const uri = {
   isPath: (url: string) => /^\/.*/.test(url),
 };
 
-async function cacheFetch(
-  urlOrPath: string,
-  method: Method,
-  options: {baseUrl?: string} & Record<string, unknown>
-) {
+async function cacheFetch(urlOrPath: string, method: Method, options: Options) {
   if (linkCache.has(urlOrPath)) {
     return [urlOrPath, linkCache.get(urlOrPath)];
   }
@@ -50,10 +52,7 @@ async function cacheFetch(
   return [urlOrPath, code];
 }
 
-async function naiveLinkCheck(
-  urls: string[],
-  options: {baseUrl?: string} & Record<string, unknown>
-) {
+async function naiveLinkCheck(urls: string[], options: Options) {
   return Promise.allSettled(
     urls.map(async url => {
       try {
@@ -62,11 +61,11 @@ async function naiveLinkCheck(
         try {
           // Fallback, some endpoints don't support HEAD requests
           return await cacheFetch(url, 'GET', options);
-        } catch (e) {
-          if (!(e instanceof RequestError)) {
-            throw e;
+        } catch (err) {
+          if (!(err instanceof RequestError)) {
+            throw err;
           }
-          const code = e.response?.statusCode ?? e.code;
+          const code = err.response?.statusCode ?? err.code;
           linkCache.set(url, code);
           return [url, code];
         }
@@ -75,14 +74,7 @@ async function naiveLinkCheck(
   );
 }
 
-async function noDeadUrls(
-  ast: Root,
-  file: VFile,
-  options: {
-    skipUrlPatterns?: string[];
-    baseUrl?: string;
-  } & Record<string, unknown> = {}
-) {
+async function noDeadUrls(ast: MDASTNode, file: VFile, options: Options) {
   const urlToNodes = new Map();
 
   const {skipUrlPatterns, ...clientOptions} = options;

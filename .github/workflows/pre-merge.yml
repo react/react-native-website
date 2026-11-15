@@ -5,24 +5,24 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Enable Corepack
-        run: corepack enable
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "22"
           cache: yarn
 
       - name: Check lock for duplications
-        run: yarn dedupe --check
+        run: yarn update-lock --fail
 
       - name: Install dependencies
         run: yarn install --immutable
@@ -30,8 +30,49 @@ jobs:
       - name: Check dependencies alignment
         run: yarn check-dependencies
 
-      - name: Run Workspace Lint
-        run: yarn lint
+      - name: Run packages lint
+        run: yarn lint:packages
+
+      - name: Run plugins lint
+        run: yarn lint:plugins
+
+  check-vercel-redirects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Check Vercel redirects are in sync
+        run: |
+          yarn sync-redirects:vercel
+          if ! git diff --exit-code vercel.json; then
+            echo "::error::vercel.json redirects are out of sync with _redirects. Run 'yarn sync-redirects:vercel' and commit."
+            exit 1
+          fi
+
+  lint-website:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --immutable
 
       - name: Run Website Specific Lints
         working-directory: website
@@ -41,13 +82,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Enable Corepack
-        run: corepack enable
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "22"
           cache: yarn

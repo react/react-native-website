@@ -8,14 +8,14 @@ This component is used inside a ScrollView or ListView to add pull to refresh fu
 ## Example
 
 ```SnackPlayer name=RefreshControl&supportedPlatforms=ios,android
-import React from 'react';
+import {useCallback, useState} from 'react';
 import {RefreshControl, ScrollView, StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
-  const [refreshing, setRefreshing] = React.useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
-  const onRefresh = React.useCallback(() => {
+  const onRefresh = useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
       setRefreshing(false);

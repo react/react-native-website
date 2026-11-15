@@ -23,6 +23,7 @@ export default defineConfig([
     '**/.yarn',
     '**/node_modules',
     'packages/lint-examples/out',
+    'plugins/remark-snackplayer/tests/(markdown|output)',
     'website/.docusaurus',
     'website/build',
     'website/static',
@@ -113,9 +114,9 @@ export default defineConfig([
         'warn',
         {
           ignore: [
-            `CODE_OF_CONDUCT.md`,
+            'CODE_OF_CONDUCT.md',
             // skip older blog posts
-            `website/blog/201*`,
+            'website/blog/201*',
           ],
           alexOptions: {
             // use a "maybe" level of profanity instead of the default "unlikely"
@@ -160,6 +161,8 @@ export default defineConfig([
           },
         },
       ],
+      // causes false-positive warnings in files with MDX extension
+      '@typescript-eslint/no-unused-vars': 'off',
     },
   },
 ]);

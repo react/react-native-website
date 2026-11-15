@@ -14,7 +14,6 @@ For network and data images, you will need to manually specify the dimensions of
 ## Examples
 
 ```SnackPlayer name=Image%20Example
-import React from 'react';
 import {Image, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -61,7 +60,6 @@ export default DisplayAnImage;
 You can also add `style` to an image:
 
 ```SnackPlayer name=Styled%20Image%20Example
-import React from 'react';
 import {Image, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -114,7 +112,7 @@ dependencies {
 ```
 
 :::note
-The version listed above may not be updated in time. Please check [`packages/react-native/gradle/libs.versions.toml`](https://github.com/facebook/react-native/blob/main/packages/react-native/gradle/libs.versions.toml) in the main repo to see which fresco version is being used in a specific tagged version.
+The version listed above may not be updated in time. Please check [`packages/react-native/gradle/libs.versions.toml`](https://github.com/react/react-native/blob/main/packages/react-native/gradle/libs.versions.toml) in the main repo to see which fresco version is being used in a specific tagged version.
 :::
 
 ---
@@ -442,9 +440,9 @@ This prop has precedence over both the `src` and `source` props.
 
 ### `style`
 
-| Type                                                                                                                                                 |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Image Style Props](image-style-props#props), [Layout Props](layout-props#props), [Shadow Props](shadow-props#props), [Transforms](transforms#props) |
+| Type                                                                                                                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Image Style Props](image-style-props#props), [Layout Props](layout-props#props), [Shadow Props](shadow-props#props), [Transforms](transforms#transform) |
 
 ---
 

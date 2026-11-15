@@ -10,6 +10,7 @@ React Native is not only for Android and iOS devices - our partners and the comm
 - [React Native macOS](https://github.com/microsoft/react-native-macos) - React Native for macOS and Cocoa.
 - [React Native Windows](https://github.com/microsoft/react-native-windows) - React Native for Microsoft's Universal Windows Platform (UWP).
 - [React Native visionOS](https://github.com/callstack/react-native-visionos) - React Native for Apple's visionOS.
+- [React Native OpenHarmony](https://atomgit.com/CPF-RN/ohos_react_native) - React Native for OpenHarmony.
 
 **From Community**
 
@@ -19,7 +20,7 @@ React Native is not only for Android and iOS devices - our partners and the comm
 
 ## Creating your own React Native platform
 
-Right now the process of creating a React Native platform from scratch is not very well documented - one of the goals of the upcoming re-architecture ([Fabric](/blog/2018/06/14/state-of-react-native-2018)) is to make maintaining a platform easier.
+The process of creating a React Native platform from scratch is still not very well documented - one of the goals of the New Architecture and [Fabric](/architecture/fabric-renderer) is to make maintaining a platform easier.
 
 ### Bundling
 

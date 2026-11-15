@@ -1,4 +1,7 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json",
-  "include": ["./src", "./bin", "./out"]
+  "extends": "@react-native/typescript-config",
+  "include": ["./src", "./bin", "./out"],
+  "compilerOptions": {
+    "typeRoots": ["../../node_modules"],
+  }
 }

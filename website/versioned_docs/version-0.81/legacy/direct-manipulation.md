@@ -67,7 +67,6 @@ Composite components are not backed by a native view, so you cannot call `setNat
 <TabItem value="javascript">
 
 ```SnackPlayer name=setNativeProps%20with%20Composite%20Components&ext=js
-import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
 const MyButton = props => (
@@ -89,7 +88,6 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=setNativeProps%20with%20Composite%20Components&ext=tsx
-import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
 const MyButton = (props: {label: string}) => (
@@ -120,10 +118,10 @@ Since the `setNativeProps` method exists on any ref to a `View` component, it is
 <TabItem value="javascript">
 
 ```SnackPlayer name=Forwarding%20setNativeProps&ext=js
-import React from 'react';
+import {forwardRef} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-const MyButton = React.forwardRef((props, ref) => (
+const MyButton = forwardRef((props, ref) => (
   <View {...props} ref={ref} style={{marginTop: 50}}>
     <Text>{props.label}</Text>
   </View>
@@ -142,10 +140,10 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Forwarding%20setNativeProps&ext=tsx
-import React from 'react';
+import {forwardRef} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-const MyButton = React.forwardRef<View, {label: string}>((props, ref) => (
+const MyButton = forwardRef<View, {label: string}>((props, ref) => (
   <View {...props} ref={ref} style={{marginTop: 50}}>
     <Text>{props.label}</Text>
   </View>
@@ -175,7 +173,6 @@ Another very common use case of `setNativeProps` is to edit the value of the Tex
 <TabItem value="javascript">
 
 ```SnackPlayer name=Clear%20text&ext=js
-import React from 'react';
 import {useCallback, useRef} from 'react';
 import {
   StyleSheet,
@@ -223,7 +220,6 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Clear%20text&ext=tsx
-import React from 'react';
 import {useCallback, useRef} from 'react';
 import {
   StyleSheet,
@@ -320,7 +316,7 @@ This method can also be called with a `relativeToNativeNode` handler (instead of
 <TabItem value="javascript">
 
 ```SnackPlayer name=measureLayout%20example&supportedPlatforms=android,ios&ext=js
-import React, {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
 const App = () => {
@@ -373,7 +369,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=measureLayout%20example&ext=tsx
-import React, {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
 type Measurements = {

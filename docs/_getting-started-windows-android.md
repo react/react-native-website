@@ -18,7 +18,7 @@ Open an Administrator Command Prompt (right click Command Prompt and select "Run
 choco install -y nodejs-lts microsoft-openjdk17
 ```
 
-If you have already installed Node on your system, make sure it is Node 20.19.4 or newer. If you already have a JDK on your system, we recommend JDK17. You may encounter problems using higher JDK versions.
+If you have already installed Node on your system, make sure it is Node 22.11.0 or newer. If you already have a JDK on your system, we recommend JDK17. You may encounter problems using higher JDK versions.
 
 :::note
 You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
@@ -66,7 +66,7 @@ Select the "SDK Platforms" tab from within the SDK Manager, then check the box n
 - `Android SDK Platform 35`
 - `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image`
 
-Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the `Android SDK Build-Tools` entry, then make sure that `35.0.0` is selected.
+Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the `Android SDK Build-Tools` entry, then make sure that `36.0.0` and `Android SDK Command-line Tools (latest)` are selected.
 
 Finally, click "Apply" to download and install the Android SDK and related build tools.
 

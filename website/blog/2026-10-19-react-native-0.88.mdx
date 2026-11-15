@@ -1,0 +1,254 @@
+---
+title: 'React Native 0.88 - Web-Based Event Dispatching, Variable Fonts, SceneDelegate, no breaking changes'
+authors: [fabriziocucci, cipolleschi, chrfalch]
+tags: [announcement, release]
+date: 2026-10-19
+---
+
+# React Native 0.88 - Web-Based Event Dispatching, Variable Fonts, SceneDelegate, no breaking changes
+
+Today we are excited to release React Native 0.88!
+
+This release switches event dispatching to the Web-based path by default, brings variable fonts to `Text` and `TextInput` on both platforms and adds `SceneDelegate` lifecycle support on iOS. It also bumps the React version to 19.3.0 and moves to Metro 0.87.
+
+Following [0.83](/blog/2025/12/10/react-native-0.83) and [0.86](/blog/2026/06/11/react-native-0.86), this is the third React Native release with no user-facing breaking changes, reflecting our continued commitment to making upgrades more predictable and seamless.
+
+## Highlights
+
+- [Web-based event dispatching](/blog/2026/10/19/react-native-0.88#web-based-event-dispatching)
+- [Variable fonts with fontVariationSettings](/blog/2026/10/19/react-native-0.88#variable-fonts-with-fontvariationsettings)
+- [SceneDelegate lifecycle support on iOS](/blog/2026/10/19/react-native-0.88#ios-scenedelegate-support)
+- [ArrayBuffer for Java TurboModules](/blog/2026/10/19/react-native-0.88#arraybuffer-for-java-turbomodules)
+- [Experimental Swift Package Manager support](/blog/2026/10/19/react-native-0.88#experimental-swift-package-manager-support)
+
+{/* truncate */}
+
+## Web-based event dispatching
+
+React Native now dispatches events through the W3C [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) API by default, replacing the plugin-based system the renderer has used since its early days. Unblocked by the react@19.3.0 bump in this release, it is the largest runtime change in 0.88.
+
+Events now travel a real capture path down to the target and bubble back up, over nodes that are genuine event targets. The payoff:
+
+- **The same model as the web**: Propagation, `capture`, `stopPropagation()` and `preventDefault()` are no longer a React Native reimplementation of the DOM. Libraries that reason about event flow can increasingly be written once, against one model.
+- **A path to Web-compatible imperative APIs**: Canary builds expose `addEventListener`, `removeEventListener` and `dispatchEvent` on native refs for early feedback.
+- **One path to maintain**: Removing the legacy plugin registry is the follow-up, leaving a single dispatch path instead of two.
+
+The imperative API is available on the [Canary channel](/docs/releases/release-levels) in 0.88:
+
+```tsx
+const ref = useRef(null);
+
+useEffect(() => {
+  const onClick = event => {
+    // ...
+  };
+  ref.current?.addEventListener('click', onClick);
+  return () => ref.current?.removeEventListener('click', onClick);
+}, []);
+```
+
+On Canary, if an element has both a declarative prop and an imperative listener for the same event, the prop runs first.
+
+#### What this means for your app
+
+Nothing should change. Your event props keep the same names, receive the same synthetic event objects (`nativeEvent`, `persist()` and the rest) and run in the same order. Direct events such as `onLayout` still fire only on the target. Errors still reach React error boundaries synchronously. The touch responder system is unchanged.
+
+The code to test is anything reaching past the public API into React Native’s event internals, since the plugin registry it was written against is no longer the path events take. The legacy path is still present in 0.88 behind an internal flag, but it is expected to be removed with the follow-up, so please report anything that only works the old way.
+
+## Variable fonts with fontVariationSettings
+
+`fontVariationSettings` is now supported on both `<Text>` and `<TextInput>`, on Android and iOS. Both the CSS string form and an object form are accepted:
+
+```tsx
+<Text style={{fontVariationSettings: {wght: 700, slnt: -10}}}>Object form</Text>
+<Text style={{fontVariationSettings: "'wght' 700, 'slnt' -10"}}>String form</Text>
+```
+
+Object keys are four-character axis tags with finite numeric values.
+
+## ArrayBuffer for Java TurboModules
+
+Java TurboModules can now take and return JavaScript `ArrayBuffer` values directly. Codegen maps them to `com.facebook.react.bridge.ArrayBuffer`, so binary data no longer needs to be encoded as strings or number arrays:
+
+```diff
+ export interface Spec extends TurboModule {
+-  process(data: string): string; // for example, Base64
++  process(data: ArrayBuffer): ArrayBuffer;
+ }
+```
+
+For synchronous methods, inputs can borrow JavaScript memory and avoid a copy. Those borrowed bytes are valid only until the method returns. If you need to retain them, copy them during the call:
+
+```kotlin
+override fun keepForLater(data: ArrayBuffer) {
+  retained = ArrayBuffer.arrayBufferWithCopiedBytes(data)
+}
+```
+
+Accessing `ArrayBuffer.bytes` or `ArrayBuffer.size` after a borrowed buffer has been revoked throws an `IllegalStateException`.
+
+## iOS: SceneDelegate support
+
+Starting with the iOS 27 SDK, Apple requires the [UIScene lifecycle](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle): UIKit apps built with Xcode 27 will fail to launch.
+
+React Native 0.88 introduces support for this lifecycle as an additive change, keeping backwards compatibility with the `AppDelegate` path. `RCTReactNativeFactory` gains two new SceneDelegate entry points:
+
+- `startReactNativeWithModuleName:inWindow:connectionOptions:`
+- `startReactNativeWithModuleName:inWindow:initialProperties:connectionOptions:`
+
+Support in 0.88 is limited to a single scene, so keep `UIApplicationSupportsMultipleScenes` set to `false`. At launch, React Native forwards only the first URL context or user activity from the scene’s connection options.
+
+To migrate, you need to:
+
+- move the React Native entry point from your `AppDelegate` to a `SceneDelegate`
+- forward the scene’s URL and user-activity callbacks to `RCTLinkingManager`
+- add a `UIApplicationSceneManifest` key to `Info.plist`.
+
+The community template [has been updated](https://react-native-community.github.io/upgrade-helper/), so newly created apps already use the new entry point. You can use the community template or the upgrade helper, as an example to migrate your app, specifically the [`SceneDelegate.swift`](https://github.com/react-native-community/template/blob/0.88-stable/template/ios/HelloWorld/SceneDelegate.swift) and [`Info.plist`](https://github.com/react-native-community/template/blob/0.88-stable/template/ios/HelloWorld/Info.plist) files.
+
+With the UIScene lifecycle, the app window is resizable. `Dimensions.get()` and `useWindowDimensions()` update with the current values.
+
+## Experimental: Swift Package Manager support
+
+Swift Package Manager support remains experimental and opt-in in React Native 0.88, while CocoaPods remains fully supported. Since the preview in 0.87, we have hardened the tooling using feedback from real apps and libraries.
+
+Our current rollout plan is:
+
+- **0.87**: Introduced experimental Swift Package Manager support.
+- **0.88**: Hardened the scripts to support more libraries and edge cases.
+- **0.89**: Target Swift Package Manager as the default, with an opt-out to CocoaPods for apps that are still blocked.
+
+We plan to remove CocoaPods support in a later release of React Native.
+
+Please try the preview and report blockers in [RFC #0994](https://github.com/react-native-community/discussions-and-proposals/pull/994).
+
+Please refer to the [blogpost for React Native 0.87](/blog/2026/08/11/react-native-0.87#experimental-swift-package-manager-support-for-ios) for instructions on how to opt-in.
+
+### Swift Package Manager Improvements
+
+The `npx react-native spm` tooling shipped in 0.87, has been improved in 0.88 with fixes from real apps and libraries, so SwiftPM projects build more reliably in Xcode and on the command line.
+
+<details>
+<summary>**List of improvements**</summary>
+
+- **iOS version is read from the app**: Generated manifests now take their minimum iOS version from the app's deployment target, not a hardcoded iOS 15. Packages that need a newer iOS version, such as Expo's, can now be autolinked
+- **Stable Xcode builds**: Xcode builds no longer break for libraries that ship their own `Package.swift`
+- **Portable projects**: Apps no longer commit a machine-specific Hermes compiler path
+- **Bash for build scripts**: Generated build scripts now run under bash
+- **Configuration in package.json**: Libraries can now declare their SwiftPM settings in `package.json`’s `swiftpmConfig` section. The Swift Package Manager block in `react-native.config.js` is deprecated
+- **Names from the podspec**: When a library declares no SwiftPM name, the scaffolder takes it from the podspec.
+- **Mirror-first artifact downloads**: Prebuilt artifacts now download from the React Native Maven mirror first, with Maven Central as fallback.
+
+</details>
+
+## Breaking Changes
+
+React Native 0.88 has **no user-facing breaking changes**.
+
+If you are on React Native 0.87, you should be able to upgrade your app to React Native 0.88 without any changes to your app code.
+
+To learn more about what we consider a breaking change, have a look at [this article](/releases/versioning-policy#what-is-a-breaking-change).
+
+## Deprecations
+
+The following APIs have been deprecated and are due for removal in a future release of React Native:
+
+- **`InitializeCore`**: `'react-native/Libraries/Core/InitializeCore'` is deprecated. Use `'react-native/setup-env'` instead.
+- **Prefixed background styles**: `experimental_backgroundSize`, `experimental_backgroundPosition` and `experimental_backgroundRepeat` are deprecated in favour of their unprefixed names. The prefixed names still work as aliases.
+- **`InputAccessoryView`**: iOS only, deprecated as part of keeping core lean. `react-native-keyboard-controller`’s [`KeyboardStickyView`](https://kirillzyusko.github.io/react-native-keyboard-controller/docs/api/components/keyboard-sticky-view) is a cross-platform replacement. Nothing changes in 0.88 beyond a JSDoc tag and a one-time warning on import.
+- `ReactFragment.fabricEnabled`: the New Architecture is unconditionally enabled on this path, so the per-fragment override no longer does anything. Drop the argument and the matching builder call.
+- **`ReactImageManager` `String?` overloads**: `setDefaultSource` and `setLoadingIndicatorSource` now take a `Dynamic`. The `String?` versions still work but break under props 2.0, so pass the prop value through rather than pre-resolving it.
+
+## Other Changes
+
+### Runtime & Web Spec Alignment
+
+- **Styles**: `backgroundSize`, `backgroundPosition` and `backgroundRepeat` lose their `experimental_` prefix and are now stable. The prefixed names still work.
+- **Runtime**: `RuntimeScheduler` clears pending tasks and rendering updates when a task throws.
+- **Runtime**: async `CallInvoker` work is buffered alongside callable module calls, so it no longer runs before the JS bundle is ready.
+
+- **FileReader**: fires `loadstart`, throws `InvalidStateError` on overlapping reads and exposes `FileReader.error` as a `DOMException`, matching the web spec (544141efab).
+- **FileReader**: stays in the correct state after a read is aborted (e92816c5a5).
+- **Blob**: a `Blob` is retained while a native read is pending, so it is no longer collected mid-read (568eaa6b69).
+- **Blob**: fixed an intermittent iOS crash when deriving blob names for network responses (671705dfb1).
+- **i18n**: RTL is detected from the active locale rather than an arbitrary installed one (e46189e1e1).
+
+### Rendering, Layout & Animation
+
+- **iOS RTL text**: text now aligns right by default in RTL when `textAlign` is not set, matching Android ([1b92b02f99](https://github.com/react/react-native/commit/1b92b02f99)).
+- **Radial gradients**: circle gradients now reject percentage radii, matching web behaviour ([5821fcaf5d](https://github.com/react/react-native/commit/5821fcaf5d)).
+
+- **Animated**: `addListener` fires again for natively driven values derived with `add`, `subtract`, `multiply`, `divide`, `modulo`, `diffClamp` or `interpolate`.
+- **ScrollView**: `maintainVisibleContentPosition` holds position through rapid data updates (5cb65244dc).
+- **ScrollView**: programmatic scrolls no longer cancel active touches in enclosing scroll views (06eb1fefab).
+- **ScrollView**: recycled scroll views no longer keep the previous automatic keyboard inset behaviour (e0aa7a8b0a).
+- **Image**: `getSize()` and `getSizeWithHeaders()` accept `data:` URIs (8cfde6d083).
+- **Image**: source headers survive `crossOrigin` and `referrerPolicy` (08c7781e5a).
+- **Image**: fixed a crash when `borderRadius` is a percentage (f2a250ad89).
+- **Image**: `aria-*` state props are no longer ignored when `accessibilityState` is also set (c3caea9b5e).
+- **Renderer**: fixed an `IllegalStateException` in `SurfaceMountingManager.removeViewAt` and view registry entries being lost (3f553d76bc, d6a5f159c6).
+- **Renderer**: recycled iOS views clear `UIView.hidden` correctly (711a9a5e07).
+- **Renderer**: missing native component registrations are logged on both platforms (ef28a2c9d5).
+
+### TypeScript & JavaScript API
+
+- **Module augmentation**: Additional generated props and style types can now be extended via module augmentation, widening compatibility with styling libraries.
+- Added declarations for `requestIdleCallback`/`cancelIdleCallback`, `LogBox.isInstalled()`/`clearAllLogs()`, `FlatList`'s `strictMode` prop and `VirtualizedList`'s `ListItemComponent`.
+
+### Infrastructure & Dependencies
+
+- **React** 19.3.0 is synced into React Native.
+- **Metro** moves to 0.87, with the minimum bumped to 0.87.1 so upgrading projects resolve the same Metro as freshly created ones.
+- **Hermes** moves to 260318099.0.4.
+
+### iOS
+
+- **Assets**: images can be served from an asset catalog by setting `RCTUseAssetCatalog` in the app's `Info.plist`. It is off by default.
+- **CocoaPods**: a `React-cxxstableapi` dependency is added to third-party New Architecture pods so they can resolve React Native's C++ API.
+- **Codegen**: no longer crawls `node_modules` or follows symlinks when discovering components.
+
+### Android
+
+- **Networking**: the default `User-Agent` now includes the app name and version, matching iOS ([04e50d540d](https://github.com/react/react-native/commit/04e50d540d)). A server keying off the old default will see a different value.
+- **Renderer**: `androidx.collection` moves to 1.4.4, fixing view registry entries getting lost in `SurfaceMountingManager`.
+- **Network Inspection**: Network event reporting is exposed to third-party networking stacks as an unstable API.
+
+### Developer Tools
+
+- **React Native DevTools**: App screenshots via `Page.captureScreenshot` are available by default.
+- **React Native DevTools**: WebSocket inspection in the Network panel is on the [CANARY channel](/docs/releases/release-levels).
+
+## Acknowledgements
+
+React Native 0.88 contains 568 commits from 91 contributors. Thanks for all your hard work!
+
+We want to send a special thank you to those community members that shipped significant contributions in this release.
+
+- [Artur Morys-Magiera](https://github.com/artus9033) for SceneDelegate support
+- [Jakub Piasecki](https://github.com/j-piasecki) for the C++ Stable API work, guarding the renderer’s internal surfaces and marking what frameworks may rely on
+- [Christian Falch](https://github.com/chrfalch) for Swift Package Manager hardening
+- [Dawid Malecki](https://github.com/coado) for faster, more reliable dependency downloads from mirror and proxy caches
+- [Mathieu Acthernoene](https://github.com/zoontek) for making generated props and style types augmentable
+- [Rob Hogan](https://github.com/robhogan) for improvements to Metro
+
+## Upgrade to 0.88
+
+:::info
+
+0.88 is now the latest stable version of React Native and 0.85.x moves to unsupported. For more information see [React Native's support policy](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md).
+
+:::
+
+#### Upgrading
+
+Please use the [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) to view code changes between React Native versions for existing projects, in addition to the [Upgrading docs](/docs/upgrading).
+
+#### Create a new project
+
+```sh
+npx @react-native-community/cli@latest init MyProject --version latest
+```
+
+#### Expo
+
+For Expo projects, React Native 0.88 will be available as part of the Expo SDK 58 releases.

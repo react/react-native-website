@@ -1,0 +1,573 @@
+{
+  "buildCommand": "yarn build:vercel",
+  "devCommand": "yarn start",
+  "outputDirectory": "build",
+  "installCommand": "yarn install",
+  "framework": null,
+  "git": {
+    "deepClone": true
+  },
+  "headers": [
+    {
+      "source": "/movies.json",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/blog/feed",
+      "destination": "/blog/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/blog/feed.xml",
+      "destination": "/blog/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/docs/android-setup",
+      "destination": "/docs/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/docs/building-for-apple-tv",
+      "destination": "/docs/building-for-tv",
+      "permanent": true
+    },
+    {
+      "source": "/docs/building-from-source",
+      "destination": "/contributing/how-to-build-from-source",
+      "permanent": true
+    },
+    {
+      "source": "/docs/contributing",
+      "destination": "/contributing/overview",
+      "permanent": true
+    },
+    {
+      "source": "/docs/sourcemaps",
+      "destination": "/docs/debugging-release-builds",
+      "permanent": true
+    },
+    {
+      "source": "/docs/symbolication",
+      "destination": "/docs/debugging-release-builds",
+      "permanent": true
+    },
+    {
+      "source": "/docs/publishing-forks",
+      "destination": "/contributing/how-to-build-from-source#publish-your-own-version-of-react-native",
+      "permanent": true
+    },
+    {
+      "source": "/docs/react-devtools",
+      "destination": "/docs/react-native-devtools",
+      "permanent": true
+    },
+    {
+      "source": "/docs/testing",
+      "destination": "/contributing/how-to-run-and-write-tests",
+      "permanent": true
+    },
+    {
+      "source": "/docs/understanding-cli",
+      "destination": "https://github.com/react-native-community/cli#react-native-cli",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/how-to-contribute",
+      "destination": "/contributing/overview",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/how-to-file-an-issue",
+      "destination": "/contributing/how-to-report-a-bug",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/versioning-policy",
+      "destination": "/releases/versioning-policy",
+      "permanent": true
+    },
+    {
+      "source": "/releases/release-candidate-minor",
+      "destination": "/releases/versioning-policy",
+      "permanent": true
+    },
+    {
+      "source": "/docs/releases",
+      "destination": "/releases/overview",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/releases",
+      "destination": "/releases/overview",
+      "permanent": true
+    },
+    {
+      "source": "/docs/releases/versioning-policy",
+      "destination": "/releases/versioning-policy",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/releases/versioning-policy",
+      "destination": "/releases/versioning-policy",
+      "permanent": true
+    },
+    {
+      "source": "/docs/releases/release-levels",
+      "destination": "/docs/release-levels",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/releases/release-levels",
+      "destination": "/docs/next/release-levels",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/why",
+      "destination": "/architecture/landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/use-app-template",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/pillars",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/pillars-turbomodules",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/pillars-fabric-components",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/pillars-codegen",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/cxx-cxxturbomodules",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/the-new-architecture/cxx-custom-types",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/backward-compatibility",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/backward-compatibility-turbomodules",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/backward-compatibility-fabric-components",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/the-new-architecture/landing-page",
+      "destination": "/architecture/landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/docs/new-architecture-intro",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/new-architecture-library-intro",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/new-architecture-library-android",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/new-architecture-library-ios",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/new-architecture-app-intro",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/react-18-and-react-native",
+      "destination": "/docs/0.69/react-18-and-react-native",
+      "permanent": true
+    },
+    {
+      "source": "/docs/new-architecture-troubleshooting",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/new-architecture-appendix",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/landing-page",
+      "destination": "/architecture/landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/why",
+      "destination": "/architecture/landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/use-app-template",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/pillars",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/pillars-turbomodules",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/pillars-fabric-components",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/pillars-codegen",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/cxx-cxxturbomodules",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/cxx-custom-types",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/backward-compatibility",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/backward-compatibility-turbomodules",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/the-new-architecture/backward-compatibility-fabric-components",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/new-architecture-intro",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/new-architecture-library-intro",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/new-architecture-library-android",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/new-architecture-library-ios",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/new-architecture-app-intro",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/new-architecture-troubleshooting",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:version/new-architecture-appendix",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/direct-manipulation",
+      "destination": "/docs/next/legacy/direct-manipulation",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/local-library-setup",
+      "destination": "/docs/next/legacy/local-library-setup",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/native-modules-android",
+      "destination": "/docs/next/legacy/native-modules-android",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/native-modules-intro",
+      "destination": "/docs/next/legacy/native-modules-intro",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/native-modules-ios",
+      "destination": "/docs/next/legacy/native-modules-ios",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/native-modules-setup",
+      "destination": "/docs/next/legacy/native-modules-setup",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/native-components-android",
+      "destination": "/docs/next/legacy/native-components-android",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/native-components-ios",
+      "destination": "/docs/next/legacy/native-components-ios",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2021/03/11/version-0.64",
+      "destination": "/blog/2021/03/12/version-0.64",
+      "permanent": true
+    },
+    {
+      "source": "/docs/new-architecture-app-modules-android",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/new-architecture-app-renderer-android",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/new-architecture-app-modules-ios",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/new-architecture-app-renderer-ios",
+      "destination": "https://github.com/reactwg/react-native-new-architecture#guides",
+      "permanent": true
+    },
+    {
+      "source": "/docs/0.74/ram-bundles-inline-requires",
+      "destination": "/docs/optimizing-javascript-loading",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/ram-bundles-inline-requires",
+      "destination": "/docs/next/optimizing-javascript-loading",
+      "permanent": true
+    },
+    {
+      "source": "/docs/architecture-overview",
+      "destination": "/architecture/overview",
+      "permanent": true
+    },
+    {
+      "source": "/docs/fabric-renderer",
+      "destination": "/architecture/fabric-renderer",
+      "permanent": true
+    },
+    {
+      "source": "/docs/render-pipeline",
+      "destination": "/architecture/render-pipeline",
+      "permanent": true
+    },
+    {
+      "source": "/docs/xplat-implementation",
+      "destination": "/architecture/xplat-implementation",
+      "permanent": true
+    },
+    {
+      "source": "/docs/view-flattening",
+      "destination": "/architecture/view-flattening",
+      "permanent": true
+    },
+    {
+      "source": "/docs/threading-model",
+      "destination": "/architecture/threading-model",
+      "permanent": true
+    },
+    {
+      "source": "/docs/architecture-glossary",
+      "destination": "/architecture/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/architecture-overview",
+      "destination": "/architecture/overview",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/fabric-renderer",
+      "destination": "/architecture/fabric-renderer",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/render-pipeline",
+      "destination": "/architecture/render-pipeline",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/xplat-implementation",
+      "destination": "/architecture/xplat-implementation",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/view-flattening",
+      "destination": "/architecture/view-flattening",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/threading-model",
+      "destination": "/architecture/threading-model",
+      "permanent": true
+    },
+    {
+      "source": "/docs/next/architecture-glossary",
+      "destination": "/architecture/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/docs/0.66/architecture-overview",
+      "destination": "/architecture/overview",
+      "permanent": true
+    },
+    {
+      "source": "/docs/0.66/fabric-renderer",
+      "destination": "/architecture/fabric-renderer",
+      "permanent": true
+    },
+    {
+      "source": "/docs/0.66/render-pipeline",
+      "destination": "/architecture/render-pipeline",
+      "permanent": true
+    },
+    {
+      "source": "/docs/0.66/xplat-implementation",
+      "destination": "/architecture/xplat-implementation",
+      "permanent": true
+    },
+    {
+      "source": "/docs/0.66/view-flattening",
+      "destination": "/architecture/view-flattening",
+      "permanent": true
+    },
+    {
+      "source": "/docs/0.66/threading-model",
+      "destination": "/architecture/threading-model",
+      "permanent": true
+    },
+    {
+      "source": "/docs/0.66/architecture-glossary",
+      "destination": "/architecture/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/release-branch-cut-and-rc0",
+      "destination": "https://github.com/reactwg/react-native-releases#release-documentation",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/release-candidate-patch",
+      "destination": "https://github.com/reactwg/react-native-releases#release-documentation",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/release-dependencies",
+      "destination": "https://github.com/reactwg/react-native-releases#release-documentation",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/release-faq",
+      "destination": "https://github.com/reactwg/react-native-releases#release-documentation",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/release-roles-responsibilites",
+      "destination": "https://github.com/reactwg/react-native-releases#release-documentation",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/release-stable-minor",
+      "destination": "https://github.com/reactwg/react-native-releases#release-documentation",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/release-stable-patch",
+      "destination": "https://github.com/reactwg/react-native-releases#release-documentation",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/release-testing",
+      "destination": "https://github.com/reactwg/react-native-releases#release-documentation",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/release-troubleshooting",
+      "destination": "https://github.com/reactwg/react-native-releases#release-documentation",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/release-updating-packages",
+      "destination": "https://github.com/reactwg/react-native-releases#release-documentation",
+      "permanent": true
+    },
+    {
+      "source": "/contributing/updating-upgrade-helper",
+      "destination": "https://github.com/reactwg/react-native-releases#release-documentation",
+      "permanent": true
+    },
+    {
+      "source": "/help",
+      "destination": "/community/overview",
+      "permanent": true
+    },
+    {
+      "source": "/docs/0.88/:path*",
+      "destination": "/docs/:path*",
+      "permanent": true
+    }
+  ]
+}

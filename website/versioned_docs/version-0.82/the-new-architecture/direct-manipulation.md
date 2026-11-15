@@ -26,7 +26,6 @@ For example, the following code demonstrates editing the input when you tap a bu
 <TabItem value="javascript">
 
 ```SnackPlayer name=setNativeProps%20on%20TextInput&ext=js
-import React from 'react';
 import {useCallback, useRef} from 'react';
 import {
   StyleSheet,
@@ -74,7 +73,6 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Clear%20text&ext=tsx
-import React from 'react';
 import {useCallback, useRef} from 'react';
 import {
   StyleSheet,

@@ -2,7 +2,7 @@
 id: testing-overview
 title: Testing
 author: Vojtech Novak
-authorURL: 'https://twitter.com/vonovak'
+authorURL: 'https://x.com/vonovak'
 description: This guide introduces React Native developers to the key concepts behind testing, how to write good tests, and what kinds of tests you can incorporate into your workflow.
 ---
 
@@ -245,7 +245,7 @@ Snapshots have several weak points:
 
 Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
 
-We recommend that you only use small snapshots (see [`no-large-snapshots` rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)). If you want to test a _change_ between two React component states, use [`snapshot-diff`](https://github.com/jest-community/snapshot-diff). When in doubt, prefer explicit expectations as described in the previous paragraph.
+We recommend that you only use small snapshots (see [`no-large-snapshots` rule](https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/no-large-snapshots.md)). If you want to test a _change_ between two React component states, use [`snapshot-diff`](https://github.com/jest-community/snapshot-diff). When in doubt, prefer explicit expectations as described in the previous paragraph.
 
 <img src="/docs/assets/p_tests-snapshot.svg" alt=" " />
 
@@ -265,7 +265,7 @@ E2E tests give you the highest possible confidence that part of your app is work
 
 Try to cover the vital parts of your app with E2E tests: authentication flow, core functionalities, payments, etc. Use faster JS tests for the non-vital parts of your app. The more tests you add, the higher your confidence, but also, the more time you'll spend maintaining and running them. Consider the tradeoffs and decide what's best for you.
 
-There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](https://appium.io/) or [Maestro](https://maestro.mobile.dev/).
+There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](https://appium.io/), [Maestro](https://maestro.mobile.dev/), or [e2e](https://github.com/e2e-inc/e2e).
 
 <img src="/docs/assets/p_tests-e2e.svg" alt=" " />
 
@@ -284,4 +284,4 @@ We hope you enjoyed reading and learned something from this guide. There are man
 
 ---
 
-_This guide originally authored and contributed in full by [Vojtech Novak](https://twitter.com/vonovak)._
+_This guide originally authored and contributed in full by [Vojtech Novak](https://x.com/vonovak)._

@@ -67,7 +67,6 @@ class MainActivity : ReactActivity() {
 </Tabs>
 
 ```tsx
-import React from 'react';
 import {View, Image} from 'react-native';
 
 export default class ImageBrowserApp extends React.Component {

@@ -21,7 +21,7 @@ For example, a container view that fades in when it is mounted may look like thi
 <TabItem value="javascript">
 
 ```SnackPlayer ext=js
-import React, {useEffect, useRef} from 'react';
+import {useEffect, useRef} from 'react';
 import {Animated, Text, View} from 'react-native';
 
 const FadeInView = props => {
@@ -74,12 +74,12 @@ export default () => {
 <TabItem value="typescript">
 
 ```SnackPlayer ext=tsx
-import React, {useEffect, useRef, type PropsWithChildren} from 'react';
+import {useEffect, useRef, type PropsWithChildren, type FC} from 'react';
 import {Animated, Text, View, type ViewStyle} from 'react-native';
 
 type FadeInViewProps = PropsWithChildren<{style: ViewStyle}>;
 
-const FadeInView: React.FC<FadeInViewProps> = props => {
+const FadeInView: FC<FadeInViewProps> = props => {
   const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
 
   useEffect(() => {
@@ -232,7 +232,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
   }}
 ```
 
-[`interpolate()`](animated#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get a negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
+[`interpolate()`](animatedvalue#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get a negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
 
 ```tsx
 value.interpolate({
@@ -293,15 +293,15 @@ Gestures, like panning or scrolling, and other events can map directly to animat
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
 
 ```tsx
- onScroll={Animated.event(
-   // scrollX = e.nativeEvent.contentOffset.x
-   [{nativeEvent: {
-        contentOffset: {
-          x: scrollX
-        }
-      }
-    }]
- )}
+onScroll={Animated.event(
+  // scrollX = e.nativeEvent.contentOffset.x
+  [{
+    nativeEvent: {
+      contentOffset: { x: scrollX }
+    }
+  }],
+  {useNativeDriver: true}
+)}
 ```
 
 The following example implements a horizontal scrolling carousel where the scroll position indicators are animated using the `Animated.event` used in the `ScrollView`
@@ -309,13 +309,12 @@ The following example implements a horizontal scrolling carousel where the scrol
 #### ScrollView with Animated Event Example
 
 ```SnackPlayer name=Animated&supportedPlatforms=ios,android
-import React from 'react';
 import {
   ScrollView,
   Text,
   StyleSheet,
   View,
-  ImageBackground,
+  Image,
   Animated,
   useWindowDimensions,
   useAnimatedValue,
@@ -339,28 +338,35 @@ const App = () => {
             horizontal={true}
             pagingEnabled
             showsHorizontalScrollIndicator={false}
-            onScroll={Animated.event([
-              {
-                nativeEvent: {
-                  contentOffset: {
-                    x: scrollX,
+            onScroll={Animated.event(
+              [
+                {
+                  nativeEvent: {
+                    contentOffset: {
+                      x: scrollX,
+                    },
                   },
                 },
-              },
-            ])}
+              ],
+              {useNativeDriver: true},
+            )}
             scrollEventThrottle={1}>
             {images.map((image, imageIndex) => {
               return (
                 <View
                   style={{width: windowWidth, height: 250}}
                   key={imageIndex}>
-                  <ImageBackground source={{uri: image}} style={styles.card}>
+                  <View style={styles.card}>
+                    <Image
+                      source={{uri: image}}
+                      style={StyleSheet.absoluteFill}
+                    />
                     <View style={styles.textContainer}>
                       <Text style={styles.infoText}>
                         {'Image - ' + imageIndex}
                       </Text>
                     </View>
-                  </ImageBackground>
+                  </View>
                 </View>
               );
             })}
@@ -452,7 +458,7 @@ onPanResponderMove={Animated.event(
 #### PanResponder with Animated Event Example
 
 ```SnackPlayer name=Animated
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
 
 const App = () => {
@@ -460,7 +466,9 @@ const App = () => {
   const panResponder = useRef(
     PanResponder.create({
       onMoveShouldSetPanResponder: () => true,
-      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}]),
+      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}], {
+        useNativeDriver: false,
+      }),
       onPanResponderRelease: () => {
         Animated.spring(pan, {
           toValue: {x: 0, y: 0},
@@ -549,7 +557,7 @@ The native driver also works with `Animated.event`. This is especially useful fo
 </Animated.ScrollView>
 ```
 
-You can see the native driver in action by running the [RNTester app](https://github.com/facebook/react-native/blob/main/packages/rn-tester/), then loading the Native Animated Example. You can also take a look at the [source code](https://github.com/facebook/react-native/blob/master/packages/rn-tester/js/examples/NativeAnimation/NativeAnimationsExample.js) to learn how these examples were produced.
+You can see the native driver in action by running the [RNTester app](https://github.com/react/react-native/tree/main/packages/rn-tester), then loading the Native Animated Example. You can also take a look at the [source code](https://github.com/react/react-native/blob/main/packages/rn-tester/js/examples/NativeAnimation/NativeAnimationsExample.js) to learn how these examples were produced.
 
 #### Caveats
 
@@ -577,8 +585,8 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
 
 The RNTester app has various examples of `Animated` in use:
 
-- [AnimatedGratuitousApp](https://github.com/facebook/react-native/tree/main/packages/rn-tester/js/examples/AnimatedGratuitousApp)
-- [NativeAnimationsExample](https://github.com/facebook/react-native/blob/main/packages/rn-tester/js/examples/NativeAnimation/NativeAnimationsExample.js)
+- [AnimatedGratuitousApp](https://github.com/react/react-native/tree/main/packages/rn-tester/js/examples/AnimatedGratuitousApp)
+- [NativeAnimationsExample](https://github.com/react/react-native/blob/main/packages/rn-tester/js/examples/NativeAnimation/NativeAnimationsExample.js)
 
 ## `LayoutAnimation` API
 
@@ -593,7 +601,7 @@ UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
 ```SnackPlayer name=LayoutAnimations
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   NativeModules,
   LayoutAnimation,
@@ -656,7 +664,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-This example uses a preset value, you can customize the animations as you need, see [LayoutAnimation.js](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/LayoutAnimation/LayoutAnimation.js) for more information.
+This example uses a preset value, you can customize the animations as you need, see [LayoutAnimation.js](https://github.com/react/react-native/blob/main/packages/react-native/Libraries/LayoutAnimation/LayoutAnimation.js) for more information.
 
 ## Additional notes
 
@@ -670,4 +678,4 @@ As mentioned [in the Direct Manipulation section](legacy/direct-manipulation), `
 
 We could use this in the Rebound example to update the scale - this might be helpful if the component that we are updating is deeply nested and hasn't been optimized with `shouldComponentUpdate`.
 
-If you find your animations with dropping frames (performing below 60 frames per second), look into using `setNativeProps` or `shouldComponentUpdate` to optimize them. Or you could run the animations on the UI thread rather than the JavaScript thread [with the useNativeDriver option](/blog/2017/02/14/using-native-driver-for-animated). You may also want to defer any computationally intensive work until after animations are complete, using the [InteractionManager](interactionmanager). You can monitor the frame rate by using the In-App Dev Menu "FPS Monitor" tool.
+If you find your animations with dropping frames (performing below 60 frames per second), look into using `setNativeProps` or `shouldComponentUpdate` to optimize them. Or you could run the animations on the UI thread rather than the JavaScript thread [with the useNativeDriver option](/blog/2017/02/14/using-native-driver-for-animated). You may also want to defer any computationally intensive work until the JS thread is idle (for example, with `requestIdleCallback`). You can monitor the frame rate by using the In-App Dev Menu "FPS Monitor" tool.

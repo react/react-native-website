@@ -3,7 +3,7 @@ id: actionsheetios
 title: ActionSheetIOS
 ---
 
-Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/) component.
+Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-interface-guidelines/action-sheets) component.
 
 ## Example
 

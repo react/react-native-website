@@ -34,7 +34,7 @@ A `gestureState` object has the following:
 
 ```tsx
 const ExampleComponent = () => {
-  const panResponder = React.useRef(
+  const panResponder = useRef(
     PanResponder.create({
       // Ask to be the responder:
       onStartShouldSetPanResponder: (evt, gestureState) => true,
@@ -81,7 +81,7 @@ const ExampleComponent = () => {
 `PanResponder` works with `Animated` API to help build complex gestures in the UI. The following example contains an animated `View` component which can be dragged freely across the screen
 
 ```SnackPlayer name=PanResponder
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

@@ -44,7 +44,6 @@ For a full list of the types of system colors supported, see:
 ## Example
 
 ```SnackPlayer name=PlatformColor%20Example&supportedPlatforms=android,ios
-import React from 'react';
 import {Platform, PlatformColor, StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

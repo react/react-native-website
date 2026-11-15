@@ -25,7 +25,6 @@ This will render a blue label on iOS, and a blue rounded rectangle with light te
 Go ahead and play around with the `Button` component using the example below. You can select which platform your app is previewed in by clicking on the toggle in the bottom right and then clicking on "Tap to Play" to preview the app.
 
 ```SnackPlayer name=Button%20Basics
-import React from 'react';
 import {Alert, Button, StyleSheet, View} from 'react-native';
 
 const ButtonBasics = () => {
@@ -86,7 +85,6 @@ In some cases, you may want to detect when a user presses and holds a view for a
 Let's see all of these in action:
 
 ```SnackPlayer name=Touchables
-import React from 'react';
 import {
   Alert,
   Platform,
@@ -178,4 +176,4 @@ Gestures commonly used on devices with touchable screens include swipes and pans
 
 ## Known issues
 
-- [react-native#29308](https://github.com/facebook/react-native/issues/29308#issuecomment-792864162): The touch area never extends past the parent view bounds and on Android negative margin is not supported.
+- [react-native#29308](https://github.com/react/react-native/issues/29308#issuecomment-792864162): The touch area never extends past the parent view bounds and on Android negative margin is not supported.

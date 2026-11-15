@@ -12,7 +12,6 @@ This is an API that works both on Android and iOS and can show static alerts. Al
 ## Example
 
 ```SnackPlayer name=Alert%20Example&supportedPlatforms=ios,android
-import React from 'react';
 import {StyleSheet, Button, Alert} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -81,7 +80,6 @@ The cancel event can be handled by providing an `onDismiss` callback property in
 ### Example <div className="label android">Android</div>
 
 ```SnackPlayer name=Alert%20Android%20Dissmissable%20Example&supportedPlatforms=android
-import React from 'react';
 import {StyleSheet, Button, Alert} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -173,7 +171,7 @@ Create and display a prompt to enter some text in form of Alert.
 | ---------------------------------------------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | title <div className="label basic required">Required</div> | string                                          | The dialog's title.                                                                                                                                                                                   |
 | message                                                    | string                                          | An optional message that appears above the text input.                                                                                                                                                |
-| callbackOrButtons                                          | function<hr/>[AlertButton](alert#alertButton)[] | If passed a function, it will be called with the prompt's value<br/>`(text: string) => void`, when the user taps 'OK'.<hr/>If passed an array, buttons will be configured based on the array content. |
+| callbackOrButtons                                          | function<hr/>[AlertButton](alert#alertbutton)[] | If passed a function, it will be called with the prompt's value<br/>`(text: string) => void`, when the user taps 'OK'.<hr/>If passed an array, buttons will be configured based on the array content. |
 | type                                                       | [AlertType](alert#alerttype-ios)                | This configures the text input.                                                                                                                                                                       |
 | defaultValue                                               | string                                          | The default text in text input.                                                                                                                                                                       |
 | keyboardType                                               | string                                          | The keyboard type of first text field (if exists). One of TextInput [keyboardTypes](textinput#keyboardtype).                                                                                          |

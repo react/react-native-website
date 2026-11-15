@@ -13,7 +13,7 @@ React component that wraps the platform `DrawerLayout` (Android only). The Drawe
 <TabItem value="javascript">
 
 ```SnackPlayer name=DrawerLayoutAndroid%20Component%20Example&supportedPlatforms=android&ext=js
-import React, {useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import {Button, DrawerLayoutAndroid, Text, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -86,7 +86,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=DrawerLayoutAndroid%20Component%20Example&supportedPlatforms=android&ext=tsx
-import React, {useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import {
   Button,
   DrawerLayoutAndroid,

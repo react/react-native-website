@@ -14,7 +14,7 @@ Opacity is controlled by wrapping the children in an `Animated.View`, which is a
 ## Example
 
 ```SnackPlayer name=TouchableOpacity%20Example
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -83,16 +83,6 @@ Determines what the opacity of the wrapped view should be when touch is active. 
 | Type   |
 | ------ |
 | number |
-
----
-
-### `hasTVPreferredFocus` <div className="label ios">iOS</div>
-
-_(Apple TV only)_ TV preferred focus (see documentation for the View component).
-
-| Type |
-| ---- |
-| bool |
 
 ---
 

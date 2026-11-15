@@ -6,7 +6,6 @@ title: StyleSheet
 A StyleSheet is an abstraction similar to CSS StyleSheets.
 
 ```SnackPlayer name=StyleSheet
-import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -62,7 +61,6 @@ static compose(style1: Object, style2: Object): Object | Object[];
 Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
 
 ```SnackPlayer name=Compose
-import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -123,7 +121,6 @@ static flatten(style: Array<Object extends Record<string, ViewStyle | ImageStyle
 Flattens an array of style objects, into one aggregated style object.
 
 ```SnackPlayer name=Flatten
-import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -194,7 +191,6 @@ Sets a function to use to pre-process a style property value. This is used inter
 A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles. If you want, absoluteFill can be used to create a customized entry in a StyleSheet, e.g.:
 
 ```SnackPlayer name=absoluteFill
-import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -319,7 +315,6 @@ export default App;
 This is defined as the width of a thin line on the platform. It can be used as the thickness of a border or division between two elements. Example:
 
 ```SnackPlayer name=hairlineWidth
-import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 const App = () => (

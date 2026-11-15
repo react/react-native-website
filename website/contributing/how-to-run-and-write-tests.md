@@ -25,7 +25,7 @@ yarn lint
 
 ### iOS Tests
 
-Follow the [README.md](https://github.com/facebook/react-native/blob/main/packages/rn-tester/README.md) instructions in the `packages/rn-tester` directory.
+Follow the [README.md](https://github.com/react/react-native/blob/main/packages/rn-tester/README.md) instructions in the `packages/rn-tester` directory.
 
 Then, go back to the root of your React Native checkout and run `yarn`. This will set up your JavaScript dependencies.
 
@@ -72,7 +72,7 @@ Whenever you are fixing a bug or adding new functionality to React Native, it is
 
 The JavaScript tests can be found inside `__test__` directories, colocated next to the files that are being tested. See [`TouchableHighlight-test.js`][js-jest-test] for a basic example. You can also follow Jest's [Testing React Native Apps][jest-tutorial] tutorial to learn more.
 
-[js-jest-test]: https://github.com/facebook/react-native/blob/main/Libraries/Components/Touchable/__tests__/TouchableHighlight-test.js
+[js-jest-test]: https://github.com/react/react-native/blob/main/Libraries/Components/Touchable/__tests__/TouchableHighlight-test.js
 [jest-tutorial]: https://jestjs.io/docs/en/tutorial-react-native
 
 ### iOS Integration Tests
@@ -91,21 +91,21 @@ See the following for example usage and integration points:
 - [`RNTesterIntegrationTests.m`][f-ios-integration-tests]
 - [`IntegrationTestsApp.js`][f-ios-integration-test-app]
 
-[f-ios-test-harness]: https://github.com/facebook/react-native/blob/main/IntegrationTests/IntegrationTestHarnessTest.js
-[f-ios-integration-tests]: https://github.com/facebook/react-native/blob/main/RNTester/RNTesterIntegrationTests/RNTesterIntegrationTests.m
-[f-ios-integration-test-app]: https://github.com/facebook/react-native/blob/main/IntegrationTests/IntegrationTestsApp.js
+[f-ios-test-harness]: https://github.com/react/react-native/blob/main/IntegrationTests/IntegrationTestHarnessTest.js
+[f-ios-integration-tests]: https://github.com/react/react-native/blob/main/RNTester/RNTesterIntegrationTests/RNTesterIntegrationTests.m
+[f-ios-integration-test-app]: https://github.com/react/react-native/blob/main/IntegrationTests/IntegrationTestsApp.js
 
 ### iOS Snapshot Tests
 
 A common type of integration test is the snapshot test. These tests render a component, and verify snapshots of the screen against reference images using `TestModule.verifySnapshot()`, using the [`FBSnapshotTestCase`](https://github.com/facebook/ios-snapshot-test-case) library behind the scenes. Reference images are recorded by setting `recordMode = YES` on the `RCTTestRunner`, then running the tests.
 
-Snapshots will differ slightly between 32 and 64 bit, and various OS versions, so it's recommended that you enforce tests are run with the [correct configuration](https://github.com/facebook/react-native/blob/main/scripts/.tests.env).
+Snapshots will differ slightly between 32 and 64 bit, and various OS versions, so it's recommended that you enforce tests are run with the [correct configuration](https://github.com/react/react-native/blob/main/scripts/.tests.env).
 
-It's also highly recommended that all network data be mocked out, along with other potentially troublesome dependencies. See [`SimpleSnapshotTest`](https://github.com/facebook/react-native/blob/main/IntegrationTests/SimpleSnapshotTest.js) for a basic example.
+It's also highly recommended that all network data be mocked out, along with other potentially troublesome dependencies. See [`SimpleSnapshotTest`](https://github.com/react/react-native/blob/main/IntegrationTests/SimpleSnapshotTest.js) for a basic example.
 
 If you make a change that affects a snapshot test in a pull request, such as adding a new example case to one of the examples that is snapshotted, you'll need to re-record the snapshot reference image.
 
-To do this, change `recordMode` flag to `_runner.recordMode = YES;` in [RNTester/RNTesterSnapshotTests.m](https://github.com/facebook/react-native/blob/136666e2e7d2bb8d3d51d599fc1384a2f68c43d3/RNTester/RNTesterIntegrationTests/RNTesterSnapshotTests.m#L29), re-run the failing tests, then flip record back to `NO` and submit/update your pull request and wait to see if the CircleCI build passes.
+To do this, change `recordMode` flag to `_runner.recordMode = YES;` in [RNTester/RNTesterSnapshotTests.m](https://github.com/react/react-native/blob/136666e2e7d2bb8d3d51d599fc1384a2f68c43d3/RNTester/RNTesterIntegrationTests/RNTesterSnapshotTests.m#L29), re-run the failing tests, then flip record back to `NO` and submit/update your pull request and wait to see if the CircleCI build passes.
 
 ### Android Unit Tests
 
@@ -117,7 +117,7 @@ We recommend browsing through these to get an idea of what a good unit test migh
 
 We use [CircleCI][config-circleci] to automatically run our open source tests. CircleCI will run these tests whenever a commit is added to a pull request, as a way to help maintainers understand whether a code change introduces a regression. The tests also run on commits to the `main` and `*-stable` branches in order to keep track of the health of these branches.
 
-[config-circleci]: https://github.com/facebook/react-native/blob/main/.circleci/config.yml
+[config-circleci]: https://github.com/react/react-native/blob/main/.circleci/config.yml
 
 There's another set of tests that run within Meta's internal test infrastructure. Some of these tests are integration tests defined by internal consumers of React Native (e.g. unit tests for a React Native surface in the Facebook app).
 

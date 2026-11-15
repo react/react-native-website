@@ -46,7 +46,6 @@ If you’re familiar with design systems, another way of thinking about this is 
 ## Example
 
 ```SnackPlayer name=PlatformColor%20Example&supportedPlatforms=android,ios
-import React from 'react';
 import {Platform, PlatformColor, StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -87,5 +86,5 @@ export default App;
 The string value provided to the `PlatformColor` function must match the string as it exists on the native platform where the app is running. In order to avoid runtime errors, the function should be wrapped in a platform check, either through a `Platform.OS === 'platform'` or a `Platform.select()`, as shown on the example above.
 
 :::note
-You can find a complete example that demonstrates proper, intended use of `PlatformColor` in [PlatformColorExample.js](https://github.com/facebook/react-native/blob/main/packages/rn-tester/js/examples/PlatformColor/PlatformColorExample.js).
+You can find a complete example that demonstrates proper, intended use of `PlatformColor` in [PlatformColorExample.js](https://github.com/react/react-native/blob/main/packages/rn-tester/js/examples/PlatformColor/PlatformColorExample.js).
 :::

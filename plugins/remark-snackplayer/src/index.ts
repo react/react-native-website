@@ -8,12 +8,11 @@
 'use strict';
 
 import visit from 'unist-util-visit-parents';
-import fromEntries from 'object.fromentries';
 import type {Code} from 'mdast';
 import type {Node} from 'unist';
 
 function parseParams(paramString = '') {
-  const params = fromEntries(new URLSearchParams(paramString));
+  const params = Object.fromEntries(new URLSearchParams(paramString).entries());
 
   if (!params.platform) {
     params.platform = 'web';
@@ -34,11 +33,9 @@ async function toJsxNode(node: Code) {
   const params = parseParams(node.meta ?? undefined);
 
   // Gather necessary Params
-  const name = params.name ? decodeURIComponent(params.name) : 'Example';
-  const description = params.description
-    ? decodeURIComponent(params.description)
-    : 'Example usage';
-  const ext = params.ext ? decodeURIComponent(params.ext) : 'tsx';
+  const name = params.name || 'Example';
+  const description = params.description || 'Example usage';
+  const ext = params.ext || 'tsx';
   const filename = `App.${ext}`;
   const files = encodeURIComponent(
     JSON.stringify({
@@ -90,7 +87,7 @@ export default function SnackPlayer() {
     const nodesToProcess: Promise<void>[] = [];
     visit(tree, 'code', (node: Node) => {
       if ('lang' in node && node.lang === 'SnackPlayer') {
-        nodesToProcess.push(toJsxNode(node as Code));
+        nodesToProcess.push(toJsxNode(node as unknown as Code));
       }
     });
     await Promise.all(nodesToProcess);

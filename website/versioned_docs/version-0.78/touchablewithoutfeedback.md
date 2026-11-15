@@ -88,7 +88,7 @@ export default TouchableWithoutFeedbackExample;
 
 A value indicating this view should or should not be inverted when color inversion is turned on. A value of `true` will tell the view to not be inverted even if color inversion is turned on.
 
-See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors) for more information.
+See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors-ios) for more information.
 
 | Type    |
 | ------- |
@@ -182,7 +182,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 Describes the current state of a component to the user of an assistive technology.
 
-See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
+See the [Accessibility guide](accessibility.md#accessibilitystate) for more information.
 
 | Type                                                                                             |
 | ------------------------------------------------------------------------------------------------ |
@@ -280,7 +280,7 @@ Indicates that an element will be updated, and describes the types of updates th
 
 ### `aria-modal` <div className="label ios">iOS</div>
 
-Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the [`accessibilityViewIsModal`](#accessibilityviewismodal-ios) prop.
+Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Has precedence over the [`accessibilityViewIsModal`](accessibility.md#accessibilityviewismodal-ios) prop.
 
 | Type    | Default |
 | ------- | ------- |
@@ -312,7 +312,7 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 Represents the current value of a component. It can be a textual description of a component's value, or for range-based components, such as sliders and progress bars, it contains range information (minimum, current, and maximum).
 
-See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) for more information.
+See the [Accessibility guide](accessibility.md#accessibilityvalue) for more information.
 
 | Type                                                            |
 | --------------------------------------------------------------- |

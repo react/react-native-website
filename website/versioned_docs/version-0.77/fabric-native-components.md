@@ -113,7 +113,7 @@ This specification is composed of three main parts, excluding the imports:
 - The `NativeProps` is a definition of the props that we can set on the component.
 - The `codegenNativeComponent` statement allows us to codegenerate the code for the custom component and that defines a name for the component used to match the native implementations.
 
-As with Native Modules, you can have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to, see the [appendix](appendix.md#codegen-typings).
+As with Native Modules, you can have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to, see the [appendix](appendix.md#ii-codegen-typings).
 
 ## 2. Configure Codegen to run
 

@@ -3,10 +3,12 @@ id: view-style-props
 title: View Style Props
 ---
 
+import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+import {getCoreBranchNameForCurrentVersion} from '@site/src/getCoreBranchNameForCurrentVersion';
+
 ### Example
 
 ```SnackPlayer name=ViewStyleProps
-import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -68,6 +70,112 @@ export default App;
 | Type               |
 | ------------------ |
 | [color](colors.md) |
+
+---
+
+### `backgroundImage`
+
+`backgroundImage` provides the ability to draw a [`linear-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient) and [`radial-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient) using a web-like syntax.
+
+```tsx
+// Simple usage:
+<View style={{ backgroundImage: 'linear-gradient(45deg, blue, red)' }} />
+
+<View style={{ backgroundImage: 'radial-gradient(ellipse farthest-corner at 30% 40%, red, blue)' }} />
+
+// Also with PlatformColor:
+<View
+style={{
+  backgroundImage: [
+    {
+      type: 'linear-gradient',
+      direction: 'to bottom',
+      colorStops: [
+        {
+          color: Platform.select({
+            ios: PlatformColor('systemTealColor'),
+            android: PlatformColor('@android:color/holo_purple'),
+            default: 'blue',
+          }),
+          positions: ['0%'],
+        },
+        {color: 'green', positions: ['100%']},
+      ],
+    },
+  ],
+}}
+/>
+```
+
+More complex examples of usage can be found in the RNTester app (with `PlatformColor` supports):
+
+- <a href={`https://github.com/react/react-native/blob/${getCoreBranchNameForCurrentVersion()}/packages/rn-tester/js/examples/LinearGradient/LinearGradientExample.js`}>LinearGradientExample.js</a>
+- <a href={`https://github.com/react/react-native/blob/${getCoreBranchNameForCurrentVersion()}/packages/rn-tester/js/examples/RadialGradient/RadialGradientExample.js`}>RadialGradientExample.js</a>
+
+| Type                                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| string, array of objects: `{type: 'linear-gradient', direction: string, colorStops: object[] }`, `{type: 'radial-gradient', shape: string, position: object, size: string, colorStops: object[] }` |
+
+---
+
+### `backgroundPosition`
+
+Controls where the background gradient is placed inside the view. This is useful when `backgroundImage` is set, and you want to offset or center it instead of filling the full area.
+
+```tsx
+<View
+  style={{
+    backgroundImage: 'radial-gradient(circle, #ff6b6b, #4ecdc4)',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '50px 50px',
+  }}
+/>
+```
+
+| Type                                                                                    |
+| --------------------------------------------------------------------------------------- |
+| string \| array of objects `{top: string, left: string, right: string, bottom: string}` |
+
+---
+
+### `backgroundRepeat`
+
+Controls whether the background gradient is repeated, and how. This works together with `backgroundImage` to tile gradients across the view.
+
+```tsx
+<View
+  style={{
+    backgroundImage: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+    backgroundRepeat: 'repeat',
+    backgroundSize: '20px 20px',
+  }}
+/>
+```
+
+| Type                                                                                               |
+| -------------------------------------------------------------------------------------------------- |
+| enum(`'repeat'`, `'space'`, `'round'`, `'no-repeat'`) \| array of objects `{x: string, y: string}` |
+
+---
+
+### `backgroundSize`
+
+Controls the size of the background gradient. This is most useful when `backgroundImage` is set and the gradient should not fill the entire view by default.
+
+```tsx
+<View
+  style={{
+    backgroundImage: 'linear-gradient(90deg, #a8edea, #fed6e3)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '100px 100px',
+  }}
+/>
+```
+
+| Type                                                |
+| --------------------------------------------------- |
+| string \| array of objects `{x: number, y: number}` |
 
 ---
 
@@ -324,8 +432,9 @@ Adds a shadow effect to an element, with the ability to control the position, co
 These shadows can be composed together so that a single `boxShadow` can be comprised of multiple different shadows.
 
 `boxShadow` takes either a string which mimics the [web syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow#syntax) or an array of [BoxShadowValue](./boxshadowvalue) objects.
-| Type |
-| --------------------------- |
+
+| Type                                      |
+| ----------------------------------------- |
 | array of BoxShadowValue objects \| string |
 
 ### `cursor` <div className="label ios">iOS</div>
@@ -340,7 +449,7 @@ On iOS 17+, Setting to `pointer` allows hover effects when a pointer (such as a 
 
 ### `elevation` <div className="label android">Android</div>
 
-Sets the elevation of a view, using Android's underlying [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation). This adds a drop shadow to the item and affects z-order for overlapping views. Only supported on Android 5.0+, has no effect on earlier versions.
+Sets the elevation of a view, using Android's underlying [elevation API](https://developer.android.com/develop/ui/views/theming/shadows-clipping#Elevation). This adds a drop shadow to the item and affects z-order for overlapping views. Only supported on Android 5.0+, has no effect on earlier versions.
 
 | Type   |
 | ------ |
@@ -383,9 +492,46 @@ The following filter functions work on Android only:
 :::
 
 `filter` takes either an array of objects comprising of the above filter functions or a string which mimics the [web syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/filter#syntax).
-| Type |
-| ------ |
-| array of objects: `{brightness: number\|string}`, `{opacity: number\|string}`, `{blur: number\|string}`, `{contrast: number\|string}`, `{dropShadow: DropShadowValue\|string}`, `{grayscale: number\|string}`, `{hueRotate: number\|string}`, `{invert: number\|string}`, `{sepia: number\|string}`, `{saturate: number\|string}` or string|
+
+| Type                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| array of objects: `{brightness: number\|string}`, `{opacity: number\|string}`, `{blur: number\|string}`, `{contrast: number\|string}`, `{dropShadow: DropShadowValue\|string}`, `{grayscale: number\|string}`, `{hueRotate: number\|string}`, `{invert: number\|string}`, `{sepia: number\|string}`, `{saturate: number\|string}` or string |
+
+---
+
+### `mixBlendMode`
+
+:::note
+`mixBlendMode` is only available on the [New Architecture](/architecture/landing-page) and **Android 10+**
+:::
+
+Controls how the `View` blends its colors with the other elements in its **stacking context**. Check out the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode) for a full overview of each blending function.
+
+For more granular control over what should be blending together see [isolation](layout-props#isolation).
+
+##### mixBlendMode Values
+
+- `normal`: The element is drawn on top of its background without blending.
+- `multiply`: The source color is multiplied by the destination color and replaces the destination.
+- `screen`: Multiplies the complements of the backdrop and source color values, then complements the result.
+- `overlay`: Multiplies or screens the colors, depending on the backdrop color value.
+- `darken`: Selects the darker of the backdrop and source colors.
+- `lighten`: Selects the lighter of the backdrop and source colors.
+- `color-dodge`: Brightens the backdrop color to reflect the source color. Painting with black produces no changes.
+- `color-burn`: Darkens the backdrop color to reflect the source color. Painting with white produces no change.
+- `hard-light`: Multiplies or screens the colors, depending on the source color value. The effect is similar to shining a harsh spotlight on the backdrop.
+- `soft-light`: Darkens or lightens the colors, depending on the source color value. The effect is similar to shining a diffused spotlight on the backdrop.
+- `difference`: Subtracts the darker of the two constituent colors from the lighter color.
+- `exclusion`: Produces an effect similar to that of the Difference mode but lower in contrast.
+- `hue`: Creates a color with the hue of the source color and the saturation and luminosity of the backdrop color.
+- `saturation`: Creates a color with the saturation of the source color and the hue and luminosity of the backdrop color.
+- `color`: Creates a color with the hue and saturation of the source color and the luminosity of the backdrop color. This preserves the gray levels of the backdrop and is useful for coloring monochrome images or tinting color images.
+- `luminosity`: Creates a color with the luminosity of the source color and the hue and saturation of the backdrop color. This produces an inverse effect to that of the Color mode.
+- `plus-lighter`: Adds the source and destination color channels, clamping each at maximum value.
+
+| Type                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| enum(`'normal'`, `'multiply'`, `'screen'`, `'overlay'`, `'darken'`, `'lighten'`, `'color-dodge'`, `'color-burn'`, `'hard-light'`, `'soft-light'`, `'difference'`, `'exclusion'`, `'hue'`, `'saturation'`, `'color'`, `'luminosity'`, `'plus-lighter'`) |
 
 ---
 

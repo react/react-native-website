@@ -179,7 +179,7 @@ The `onOrientationChange` callback is called when the orientation changes while 
 ### `onRequestClose`
 
 The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
-On iOS, this callback is called when a Modal is being dismissed using a drag gesture when `presentationStyle` is `pageSheet or formSheet`
+On iOS, this callback is called when a Modal is being dismissed using a drag gesture when `presentationStyle` is `pageSheet` or `formSheet`
 
 | Type                                                                                                                                                                                           |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

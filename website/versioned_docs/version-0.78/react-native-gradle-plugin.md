@@ -77,7 +77,7 @@ cliFile = file("../node_modules/react-native/cli.js")
 
 ### `debuggableVariants`
 
-This is the list of variants that are debuggable (see [using variants](#using-variants) for more context on variants).
+This is the list of variants that are debuggable (see [using variants](#using-flavors--build-variants) for more context on variants).
 
 By default the plugin is considering as `debuggableVariants` only `debug`, while `release` is not. If you have other
 variants (like `staging`, `lite`, etc.) you'll need to adjust this accordingly.

@@ -115,7 +115,7 @@ This specification is composed of three main parts, excluding the imports:
 - The `NativeProps` is a definition of the props that we can set on the component.
 - The `codegenNativeComponent` statement allows us to codegenerate the code for the custom component and that defines a name for the component used to match the native implementations.
 
-As with Native Modules, you can have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to, see the [appendix](appendix.md#codegen-typings).
+As with Native Modules, you can have multiple specification files in the `specs/` directory. For more information about the types you can use, and the platform types these map to, see the [appendix](appendix.md#ii-codegen-typings).
 
 ## 2. Configure Codegen to run
 
@@ -172,7 +172,6 @@ This guide shows you how to create a Native Component that only works with the N
 Finally, you can use the new component in your app. Update your generated `App.tsx` to:
 
 ```javascript title="Demo/App.tsx"
-import React from 'react';
 import {Alert, StyleSheet, View} from 'react-native';
 import WebView from './specs/WebViewNativeComponent';
 

@@ -8,7 +8,7 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 ## Example
 
 ```SnackPlayer name=AccessibilityInfo%20Example&supportedPlatforms=android,ios
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {AccessibilityInfo, Text, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -85,7 +85,7 @@ static addEventListener(
   handler: (
     event: AccessibilityChangeEvent | AccessibilityAnnouncementFinishedEvent,
   ) => void,
-): EmitterSubscription;
+): EventSubscription;
 ```
 
 Add an event handler. Supported events:
@@ -118,18 +118,21 @@ Post a string to be announced by the screen reader.
 ```tsx
 static announceForAccessibilityWithOptions(
   announcement: string,
-  options: {queue?: boolean},
+  options: {
+    queue?: boolean;
+    priority?: 'low' | 'default' | 'high';
+  },
 );
 ```
 
-Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object.
+Post a string to be announced by the screen reader with modification options. By default announcements will interrupt any existing speech, but on iOS they can be queued behind existing speech by setting `queue` to `true` in the options object. An optional `priority` can also be specified on iOS.
 
 **Parameters:**
 
-| Name                                                              | Type   | Description                                                                                  |
-| ----------------------------------------------------------------- | ------ | -------------------------------------------------------------------------------------------- |
-| announcement <div className="label basic required">Required</div> | string | The string to be announced                                                                   |
-| options <div className="label basic required">Required</div>      | object | `queue` - queue the announcement behind existing speech <div className="label ios">iOS</div> |
+| Name                                                              | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| announcement <div className="label basic required">Required</div> | string | The string to be announced                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| options <div className="label basic required">Required</div>      | object | Options object with the following keys:<ul><li>`queue`: Queue the announcement behind existing speech. <div className="label ios">iOS</div></li><li>`priority`: The priority of the announcement (`'low'`, `'default'`, or `'high'`). High priority announcements will interrupt any ongoing speech and cannot be interrupted. Default priority announcements will interrupt any ongoing speech but can be interrupted. Low priority announcements will not interrupt ongoing speech and can be interrupted. <div className="label ios">iOS</div></li></ul> |
 
 ---
 
@@ -224,6 +227,26 @@ Query whether a screen reader is currently enabled. Returns a promise which reso
 
 ---
 
+### `isHighTextContrastEnabled()` <div className="label android">Android</div>
+
+```tsx
+static isHighTextContrastEnabled(): Promise<boolean>
+```
+
+Query whether high text contrast is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when high text contrast is enabled and `false` otherwise.
+
+---
+
+### `isDarkerSystemColorsEnabled()` <div className="label ios">iOS</div>
+
+```tsx
+static isDarkerSystemColorsEnabled(): Promise<boolean>
+```
+
+Query whether dark system colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when dark system colors is enabled and `false` otherwise.
+
+---
+
 ### `prefersCrossFadeTransitions()` <div className="label ios">iOS</div>
 
 ```tsx
@@ -234,7 +257,11 @@ Query whether reduce motion and prefer cross-fade transitions settings are curre
 
 ---
 
-### `setAccessibilityFocus()`
+### 🗑️ `setAccessibilityFocus()`
+
+:::warning[Deprecated]
+Prefer using `sendAccessibilityEvent` with eventType `focus` instead.
+:::
 
 ```tsx
 static setAccessibilityFocus(reactTag: number);
@@ -247,3 +274,22 @@ On Android, this calls `UIManager.sendAccessibilityEvent` method with passed `re
 :::note
 Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
 :::
+
+---
+
+### `sendAccessibilityEvent()`
+
+```tsx
+static sendAccessibilityEvent(host: HostInstance, eventType: AccessibilityEventTypes);
+```
+
+Imperatively trigger an accessibility event on a React component, like changing the focused element for a screen reader.
+
+:::note
+Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
+:::
+
+| Name                                                           | Type                    | Description                                                                                                            |
+| -------------------------------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| host <div className="label basic required">Required</div>      | HostInstance            | The component ref to send the event to.                                                                                |
+| eventType <div className="label basic required">Required</div> | AccessibilityEventTypes | One of `'click'` (Android only), `'focus'`, `'viewHoverEnter'` (Android only), or `'windowStateChange'` (Android only) |

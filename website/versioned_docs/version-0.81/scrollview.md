@@ -22,7 +22,6 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, when 
 ## Example
 
 ```SnackPlayer name=ScrollView%20Example
-import React from 'react';
 import {StyleSheet, Text, ScrollView, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

@@ -1,0 +1,212 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.secondaryNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: var(--rn-subnav-height);
+  padding: 0 var(--ifm-spacing-horizontal);
+
+  /* Pin directly below the main navbar so page content scrolls underneath. */
+  position: sticky;
+  top: var(--ifm-navbar-height);
+  z-index: calc(var(--ifm-z-index-fixed) - 1);
+}
+
+/* Blur on a pseudo-element, not the nav: `backdrop-filter` on the nav would
+   make it a containing block for the copy button's fixed dropdown. */
+.secondaryNav:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: color-mix(
+    in srgb,
+    var(--ifm-background-color) 93%,
+    transparent 7%
+  );
+  backdrop-filter: blur(12px);
+}
+
+/* Bottom keyline, inset from both edges so it comes in from the screen edges
+   without lining up with the inner elements' padding. */
+.secondaryNavDivider {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0;
+  left: 0.75rem;
+  height: 1px;
+  background-color: var(--ifm-toc-border-color);
+}
+
+.start {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.end {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Very narrow viewports: drop the Copy page button (lowest-priority control) so
+   the section and version dropdowns keep their room. */
+@media (max-width: 420px) {
+  .copyPageContainer {
+    display: none;
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: var(--ifm-heading-font-weight);
+  line-height: 1.2;
+  margin-right: 0.5rem;
+}
+
+/* Outlined controls: the section dropdown toggle and the back link share the
+   bordered box style of the Copy page button. */
+
+.dropdown {
+  font-size: 0.9rem;
+}
+
+.dropdownToggle,
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.6rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--ifm-font-color-base);
+  background: transparent;
+  border: 1px solid var(--ifm-color-emphasis-400);
+  border-radius: var(--ifm-global-radius);
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.dropdownToggle {
+  cursor: pointer;
+}
+
+.dropdownToggle:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 0.3rem solid transparent;
+  border-right: 0.3rem solid transparent;
+  border-top: 0.3rem solid currentcolor;
+  opacity: 0.6;
+  transform: translateY(1px);
+}
+
+.backLink {
+  /* Trim vertical padding so the taller chevron doesn't inflate the box, and
+     tighten the inset before the icon. Match the Copy page button weight. */
+  padding: 0.2rem 0.6rem 0.2rem 0.4rem;
+  font-weight: 500;
+}
+
+.backChevron {
+  opacity: 0.75;
+}
+
+.dropdownToggle:hover,
+.backLink:hover {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  background-color: var(--ifm-menu-color-background-hover);
+  border-color: var(--ifm-color-gray-500);
+}
+
+/* Docs version dropdown wrapper. The dropdown reuses the theme navbar dropdown;
+   its pill styling lives in docs-secondary-nav.scss (it targets the theme's
+   global navbar classes). */
+
+.versionDropdown {
+  display: flex;
+  align-items: center;
+}
+
+/* Copy page button — appearance shared with its former home in DocItem */
+
+.copyPageContainer {
+  margin-bottom: 0;
+}
+
+button.copyPageButton {
+  border-radius: var(--ifm-global-radius);
+  border-color: var(--ifm-color-gray-400);
+  padding: 7px 12px;
+  margin-bottom: 0;
+
+  &:hover {
+    background-color: var(--ifm-menu-color-background-hover) !important;
+    border-color: var(--ifm-color-gray-500) !important;
+  }
+
+  svg {
+    opacity: 0.75;
+  }
+}
+
+.copyPageDropdown {
+  border-color: var(--ifm-table-border-color) !important;
+  margin-top: -3px;
+
+  button[class^="dropdownItem"] {
+    border-bottom-color: var(--ifm-table-border-color) !important;
+
+    &:hover {
+      background-color: var(--ifm-menu-color-background-hover);
+    }
+  }
+
+  div[class^="itemDescription"] {
+    font-weight: 300;
+    font-size: 12px;
+  }
+}
+
+[data-theme="dark"] {
+  .dropdownToggle,
+  .backLink,
+  button.copyPageButton {
+    background-color: color-mix(in srgb, var(--light), black 25%) !important;
+    border-color: var(--ifm-hr-border-color) !important;
+  }
+
+  .dropdownToggle:hover,
+  .backLink:hover,
+  button.copyPageButton:hover {
+    background-color: color-mix(in srgb, var(--light), black 10%) !important;
+    border-color: var(--ifm-color-gray-800) !important;
+  }
+
+  .copyPageDropdown {
+    background-color: var(--ifm-navbar-background-color);
+    background-color: color-mix(in srgb, var(--light), black 40%) !important;
+
+    button[class^="dropdownItem"]:hover {
+      background-color: color-mix(in srgb, var(--light), black 20%);
+    }
+
+    div[class^="itemDescription"] {
+      color: var(--ifm-color-gray-600) !important;
+    }
+  }
+}

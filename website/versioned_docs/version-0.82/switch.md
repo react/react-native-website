@@ -10,7 +10,7 @@ This is a controlled component that requires an `onValueChange` callback that up
 ## Example
 
 ```SnackPlayer name=Switch&supportedPlatforms=android,ios
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Switch, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -116,7 +116,7 @@ Color of the foreground switch grip. If this is set on iOS, the switch grip will
 
 Custom colors for the switch track.
 
-_iOS_: When the switch value is `false`, the track shrinks into the border. If you want to change the color of the background exposed by the shrunken track, use [`ios_backgroundColor`](switch.md#ios_backgroundColor).
+_iOS_: When the switch value is `false`, the track shrinks into the border. If you want to change the color of the background exposed by the shrunken track, use [`ios_backgroundColor`](switch.md#ios_backgroundcolor-ios).
 
 | Type                                                         |
 | ------------------------------------------------------------ |

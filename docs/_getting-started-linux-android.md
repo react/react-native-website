@@ -6,7 +6,7 @@ While you can use any editor of your choice to develop your app, you will need t
 
 <h3>Node</h3>
 
-Follow the [installation instructions for your Linux distribution](https://nodejs.org/en/download/package-manager/) to install Node 20.19.4 or newer.
+Follow the [installation instructions for your Linux distribution](https://nodejs.org/en/download/package-manager/) to install Node 22.11.0 or newer.
 
 <h3>Java Development Kit</h3>
 
@@ -47,7 +47,7 @@ Select the "SDK Platforms" tab from within the SDK Manager, then check the box n
 - `Android SDK Platform 35`
 - `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image`
 
-Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `35.0.0` is selected.
+Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `36.0.0` and `Android SDK Command-line Tools (latest)` are selected.
 
 Finally, click "Apply" to download and install the Android SDK and related build tools.
 

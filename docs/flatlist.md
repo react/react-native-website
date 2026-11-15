@@ -26,7 +26,6 @@ If you need section support, use [`<SectionList>`](sectionlist.md).
 <TabItem value="javascript">
 
 ```SnackPlayer name=Simple%20FlatList%20Example&ext=js
-import React from 'react';
 import {View, FlatList, StyleSheet, Text, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -86,7 +85,6 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Simple%20FlatList%20Example&ext=tsx
-import React from 'react';
 import {View, FlatList, StyleSheet, Text, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -151,14 +149,14 @@ To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop.
 
 More complex, selectable example below.
 
-- By passing `extraData={selectedId}` to `FlatList` we make sure `FlatList` itself will re-render when the state changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is a `PureComponent` and the prop comparison will not show any changes.
+- Passing `extraData={selectedId}` to `FlatList` ensures that `FlatList` re-renders when `selectedId` changes. Because `FlatList` implements `PureComponent`, it only re-renders if its props change. While `renderItem` in this example is recreated on each render because it is defined inline, passing `extraData` is essential whenever `renderItem` has a stable reference (such as when memoized or defined outside the component) so that `FlatList` knows that an external dependency has updated.
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
 ```SnackPlayer name=flatlist-selectable&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   FlatList,
   StatusBar,
@@ -242,7 +240,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=flatlist-selectable&ext=tsx
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   FlatList,
   StatusBar,
@@ -486,6 +484,16 @@ Styling for internal View for `ListHeaderComponent`.
 
 ---
 
+### `ListItemComponent`
+
+Each data item is rendered using this element, as an alternative to `renderItem`. It receives the same props, and takes precedence over `renderItem` when both are provided.
+
+| Type               |
+| ------------------ |
+| component, element |
+
+---
+
 ### `columnWrapperStyle`
 
 Optional custom style for multi-item rows generated when `numColumns > 1`.
@@ -652,7 +660,7 @@ When `true`, offscreen child views are removed from their native backing supervi
 
 ### `viewabilityConfig`
 
-See [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Lists/ViewabilityHelper.js) for flow type and further documentation.
+See [`ViewabilityHelper.js`](https://github.com/react/react-native/blob/main/packages/react-native/Libraries/Lists/ViewabilityHelper.js) for flow type and further documentation.
 
 | Type              |
 | ----------------- |
@@ -667,7 +675,7 @@ See [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/main/
 | itemVisiblePercentThreshold      | number  |
 | waitForInteraction               | boolean |
 
-At least one of the `viewAreaCoveragePercentThreshold` or `itemVisiblePercentThreshold` is required. This needs to be done in the `constructor` to avoid following error ([ref](https://github.com/facebook/react-native/issues/17408)):
+At least one of the `viewAreaCoveragePercentThreshold` or `itemVisiblePercentThreshold` is required. This needs to be done in the `constructor` to avoid following error ([ref](https://github.com/react/react-native/issues/17408)):
 
 ```
   Error: Changing viewabilityConfig on the fly is not supported

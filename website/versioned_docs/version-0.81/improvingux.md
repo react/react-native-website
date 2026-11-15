@@ -21,7 +21,7 @@ Check out [`TextInput` docs](textinput.md) for more configuration options.
 <TabItem value="javascript">
 
 ```SnackPlayer name=TextInput%20form%20example&ext=js
-import React, {useState, useRef} from 'react';
+import {useState, useRef} from 'react';
 import {
   Alert,
   Text,
@@ -115,7 +115,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=TextInput%20form%20example&ext=tsx
-import React, {useState, useRef} from 'react';
+import {useState, useRef} from 'react';
 import {
   Alert,
   Text,
@@ -216,7 +216,7 @@ Software keyboard takes almost half of the screen. If you have interactive eleme
 <TabItem value="javascript">
 
 ```SnackPlayer name=KeyboardAvoidingView%20example&ext=js
-import React, {useState, useRef} from 'react';
+import {useState, useRef} from 'react';
 import {
   Alert,
   Text,
@@ -313,7 +313,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=KeyboardAvoidingView%20example&ext=tsx
-import React, {useState, useRef} from 'react';
+import {useState, useRef} from 'react';
 import {
   Alert,
   Text,
@@ -414,7 +414,6 @@ export default App;
 On mobile phones it's hard to be very precise when pressing buttons. Make sure all interactive elements are 44x44 or larger. One way to do this is to leave enough space for the element, `padding`, `minWidth` and `minHeight` style values can be useful for that. Alternatively, you can use [`hitSlop` prop](touchablewithoutfeedback.md#hitslop) to increase interactive area without affecting the layout. Here's a demo:
 
 ```SnackPlayer name=HitSlop%20example
-import React from 'react';
 import {
   Text,
   StatusBar,
@@ -493,7 +492,6 @@ export default App;
 Android API 21+ uses the material design ripple to provide user with feedback when they touch an interactable area on the screen. React Native exposes this through the [`TouchableNativeFeedback` component](touchablenativefeedback.md). Using this touchable effect instead of opacity or highlight will often make your app feel much more fitting on the platform. That said, you need to be careful when using it because it doesn't work on iOS or on Android API < 21, so you will need to fallback to using one of the other Touchable components on iOS. You can use a library like [react-native-platform-touchable](https://github.com/react-community/react-native-platform-touchable) to handle the platform differences for you.
 
 ```SnackPlayer name=Android%20Ripple%20example&supportedPlatforms=android
-import React from 'react';
 import {
   TouchableNativeFeedback,
   TouchableOpacity,

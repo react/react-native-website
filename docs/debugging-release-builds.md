@@ -20,7 +20,7 @@ If a React Native app throws an unhandled exception in a release build, the outp
 
 In the above stack trace, entries like `p@1:132161` are minified function names and bytecode offsets. To debug these calls, we want to translate these into file, line, and function name, e.g. `AwesomeProject/App.js:54:initializeMap`. This is known as **symbolication.**
 
-You can symbolicate minified function names and bytecode like the above by passing the stack trace and a generated source map to [`metro-symbolicate`](http://npmjs.com/package/metro-symbolicate).
+You can symbolicate minified function names and bytecode like the above by passing the stack trace and a generated source map to [`metro-symbolicate`](https://www.npmjs.com/package/metro-symbolicate).
 
 ### Enabling source maps
 

@@ -2,7 +2,7 @@
 
 This repo contains the website configuration and documentation powering the [React Native website](https://reactnative.dev/).
 
-> If you are looking for the source code of the [React Native Archive website](https://archive.reactnative.dev/) select the [`archive`](https://github.com/facebook/react-native-website/tree/archive) branch.
+> If you are looking for the source code of the [React Native Archive website](https://archive.reactnative.dev/) select the [`archive`](https://github.com/react/react-native-website/tree/archive) branch.
 
 ## Contents
 
@@ -18,18 +18,13 @@ This repo contains the website configuration and documentation powering the [Rea
 
 1. [Git](https://git-scm.com/downloads).
 1. [Node](https://nodejs.org/en/download/) _(version 22 or greater)_.
-1. [Yarn](https://yarnpkg.com/getting-started/install) _(version 4)_.
+1. [Yarn Classic](https://classic.yarnpkg.com/en/docs/install) _(version 1)_.
 1. A fork and clone of the `react-native-website` repo _(for any contributions)_.
 
 ### Installation
 
 1. `cd react-native-website` to go into the project root.
-1. Run `corepack enable` to enable Corepack.
-
-   > If the command above fails, run `npm install -g corepack@latest` to install the latest version of [Corepack](https://yarnpkg.com/corepack#installation).
-
 1. Run `yarn` to install the website's workspace dependencies.
-   > If you want to retain the globally installed `yarn` classic, you can use `corepack yarn` instead.
 
 ### Running locally
 
@@ -180,7 +175,7 @@ If possible, test any visual changes in all latest versions of the following bro
 1. `git add -A && git commit -m "My message"` to stage and commit your changes.
    > replace `My message` with a commit message, such as `Fixed header logo on Android`
 1. `git push my-fork-name the-name-of-my-branch`
-1. Go to the [react-native-website repo](https://github.com/facebook/react-native-website) and you should see recently pushed branches.
+1. Go to the [react-native-website repo](https://github.com/react/react-native-website) and you should see recently pushed branches.
 1. Follow GitHub's instructions.
 1. Describe briefly your changes (in case of visual changes, please include screenshots).
 

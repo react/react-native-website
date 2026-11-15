@@ -3,7 +3,7 @@ id: progressbarandroid
 title: '🗑️ ProgressBarAndroid'
 ---
 
-:::warning Deprecated
+:::warning[Deprecated]
 Use one of the [community packages](https://reactnative.directory/?search=progressbar) instead.
 :::
 
@@ -12,7 +12,6 @@ Android-only React component used to indicate that the app is loading or there i
 ### Example
 
 ```SnackPlayer name=ProgressBarAndroid&supportedPlatforms=android
-import React from 'react';
 import {View, StyleSheet, ProgressBarAndroid, Text} from 'react-native';
 
 const App = () => {

@@ -1,7 +1,11 @@
 ---
 id: drawerlayoutandroid
-title: DrawerLayoutAndroid
+title: '🗑️ DrawerLayoutAndroid'
 ---
+
+:::warning[Deprecated]
+Use [`react-native-drawer-layout`](https://reactnavigation.org/docs/drawer-layout/) instead.
+:::
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
@@ -13,7 +17,7 @@ React component that wraps the platform `DrawerLayout` (Android only). The Drawe
 <TabItem value="javascript">
 
 ```SnackPlayer name=DrawerLayoutAndroid%20Component%20Example&supportedPlatforms=android&ext=js
-import React, {useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import {Button, DrawerLayoutAndroid, Text, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -86,7 +90,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=DrawerLayoutAndroid%20Component%20Example&supportedPlatforms=android&ext=tsx
-import React, {useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import {
   Button,
   DrawerLayoutAndroid,
@@ -95,8 +99,12 @@ import {
   View,
 } from 'react-native';
 
+type DrawerLayoutAndroidInstance = React.ComponentRef<
+  typeof DrawerLayoutAndroid
+>;
+
 const App = () => {
-  const drawer = useRef<DrawerLayoutAndroid>(null);
+  const drawer = useRef<DrawerLayoutAndroidInstance>(null);
   const [drawerPosition, setDrawerPosition] = useState<'left' | 'right'>(
     'left',
   );

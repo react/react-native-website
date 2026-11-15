@@ -3,12 +3,12 @@ id: actionsheetios
 title: ActionSheetIOS
 ---
 
-Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/) component.
+Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-interface-guidelines/action-sheets) component.
 
 ## Example
 
 ```SnackPlayer name=ActionSheetIOS%20Example&supportedPlatforms=ios
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {ActionSheetIOS, Button, StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

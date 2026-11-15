@@ -1,3 +1,4 @@
+import {getCoreBranchNameForCurrentVersion} from '@site/src/getCoreBranchNameForCurrentVersion';
 import {getCurrentVersion} from '@site/src/getCurrentVersion';
 import CodeBlock from '@theme/CodeBlock';
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
@@ -70,7 +71,7 @@ export default TurboModuleRegistry.getEnforcing<Spec>(
 
 ## 2. Configure Codegen
 
-The next step is to configure [Codegen](what-is-codegen.md) in your `package.json`. Update the file to include:
+The next step is to configure [Codegen](what-is-codegen.mdx) in your `package.json`. Update the file to include:
 
 ```json title="package.json"
      "start": "react-native start",
@@ -227,7 +228,7 @@ The final step is to register the new C++ Turbo Native Module in the runtime, so
 1. From the folder `SampleApp/android/app/src/main/jni`, run the following command:
 
 <CodeBlock language="sh" title="shell">
-{`curl -O https://raw.githubusercontent.com/facebook/react-native/${getCurrentVersion() === 'latest' ? '' : 'v'}${getCurrentVersion()}/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp`}
+{`curl -O https://raw.githubusercontent.com/facebook/react-native/${getCoreBranchNameForCurrentVersion()}/packages/react-native/ReactAndroid/cmake-utils/default-app-setup/OnLoad.cpp`}
 </CodeBlock>
 
 2. Then, modify this file as follows:

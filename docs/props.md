@@ -10,7 +10,6 @@ Most components can be customized when they are created, with different paramete
 For example, one basic React Native component is the `Image`. When you create an image, you can use a prop named `source` to control what image it shows.
 
 ```SnackPlayer name=Props
-import React from 'react';
 import {Image} from 'react-native';
 
 const Bananas = () => {
@@ -33,7 +32,6 @@ Your own components can also use `props`. This lets you make a single component 
 <TabItem value="javascript">
 
 ```SnackPlayer name=Props&ext=js
-import React from 'react';
 import {Text, View} from 'react-native';
 
 const Greeting = props => {
@@ -61,7 +59,6 @@ export default LotsOfGreetings;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Props&ext=tsx
-import React from 'react';
 import {Text, View} from 'react-native';
 
 type GreetingProps = {

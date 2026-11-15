@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 This guide assumes that you are familiar with the [**Pure C++ Turbo Native Modules**](pure-cxx-modules.md) guide. This will build on top of that guide.
 :::
 
-C++ Turbo Native Modules support [bridging functionality](https://github.com/facebook/react-native/tree/main/packages/react-native/ReactCommon/react/bridging) for most `std::` standard types. You can use most of those types in your modules without any additional code required.
+C++ Turbo Native Modules support [bridging functionality](https://github.com/react/react-native/tree/main/packages/react-native/ReactCommon/react/bridging) for most `std::` standard types. You can use most of those types in your modules without any additional code required.
 
 If you want to add support for new and custom types in your app or library, you need to provide the necessary `bridging` header file.
 
@@ -173,8 +173,8 @@ First, we need to update the `App.tsx` file to use the new method from the Turbo
 
 ```diff title="App.tsx"
 // ...
-+ const [cubicSource, setCubicSource] = React.useState('')
-+ const [cubicRoot, setCubicRoot] = React.useState(0)
++ const [cubicSource, setCubicSource] = useState('')
++ const [cubicRoot, setCubicRoot] = useState(0)
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -366,9 +366,9 @@ To test the code in the app, we have to modify the `App.tsx` file.
 2. Replace the body of the `App()` function with the following code:
 
 ```tsx title="App.tsx (App function body replacement)"
-const [street, setStreet] = React.useState('');
-const [num, setNum] = React.useState('');
-const [isValidAddress, setIsValidAddress] = React.useState<
+const [street, setStreet] = useState('');
+const [num, setNum] = useState('');
+const [isValidAddress, setIsValidAddress] = useState<
   boolean | null
 >(null);
 

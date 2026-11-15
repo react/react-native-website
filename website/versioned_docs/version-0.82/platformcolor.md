@@ -46,7 +46,6 @@ If you’re familiar with design systems, another way of thinking about this is 
 ## Example
 
 ```SnackPlayer name=PlatformColor%20Example&supportedPlatforms=android,ios
-import React from 'react';
 import {Platform, PlatformColor, StyleSheet, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

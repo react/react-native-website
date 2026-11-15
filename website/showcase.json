@@ -82,7 +82,8 @@
       "name": "Amazon Alexa",
       "icon": "amazon-alexa.webp",
       "linkAppStore": "https://apps.apple.com/us/app/amazon-alexa/id944011620",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en_US&gl=US"
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en_US&gl=US",
+      "pinned": true
     },
     {
       "name": "Amazon Photos",
@@ -97,39 +98,11 @@
       "infoTitle": "Purpose-built for reading, Kindle e-readers let you take your stories wherever you go"
     }
   ],
-  "shopify": [
-    {
-      "name": "Shopify",
-      "icon": "shopify.png",
-      "linkAppStore": "https://apps.apple.com/us/app/shopify-your-ecommerce-store/id371294472",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.mobile&hl=en_US&gl=US",
-      "pinned": true
-    },
-    {
-      "name": "Shop: All your favorite brands",
-      "icon": "shop.webp",
-      "linkAppStore": "https://apps.apple.com/ca/app/shop-package-order-tracker/id1223471316",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.arrive&hl=en_US&gl=US",
-      "pinned": true
-    },
-    {
-      "name": "Shopify Inbox",
-      "icon": "shopify-inbox.webp",
-      "linkAppStore": "https://apps.apple.com/us/app/shopify-inbox/id1301681854",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.ping&gl=US"
-    },
-    {
-      "name": "Shopify Point of Sale",
-      "icon": "pos.webp",
-      "linkAppStore": "https://apps.apple.com/us/app/shopify-point-of-sale-pos/id686830644",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.pos&gl=US"
-    }
-  ],
   "wix": [
     {
       "name": "Spaces: Follow Businesses",
       "icon": "spaces.webp",
-      "linkAppStore": "https://itunes.apple.com/us/app/wix-com/id1099748482",
+      "linkAppStore": "https://apps.apple.com/us/app/spaces-follow-businesses/id1099748482",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.android"
     },
     {
@@ -202,7 +175,7 @@
       "icon": "tableau.webp",
       "linkAppStore": "https://apps.apple.com/us/app/tableau-mobile/id434633927",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.Tableau.TableauApp&hl=en_US",
-      "infoLink": "https://engineering.tableau.com/react-native-at-tableau-3-years-in-89d43c38354c",
+      "infoLink": "https://www.tableau.com/blog/react-native-tableau-3-years",
       "infoTitle": "React Native at Tableau 3 Years in",
       "pinned": true
     },
@@ -302,14 +275,14 @@
     {
       "name": "Gyroscope",
       "icon": "gyroscope.png",
-      "linkAppStore": "https://itunes.apple.com/app/apple-store/id1104085053?pt=117927205&ct=website&mt=8",
+      "linkAppStore": "https://apps.apple.com/us/app/gyroscope/id1104085053",
       "infoLink": "https://blog.gyrosco.pe/building-the-app-1dac1a97d253",
       "infoTitle": "Building a visualization experience with React Native"
     },
     {
       "name": "JD（手机京东）",
       "icon": "jdcom.png",
-      "linkAppStore": "https://itunes.apple.com/cn/app/shou-ji-jing-dong-xin-ren/id414245413?mt=8",
+      "linkAppStore": "https://apps.apple.com/cn/app/shou-ji-jing-dong-xin-ren/id414245413",
       "linkPlayStore": "https://app.jd.com/android.html",
       "infoLink": "https://ir.jd.com/phoenix.zhtml?c=253315&p=irol-homeProfile",
       "infoTitle": "JD.com is China’s largest ecommerce company by revenue and a member of the Fortune Global 500."
@@ -349,6 +322,20 @@
       "icon": "brex.png",
       "linkAppStore": "https://apps.apple.com/us/app/brex/id1472905508",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.brex.mobile&hl=en_US&gl=US"
+    },
+    {
+      "name": "Starlink",
+      "icon": "starlink.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/starlink/id1537177988",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.starlink.mobile",
+      "pinned": true
+    },
+    {
+      "name": "Grok Bot",
+      "icon": "grok-bot.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/grok-bot/id6794501026",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=ai.x.grok.bot",
+      "pinned": true
     },
     {
       "name": "Callie: Food Self Care Pet",

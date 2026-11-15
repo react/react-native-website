@@ -1,4 +1,4 @@
-```SnackPlayer name=Hello%20World
+```SnackPlayer name=Hello%20World%20100%25%20Native
 import React from 'react';
 import { Text, View } from 'react-native';
 

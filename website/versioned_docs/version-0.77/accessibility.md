@@ -142,7 +142,7 @@ In the above example method `addOne` changes the state variable `count`. When th
 - **image** Used when the element should be treated as an image. Can be combined with a button or link.
 - **imagebutton** Used when the element should be treated as a button and is also an image.
 - **keyboardkey** Used when the element acts as a keyboard key.
-- **link** Used when the element should be treated as a link.
+- **link** Used when the element should be treated as a link, specifically for interactive elements that open an external URL or web page in a browser. For in-app screen navigation or actions, use `button` instead.
 - **menu** Used when the component is a menu of choices.
 - **menubar** Used when a component is a container of multiple menus.
 - **menuitem** Used to represent an item within a menu.
@@ -381,7 +381,7 @@ Assign this property to a custom function which will be called when someone perf
 - **grid** Used with ScrollView, VirtualizedList, FlatList, or SectionList to represent a grid. Adds the in/out of grid announcements to the android GridView.
 - **heading** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
 - **img** Used when the element should be treated as an image. Can be combined with a button or link, for example.
-- **link** Used when the element should be treated as a link.
+- **link** Used when the element should be treated as a link, specifically for interactive elements that open an external URL or web page in a browser. For in-app screen navigation or actions, use `button` instead.
 - **list** Used to identify a list of items.
 - **listitem** Used to itentify an item in a list.
 - **menu** Used when the component is a menu of choices.
@@ -424,11 +424,11 @@ When adding support for standard actions, `name` must be one of the following:
 - `'magicTap'` - iOS only - While VoiceOver focus is on or inside the component, the user double tapped with two fingers.
 - `'escape'` - iOS only - While VoiceOver focus is on or inside the component, the user performed a two-finger scrub gesture (left, right, left).
 - `'activate'` - Activate the component. This should perform the same action with, or without, assistive technology. Engaged when a screen reader user double taps the component.
-- `'increment'` - Increment an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes upward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume-up button.
-- `'decrement'` - Decrement an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes downward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume-down button.
+- `'increment'` - Increment an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes upward. On Android, in TalkBack versions 8.1 and below, this action is generated when the user focuses the component and presses the volume-up button. In TalkBack 9.1 and later, this was replaced by the "Adjust Reading Control" gesture (swiping upward on the focused control).
+- `'decrement'` - Decrement an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes downward. On Android, in TalkBack versions 8.2 and below, this action is generated when the user focuses the component and presses the volume-down button. In TalkBack 9.2 and later, this was replaced by the "Adjust Reading Control" gesture (swiping downward on the focused control).
 - `'longpress'` - Android only - This action is generated when the user places accessibility focus on the component, then double-taps and holds one finger on the screen. This should perform the same action with, or without, assistive technology.
 
-The `label` field is optional for standard actions and is often unused by assistive technologies. For custom actions, it is a localized string containing a description of the action to be presented to the user.
+The `label` field is optional for standard actions and is used by assistive technologies to describe the specific result of an action. For example, TalkBack uses this field to override the default "Double tap to activate" announcement with a custom description like "Double tap to open chat." For custom actions, the `label` is a localized string containing a description of the action to be presented to the user.
 
 To handle action requests, a component must implement an `onAccessibilityAction` function. The only argument to this function is an event containing the name of the action to perform. The below example from RNTester shows how to create a component that defines and handles several custom actions.
 

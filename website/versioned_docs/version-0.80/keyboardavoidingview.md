@@ -8,7 +8,6 @@ This component will automatically adjust its height, position, or bottom padding
 ## Example
 
 ```SnackPlayer name=KeyboardAvoidingView&supportedPlatforms=android,ios
-import React from 'react';
 import {
   View,
   KeyboardAvoidingView,

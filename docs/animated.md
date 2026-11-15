@@ -15,14 +15,20 @@ Don't modify the animated value directly. You can use the [`useRef` Hook](https:
 
 The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
 
-```SnackPlayer name=Animated%20Example
-import React, {useRef} from 'react';
+```SnackPlayer name=Animated%20Example&supportedPlatforms=ios,android
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
-import {Animated, Text, View, StyleSheet, Button} from 'react-native';
+import {
+  Animated,
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  useAnimatedValue,
+} from 'react-native';
 
 const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeAnim = useAnimatedValue(0);
 
   const fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds
@@ -186,7 +192,8 @@ For example, when working with horizontal scrolling gestures, you would do the f
           x: scrollX
         }
       }
-    }]
+    }],
+    {useNativeEvent: true}
  )}
 ```
 
@@ -210,7 +217,7 @@ Config is an object that may have the following options:
 
 - `velocity`: Initial velocity. Required.
 - `deceleration`: Rate of decay. Default 0.997.
-- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `isInteraction`: Whether or not this animation creates an "interaction handle". Default true.
 - `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
@@ -228,7 +235,7 @@ Config is an object that may have the following options:
 - `duration`: Length of animation (milliseconds). Default 500.
 - `easing`: Easing function to define curve. Default is `Easing.inOut(Easing.ease)`.
 - `delay`: Start the animation after delay (milliseconds). Default 0.
-- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `isInteraction`: Whether or not this animation creates an "interaction handle". Default true.
 - `useNativeDriver`: Uses the native driver when true. Required.
 
 ---
@@ -245,7 +252,7 @@ Config is an object that may have the following options.
 
 Note that you can only define one of bounciness/speed, tension/friction, or stiffness/damping/mass, but not more than one:
 
-The friction/tension or bounciness/speed options match the spring model in [`Facebook Pop`](https://github.com/facebook/pop), [Rebound](https://github.com/facebookarchive/rebound), and [Origami](https://origami.design/).
+The friction/tension or bounciness/speed options match the spring model in [`Facebook Pop`](https://github.com/facebookarchive/pop), [Rebound](https://github.com/facebookarchive/rebound), and [Origami](https://origami.design/).
 
 - `friction`: Controls "bounciness"/overshoot. Default 7.
 - `tension`: Controls speed. Default 40.
@@ -265,7 +272,7 @@ Other configuration options are as follows:
 - `restDisplacementThreshold`: The threshold of displacement from rest below which the spring should be considered at rest. Default 0.001.
 - `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
 - `delay`: Start the animation after delay (milliseconds). Default 0.
-- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `isInteraction`: Whether or not this animation creates an "interaction handle". Default true.
 - `useNativeDriver`: Uses the native driver when true. Required.
 
 ---

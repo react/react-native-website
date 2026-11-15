@@ -4,8 +4,8 @@ title: How to Contribute Code
 
 Thank you for your interest in contributing to React Native! From commenting on and triaging issues, to reviewing and sending PRs, [all contributions are welcome](/contributing/overview). In this document, we'll cover the steps to contributing code to React Native.
 
-If you are eager to start contributing code right away, we have a list of [`Good first issues`](https://github.com/facebook/react-native/labels/good%20first%20issue) that contain bugs which have a relatively limited scope.
-Issues labeled [`Help wanted`](https://github.com/facebook/react-native/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22help+wanted+%3Aoctocat%3A%22+sort%3Aupdated-desc+) are good issues to submit a PR for.
+If you are eager to start contributing code right away, we have a list of [`Good first issues`](https://github.com/react/react-native/labels/good%20first%20issue) that contain bugs which have a relatively limited scope.
+Issues labeled [`Help wanted`](https://github.com/react/react-native/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22help+wanted+%3Aoctocat%3A%22+sort%3Aupdated-desc+) are good issues to submit a PR for.
 
 ## Prerequisites
 
@@ -31,14 +31,14 @@ Now you are set up to run several commands:
 - `yarn test-typescript` runs the [TypeScript](https://www.typescriptlang.org/) typechecks.
 - `yarn test-ios` runs the iOS test suite (macOS required).
 - `yarn build` builds all configured packages — in general, this command only needs to be run by CI ahead of publishing.
-  - Packages which require a build are configured in [scripts/build/config.js](https://github.com/facebook/react-native/blob/main/scripts/build/config.js).
+  - Packages which require a build are configured in [scripts/build/config.js](https://github.com/react/react-native/blob/main/scripts/build/config.js).
 - `yarn build-types` generates TypeScript types for the public API and updates the snapshot.
 
 ## Testing your Changes
 
 Tests help us prevent regressions from being introduced to the codebase. We recommend running `yarn test` or the platform-specific scripts above to make sure you don't introduce any regressions as you work on your change.
 
-The GitHub repository is [continuously tested](/contributing/how-to-run-and-write-tests#continuous-testing) using CircleCI, the results of which are available through the Checks functionality on [commits](https://github.com/facebook/react-native/commits/main) and pull requests.
+The GitHub repository is [continuously tested](/contributing/how-to-run-and-write-tests#continuous-testing) using CircleCI, the results of which are available through the Checks functionality on [commits](https://github.com/react/react-native/commits/main) and pull requests.
 
 You can learn more about running and writing tests on the [How to Run and Write Tests](/contributing/how-to-run-and-write-tests) page.
 
@@ -88,4 +88,4 @@ In order to accept your pull request, we need you to submit a [Contributor Licen
 
 ## License
 
-By contributing to React Native, you agree that your contributions will be licensed under the [LICENSE](https://github.com/facebook/react-native/blob/main/LICENSE) file in the root directory of the React Native repository.
+By contributing to React Native, you agree that your contributions will be licensed under the [LICENSE](https://github.com/react/react-native/blob/main/LICENSE) file in the root directory of the React Native repository.

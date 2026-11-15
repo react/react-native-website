@@ -20,7 +20,7 @@ if (Platform.OS === 'android') {
 ## Example
 
 ```SnackPlayer name=LayoutAnimation%20Example&supportedPlatforms=android,ios
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   LayoutAnimation,
   Platform,
@@ -134,7 +134,7 @@ Helper that creates an object (with `create`, `update`, and `delete` fields) to 
 **Example:**
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   View,
   Platform,
@@ -263,7 +263,7 @@ Calls `configureNext()` with `Presets.spring`.
 **Example:**
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   View,
   Platform,

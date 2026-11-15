@@ -2,7 +2,7 @@
 id: libraries
 title: Using Libraries
 author: Brent Vatne
-authorURL: 'https://twitter.com/notbrent'
+authorURL: 'https://x.com/notbrent'
 description: This guide introduces React Native developers to finding, installing, and using third-party libraries in their apps.
 ---
 

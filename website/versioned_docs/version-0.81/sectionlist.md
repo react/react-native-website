@@ -21,7 +21,6 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 ## Example
 
 ```SnackPlayer name=SectionList%20Example
-import React from 'react';
 import {StyleSheet, Text, View, SectionList, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -361,6 +360,6 @@ An object that identifies the data to be rendered for a given section.
 | --------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | data <div className="label basic required">Required</div> | array              | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist#required-data).                                         |
 | key                                                       | string             | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                              |
-| renderItem                                                | function           | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist#renderitem) for the list.                          |
+| renderItem                                                | function           | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist#requiredrenderitem) for the list.                  |
 | ItemSeparatorComponent                                    | component, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist#itemseparatorcomponent) for the list. |
 | keyExtractor                                              | function           | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist#keyextractor).                                   |

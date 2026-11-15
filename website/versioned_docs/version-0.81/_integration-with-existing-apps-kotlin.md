@@ -192,7 +192,7 @@ AppRegistry.registerComponent('HelloWorld', () => App);
 Let's create an `App.tsx` file. This is a [TypeScript](https://www.typescriptlang.org/) file that can have [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) expressions. It contains the root React Native component that we will integrate into our Android application (<RNTemplateRepoLink href="template/App.tsx">link</RNTemplateRepoLink>):
 
 ```tsx
-import React from 'react';
+import {type JSX} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -202,7 +202,6 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 import {
   Colors,
   DebugInstructions,
@@ -210,7 +209,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-function App(): React.JSX.Element {
+function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {

@@ -39,7 +39,7 @@ If you want to enable deep links in your app, please read the below guide:
 <TabItem value="android">
 
 :::info
-For instructions on how to add support for deep linking on Android, refer to [Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](https://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
+For instructions on how to add support for deep linking on Android, refer to [Create Deep Links to App Content - Add intent filters for incoming links](https://developer.android.com/training/app-links/create-deeplinks#adding-filters).
 :::
 
 If you wish to receive the intent in an existing instance of MainActivity, you may set the `launchMode` of MainActivity to `singleTask` in `AndroidManifest.xml`. See [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.html) documentation for more information.
@@ -53,8 +53,93 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
 </TabItem>
 <TabItem value="ios">
 
-:::note
-On iOS, you'll need to add the `LinkingIOS` folder into your header search paths as described in step 3 [here](linking-libraries-ios#step-3). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
+On iOS, you'll need to add the `LinkingIOS` folder into your header search paths as described in step 3 [here](linking-libraries-ios#step-3). If you also want to listen to incoming app links during your app's execution, forward deep links from your `SceneDelegate`. If your app declares `UIApplicationSceneManifest` in `Info.plist`, `RCTLinkingManager` ignores the `AppDelegate` linking methods below - you must forward links from `SceneDelegate` instead.
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+```objc title="SceneDelegate.m"
+#import <React/RCTLinkingManager.h>
+
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts
+{
+  [RCTLinkingManager scene:scene openURLContexts:URLContexts];
+}
+```
+
+If your app is using [Universal Links](https://developer.apple.com/ios/universal-links/), add the following as well:
+
+```objc title="SceneDelegate.m"
+- (void)scene:(UIScene *)scene continueUserActivity:(NSUserActivity *)userActivity
+{
+  [RCTLinkingManager scene:scene continueUserActivity:userActivity];
+}
+```
+
+</TabItem>
+<TabItem value="swift">
+
+```swift title="SceneDelegate.swift"
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  RCTLinkingManager.scene(scene, openURLContexts: URLContexts)
+}
+```
+
+If your app is using [Universal Links](https://developer.apple.com/ios/universal-links/), add the following as well:
+
+```swift title="SceneDelegate.swift"
+func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+  RCTLinkingManager.scene(scene, continue: userActivity)
+}
+```
+
+</TabItem>
+</Tabs>
+
+These callbacks only cover links that arrive while the scene is connected. To handle linking in a cold-start (the app being launched by a custom URL scheme or a Universal Link), you also need to hand the scene's `UIScene.ConnectionOptions` to React Native when you bootstrap it, otherwise [`getInitialURL()`](#getinitialurl) resolves to `null`:
+
+<Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
+<TabItem value="objc">
+
+```objc title="SceneDelegate.m"
+- (void)scene:(UIScene *)scene
+    willConnectToSession:(UISceneSession *)session
+                 options:(UISceneConnectionOptions *)connectionOptions
+{
+  // ...
+  [self.reactNativeFactory startReactNativeWithModuleName:@"HelloWorld"
+                                                 inWindow:self.window
+                                        connectionOptions:connectionOptions];
+}
+```
+
+</TabItem>
+<TabItem value="swift">
+
+```swift title="SceneDelegate.swift"
+func scene(
+  _ scene: UIScene,
+  willConnectTo session: UISceneSession,
+  options connectionOptions: UIScene.ConnectionOptions
+) {
+  // ...
+  reactNativeFactory?.startReactNative(
+    withModuleName: "HelloWorld",
+    in: window,
+    connectionOptions: connectionOptions
+  )
+}
+```
+
+</TabItem>
+</Tabs>
+
+See [Bootstrapping with SceneDelegate](integration-with-existing-apps#6-bootstrapping-with-scenedelegate) for the full `SceneDelegate` setup.
+
+<details>
+<summary>Apps without UIScene lifecycle</summary>
+
+If your app does not use `SceneDelegate`, add the following lines to your `AppDelegate` instead:
 
 <Tabs groupId="ios-language" queryString defaultValue={constants.defaultAppleLanguage} values={constants.appleLanguages}>
 <TabItem value="objc">
@@ -87,7 +172,7 @@ If your app is using [Universal Links](https://developer.apple.com/ios/universal
 <TabItem value="swift">
 
 ```swift title="AppDelegate.swift"
-override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
   return RCTLinkingManager.application(app, open: url, options: options)
 }
 ```
@@ -95,7 +180,7 @@ override func application(_ app: UIApplication, open url: URL, options: [UIAppli
 If your app is using [Universal Links](https://developer.apple.com/ios/universal-links/), you'll need to add the following code as well:
 
 ```swift title="AppDelegate.swift"
-override func application(
+func application(
   _ application: UIApplication,
   continue userActivity: NSUserActivity,
   restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
@@ -110,10 +195,12 @@ override func application(
 </TabItem>
 </Tabs>
 
-:::
+</details>
 
 </TabItem>
 </Tabs>
+
+---
 
 ### Handling Deep Links
 
@@ -137,7 +224,7 @@ You can handle these events with `Linking.getInitialURL()` - it returns a Promis
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
 const supportedURL = 'https://google.com';
@@ -185,7 +272,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=tsx
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
 const supportedURL = 'https://google.com';
@@ -243,7 +330,7 @@ export default App;
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Button, Linking, StyleSheet, View} from 'react-native';
 
 const OpenSettingsButton = ({children}) => {
@@ -278,7 +365,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=tsx
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Button, Linking, StyleSheet, View} from 'react-native';
 
 type OpenSettingsButtonProps = {
@@ -322,7 +409,7 @@ export default App;
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=js
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {Linking, StyleSheet, Text, View} from 'react-native';
 
 const useInitialURL = () => {
@@ -336,7 +423,7 @@ const useInitialURL = () => {
 
       // The setTimeout is just for testing purpose
       setTimeout(() => {
-        setUrl(initialUrl);
+        setUrl(initialUrl ?? null);
         setProcessing(false);
       }, 1000);
     };
@@ -376,7 +463,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=ios,android&ext=tsx
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {Linking, StyleSheet, Text, View} from 'react-native';
 
 const useInitialURL = () => {
@@ -390,7 +477,7 @@ const useInitialURL = () => {
 
       // The setTimeout is just for testing purpose
       setTimeout(() => {
-        setUrl(initialUrl);
+        setUrl(initialUrl ?? null);
         setProcessing(false);
       }, 1000);
     };
@@ -435,7 +522,7 @@ export default App;
 <TabItem value="javascript">
 
 ```SnackPlayer name=Linking%20Example&supportedPlatforms=android&ext=js
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
 const SendIntentButton = ({action, extras, children}) => {
@@ -485,7 +572,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Linking%20Example&ext=tsx
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {Alert, Button, Linking, StyleSheet, View} from 'react-native';
 
 type SendIntentButtonProps = {
@@ -557,7 +644,7 @@ export default App;
 static addEventListener(
   type: 'url',
   handler: (event: {url: string}) => void,
-): EmitterSubscription;
+): EventSubscription;
 ```
 
 Add a handler to Linking changes by listening to the `url` event type and providing the handler.
@@ -622,7 +709,7 @@ static getInitialURL(): Promise<string | null>;
 If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`.
 
 :::info
-To support deep linking on Android, refer https://developer.android.com/training/app-indexing/deep-linking.html#handling-intents.
+To support deep linking on Android, refer to [Create Deep Links to App Content - Read data from incoming intents](https://developer.android.com/training/app-links/create-deeplinks#handling-intents).
 :::
 
 :::tip

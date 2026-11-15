@@ -206,7 +206,7 @@ Finally, we need to tell the React Native in our main application how to find th
 In this case, you add it to be returned by the [getPackages](https://github.com/facebook/react-native/blob/8d8b8c343e62115a5509e1aed62047053c2f6e39/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/ReactNativeHost.java#L233) method.
 
 :::info
-Later you’ll learn how to distribute your Native Modules as [npm packages](the-new-architecture/create-module-library.md#publish-the-library-on-npm), which our build tooling will autolink for you.
+Later you’ll learn how to distribute your Native Modules as [npm packages](the-new-architecture/create-module-library.mdx#publish-the-library-on-npm), which our build tooling will autolink for you.
 :::
 
 <Tabs groupId="android-language" queryString defaultValue={constants.defaultAndroidLanguage} values={constants.androidLanguages}>

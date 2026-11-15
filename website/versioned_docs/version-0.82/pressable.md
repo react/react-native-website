@@ -47,7 +47,7 @@ The touch area never extends past the parent view bounds and the Z-index of sibl
 ## Example
 
 ```SnackPlayer name=Pressable
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

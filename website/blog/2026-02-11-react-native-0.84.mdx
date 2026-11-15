@@ -1,0 +1,222 @@
+---
+title: 'React Native 0.84 - Hermes V1 by Default'
+authors: [huntie, alanleedev, chrfalch, gabrieldonadel]
+tags: [announcement, release]
+date: 2026-02-11
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# React Native 0.84 - Hermes V1 by Default
+
+Today we're excited to release React Native 0.84!
+
+This release makes Hermes V1 the default JavaScript engine, bringing significant performance improvements to all React Native apps. We've also continued removing the Legacy Architecture on both iOS and Android, and are shipping precompiled iOS binaries by default.
+
+### Highlights
+
+- [Hermes V1 as Default](/blog/2026/02/11/react-native-0.84#hermes-v1-as-default)
+- [Precompiled Binaries on iOS by Default](/blog/2026/02/11/react-native-0.84#precompiled-binaries-on-ios-by-default)
+- [Legacy Architecture Components Removed](/blog/2026/02/11/react-native-0.84#legacy-architecture-components-removed)
+- [Node.js 22 Minimum](/blog/2026/02/11/react-native-0.84#nodejs-22-minimum)
+
+{/* truncate */}
+
+## Hermes V1 as Default
+
+**Hermes V1 is now the default JavaScript engine for React Native on both iOS and Android**, following the initial experimental opt-in in React Native 0.82.
+
+Hermes V1 represents the next evolution of the Hermes engine, with significant improvements to both the compiler and VM that deliver measurably better JavaScript performance.
+
+**What This Means for Your App**
+
+- **Automatic performance gains**: All apps will use Hermes V1 by default, bringing improved execution speed and reduced memory usage.
+- **No migration required**: If you're already using Hermes (the default since 0.70), you'll automatically get Hermes V1. No configuration changes needed.
+
+<details>
+<summary><strong>Opting out from Hermes V1</strong></summary>
+
+**Package manager override**
+
+Force the installation of the legacy `hermes-compiler` package in your `package.json`:
+
+<Tabs>
+<TabItem value="npm">
+```json title="package.json"
+"overrides": { "hermes-compiler": "0.15.0" }
+```
+</TabItem>
+<TabItem value="yarn">
+```json title="package.json"
+"resolutions": { "hermes-compiler": "0.15.0" }
+```
+</TabItem>
+<TabItem value="pnpm">
+```json title="package.json"
+"pnpm": { "overrides": { "hermes-compiler": "0.15.0" } }
+```
+</TabItem>
+</Tabs>
+
+**iOS**
+
+When installing CocoaPods dependencies, pass the `RCT_HERMES_V1_ENABLED=0` and `RCT_USE_PREBUILT_RNCORE=0` environment variables.
+
+**Android**
+
+Add `hermesV1Enabled=false` inside the `android/gradle.properties` file, and configure the application to [build React Native from source](/contributing/how-to-build-from-source#update-your-project-to-build-from-source).
+
+</details>
+
+## Precompiled Binaries on iOS by Default
+
+React Native 0.84 now ships precompiled binaries on iOS by default. Previously introduced as an opt-in, precompiled binaries are now enabled out of the box, significantly reducing build times for iOS apps.
+
+This means you no longer need to compile React Native core from source every time you do a clean build. The precompiled `.xcframework` binaries are automatically downloaded and used during `pod install`.
+
+:::info
+If you need to build React Native from source (for example, to opt out of Hermes V1), you can disable precompiled binaries by setting `RCT_USE_PREBUILT_RNCORE=0` when installing pods.
+:::
+
+## Legacy Architecture Components Removed
+
+Building on the work started in 0.82 (which made the New Architecture the only runtime option), React Native 0.84 continues removing Legacy Architecture code from both iOS and Android. As described in the [RFC](https://github.com/react-native-community/discussions-and-proposals/pull/929), we're removing several Legacy Architecture classes in each release.
+
+#### iOS
+
+In 0.83, we introduced the experimental `RCT_REMOVE_LEGACY_ARCH` flag to compile out Legacy Architecture code. In 0.84, this is now the default behaviour — Legacy Architecture code is no longer included in your iOS builds, reducing both build time and app size.
+
+No breakages are expected for apps already on the New Architecture — the Interop Layer code required for compatibility remains in place.
+
+<details>
+<summary><strong>Re-enabling Legacy Architecture code on iOS</strong></summary>
+
+If you need to re-enable Legacy Architecture code in your iOS builds, you'll need to build from source. Install CocoaPods dependencies with the following flags:
+
+```bash
+RCT_USE_PREBUILT_RNCORE=0 RCT_REMOVE_LEGACY_ARCH=0 bundle exec pod install
+```
+
+</details>
+
+#### Android
+
+<details>
+<summary><strong>Removed Legacy Architecture classes</strong></summary>
+
+The following classes have been removed in this release:
+
+```
+com.facebook.react.LazyReactPackage
+com.facebook.react.bridge.CxxModuleWrapper
+com.facebook.react.bridge.CxxModuleWrapperBase
+com.facebook.react.bridge.CallbackImpl
+com.facebook.react.bridge.NotThreadSafeBridgeIdleDebugListener
+com.facebook.react.bridge.OnBatchCompleteListener
+com.facebook.react.bridge.ReactCxxErrorHandler
+com.facebook.react.bridge.ReactInstanceManagerInspectorTarget
+com.facebook.react.modules.debug.DidJSUpdateUiDuringFrameDetector
+com.facebook.react.devsupport.BridgeDevSupportManager
+com.facebook.react.uimanager.NativeKind
+com.facebook.react.uimanager.debug.NotThreadSafeViewHierarchyUpdateDebugListener
+com.facebook.react.uimanager.layoutanimation.LayoutAnimationController
+com.facebook.react.uimanager.layoutanimation.LayoutAnimationListener
+```
+
+</details>
+
+## Node.js 22 Minimum
+
+React Native 0.84 requires **Node.js v22.11 or later**. This bump improves the availability of modern JavaScript features across the ecosystem of React Native tooling.
+
+Make sure to update your Node.js version before upgrading. We recommend using a Node version manager like [nvm](https://github.com/nvm-sh/nvm) or [fnm](https://github.com/Schniz/fnm) to manage Node versions.
+
+## Other Changes
+
+### React 19.2.3
+
+This release syncs React 19.2.3 into React Native, including the latest fixes and improvements from the React team.
+
+### ESLint v9 Flat Config
+
+React Native's ESLint config now supports [ESLint v9 Flat Config](https://eslint.org/docs/latest/use/configure/configuration-files), making it easier to adopt the latest ESLint tooling in your project.
+
+### Platform Support
+
+- **Image formats**: React Native 0.84 includes support for additional image formats (HEIC and HEIF), making it easier to work with modern camera outputs and image libraries.
+- **PlatformColor**: Enhanced testing and support for `PlatformColor` in animated interpolations and output ranges.
+- **Keyboard events on Android**: Added `onKeyDown`/`onKeyUp` support on Android, enabling keyboard event handling for hardware keyboards and TV remotes.
+
+### Accessibility
+
+Text components with `onPress` or `onLongPress` handlers now automatically receive `accessibilityRole="link"` for improved accessibility support, ensuring screen readers properly announce interactive text elements.
+
+On Android, significant work has been done to fix accessibility state issues with recycled views — ensuring that `isClickable` and `OnClickListener` states are properly reset when views are recycled, preventing screen readers from announcing incorrect states.
+
+### URL API Improvements
+
+Added missing standard properties to `URL` (`hash`, `host`, `pathname`, etc.) and methods to `URLSearchParams` (`get`, `set`, `delete`, etc.), bringing React Native's URL implementation closer to the web standard. Also fixed a `URLSearchParams` duplicate entry issue.
+
+### Other Breaking Changes
+
+#### iOS
+
+- Fixed a rare `EXC_BAD_ACCESS` crash in `ImageResponseObserverCoordinator` by wrapping observers in reference-counted pointers. This changes the object declarations in the `RCTImage` observer API, which may affect dependent libraries such as `react-native-svg`.
+
+#### Android
+
+- Removed `BridgeDevSupportManager`.
+
+#### C++
+
+- `JSBigString` now implements `jsi::Buffer` directly. The `BigStringBuffer` indirection has been removed (deprecated for now). Code directly subclassing or depending on `BigStringBuffer` may need updating.
+
+#### JS
+
+- The legacy Perf and Network tabs have been removed from the in-app Element Inspector, as these features are now available in [React Native DevTools](/docs/react-native-devtools).
+
+Read the full list of breaking changes in the [CHANGELOG for 0.84](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0840).
+
+## Deprecations
+
+This release ships two deprecations:
+
+- **Networking:** The `XHRInterceptor` and `WebSocketInterceptor` APIs are deprecated. Developer tools should use the Chrome DevTools Protocol (CDP) `Network` domain instead.
+- **TurboModules**: `TurboModuleProviderFunctionType` is deprecated.
+
+## Acknowledgements
+
+React Native 0.84 contains over 650 commits from 95 contributors. Thank you for all your hard work!
+
+We want to send a special thank you to those who shipped significant contributions in this release:
+
+- [Riccardo Cipolleschi](https://github.com/cipolleschi) for precompiled iOS binaries by default and removing the Legacy Architecture on iOS.
+- [Rob Hogan](https://github.com/robhogan) for the Node.js 22 version bump.
+- [Fabrizio Cucci](https://github.com/fabriziocucci) for accessibility improvements on Android.
+- [@pipopotamasu](https://github.com/pipopotamasu) for ESLint v9 Flat Config support.
+
+## Upgrade to 0.84
+
+:::info
+
+0.84 is now the latest stable version of React Native and 0.81.x moves to unsupported. For more information see [React Native's support policy](https://github.com/reactwg/react-native-releases/blob/main/docs/support.md).
+
+:::
+
+#### Upgrading
+
+Please use the [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) to view code changes between React Native versions for existing projects, in addition to the [Upgrading docs](/docs/upgrading).
+
+> **💡 New**: Try the experimental [`upgrade-react-native` AI skill for Community CLI Projects](https://skills.sh/react-native-community/skills/upgrade-react-native).
+
+#### Create a new project
+
+```text
+npx @react-native-community/cli@latest init MyProject --version latest
+```
+
+#### Expo
+
+For Expo projects, React Native 0.84 will be available as part of the `expo@canary` releases.
+The next SDK, SDK 56, will be shipped with the next stable release of React Native: 0.85.

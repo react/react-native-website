@@ -7,13 +7,17 @@ Profiling is the process of analyzing an app's performance, resource usage, and 
 
 For iOS, Instruments is an invaluable tool, and on Android you should learn to use the [Android Studio Profiler](profiling.md#profiling-android-ui-performance-with-system-tracing).
 
-But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-devtrue) You should see `__DEV__ === false, development-level warning are OFF, performance optimizations are ON` in your application logs.
+But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-devtrue).
 
 ## Profiling Android UI Performance with System Tracing
 
 Android supports 10k+ different phones and is generalized to support software rendering: the framework architecture and need to generalize across many hardware targets unfortunately means you get less for free relative to iOS. But sometimes, there are things you can improve -- and many times it's not native code's fault at all!
 
 The first step for debugging this jank is to answer the fundamental question of where your time is being spent during each 16ms frame. For that, we'll be using the [built-in System Tracing profiler in the Android Studio](https://developer.android.com/studio/profile).
+
+:::note
+The standalone `systrace` tool has been removed from Android platform-tools. Use the Android Studio Profiler instead, which provides the same functionality with a better user interface.
+:::
 
 ### 1. Collecting a trace
 
@@ -29,13 +33,13 @@ After opening the trace in Android Studio or Perfetto, you should see something 
 
 ![Example](/docs/assets/SystraceExample.png)
 
-:::note Hint
+:::note[Hint]
 Use the WASD keys to strafe and zoom.
 :::
 
 The exact UI might be different but the instructions below will apply regardless of the tool you're using.
 
-:::info Enable VSync highlighting
+:::info[Enable VSync highlighting]
 Check this checkbox at the top right of the screen to highlight the 16ms frame boundaries:
 
 ![Enable VSync Highlighting](/docs/assets/SystraceHighlightVSync.png)
@@ -129,7 +133,7 @@ There isn't a quick way to mitigate this unless you're able to postpone creating
 
 If the problem seems to be on the native side, you can use the [CPU hotspot profiler](https://developer.android.com/studio/profile/record-java-kotlin-methods) to get more details on what's happening. Open the Android Studio Profiler panel and select "Find CPU Hotspots (Java/Kotlin Method Recording)".
 
-:::info Choose the Java/Kotlin recording
+:::info[Choose the Java/Kotlin recording]
 
 Make sure you select "Find CPU Hotspots **(Java/Kotlin Recording)**" rather than "Find CPU Hotspots (Callstack Sample)". They have similar icons but do different things.
 :::

@@ -24,7 +24,7 @@ The basic steps are:
 Lets work through each of these steps by building an example Turbo Native Module. The rest of this guide assume that you have created your application running the command:
 
 <CodeBlock language="bash" title="shell">
-{`npx @react-native-community/cli@latest init TurboModuleExample --version ${getCurrentVersion()}`}
+{`npx @react-native-community/cli@latest init TurboModuleExample --version "${getCurrentVersion()}"`}
 </CodeBlock>
 
 ## Native Persistent Storage
@@ -47,6 +47,10 @@ To create a specs file:
 
 :::info
 You can see all of the types you can use in your specification and the native types that are generated in the [Appendix](/docs/appendix) documentation.
+:::
+
+:::info
+If you want to change the name of your module and the related specs file, make sure to always use 'Native' as prefix (e.g. `NativeStorage` or `NativeUsersDefault`).
 :::
 
 Here is an implementation of the `localStorage` specification:
@@ -162,7 +166,7 @@ The `TurboModuleRegistry` supports 2 modes of retrieving a Turbo Native Module:
 - `getEnforcing<T>(name: string): T` which will throw an exception if the Turbo Native Module is unavailable. This assumes the module is always available.
 
 ```tsx title="App.tsx"
-import React from 'react';
+import {useEffect, useState, type JSX} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -175,14 +179,14 @@ import NativeLocalStorage from './specs/NativeLocalStorage';
 
 const EMPTY = '<empty>';
 
-function App(): React.JSX.Element {
-  const [value, setValue] = React.useState<string | null>(null);
+function App(): JSX.Element {
+  const [value, setValue] = useState<string | null>(null);
 
-  const [editingValue, setEditingValue] = React.useState<
-    string | null
-  >(null);
+  const [editingValue, setEditingValue] = useState<string | null>(
+    null,
+  );
 
-  React.useEffect(() => {
+  useEffect(() => {
     const storedValue = NativeLocalStorage?.getItem('myKey');
     setValue(storedValue ?? '');
   }, []);

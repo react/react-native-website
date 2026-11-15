@@ -306,7 +306,7 @@ export default function MyCustomView(props: {
     [props.onChangeMessage],
   );
 
-  return <RCTMyCustomView {...props} onChange={props.onChange} />;
+  return <RCTMyCustomView {...props} onChange={onChange} />;
 }
 ```
 

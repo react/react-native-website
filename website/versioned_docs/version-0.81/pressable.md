@@ -43,7 +43,7 @@ Fingers are not the most precise instruments, and it is common for users to acci
 ## Example
 
 ```SnackPlayer name=Pressable
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

@@ -336,7 +336,7 @@ Now, we need to implement the `validateAddress` function in C++. First, we need 
 
 2. Open the `shared/NativeSampleModule.cpp` file and add the function implementation
 
-```c++ title="NativeSampleModule.cpp (validateAddress implementation)"
+```cpp title="NativeSampleModule.cpp (validateAddress implementation)"
 bool NativeSampleModule::validateAddress(jsi::Runtime &rt, jsi::Object input) {
   std::string street = input.getProperty(rt, "street").asString(rt).utf8(rt);
   int32_t number = input.getProperty(rt, "num").asNumber();

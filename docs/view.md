@@ -12,7 +12,6 @@ The most fundamental component for building a UI, `View` is a container that sup
 This example creates a `View` that wraps two boxes with color and a text component in a row with padding.
 
 ```SnackPlayer name=View%20Example
-import React from 'react';
 import {View, Text} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -83,7 +82,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 ### `accessibilityLanguage` <div className="label ios">iOS</div>
 
-A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
+A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47/).
 
 See the [iOS `accessibilityLanguage` doc](https://developer.apple.com/documentation/objectivec/nsobject/1615192-accessibilitylanguage) for more information.
 
@@ -97,7 +96,7 @@ See the [iOS `accessibilityLanguage` doc](https://developer.apple.com/documentat
 
 A value indicating this view should or should not be inverted when color inversion is turned on. A value of `true` will tell the view to not be inverted even if color inversion is turned on.
 
-See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors) for more information.
+See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors-ios) for more information.
 
 | Type |
 | ---- |
@@ -176,7 +175,7 @@ See the [Android `View` docs](https://developer.android.com/reference/android/vi
 
 Describes the current state of a component to the user of an assistive technology.
 
-See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
+See the [Accessibility guide](accessibility.md#accessibilitystate) for more information.
 
 | Type                                                                                             |
 | ------------------------------------------------------------------------------------------------ |
@@ -188,7 +187,7 @@ See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) f
 
 Represents the current value of a component. It can be a textual description of a component's value, or for range-based components, such as sliders and progress bars, it contains range information (minimum, current, and maximum).
 
-See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) for more information.
+See the [Accessibility guide](accessibility.md#accessibilityvalue) for more information.
 
 | Type                                                            |
 | --------------------------------------------------------------- |

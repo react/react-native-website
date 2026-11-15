@@ -10,7 +10,7 @@ A React component for displaying text.
 In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
 ```SnackPlayer name=Text%20Function%20Component%20Example
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Text, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -59,7 +59,6 @@ export default TextInANest;
 Both Android and iOS allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use the web paradigm for this, where you can nest text to achieve the same effect.
 
 ```SnackPlayer name=Nested%20Text%20Example
-import React from 'react';
 import {Text, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -217,7 +216,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 ### `accessibilityLanguage` <div className="label ios">iOS</div>
 
-A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47).
+A value indicating which language should be used by the screen reader when the user interacts with the element. It should follow the [BCP 47 specification](https://www.rfc-editor.org/info/bcp47/).
 
 See the [iOS `accessibilityLanguage` doc](https://developer.apple.com/documentation/objectivec/nsobject/1615192-accessibilitylanguage) for more information.
 
@@ -241,7 +240,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 Tells the screen reader to treat the currently focused on element as having a specific role.
 
-On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
+On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilityrole) for more information.
 
 On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
 
@@ -291,7 +290,7 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 When set to `true`, indicates that the view is an accessibility element.
 
-See the [Accessibility guide](accessibility#accessible-ios-android) for more information.
+See the [Accessibility guide](accessibility.md#accessible) for more information.
 
 | Type    | Default |
 | ------- | ------- |

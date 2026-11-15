@@ -2,14 +2,14 @@
 title: How to Report a Bug
 ---
 
-Reporting a bug for React Native is one of the best way to start contributing to the project. We use [GitHub issues](https://github.com/facebook/react-native/issues) as the main channel for handling new bug reports.
+Reporting a bug for React Native is one of the best way to start contributing to the project. We use [GitHub issues](https://github.com/react/react-native/issues) as the main channel for handling new bug reports.
 
-Before opening a new bug, please [search if the bug already exists](https://github.com/facebook/react-native/issues?q=sort%3Aupdated-desc%20is%3Aissue) in our issue tracker. Most of the time, that's the fastest way to find a response as someone else already experienced the same problem.
+Before opening a new bug, please [search if the bug already exists](https://github.com/react/react-native/issues?q=sort%3Aupdated-desc%20is%3Aissue) in our issue tracker. Most of the time, that's the fastest way to find a response as someone else already experienced the same problem.
 
 If you can't find your bug in the issue tracker, you can open a new one. Once you create a new issue, make sure you:
 
 - Add a description of the problem.
-- Follow the instructions on the [issue template](https://github.com/facebook/react-native/issues/new?template=bug_report.yml).
+- Follow the instructions on the [issue template](https://github.com/react/react-native/issues/new?template=bug_report.yml).
 - Add the React Native version you're using.
 - Add the output of the `npx @react-native-community/cli info` command.
 - Add screenshots and videos of the problem if applicable.
@@ -35,13 +35,13 @@ This process is crucial, as often issues are actually solved by creating a repro
 
 Due to the amount of traffic we have on React Native, we can accept only one of those as a valid reproducer:
 
-1. For majority of bugs: send us a Pull Request with the [RNTesterPlayground.js](https://github.com/facebook/react-native/blob/main/packages/rn-tester/js/examples/Playground/RNTesterPlayground.js) edited to reproduce your bug.
+1. For majority of bugs: send us a Pull Request with the [RNTesterPlayground.js](https://github.com/react/react-native/blob/main/packages/rn-tester/js/examples/Playground/RNTesterPlayground.js) edited to reproduce your bug.
 2. If your bug is UI related: a [Snack](https://snack.expo.dev).
 3. If your bug is build/upgrade related: a project using our [Reproducer Template](https://github.com/react-native-community/reproducer-react-native/generate).
 
 ### RNTesterPlayground.js
 
-The best way for you to provide a reproducer is to open a Pull Request against React Native that edits the [`RNTesterPlayground.js`](https://github.com/facebook/react-native/blob/main/packages/rn-tester/js/examples/Playground/RNTesterPlayground.js) file.
+The best way for you to provide a reproducer is to open a Pull Request against React Native that edits the [`RNTesterPlayground.js`](https://github.com/react/react-native/blob/main/packages/rn-tester/js/examples/Playground/RNTesterPlayground.js) file.
 
 :::tip
 
@@ -49,9 +49,9 @@ This reproducer will run your code against `main` of `react-native` and is the *
 
 :::
 
-The `RNTesterPlayground.js` file is located inside the RN-Tester application, our reference App. You can read more about it how it works and how to build it inside its [dedicated README file](https://github.com/facebook/react-native/blob/main/packages/rn-tester/README.md).
+The `RNTesterPlayground.js` file is located inside the RN-Tester application, our reference App. You can read more about it how it works and how to build it inside its [dedicated README file](https://github.com/react/react-native/blob/main/packages/rn-tester/README.md).
 
-An example of such type of reproducer is here: [Reproduce modal layout issues #50704](https://github.com/facebook/react-native/pull/50704/).
+An example of such type of reproducer is here: [Reproduce modal layout issues #50704](https://github.com/react/react-native/pull/50704/).
 
 Once you edit the `RNTesterPlayground.js`, you'll be able to see your code running inside the **Playground** Tab of RNTester:
 

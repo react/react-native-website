@@ -30,7 +30,6 @@ While we do our best to assume no prior knowledge of React, Android, or iOS deve
 This introduction lets you get started immediately in your browser with interactive examples like this one:
 
 ```SnackPlayer name=Hello%20World
-import React from 'react';
 import {Text, View} from 'react-native';
 
 const YourApp = () => {

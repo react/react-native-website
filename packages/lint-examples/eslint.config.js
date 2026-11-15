@@ -19,7 +19,7 @@ import tsParser from '@typescript-eslint/parser';
 import jestPlugin from 'eslint-plugin-jest';
 
 export default defineConfig([
-  globalIgnores(['**/node_modules']),
+  globalIgnores(['node_modules']),
 
   eslintPluginPrettier,
 
@@ -56,6 +56,7 @@ export default defineConfig([
       ...reactNativeConfig.rules,
       // Many existing inline styles in examples
       'react-native/no-inline-styles': 'off',
+      'no-alert': 'off',
     },
 
     settings: {

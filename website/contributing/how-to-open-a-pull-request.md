@@ -18,16 +18,16 @@ The React Native source code is hosted on GitHub. You can interact with the git 
 
 ### 2. Get the source code
 
-While you can browse the source code for React Native on [GitHub](https://github.com/facebook/react-native), we recommend you set up a fork on your local machine.
+While you can browse the source code for React Native on [GitHub](https://github.com/react/react-native), we recommend you set up a fork on your local machine.
 
-1. Go to https://github.com/facebook/react-native.
+1. Go to https://github.com/react/react-native.
 2. Click on "Fork" button on the upper right.
 3. When asked, select your username as the host for this fork.
 
 You will now have a fork of React Native on GitHub at https://github.com/your_username/react-native. Next, you will grab a copy of the source code for your local machine. Open a shell and type the following commands:
 
 ```bash
-git clone https://github.com/facebook/react-native.git
+git clone https://github.com/react/react-native.git
 cd react-native
 git remote add fork https://github.com/your_username/react-native.git
 ```
@@ -38,7 +38,7 @@ If the above seems new to you, do not be scared. You can access a shell through 
 
 A new `react-native` directory will be created with the contents of the core React Native repository. This directory is actually a clone of the React Native git repository. It is set up with two remotes:
 
-- `origin` for the upstream https://github.com/facebook/react-native repository
+- `origin` for the upstream https://github.com/react/react-native repository
 - `fork` for the fork of React Native on your own GitHub account.
 
 ### 3. Create a branch
@@ -79,7 +79,7 @@ IDE project configurations:
 
 ### 3. Run your changes
 
-The package rn-tester can be used to run and validate your changes. You can learn more in [RNTester readme](https://github.com/facebook/react-native/blob/main/packages/rn-tester/README.md).
+The package rn-tester can be used to run and validate your changes. You can learn more in [RNTester readme](https://github.com/react/react-native/blob/main/packages/rn-tester/README.md).
 
 ### 4. Test your changes
 
@@ -123,7 +123,7 @@ This guide covers enough information to help you along with your first contribut
 
 ### 2. Push your changes to GitHub
 
-Once your changes have been commited to version control, you can push them to GitHub.
+Once your changes have been committed to version control, you can push them to GitHub.
 
 ```bash
 git push fork <my_feature_branch>

@@ -173,8 +173,8 @@ First, we need to update the `App.tsx` file to use the new method from the Turbo
 
 ```diff title="App.tsx"
 // ...
-+ const [cubicSource, setCubicSource] = React.useState('')
-+ const [cubicRoot, setCubicRoot] = React.useState(0)
++ const [cubicSource, setCubicSource] = useState('')
++ const [cubicRoot, setCubicRoot] = useState(0)
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -336,7 +336,7 @@ Now, we need to implement the `validateAddress` function in C++. First, we need 
 
 2. Open the `shared/NativeSampleModule.cpp` file and add the function implementation
 
-```c++ title="NativeSampleModule.cpp (validateAddress implementation)"
+```cpp title="NativeSampleModule.cpp (validateAddress implementation)"
 bool NativeSampleModule::validateAddress(jsi::Runtime &rt, jsi::Object input) {
   std::string street = input.getProperty(rt, "street").asString(rt).utf8(rt);
   int32_t number = input.getProperty(rt, "num").asNumber();
@@ -366,9 +366,9 @@ To test the code in the app, we have to modify the `App.tsx` file.
 2. Replace the body of the `App()` function with the following code:
 
 ```ts title="App.tsx (App function body replacement)"
-const [street, setStreet] = React.useState('');
-const [num, setNum] = React.useState('');
-const [isValidAddress, setIsValidAddress] = React.useState<
+const [street, setStreet] = useState('');
+const [num, setNum] = useState('');
+const [isValidAddress, setIsValidAddress] = useState<
   boolean | null
 >(null);
 

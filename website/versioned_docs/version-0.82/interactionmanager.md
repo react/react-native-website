@@ -5,7 +5,7 @@ title: 🗑️ InteractionManager
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-:::warning Deprecated
+:::warning[Deprecated]
 Avoid long-running work and use [`requestIdleCallback`](global-requestIdleCallback) instead.
 :::
 
@@ -51,7 +51,7 @@ By default, queued tasks are executed together in a loop in one `setImmediate` b
 <TabItem value="javascript">
 
 ```SnackPlayer name=InteractionManager%20Function%20Component%20Basic%20Example&supportedPlatforms=ios,android&ext=js
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {
   Alert,
   Animated,
@@ -133,7 +133,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=InteractionManager%20Function%20Component%20Basic%20Example&supportedPlatforms=ios,android&ext=tsx
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {
   Alert,
   Animated,
@@ -224,7 +224,7 @@ export default App;
 <TabItem value="javascript">
 
 ```SnackPlayer name=InteractionManager%20Function%20Component%20Advanced%20Example&supportedPlatforms=ios,android&ext=js
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {
   Alert,
   Animated,
@@ -300,7 +300,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=InteractionManager%20Function%20Component%20Advanced%20Example&supportedPlatforms=ios,android&ext=tsx
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {
   Alert,
   Animated,

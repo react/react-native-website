@@ -1,0 +1,14 @@
+{
+  "plugins": ["stylelint-scss"],
+  "extends": ["stylelint-config-standard-scss"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "custom-property-pattern": null,
+    "alpha-value-notation": "number",
+    "layer-name-pattern": null,
+    "media-feature-range-notation": "prefix",
+    "selector-class-pattern": null,
+    "selector-pseudo-element-colon-notation": "single",
+    "scss/at-rule-no-unknown": true
+  }
+}

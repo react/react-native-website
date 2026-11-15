@@ -30,7 +30,6 @@ In React Native, everything in JavaScript and within the layout engine works wit
 ## Example
 
 ```SnackPlayer name=PixelRatio%20Example
-import React from 'react';
 import {
   Image,
   PixelRatio,

@@ -22,7 +22,6 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, when 
 ## Example
 
 ```SnackPlayer name=ScrollView%20Example
-import React from 'react';
 import {StyleSheet, Text, ScrollView, StatusBar} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -75,7 +74,7 @@ Inherits [View Props](view#props).
 
 ### `StickyHeaderComponent`
 
-A React Component that will be used to render sticky headers, should be used together with `stickyHeaderIndices`. You may need to set this component if your sticky header uses custom transforms, for example, when you want your list to have an animated and hidable header. If a component has not been provided, the default [`ScrollViewStickyHeader`](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Components/ScrollView/ScrollViewStickyHeader.js) component will be used.
+A React Component that will be used to render sticky headers, should be used together with `stickyHeaderIndices`. You may need to set this component if your sticky header uses custom transforms, for example, when you want your list to have an animated and hidable header. If a component has not been provided, the default [`ScrollViewStickyHeader`](https://github.com/react/react-native/blob/main/packages/react-native/Libraries/Components/ScrollView/ScrollViewStickyHeader.js) component will be used.
 
 | Type               |
 | ------------------ |
@@ -349,12 +348,10 @@ Determines when the keyboard should stay visible after a tap.
 - `'never'` tapping outside of the focused text input when the keyboard is up dismisses the keyboard. When this happens, children won't receive the tap.
 - `'always'`, the keyboard will not dismiss automatically, and the scroll view will not catch taps, but children of the scroll view can catch taps.
 - `'handled'`, the keyboard will not dismiss automatically when the tap was handled by children of the scroll view (or captured by an ancestor).
-- `false`, **_deprecated_**, use `'never'` instead
-- `true`, **_deprecated_**, use `'always'` instead
 
-| Type                                                      | Default   |
-| --------------------------------------------------------- | --------- |
-| enum(`'always'`, `'never'`, `'handled'`, `false`, `true`) | `'never'` |
+| Type                                     | Default   |
+| ---------------------------------------- | --------- |
+| enum(`'always'`, `'never'`, `'handled'`) | `'never'` |
 
 ---
 
@@ -605,6 +602,16 @@ Tag used to log scroll performance on this scroll view. Will force momentum even
 | Type   |
 | ------ |
 | string |
+
+---
+
+### `scrollsChildToFocus` <div className="label android">Android</div>
+
+When `true`, the ScrollView automatically scrolls to bring a focused child into view. Set to `false` to disable this behavior and take manual control of scroll position when focus changes.
+
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |
 
 ---
 

@@ -428,9 +428,9 @@ This prop has precedence over both the `src` and `source` props.
 
 ### `style`
 
-| Type                                                                                                                                                 |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Image Style Props](image-style-props#props), [Layout Props](layout-props#props), [Shadow Props](shadow-props#props), [Transforms](transforms#props) |
+| Type                                                                                                                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Image Style Props](image-style-props#props), [Layout Props](layout-props#props), [Shadow Props](shadow-props#props), [Transforms](transforms#transform) |
 
 ---
 

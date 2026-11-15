@@ -311,7 +311,6 @@ At this point, you have set up the basic scaffolding for your native module in A
 Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent()` method. Below is an example of a component, `NewModuleButton` you can add in your app. You can invoke the native module inside `NewModuleButton`'s `onPress()` function.
 
 ```tsx
-import React from 'react';
 import {NativeModules, Button} from 'react-native';
 
 const NewModuleButton = () => {

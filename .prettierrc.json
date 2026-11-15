@@ -1,4 +1,7 @@
 {
+  "plugins": [
+    "@prettier/plugin-oxc"
+  ],
   "overrides": [
     {
       "files": ["*.js", "*.mjs", "*.cjs", "*.jsx", "*.ts", "*.tsx"],
@@ -26,14 +29,7 @@
       }
     },
     {
-      "files": ["*.scss", "*.css"],
-      "options": {
-        "printWidth": 80,
-        "endOfLine": "auto"
-      }
-    },
-    {
-      "files": ["*.yml"],
+      "files": ["*.scss", "*.css", "*.yml"],
       "options": {
         "printWidth": 80,
         "endOfLine": "auto"

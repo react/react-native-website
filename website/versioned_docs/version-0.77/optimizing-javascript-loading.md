@@ -176,7 +176,7 @@ See the documentation for [`getTransformOptions` in Metro](https://metrobundler.
 ## Advanced: Use random access module bundles (non-Hermes)
 
 :::info
-**Not supported when [using Hermes](#use-hermes).** Hermes bytecode is not compatible with the RAM bundle format, and provides the same (or better) performance in all use cases.
+**Not supported when [using Hermes](#recommended-use-hermes).** Hermes bytecode is not compatible with the RAM bundle format, and provides the same (or better) performance in all use cases.
 :::
 
 Random access module bundles (also known as RAM bundles) work in conjunction with the techniques mentioned above to limit the amount of JavaScript code that needs to be parsed and loaded into memory. Each module is stored as a separate string (or file) which is only parsed when the module needs to be executed.

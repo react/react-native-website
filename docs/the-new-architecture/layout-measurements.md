@@ -10,7 +10,7 @@ Typical code will look like this:
 
 ```tsx
 function AComponent(children) {
-  const targetRef = React.useRef(null)
+  const targetRef = useRef(null)
 
   useLayoutEffect(() => {
     targetRef.current?.measure((x, y, width, height, pageX, pageY) => {

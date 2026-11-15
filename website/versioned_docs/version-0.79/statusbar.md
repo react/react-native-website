@@ -438,7 +438,11 @@ Show or hide the status bar.
 
 ---
 
-### `setNetworkActivityIndicatorVisible()` <div className="label ios">iOS</div>
+### 🗑️ `setNetworkActivityIndicatorVisible()` <div className="label ios">iOS</div>
+
+:::warning[Deprecated]
+The status bar network activity indicator is not supported in iOS 13 and later. This will be removed in a future release.
+:::
 
 ```tsx
 static setNetworkActivityIndicatorVisible(visible: boolean);

@@ -17,10 +17,11 @@
     "lint": "tsc --noEmit && eslint ."
   },
   "dependencies": {
-    "unist-util-visit": "^5.0.0"
+    "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
     "@types/mdast": "^4.0.4",
-    "remark": "^15.0.1"
+    "remark": "^15.0.1",
+    "typescript": "^6.0.3"
   }
 }

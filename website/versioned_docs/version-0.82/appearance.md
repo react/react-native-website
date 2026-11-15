@@ -108,7 +108,7 @@ The change will not affect the system's selected interface style or any style se
 ```tsx
 static addChangeListener(
   listener: (preferences: {colorScheme: 'light' | 'dark' | null}) => void,
-): NativeEventSubscription;
+): EventSubscription;
 ```
 
 Add an event handler that is fired when appearance preferences change.

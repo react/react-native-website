@@ -28,6 +28,7 @@ export default {
       'libraries',
       'typescript',
       'strict-typescript-api',
+      'release-levels',
       'upgrading',
     ],
     'UI & Interaction': [
@@ -62,11 +63,6 @@ export default {
         collapsed: false,
         items: ['accessibility'],
       },
-    ],
-    Releases: [
-      'releases/releases',
-      'releases/release-levels',
-      'releases/versioning-policy',
     ],
     Debugging: [
       'debugging',
@@ -211,7 +207,6 @@ export default {
       'dimensions',
       'easing',
       'i18nmanager',
-      'interactionmanager',
       'keyboard',
       'layoutanimation',
       'linking',
@@ -219,6 +214,7 @@ export default {
       'pixelratio',
       'platform',
       'platformcolor',
+      'reactnativeversion',
       'roottag',
       'share',
       'stylesheet',
@@ -258,6 +254,7 @@ export default {
           'global-PerformanceMeasure',
           'global-PerformanceObserver',
           'global-PerformanceObserverEntryList',
+          'global-PerformanceResourceTiming',
           'global-process',
           'global-queueMicrotask',
           'global-Request',

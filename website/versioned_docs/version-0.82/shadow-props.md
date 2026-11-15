@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 <TabItem value="javascript">
 
 ```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=js&dependencies=@react-native-community/slider
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import Slider from '@react-native-community/slider';
@@ -110,7 +110,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios&ext=tsx&dependencies=@react-native-community/slider
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import Slider, {SliderProps} from '@react-native-community/slider';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';

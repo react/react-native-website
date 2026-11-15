@@ -41,13 +41,13 @@ The touch area never extends past the parent view bounds and the Z-index of sibl
 </figure>
 
 :::info
-`Pressable` uses React Native's `Pressability` API. For more information around the state machine flow of Pressability and how it works, check out the implementation for [Pressability](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Pressability/Pressability.js#L350).
+`Pressable` uses React Native's `Pressability` API. For more information around the state machine flow of Pressability and how it works, check out the implementation for [Pressability](https://github.com/react/react-native/blob/main/packages/react-native/Libraries/Pressability/Pressability.js#L350).
 :::
 
 ## Example
 
 ```SnackPlayer name=Pressable
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -122,7 +122,7 @@ If true, doesn't play Android system sound on press.
 
 ### `android_ripple` <div className="label android">Android</div>
 
-Enables the Android ripple effect and configures its properties.
+Enables the Android ripple effect and configures its properties. The `color` field accepts both plain colors and [`PlatformColor`](platformcolor) values, so you can reference theme attributes like `?attr/colorAccent`. When a `PlatformColor` is used, the ripple is automatically updated when the system configuration changes (for example, when switching between light and dark mode).
 
 | Type                                   |
 | -------------------------------------- |
@@ -260,9 +260,10 @@ Ripple effect configuration for the `android_ripple` property.
 
 **Properties:**
 
-| Name       | Type            | Required | Description                                                                                                                                                                                                                                                  |
-| ---------- | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| color      | [color](colors) | No       | Defines the color of the ripple effect.                                                                                                                                                                                                                      |
-| borderless | boolean         | No       | Defines if ripple effect should not include border.                                                                                                                                                                                                          |
-| radius     | number          | No       | Defines the radius of the ripple effect.                                                                                                                                                                                                                     |
-| foreground | boolean         | No       | Set to true to add the ripple effect to the foreground of the view, instead of the background. This is useful if one of your child views has a background of its own, or you're e.g. displaying images, and you don't want the ripple to be covered by them. |
+| Name       | Type                                              | Required | Description                                                                                                                                                                                                                                                  |
+| ---------- | ------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| color      | [color](colors) or [PlatformColor](platformcolor) | No       | Defines the color of the ripple effect.                                                                                                                                                                                                                      |
+| borderless | boolean                                           | No       | Defines if ripple effect should not include border.                                                                                                                                                                                                          |
+| radius     | number                                            | No       | Defines the radius of the ripple effect.                                                                                                                                                                                                                     |
+| foreground | boolean                                           | No       | Set to true to add the ripple effect to the foreground of the view, instead of the background. This is useful if one of your child views has a background of its own, or you're e.g. displaying images, and you don't want the ripple to be covered by them. |
+| alpha      | number                                            | No       | Controls the opacity of the ripple. Accepts a value between `0.0` (fully transparent) and `1.0` (fully opaque). The value is applied on top of any alpha already present in the color.                                                                       |

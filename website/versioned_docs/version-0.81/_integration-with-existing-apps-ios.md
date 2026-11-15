@@ -159,7 +159,7 @@ AppRegistry.registerComponent('HelloWorld', () => App);
 Let's create an `App.tsx` file. This is a [TypeScript](https://www.typescriptlang.org/) file that can have [JSX](<https://en.wikipedia.org/wiki/JSX_(JavaScript)>) expressions. It contains the root React Native component that we will integrate into our iOS application (<RNTemplateRepoLink href="template/App.tsx">link</RNTemplateRepoLink>):
 
 ```tsx
-import React from 'react';
+import {type JSX} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -177,7 +177,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-function App(): React.JSX.Element {
+function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {

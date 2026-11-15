@@ -1,13 +1,14 @@
 [build]
   base    = ""
   publish = "website/build"
-  command = "yarn && cd website && yarn build"
-
+  command = "git backfill & yarn & wait && cd website && yarn build"
+  
 [context.production.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
+  DOCUSAURUS_PERF_LOGGER = "true"
 
 [context.deploy-preview.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
   PREVIEW_DEPLOY = "true"
 
 [[headers]]

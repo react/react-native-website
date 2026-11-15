@@ -241,7 +241,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 Tells the screen reader to treat the currently focused on element as having a specific role.
 
-On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
+On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilityrole) for more information.
 
 On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
 
@@ -291,7 +291,7 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 When set to `true`, indicates that the view is an accessibility element.
 
-See the [Accessibility guide](accessibility#accessible-ios-android) for more information.
+See the [Accessibility guide](accessibility.md#accessible) for more information.
 
 | Type    | Default |
 | ------- | ------- |

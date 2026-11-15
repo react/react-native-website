@@ -12,7 +12,7 @@ Opacity is controlled by wrapping the children in an `Animated.View`, which is a
 ## Example
 
 ```SnackPlayer name=TouchableOpacity%20Example
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 

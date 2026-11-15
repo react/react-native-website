@@ -21,7 +21,7 @@ For example, a container view that fades in when it is mounted may look like thi
 <TabItem value="javascript">
 
 ```SnackPlayer ext=js
-import React, {useEffect, useRef} from 'react';
+import {useEffect, useRef} from 'react';
 import {Animated, Text, View} from 'react-native';
 
 const FadeInView = props => {
@@ -74,12 +74,12 @@ export default () => {
 <TabItem value="typescript">
 
 ```SnackPlayer ext=tsx
-import React, {useEffect, useRef, type PropsWithChildren} from 'react';
+import {useEffect, useRef, type PropsWithChildren, type FC} from 'react';
 import {Animated, Text, View, type ViewStyle} from 'react-native';
 
 type FadeInViewProps = PropsWithChildren<{style: ViewStyle}>;
 
-const FadeInView: React.FC<FadeInViewProps> = props => {
+const FadeInView: FC<FadeInViewProps> = props => {
   const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
 
   useEffect(() => {
@@ -232,7 +232,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
   }}
 ```
 
-[`interpolate()`](animated#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get a negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
+[`interpolate()`](animatedvalue#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get a negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
 
 ```tsx
 value.interpolate({
@@ -309,7 +309,6 @@ The following example implements a horizontal scrolling carousel where the scrol
 #### ScrollView with Animated Event Example
 
 ```SnackPlayer name=Animated&supportedPlatforms=ios,android
-import React from 'react';
 import {
   ScrollView,
   Text,
@@ -452,7 +451,7 @@ onPanResponderMove={Animated.event(
 #### PanResponder with Animated Event Example
 
 ```SnackPlayer name=Animated
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
 
 const App = () => {
@@ -593,7 +592,7 @@ UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
 ```SnackPlayer name=LayoutAnimations
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {
   NativeModules,
   LayoutAnimation,

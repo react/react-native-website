@@ -33,7 +33,7 @@ function MyComponent(props: MyComponentProps) {
 ## Example
 
 ```SnackPlayer name=TouchableHighlight%20Example
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -143,16 +143,6 @@ The color of the underlay that will show through when the touch is active.
 | Type               |
 | ------------------ |
 | [color](colors.md) |
-
----
-
-### `hasTVPreferredFocus` <div className="label ios">iOS</div>
-
-_(Apple TV only)_ TV preferred focus (see documentation for the View component).
-
-| Type |
-| ---- |
-| bool |
 
 ---
 

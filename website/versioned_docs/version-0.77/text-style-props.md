@@ -870,6 +870,8 @@ Specifies text alignment. On Android, the value 'justify' is only supported on O
 
 ### `textAlignVertical` <div className="label android">Android</div>
 
+An alias for `verticalAlign` style prop, if you use both properties, `verticalAlign` will take precedence over `textAlignVertical`
+
 | Type                                            | Default  |
 | ----------------------------------------------- | -------- |
 | enum(`'auto'`, `'top'`, `'bottom'`, `'center'`) | `'auto'` |

@@ -18,7 +18,7 @@ React Native provides an in-app developer menu providing access to debugging fea
 
 Alternative (Android): `adb shell input keyevent 82`.
 
-![The React Native Dev Menu](/docs/assets/debugging-dev-menu-076.jpg)
+![The React Native Dev Menu](/docs/assets/debugging-dev-menu-083.jpg)
 
 ## Opening DevTools
 
@@ -27,35 +27,13 @@ Alternative (Android): `adb shell input keyevent 82`.
 To open DevTools, either:
 
 - Select "Open DevTools" in the Dev Menu.
-- Press <kbd>j</kbd> from the CLI (`npx react-native start`).
+- Press <kbd>j</kbd> from the CLI.
+
+![React Native DevTools opened to the "Welcome" pane](/docs/assets/debugging-rndt-welcome-083.jpg)
 
 On first launch, DevTools will open to a welcome panel, along with an open console drawer where you can view logs and interact with the JavaScript runtime. From the top of the window, you can navigate to other panels, including the integrated React Components Inspector and Profiler.
 
-![React Native DevTools opened to the "Welcome" pane](/docs/assets/debugging-rndt-welcome.jpg)
-
-React Native DevTools is powered by a dedicated debugging architecture built into React Native and uses a customized build of the [Chrome DevTools](https://developer.chrome.com/docs/devtools) frontend. This enables us to offer familiar, browser-aligned debugging features that are deeply integrated and built for end-to-end reliability.
-
 Learn more in our [React Native DevTools guide](./react-native-devtools).
-
-:::note
-React Native DevTools is only available with the Hermes engine, and requires either Google Chrome or Microsoft Edge installed.
-:::
-
-:::info
-
-#### Flipper and alternative debugging tools
-
-React Native DevTools replaces the previous Flipper, Experimental Debugger, and Hermes debugger (Chrome) frontends. If you are on an older version of React Native, please go to the docs [for your version](/versions).
-
-For apps using JavaScriptCore instead of Hermes, Direct JSC Debugging is still available (see [Other Debugging Methods](./other-debugging-methods)).
-
-React Native DevTools is designed for debugging React app concerns, and not to replace native tools. If you want to inspect React Native’s underlying platform layers (for example, while developing a Native Module), please use the debugging tools available in Xcode and Android Studio (see [Debugging Native Code](/docs/next/debugging-native-code)).
-
-Other useful links:
-
-- <a href="https://shift.infinite.red/why-you-dont-need-flipper-in-your-react-native-app-and-how-to-get-by-without-it-3af461955109" target="_blank">Why you don’t need Flipper in your React Native app … and how to get by without&nbsp;it&nbsp;↗</a>
-
-:::
 
 ## LogBox
 
@@ -109,7 +87,7 @@ LogBox.ignoreLogs([
 
 :::note
 
-LogBox will treat certain errors from React as warnings, which will mean they don't display as an in-app error notification. Advanced users can change this behaviour by customising LogBox's warning filter using [`LogBoxData.setWarningFilter()`](https://github.com/facebook/react-native/blob/d334f4d77eea538dff87fdcf2ebc090246cfdbb0/packages/react-native/Libraries/LogBox/Data/LogBoxData.js#L338).
+LogBox will treat certain errors from React as warnings, which will mean they don't display as an in-app error notification. Advanced users can change this behaviour by customising LogBox's warning filter using [`LogBoxData.setWarningFilter()`](https://github.com/react/react-native/blob/d334f4d77eea538dff87fdcf2ebc090246cfdbb0/packages/react-native/Libraries/LogBox/Data/LogBoxData.js#L338).
 
 :::
 

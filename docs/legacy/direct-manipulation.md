@@ -18,7 +18,7 @@ Before you use it, try to solve your problem with `setState` and [`shouldCompone
 
 ## setNativeProps with TouchableOpacity
 
-[TouchableOpacity](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Components/Touchable/TouchableOpacity.js) uses `setNativeProps` internally to update the opacity of its child component:
+[TouchableOpacity](https://github.com/react/react-native/blob/main/packages/react-native/Libraries/Components/Touchable/TouchableOpacity.js) uses `setNativeProps` internally to update the opacity of its child component:
 
 ```tsx
 const viewRef = useRef<View>();
@@ -57,7 +57,7 @@ return (
 
 This is computationally intensive compared to the original example - React needs to re-render the component hierarchy each time the opacity changes, even though other properties of the view and its children haven't changed. Usually this overhead isn't a concern but when performing continuous animations and responding to gestures, judiciously optimizing your components can improve your animations' fidelity.
 
-If you look at the implementation of `setNativeProps` in [NativeMethodsMixin](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Renderer/implementations/ReactNativeRenderer-prod.js) you will notice that it is a wrapper around `RCTUIManager.updateView` - this is the exact same function call that results from re-rendering - see [receiveComponent in ReactNativeBaseComponent](https://github.com/facebook/react-native/blob/fb2ec1ea47c53c2e7b873acb1cb46192ac74274e/Libraries/Renderer/oss/ReactNativeRenderer-prod.js#L5793-L5813).
+If you look at the implementation of `setNativeProps` in [NativeMethodsMixin](https://github.com/react/react-native/blob/main/packages/react-native/Libraries/Renderer/implementations/ReactNativeRenderer-prod.js) you will notice that it is a wrapper around `RCTUIManager.updateView` - this is the exact same function call that results from re-rendering - see [receiveComponent in ReactNativeBaseComponent](https://github.com/react/react-native/blob/fb2ec1ea47c53c2e7b873acb1cb46192ac74274e/Libraries/Renderer/oss/ReactNativeRenderer-prod.js#L5793-L5813).
 
 ## Composite components and setNativeProps
 
@@ -67,7 +67,6 @@ Composite components are not backed by a native view, so you cannot call `setNat
 <TabItem value="javascript">
 
 ```SnackPlayer name=setNativeProps%20with%20Composite%20Components&ext=js
-import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
 const MyButton = props => (
@@ -89,7 +88,6 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=setNativeProps%20with%20Composite%20Components&ext=tsx
-import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
 const MyButton = (props: {label: string}) => (
@@ -120,10 +118,10 @@ Since the `setNativeProps` method exists on any ref to a `View` component, it is
 <TabItem value="javascript">
 
 ```SnackPlayer name=Forwarding%20setNativeProps&ext=js
-import React from 'react';
+import {forwardRef} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-const MyButton = React.forwardRef((props, ref) => (
+const MyButton = forwardRef((props, ref) => (
   <View {...props} ref={ref} style={{marginTop: 50}}>
     <Text>{props.label}</Text>
   </View>
@@ -142,14 +140,16 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Forwarding%20setNativeProps&ext=tsx
-import React from 'react';
+import {forwardRef, ElementRef} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-const MyButton = React.forwardRef<View, {label: string}>((props, ref) => (
-  <View {...props} ref={ref} style={{marginTop: 50}}>
-    <Text>{props.label}</Text>
-  </View>
-));
+const MyButton = forwardRef<ElementRef<typeof View>, {label: string}>(
+  (props, ref) => (
+    <View {...props} ref={ref} style={{marginTop: 50}}>
+      <Text>{props.label}</Text>
+    </View>
+  ),
+);
 
 const App = () => (
   <TouchableOpacity>
@@ -175,7 +175,6 @@ Another very common use case of `setNativeProps` is to edit the value of the Tex
 <TabItem value="javascript">
 
 ```SnackPlayer name=Clear%20text&ext=js
-import React from 'react';
 import {useCallback, useRef} from 'react';
 import {
   StyleSheet,
@@ -223,7 +222,6 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Clear%20text&ext=tsx
-import React from 'react';
 import {useCallback, useRef} from 'react';
 import {
   StyleSheet,
@@ -233,8 +231,10 @@ import {
   View,
 } from 'react-native';
 
+type TextInputInstance = React.ComponentRef<typeof TextInput>;
+
 const App = () => {
-  const inputRef = useRef<TextInput>(null);
+  const inputRef = useRef<TextInputInstance>(null);
   const editText = useCallback(() => {
     inputRef.current?.setNativeProps({text: 'Edited Text'});
   }, []);
@@ -320,7 +320,7 @@ This method can also be called with a `relativeToNativeNode` handler (instead of
 <TabItem value="javascript">
 
 ```SnackPlayer name=measureLayout%20example&supportedPlatforms=android,ios&ext=js
-import React, {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
 const App = () => {
@@ -373,7 +373,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=measureLayout%20example&ext=tsx
-import React, {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
 type Measurements = {
@@ -383,9 +383,12 @@ type Measurements = {
   height: number;
 };
 
+type TextInstance = React.ComponentRef<typeof Text>;
+type ViewInstance = React.ComponentRef<typeof View>;
+
 const App = () => {
-  const textContainerRef = useRef<View>(null);
-  const textRef = useRef<Text>(null);
+  const textContainerRef = useRef<ViewInstance>(null);
+  const textRef = useRef<TextInstance>(null);
   const [measure, setMeasure] = useState<Measurements | null>(null);
 
   useEffect(() => {

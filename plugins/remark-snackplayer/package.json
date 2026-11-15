@@ -20,16 +20,15 @@
     "test": "yarn tape tests/index.ts"
   },
   "dependencies": {
-    "dedent": "^1.7.0",
-    "object.fromentries": "^2.0.8",
+    "dedent": "^1.7.2",
     "unist-util-visit-parents": "^3.1.1"
   },
   "devDependencies": {
     "@types/mdast": "^4.0.4",
-    "@types/object.fromentries": "^2.0.4",
     "@types/tape": "^5.8.1",
     "remark": "^15.0.1",
     "remark-mdx": "^3.1.1",
-    "tape": "^5.9.0"
+    "tape": "^5.9.0",
+    "typescript": "^6.0.3"
   }
 }

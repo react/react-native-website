@@ -8,13 +8,13 @@ A foundational component for inputting text into the app via a keyboard. Props p
 The most basic use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A minimal example:
 
 ```SnackPlayer name=TextInput%20Example
-import React from 'react';
+import {useState} from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const TextInputExample = () => {
-  const [text, onChangeText] = React.useState('Useless Text');
-  const [number, onChangeNumber] = React.useState('');
+  const [text, onChangeText] = useState('Useless Text');
+  const [number, onChangeNumber] = useState('');
 
   return (
     <SafeAreaProvider>
@@ -50,15 +50,15 @@ export default TextInputExample;
 
 Two methods exposed via the native element are `.focus()` and `.blur()` that will focus or blur the TextInput programmatically.
 
-Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=true`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
+Note that some props are only available with `multiline={true/false}`:
 
 ```SnackPlayer name=Multiline%20TextInput%20Example
-import React from 'react';
+import {useState} from 'react';
 import {TextInput, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 const MultilineTextInputExample = () => {
-  const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
+  const [value, onChangeText] = useState('Useless Multiline Placeholder');
 
   // If you type something in the text box that is a color,
   // the background will change to that color.
@@ -229,20 +229,6 @@ If `false`, disables auto-correct. The default value is `true`.
 ### `autoFocus`
 
 If `true`, focuses the input. The default value is `false`.
-
-| Type |
-| ---- |
-| bool |
-
----
-
-### `blurOnSubmit`
-
-:::warning Deprecated
-Note that `submitBehavior` now takes the place of `blurOnSubmit` and will override any behavior defined by `blurOnSubmit`. See [submitBehavior](textinput#submitbehavior).
-:::
-
-If `true`, the text field will blur when submitted. The default value is true for single-line fields and false for multiline fields. Note that for multiline fields, setting `blurOnSubmit` to `true` means that pressing return will blur the field and trigger the `onSubmitEditing` event instead of inserting a newline into the field.
 
 | Type |
 | ---- |
@@ -1141,6 +1127,6 @@ Returns `true` if the input is currently focused; `false` otherwise.
 
 # Known issues
 
-- [react-native#19096](https://github.com/facebook/react-native/issues/19096): Doesn't support Android's `onKeyPreIme`.
-- [react-native#19366](https://github.com/facebook/react-native/issues/19366): Calling .focus() after closing Android's keyboard via back button doesn't bring keyboard up again.
-- [react-native#26799](https://github.com/facebook/react-native/issues/26799): Doesn't support Android's `secureTextEntry` when `keyboardType="email-address"` or `keyboardType="phone-pad"`.
+- [react-native#19096](https://github.com/react/react-native/issues/19096): Doesn't support Android's `onKeyPreIme`.
+- [react-native#19366](https://github.com/react/react-native/issues/19366): Calling .focus() after closing Android's keyboard via back button doesn't bring keyboard up again.
+- [react-native#26799](https://github.com/react/react-native/issues/26799): Doesn't support Android's `secureTextEntry` when `keyboardType="email-address"` or `keyboardType="phone-pad"`.

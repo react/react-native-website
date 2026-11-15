@@ -65,11 +65,11 @@ MYAPP_UPLOAD_KEY_PASSWORD=*****
 
 These are going to be global Gradle variables, which we can later use in our Gradle config to sign our app.
 
-:::note Note about using git
+:::note[Note about using git]
 Saving the above Gradle variables in `~/.gradle/gradle.properties` instead of `android/gradle.properties` prevents them from being checked in to git. You may have to create the `~/.gradle/gradle.properties` file in your user's home directory before you can add the variables.
 :::
 
-:::note Note about security
+:::note[Note about security]
 If you are not keen on storing your passwords in plaintext, and you are running macOS, you can also [store your credentials in the Keychain Access app](https://pilloxa.gitlab.io/posts/safer-passwords-in-gradle/). Then you can skip the two last rows in `~/.gradle/gradle.properties`.
 :::
 
@@ -174,7 +174,7 @@ Please note that you will also have to configure distinct version codes, as [sug
 
 Proguard is a tool that can slightly reduce the size of the APK. It does this by stripping parts of the React Native Java bytecode (and its dependencies) that your app is not using.
 
-:::caution Important
+:::caution[Important]
 Make sure to thoroughly test your app if you've enabled Proguard. Proguard often requires configuration specific to each native library you're using. See `app/proguard-rules.pro`.
 :::
 

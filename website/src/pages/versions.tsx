@@ -5,9 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import type {PropSidebar} from '@docusaurus/plugin-content-docs';
+
+import {DocsSidebarProvider} from '@docusaurus/plugin-content-docs/client';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import ReleasesTable from '@site/src/components/releases/ReleasesTable';
-import Admonition from '@theme/Admonition';
+import DocRootLayout from '@theme/DocRoot/Layout';
 import Layout from '@theme/Layout';
 
 import versions from '../../versions.json';
@@ -37,13 +39,13 @@ const VersionItem = ({
   );
   const documentationLink = <a href={documentationUrl}>Documentation</a>;
 
-  let releaseNotesURL = 'https://github.com/facebook/react-native/releases';
+  let releaseNotesURL = 'https://github.com/react/react-native/releases';
   let releaseNotesTitle = 'Changelog';
   if (isNext) {
-    releaseNotesURL = `https://github.com/facebook/react-native/compare/${latestMajorVersion}-stable...main`;
+    releaseNotesURL = `https://github.com/react/react-native/compare/${latestMajorVersion}-stable...main`;
     releaseNotesTitle = 'Commits since ' + latestMajorVersion;
   } else if (!isRC) {
-    releaseNotesURL = `https://github.com/facebook/react-native/releases/tag/v${version}.0`;
+    releaseNotesURL = `https://github.com/react/react-native/releases/tag/v${version}.0`;
   }
 
   const releaseNotesLink = <a href={releaseNotesURL}>{releaseNotesTitle}</a>;
@@ -57,6 +59,19 @@ const VersionItem = ({
   );
 };
 
+// Mirrors the `releases` sidebar in sidebarsReleases.ts so the /versions page
+// (a standalone React page, not a doc) renders the same sidebar. Keep in sync.
+const releasesSidebar: PropSidebar = [
+  {type: 'link', href: '/releases/overview', label: 'Overview'},
+  {type: 'link', href: '/releases/branches', label: 'Branches'},
+  {
+    type: 'link',
+    href: '/releases/versioning-policy',
+    label: 'Versioning Policy',
+  },
+  {type: 'link', href: '/versions', label: 'Docs Versions'},
+];
+
 const Versions = () => {
   const currentVersion = versions.length > 0 ? versions[0] : null;
   const latestVersions = ['next'].concat(
@@ -67,122 +82,89 @@ const Versions = () => {
   );
 
   return (
-    <Layout title="Versions" wrapperClassName="versions-page">
-      <h1>React Native versions</h1>
-      <p>
-        Open source React Native releases follow a release train that is
-        coordinated on GitHub through the{' '}
-        <a
-          href={'https://github.com/reactwg/react-native-releases/discussions'}>
-          <code>react-native-releases</code>
-        </a>{' '}
-        repository. New releases are created off the <code>main</code> branch of{' '}
-        <a href={'https://github.com/facebook/react-native'}>
-          <code>facebook/react-native</code>
-        </a>
-        . They will follow a Release Candidate process to allow contributors
-        like yourself to{' '}
-        <a href={useBaseUrl('docs/upgrading')}>verify the changes</a> and to
-        identify any issues by{' '}
-        <a href="https://github.com/facebook/react-native/issues">
-          writing clear, actionable bug reports
-        </a>
-        . Eventually, the release candidate will be promoted to stable.
-      </p>
-      <p>
-        Below is the schedule and current status of recent and upcoming React
-        Native releases:
-      </p>
-      <div className="markdown">
-        <div className="table-wrapper">
-          <ReleasesTable />
-        </div>
-        <span />
-      </div>
-      <p>
-        You can read more details about release schedule and the meaning of
-        statuses on the <a href="/releases">Releases Overview</a> page.
-      </p>
-      <h2>Next version (Unreleased)</h2>
-      <div className="table-wrapper">
-        <table className="versions">
-          <tbody>
-            {latestVersions.map(version => (
-              <VersionItem
-                key={'version_' + version}
-                version={version}
-                currentVersion={currentVersion}
-              />
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <Admonition type="note">
-        To see what changes are coming and provide better feedback to React
-        Native contributors, use the latest release candidate when possible.
-        Changes introduced in a release candidate will have been shipped to
-        production Facebook apps for over two weeks by the time the release
-        candidate is cut.
-      </Admonition>
-      <h2>Latest version</h2>
-      <p>
-        The most recent stable version will be used automatically whenever a new
-        project is created using the <code>npx react-native init</code> command.
-      </p>
-      <div className="table-wrapper">
-        <table className="versions">
-          <tbody>
-            <VersionItem
-              key={'version_' + currentVersion}
-              version={currentVersion}
-              currentVersion={currentVersion}
-            />
-          </tbody>
-        </table>
-      </div>
-      <h2>Previous versions</h2>
-      <div className="table-wrapper">
-        <table className="versions">
-          <tbody>
-            {stableVersions.map(version => (
-              <VersionItem
-                key={'version_' + version}
-                version={version}
-                currentVersion={currentVersion}
-              />
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <h3>Archived versions</h3>
-      <p>
-        The documentation for unmaintained versions can be found on website
-        archive snapshots, hosted as separate sites.
-      </p>
-      <div className="table-wrapper">
-        <table className="versions">
-          <tbody>
-            {Object.entries(versionsArchived).map(
-              ([version, archivedDocumentationUrl]) => (
-                <VersionItem
-                  key={'version_' + version}
-                  version={version}
-                  archivedDocumentationUrl={archivedDocumentationUrl}
-                  currentVersion={currentVersion}
-                />
-              )
-            )}
-          </tbody>
-        </table>
-      </div>
-      <p>
-        The documentation for versions below <code>0.60</code> can be found on
-        the separate website called{' '}
-        <a href="https://archive.reactnative.dev/versions">
-          React Native Archive
-        </a>
-        .
-      </p>
+    <Layout title="Versions">
+      <DocsSidebarProvider name="releases" items={releasesSidebar}>
+        <DocRootLayout>
+          <div className="versions-page">
+            <h1>Docs Versions</h1>
+            <h2>Next version (Unreleased)</h2>
+            <p>
+              Ahead of each stable release, React Native publishes a series of
+              release candidates. Learn more about the{' '}
+              <a href="/releases/overview#release-channels">release channels</a>
+              .
+            </p>
+            <div className="table-wrapper">
+              <table className="versions">
+                <tbody>
+                  {latestVersions.map(version => (
+                    <VersionItem
+                      key={'version_' + version}
+                      version={version}
+                      currentVersion={currentVersion}
+                    />
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <h2>Latest version</h2>
+            <div className="table-wrapper">
+              <table className="versions">
+                <tbody>
+                  <VersionItem
+                    key={'version_' + currentVersion}
+                    version={currentVersion}
+                    currentVersion={currentVersion}
+                  />
+                </tbody>
+              </table>
+            </div>
+            <h2>Previous versions</h2>
+            <div className="table-wrapper">
+              <table className="versions">
+                <tbody>
+                  {stableVersions.map(version => (
+                    <VersionItem
+                      key={'version_' + version}
+                      version={version}
+                      currentVersion={currentVersion}
+                    />
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <h3>Archived versions</h3>
+            <p>
+              The documentation for unmaintained versions can be found on
+              website archive snapshots, hosted as separate sites.
+            </p>
+            <div className="table-wrapper">
+              <table className="versions">
+                <tbody>
+                  {Object.entries(versionsArchived).map(
+                    ([version, archivedDocumentationUrl]) => (
+                      <VersionItem
+                        key={'version_' + version}
+                        version={version}
+                        archivedDocumentationUrl={archivedDocumentationUrl}
+                        currentVersion={currentVersion}
+                      />
+                    )
+                  )}
+                </tbody>
+              </table>
+            </div>
+            <p>
+              The documentation for versions below <code>0.60</code> can be
+              found on the separate website called{' '}
+              <a href="https://archive.reactnative.dev/versions">
+                React Native Archive
+              </a>
+              .
+            </p>
+          </div>
+        </DocRootLayout>
+      </DocsSidebarProvider>
     </Layout>
   );
 };

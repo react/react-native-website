@@ -32,10 +32,9 @@
   background-color: var(--home-background);
   border-radius: 0.5rem;
   border: 1px solid var(--home-border);
-  overflow: hidden;
   position: relative;
   height: calc(100% + 4rem);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.03);
   overflow: hidden;
 }
 
@@ -50,9 +49,6 @@
 .codeEditorContentContainer code {
   background-color: var(--home-background);
   padding: 16px 48px 16px 24px;
-  font-family:
-    "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
   color: var(--home-text);
   font-size: 14px;
 }
@@ -124,9 +120,10 @@
 @media only screen and (max-width: 450px) {
   .codeEditorContentContainer pre,
   .codeEditorContentContainer code {
-    padding: 16px 16px;
+    padding: 16px;
     font-size: 3.2vw;
   }
+
   .deviceContainer {
     width: calc(100% - 2rem);
   }

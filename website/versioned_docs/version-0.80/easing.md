@@ -48,8 +48,8 @@ The following helpers are used to modify other easing functions.
 <Tabs groupId="language" queryString defaultValue={constants.defaultSnackLanguage} values={constants.snackLanguages}>
 <TabItem value="javascript">
 
-```SnackPlayer name=Easing%20Demo&ext=js&supportedPlatforms=ios,android
-import React, {useRef} from 'react';
+```SnackPlayer name=Easing%20Demo&ext=js
+import {useRef} from 'react';
 import {
   Animated,
   Easing,
@@ -209,7 +209,7 @@ export default App;
 <TabItem value="typescript">
 
 ```SnackPlayer name=Easing%20Demo&ext=tsx
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import {
   Animated,
   Easing,

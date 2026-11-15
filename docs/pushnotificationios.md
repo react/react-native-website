@@ -3,7 +3,7 @@ id: pushnotificationios
 title: '🗑️ PushNotificationIOS'
 ---
 
-:::warning Deprecated
+:::warning[Deprecated]
 Use one of the [community packages](https://reactnative.directory/?search=notification) instead.
 :::
 
@@ -21,6 +21,8 @@ Handle notifications for your app, including scheduling and permissions.
 To enable push notifications, [configure your notifications with Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server) and your server-side system.
 
 Then, [enable remote notifications](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app#2980038) in your project. This will automatically enable the required settings.
+
+Push notification registration and delivery callbacks belong to `UIApplicationDelegate`, so implement them in your `AppDelegate` even when React Native is bootstrapped from `SceneDelegate`.
 
 ### Enable support for `register` events
 

@@ -14,7 +14,7 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 ## Example
 
 ```SnackPlayer name=SegmentedControlIOS%20Example&supportedPlatforms=ios&ext=js
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {SegmentedControlIOS, StyleSheet, Text, View} from 'react-native';
 
 const App = () => {
