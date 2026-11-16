@@ -362,7 +362,7 @@
     {
       "name": "Rippling - HR, IT & Finance",
       "icon": "rippling.webp",
-      "linkAppStore": "https://apps.apple.com/in/app/rippling-hr-it-finance/id1231325957",
+      "linkAppStore": "https://apps.apple.com/us/app/rippling-hr-it-finance/id1231325957",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.people.rippling",
       "infoLink": "https://www.rippling.com/blog/react-native-upgrades",
       "infoTitle": "Managing and scoping React Native upgrades"
@@ -384,7 +384,7 @@
     {
       "name": "Juno: Chronic Illness Support",
       "icon": "juno.webp",
-      "linkAppStore": "https://apps.apple.com/pl/app/juno-chronic-illness-support/id6749455368",
+      "linkAppStore": "https://apps.apple.com/us/app/juno-chronic-illness-support/id6749455368",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.junochat.app"
     }
   ]
