@@ -15,8 +15,8 @@
       "infoLink": "https://engineering.fb.com/2024/10/02/android/react-at-meta-connect-2024/"
     },
     {
-      "name": "Facebook Ads Manager",
-      "icon": "adsmanager.png",
+      "name": "Meta Ads Manager",
+      "icon": "adsmanager.webp",
       "linkAppStore": "https://apps.apple.com/us/app/facebook-ads-manager/id964397083",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.adsmanager",
       "pinned": true
@@ -38,16 +38,16 @@
   ],
   "microsoft": [
     {
-      "name": "Microsoft Office",
-      "icon": "officemobile.png",
-      "linkAppStore": "https://apps.apple.com/gb/app/microsoft-office/id541164041",
+      "name": "Microsoft Copilot",
+      "icon": "copilot.webp",
+      "linkAppStore": "https://apps.apple.com/gb/app/microsoft-copilot/id541164041",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.officehubrow",
       "infoLink": "https://devblogs.microsoft.com/react-native/",
       "pinned": true
     },
     {
       "name": "Microsoft Outlook",
-      "icon": "outlookmobile.png",
+      "icon": "outlook.webp",
       "linkAppStore": "https://apps.apple.com/us/app/microsoft-outlook/id951937596",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.office.outlook",
       "infoLink": "https://devblogs.microsoft.com/react-native/",
@@ -55,7 +55,7 @@
     },
     {
       "name": "Microsoft Teams",
-      "icon": "teamsmobile.png",
+      "icon": "teams.webp",
       "linkAppStore": "https://apps.apple.com/gb/app/microsoft-teams/id1113153706",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.teams",
       "infoLink": "https://devblogs.microsoft.com/react-native/",
@@ -63,9 +63,9 @@
     },
     {
       "name": "Xbox Game Pass",
-      "icon": "xboxgamepass.png",
-      "linkAppStore": "https://apps.apple.com/gb/app/xbox-game-pass/id1374542474",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.gamepass",
+      "icon": "xbox.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/xbox/id736179781",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.microsoft.xboxone.smartglass",
       "infoLink": "https://devblogs.microsoft.com/react-native/",
       "pinned": true
     }
@@ -93,7 +93,7 @@
     },
     {
       "name": "Amazon Kindle",
-      "icon": "amazon-kindle.png",
+      "icon": "amazon-kindle.webp",
       "infoLink": "https://www.amazon.com/b/?node=6669702011",
       "infoTitle": "Purpose-built for reading, Kindle e-readers let you take your stories wherever you go"
     }
@@ -104,12 +104,6 @@
       "icon": "spaces.webp",
       "linkAppStore": "https://apps.apple.com/us/app/spaces-follow-businesses/id1099748482",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.android"
-    },
-    {
-      "name": "Dine by Wix",
-      "icon": "dine.webp",
-      "linkAppStore": "https://apps.apple.com/us/app/dine-by-wix/id1561524113",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.restaurants"
     },
     {
       "name": "Fit by Wix",
@@ -165,8 +159,8 @@
       "pinned": true
     },
     {
-      "name": "Dave - Banking & Cash Advance",
-      "icon": "dave.png",
+      "name": "Dave: Credit, Cash & Money App",
+      "icon": "dave.webp",
       "linkAppStore": "https://apps.apple.com/US/app/id1193801909",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.dave"
     },
@@ -180,8 +174,8 @@
       "pinned": true
     },
     {
-      "name": "FlipKart",
-      "icon": "flipkart.png",
+      "name": "Flipkart Online Shopping App",
+      "icon": "flipkart.webp",
       "linkAppStore": "https://apps.apple.com/in/app/flipkart-online-shopping-app/id742044692",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.flipkart.android&hl=en_US&gl=US",
       "infoLink": "https://blog.flipkart.tech/the-journey-of-react-native-flipkart-47dcd0c3d1c6",
@@ -189,8 +183,8 @@
       "pinned": true
     },
     {
-      "name": "Mercari",
-      "icon": "mercari.png",
+      "name": "Mercari: Buy and Sell App",
+      "icon": "mercari.webp",
       "linkAppStore": "https://apps.apple.com/us/app/mercari-your-marketplace/id896130944",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mercariapp.mercari",
       "infoLink": "https://medium.com/mercari-engineering/why-we-decided-to-rewrite-our-ios-android-apps-from-scratch-in-react-native-9f1737558299",
@@ -199,7 +193,7 @@
     },
     {
       "name": "NerdWallet",
-      "icon": "nerdwallet.png",
+      "icon": "nerdwallet.webp",
       "linkAppStore": "https://apps.apple.com/us/app/nerdwallet/id1174471607",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mobilecreditcards&hl=en_US",
       "infoLink": "https://www.nerdwallet.com/blog/engineering/beyond-the-browser-how-nerdwallet-went-native/",
@@ -215,8 +209,8 @@
       "pinned": true
     },
     {
-      "name": "Bloomberg",
-      "icon": "bloomberg.png",
+      "name": "Bloomberg: Finance Market News",
+      "icon": "bloomberg.webp",
       "linkAppStore": "https://apps.apple.com/us/app/bloomberg/id281941097",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.bloomberg.android.plus",
       "infoLink": "https://www.techatbloomberg.com/blog/bloomberg-used-react-native-develop-new-consumer-app/",
@@ -258,17 +252,17 @@
     },
     {
       "name": "Baidu Mobile (手机百度)",
-      "icon": "baidu.png",
+      "icon": "baidu.webp",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.baidu.searchbox&hl=en&gl=US",
       "linkAppStore": "https://apps.apple.com/us/app/%E6%89%8B%E6%9C%BA%E7%99%BE%E5%BA%A6-%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B%E4%BD%A0%E5%B0%B1%E5%BE%97%E5%88%B0/id382201985",
       "infoLink": "https://baike.baidu.com/link?url=TW8YhcVN4tO_Jz5VqMclCjGhf12EEqMD_TeVC6efe2REZlx80r6T0dX96hdmNl36XogLyExXzrvFU9rFeqxg_K",
       "infoTitle": "Baidu Mobile is a search engine used by over 600 million people in China"
     },
     {
-      "name": "Delivery.com",
-      "icon": "delivery.png",
+      "name": "Order by delivery.com",
+      "icon": "delivery.webp",
       "linkAppStore": "https://apps.apple.com/us/app/delivery-com-food-alcohol/id435168129",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.deliverycom",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.deliverlogic.delivr",
       "infoLink": "https://medium.com/delivery-com-engineering/react-native-in-an-existing-ios-app-delivered-874ba95a3c52#.37qruw6ck",
       "infoTitle": "React Native in an Existing iOS App: Getting Started"
     },
@@ -289,7 +283,7 @@
     },
     {
       "name": "Bolt Food: Delivery & Takeaway",
-      "icon": "bolt.png",
+      "icon": "bolt.webp",
       "linkAppStore": "https://apps.apple.com/us/app/bolt-food/id1451492388",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.bolt.deliveryclient",
       "infoLink": "https://medium.com/bolt-labs/how-we-built-a-react-native-app-in-2-months-aeadf210a764",
@@ -304,8 +298,8 @@
       "pinned": true
     },
     {
-      "name": "Klarna | Shop now. Pay later.",
-      "icon": "klarna.jpg",
+      "name": "Klarna: Smarter everyday money",
+      "icon": "klarna.webp",
       "linkAppStore": "https://apps.apple.com/us/app/klarna-shop-now-pay-later/id1115120118",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=com.myklarnamobile",
       "pinned": true
@@ -321,7 +315,8 @@
       "name": "Brex: The future of spend management",
       "icon": "brex.png",
       "linkAppStore": "https://apps.apple.com/us/app/brex/id1472905508",
-      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.brex.mobile&hl=en_US&gl=US"
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.brex.mobile&hl=en_US&gl=US",
+      "pinned": true
     },
     {
       "name": "Starlink",
@@ -336,6 +331,61 @@
       "linkAppStore": "https://apps.apple.com/us/app/grok-bot/id6794501026",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=ai.x.grok.bot",
       "pinned": true
+    },
+    {
+      "name": "Shipt: Order Grocery Delivery",
+      "icon": "shipt.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/shipt-order-grocery-delivery/id971888874",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shipt.groceries",
+      "pinned": true
+    },
+    {
+      "name": "Zilch: Smart Credit App",
+      "icon": "zilch.webp",
+      "linkAppStore": "https://apps.apple.com/gb/app/zilch-smart-credit/id1545361238",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.payzilch.app"
+    },
+    {
+      "name": "Mixcloud",
+      "icon": "mixcloud.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/mixcloud-music-mixes-live/id401206431",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mixcloud.player",
+      "pinned": true
+    },
+    {
+      "name": "Expensify - Travel & Expense",
+      "icon": "expensify.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/expensify-travel-expense/id471713959",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=org.me.mobiexpensifyg",
+      "pinned": true
+    },
+    {
+      "name": "Rippling - HR, IT & Finance",
+      "icon": "rippling.webp",
+      "linkAppStore": "https://apps.apple.com/in/app/rippling-hr-it-finance/id1231325957",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.people.rippling",
+      "infoLink": "https://www.rippling.com/blog/react-native-upgrades",
+      "infoTitle": "Managing and scoping React Native upgrades"
+    },
+    {
+      "name": "Dream11: Watch. Play. Compete.",
+      "icon": "dream11.webp",
+      "linkAppStore": "https://apps.apple.com/in/app/dream11-watch-play-compete/id1077286074",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.dream11.fantasy.cricket.football.kabaddi",
+      "infoLink": "https://tech.dream11.in/blog/dream11%E2%80%99s-big-bet-on-react-native",
+      "infoTitle": "Dream11’s big bet on React Native"
+    },
+    {
+      "name": "Housing: Buy, Rent, Sell & Pay",
+      "icon": "housing.webp",
+      "linkAppStore": "https://apps.apple.com/us/app/housing-buy-rent-sell-pay/id967257660",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.locon.housing"
+    },
+    {
+      "name": "Juno: Chronic Illness Support",
+      "icon": "juno.webp",
+      "linkAppStore": "https://apps.apple.com/pl/app/juno-chronic-illness-support/id6749455368",
+      "linkPlayStore": "https://play.google.com/store/apps/details?id=com.junochat.app"
     }
   ]
 }
