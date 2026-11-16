@@ -15,11 +15,11 @@ AppState is frequently used to determine the intent and proper behavior when han
   - on the home screen
   - <div className="label android">Android</div> on another `Activity`, including temporary system activities such
     as autofill credential pickers (even if launched by your app or the system)
-- `inactive` <div className="label ios">iOS</div> - This is a state that occurs when transitioning between foreground & background, and during periods of inactivity such as entering the multitasking view, opening the Notification Center or in the event of an incoming call.
-- `extension` - The app is running in an extension context.
-- `unknown` - The current app state is not yet available.
+- <div className="label ios">iOS</div> `inactive` - This is a state that occurs when transitioning between foreground/background, and during periods of inactivity such as entering the multitasking view, opening the Notification Center or in the event of an incoming call.
+- <div className="label ios">iOS</div> `extension` - The app is running in an extension context.
+- <div className="label ios">iOS</div> `unknown` - The current app state is not yet available.
 
-For more information, see [Apple's documentation](https://developer.apple.com/documentation/uikit/app_and_scenes/managing_your_app_s_life_cycle)
+For more information, see [Apple documentation](https://developer.apple.com/documentation/uikit/managing-your-app-s-life-cycle) and [Android documentation](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
 ## Usage
 
@@ -138,4 +138,10 @@ Sets up a function that will be called whenever the specified event type on AppS
 
 ```tsx
 static currentState: AppStateStatus;
+```
+
+### `isAvailable`
+
+```tsx
+static isAvailable: boolean;
 ```
