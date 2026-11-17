@@ -883,7 +883,7 @@ An alias for `verticalAlign` style prop, if you use both properties, `verticalAl
 
 ### `textDecorationStyle`
 
-Specifies the style of the underline or strikethrough decoration. Available on Android and iOS.
+Specifies the style of the underline or strikethrough decoration.
 
 | Type                                                          | Default   |
 | ------------------------------------------------------------- | --------- |
