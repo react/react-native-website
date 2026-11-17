@@ -449,6 +449,26 @@ Used to locate this view from native code. Has precedence over `nativeID` prop.
 
 ---
 
+### `lineBreak` <div className="label android">Android</div>
+
+Sets the strictness of line-breaking rules, including which characters can start or end a line in Chinese and Japanese text. Available on Android 13 (API level 33) and later, ignored on earlier Android versions.
+
+| Type                                              | Default  |
+| ------------------------------------------------- | -------- |
+| enum(`'auto'`, `'loose'`, `'normal'`, `'strict'`) | `'auto'` |
+
+---
+
+### `lineBreakStrategyIOS` <div className="label ios">iOS</div>
+
+Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
+
+| Type                                                        | Default  |
+| ----------------------------------------------------------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
+
+---
+
 ### `maxFontSizeMultiplier`
 
 Specifies the largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
@@ -713,13 +733,13 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 
 ---
 
-### `lineBreakStrategyIOS` <div className="label ios">iOS</div>
+### `wordBreak` <div className="label android">Android</div>
 
-Set line break strategy on iOS 14+. Possible values are `none`, `standard`, `hangul-word` and `push-out`.
+Sets word-based line breaking. The `'auto-phrase'` value breaks Japanese text at phrase boundaries. It depends on the device locale and has no effect when that locale does not support phrase-based breaking. Available on Android 13 (API level 33) and later, ignored on earlier Android versions.
 
-| Type                                                        | Default  |
-| ----------------------------------------------------------- | -------- |
-| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
+| Type                              | Default    |
+| --------------------------------- | ---------- |
+| enum(`'normal'`, `'auto-phrase'`) | `'normal'` |
 
 ## Type Definitions
 
