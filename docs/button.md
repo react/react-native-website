@@ -175,7 +175,7 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 ### `onAccessibilityAction`
 
-Invoked when the user performs the accessibility actions. The only argument to this function is an event containing the name of the action to perform.
+Invoked when the user performs an accessibility action. The event includes the action name. For the Android `setProgress` action, it may also include the requested numeric value.
 
 See the [Accessibility guide](accessibility.md#accessibility-actions) for more information.
 
