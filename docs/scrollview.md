@@ -174,7 +174,7 @@ When `true`, the scroll view automatically centers the content when the content 
 
 ### `contentContainerStyle`
 
-These styles will be applied to the scroll view content container which wraps all of the child views. Example:
+Styles applied to the content container which wraps all child views. Example:
 
 ```
 return (
@@ -188,6 +188,13 @@ const styles = StyleSheet.create({
   }
 });
 ```
+
+**Interaction with `contentInsetAdjustmentBehavior` (iOS)**
+
+Commonly, `contentContainerStyle` is used to pad items away from the screen edges or the scroll indicator. When [`contentInsetAdjustmentBehavior`](#contentinsetadjustmentbehavior-ios) is set (recommended), `padding` applies slightly differently than on a regular `<View>`:
+
+- **Pixel values:** If a safe area inset applies on an edge, the **greater of** the `padding` or the inset is used. An edge without an inset, such as the top of a scroll view below a header, keeps its full `padding`.
+- **Percentage values:** Across the scrollable axis, the `padding` is used directly, in place of the safe area inset. Along it, the safe area inset still applies, and the `padding` adds to it.
 
 | Type                           |
 | ------------------------------ |
@@ -207,7 +214,12 @@ The amount by which the scroll view content is inset from the edges of the scrol
 
 ### `contentInsetAdjustmentBehavior` <div className="label ios">iOS</div>
 
-This property specifies how the safe area insets are used to modify the content area of the scroll view. Available on iOS 11 and later.
+How the safe area insets modify the content area of the scroll view.
+
+- **Along the scrollable axis**, the insets become content insets, so content scrolls under the system UI, such as the status bar or home indicator.
+- **Across the scrollable axis**, every value except `'never'` pads the content container by the insets, so content is laid out clear of the system UI, such as the rail on iPhone Duo or the camera cutout in landscape. The container's background and the scroll indicator still extend to the screen edge.
+
+On every edge, padding from [`contentContainerStyle`](#contentcontainerstyle) counts toward the inset, so content sits at the larger of the two.
 
 | Type                                                           | Default   |
 | -------------------------------------------------------------- | --------- |
