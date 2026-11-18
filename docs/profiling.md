@@ -27,7 +27,21 @@ When your app is built as profileable and is running on the device, get your app
 
 Once the trace starts collecting, perform the animation or interaction you care about. Then press "Stop recording". You can now [inspect the trace directly in the Android Studio](https://developer.android.com/studio/profile/jank-detection). Alternatively, you can select it in the "Past Recordings" pane, press "Export recording", and open it in a tool like [Perfetto](https://perfetto.dev/).
 
-### 2. Reading the trace
+### 2. Check that the trace contains frames
+
+Before reading anything into a trace, make sure it recorded what you want to measure. A trace with no frames does not show a smooth app, it shows nothing at all, and an empty track is easy to mistake for a fast one.
+
+For the interaction you recorded, check that:
+
+- your app's process is in the trace (see [Find your process](#4-find-your-process)).
+- the UI thread has `Choreographer#doFrame` slices and the Render Thread has `DrawFrame` slices while the interaction runs. On Android 12 and later, your process also has _Expected Timeline_ and _Actual Timeline_ tracks with one entry per frame.
+- the trace covers the whole interaction, from before it starts until after it ends.
+
+If these are missing, don't conclude that the app has no jank. Common reasons are that the app wasn't run as profileable (see the previous step), that the recording started after the interaction or stopped before it, or that the device doesn't report these tracks. Record again, or try a different device.
+
+When you do have frames, judge them against the display's frame budget rather than a fixed 16ms. The budget is one second divided by the refresh rate: about 16.7ms at 60Hz, 11.1ms at 90Hz and 8.3ms at 120Hz. A frame that isn't ready by its deadline is a dropped, or janky, frame.
+
+### 3. Reading the trace
 
 After opening the trace in Android Studio or Perfetto, you should see something like this:
 
@@ -47,7 +61,7 @@ Check this checkbox at the top right of the screen to highlight the 16ms frame b
 You should see zebra stripes as in the screenshot above. If you don't, try profiling on a different device: Samsung has been known to have issues displaying vsyncs while the Nexus series is generally pretty reliable.
 :::
 
-### 3. Find your process
+### 4. Find your process
 
 Scroll until you see (part of) the name of your package. In this case, I was profiling `com.facebook.adsmanager`, which shows up as `book.adsmanager` because of silly thread name limits in the kernel.
 
