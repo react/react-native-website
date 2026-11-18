@@ -3,6 +3,8 @@ id: pressable
 title: Pressable
 ---
 
+import RNRepoLink from '@site/core/RNRepoLink';
+
 Pressable is a Core Component wrapper that can detect various stages of press interactions on any of its defined children.
 
 ```tsx
@@ -45,7 +47,7 @@ The touch area never extends past the parent view bounds and the Z-index of sibl
 existing component without adding a `Pressable` wrapper, see
 [`usePressability`](#usepressability). For more information about the
 Pressability state machine, see its
-[implementation](https://github.com/react/react-native/blob/main/packages/react-native/Libraries/Pressability/Pressability.js#L350).
+<RNRepoLink href="/packages/react-native/Libraries/Pressability/Pressability.js#L342">implementation</RNRepoLink>.
 :::
 
 ## Example
