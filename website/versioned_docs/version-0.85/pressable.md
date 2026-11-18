@@ -130,7 +130,7 @@ function CustomPressable({
   children,
 }: PropsWithChildren<{onPress: () => void}>) {
   const eventHandlers = usePressability({onPress});
-  return <View {...(eventHandlers ?? {})}>{children}</View>;
+  return <View {...eventHandlers}>{children}</View>;
 }
 ```
 
