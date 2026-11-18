@@ -41,7 +41,11 @@ The touch area never extends past the parent view bounds and the Z-index of sibl
 </figure>
 
 :::info
-`Pressable` uses React Native's `Pressability` API. For more information around the state machine flow of Pressability and how it works, check out the implementation for [Pressability](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Pressability/Pressability.js#L350).
+`Pressable` uses React Native's `Pressability` API. To apply press handling to an
+existing component without adding a `Pressable` wrapper, see
+[`usePressability`](#usepressability). For more information about the
+Pressability state machine, see its
+[implementation](https://github.com/react/react-native/blob/main/packages/react-native/Libraries/Pressability/Pressability.js#L350).
 :::
 
 ## Example
@@ -109,6 +113,34 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
+
+## Hooks
+
+### `usePressability`
+
+Use `usePressability` to add press handling directly to an existing host component, such as a `View`, without adding a `Pressable` wrapper.
+For most use cases `Pressable` is sufficient, but sometime using pressability event handlers directly it may be helpful.
+
+```tsx
+import type {PropsWithChildren} from 'react';
+import {usePressability, View} from 'react-native';
+
+function CustomPressable({
+  onPress,
+  children,
+}: PropsWithChildren<{onPress: () => void}>) {
+  const eventHandlers = usePressability({onPress});
+  return <View {...(eventHandlers ?? {})}>{children}</View>;
+}
+```
+
+The hook accepts a [`PressabilityConfig`](pressable#pressabilityconfig) and returns `PressabilityEventHandlers` to spread onto the host component. Both types are exported from `react-native`.
+
+```tsx
+usePressability(config?: PressabilityConfig | null): PressabilityEventHandlers | null;
+```
+
+Pass `null` or `undefined` to defer initialization. The hook returns `null` until initialized. After initialization, it remains active until the component unmounts.
 
 ## Props
 
@@ -260,9 +292,43 @@ Ripple effect configuration for the `android_ripple` property.
 
 **Properties:**
 
-| Name       | Type            | Required | Description                                                                                                                                                                                                                                                  |
-| ---------- | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| color      | [color](colors) | No       | Defines the color of the ripple effect.                                                                                                                                                                                                                      |
-| borderless | boolean         | No       | Defines if ripple effect should not include border.                                                                                                                                                                                                          |
-| radius     | number          | No       | Defines the radius of the ripple effect.                                                                                                                                                                                                                     |
-| foreground | boolean         | No       | Set to true to add the ripple effect to the foreground of the view, instead of the background. This is useful if one of your child views has a background of its own, or you're e.g. displaying images, and you don't want the ripple to be covered by them. |
+| Name       | Type            | Description                                                                                                                                                                                                                                                  |
+| ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| color      | [color](colors) | Defines the color of the ripple effect.                                                                                                                                                                                                                      |
+| borderless | boolean         | Defines if ripple effect should not include border.                                                                                                                                                                                                          |
+| radius     | number          | Defines the radius of the ripple effect.                                                                                                                                                                                                                     |
+| foreground | boolean         | Set to true to add the ripple effect to the foreground of the view, instead of the background. This is useful if one of your child views has a background of its own, or you're e.g. displaying images, and you don't want the ripple to be covered by them. |
+
+### PressabilityConfig
+
+Configuration for the [`usePressability`](#usepressability) hook.
+
+| Type   |
+| ------ |
+| object |
+
+**Properties:**
+
+| Name                 | Type                                           | Description                                                                      |
+| -------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------- |
+| android_disableSound | boolean                                        | Disables the Android system sound when `onPress` fires.                          |
+| blockNativeResponder | boolean                                        | Prevents other components from becoming the responder while the press is active. |
+| cancelable           | boolean                                        | Whether a parent gesture, such as a scroll event, can interrupt the press.       |
+| delayHoverIn         | number                                         | Duration to wait after hover in before calling `onHoverIn`.                      |
+| delayHoverOut        | number                                         | Duration to wait after hover out before calling `onHoverOut`.                    |
+| delayLongPress       | number                                         | Duration after `delayPressIn` before a press is considered a long press.         |
+| delayPressIn         | number                                         | Duration to wait after press down before calling `onPressIn`.                    |
+| delayPressOut        | number                                         | Duration to wait after releasing before calling `onPressOut`.                    |
+| disabled             | boolean                                        | Whether to disable initialization of the press gesture.                          |
+| hitSlop              | [Rect](rect) or number                         | Additional distance outside the element where a press can start.                 |
+| minPressDuration     | number                                         | Minimum duration between calling `onPressIn` and `onPressOut`.                   |
+| onBlur               | `md (event: BlurEvent) => unknown`             | Called after the element loses focus.                                            |
+| onFocus              | `md (event: FocusEvent) => unknown`            | Called after the element receives focus.                                         |
+| onHoverIn            | `md (event: MouseEvent) => unknown`            | Called when the hover is activated to provide visual feedback.                   |
+| onHoverOut           | `md (event: MouseEvent) => unknown`            | Called when the hover is deactivated to undo visual feedback.                    |
+| onLongPress          | `md (event: GestureResponderEvent) => unknown` | Called when a long press gesture has been triggered.                             |
+| onPress              | `md (event: GestureResponderEvent) => unknown` | Called when a press gesture has been triggered.                                  |
+| onPressIn            | `md (event: GestureResponderEvent) => unknown` | Called when the press is activated to provide visual feedback.                   |
+| onPressMove          | `md (event: GestureResponderEvent) => unknown` | Called when the press location moves.                                            |
+| onPressOut           | `md (event: GestureResponderEvent) => unknown` | Called when the press is deactivated to undo visual feedback.                    |
+| pressRectOffset      | [Rect](rect) or number                         | Additional distance outside the hit area where a press remains active.           |
