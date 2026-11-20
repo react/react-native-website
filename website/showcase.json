@@ -336,6 +336,11 @@
       "linkAppStore": "https://apps.apple.com/us/app/grok-bot/id6794501026",
       "linkPlayStore": "https://play.google.com/store/apps/details?id=ai.x.grok.bot",
       "pinned": true
+    },
+    {
+      "name": "Callie: Food Self Care Pet",
+      "icon": "callie.png",
+      "linkAppStore": "https://apps.apple.com/us/app/callie-food-self-care-pet/id6480029953"
     }
   ]
 }
