@@ -1794,7 +1794,7 @@ button[class*="tocCollapsibleButton"] {
 
   .footer__logo {
     height: 50px;
-    max-width: 100%;
+    max-width: min(280px, 85dvw);
     margin-bottom: -12px;
   }
 
