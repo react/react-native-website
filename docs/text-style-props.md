@@ -872,11 +872,11 @@ Numeric value that controls the vertical spacing between lines of text within a 
 
 ### `textAlign`
 
-Specifies text alignment. On Android, the value 'justify' is only supported on Oreo (8.0) or above (API level >= 26). The value will fallback to `left` on lower Android versions.
+Specifies text alignment. The `start` and `end` values align text to the start or end edge based on the layout direction. Unlike `left` and `right`, these values adapt to right-to-left layouts. On Android, the value `justify` is only supported on Oreo (8.0) or above (API level >= 26). The value will fallback to `left` on lower Android versions.
 
-| Type                                                         | Default  |
-| ------------------------------------------------------------ | -------- |
-| enum(`'auto'`, `'left'`, `'right'`, `'center'`, `'justify'`) | `'auto'` |
+| Type                                                                             | Default  |
+| -------------------------------------------------------------------------------- | -------- |
+| enum(`'auto'`, `'left'`, `'right'`, `'center'`, `'justify'`, `'start'`, `'end'`) | `'auto'` |
 
 ---
 
