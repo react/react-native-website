@@ -100,6 +100,7 @@ Add an event handler. Supported events:
 | `reduceMotionChanged`                                                                    | Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.                                  |
 | `reduceTransparencyChanged`<br/><div className="label two-lines ios">iOS</div>           | Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.                                                                                                         |
 | `screenReaderChanged`                                                                    | Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.                                                                                                                          |
+| `showBordersChanged`<br/><div className="label two-lines ios">iOS</div>                  | Fires when the Show Borders setting changes (called Button Shapes before iOS 26.1). The event handler receives a boolean: `true` when enabled and `false` otherwise.                                                                                                                                     |
 
 ---
 
@@ -224,6 +225,16 @@ static isScreenReaderEnabled(): Promise<boolean>;
 ```
 
 Query whether a screen reader is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a screen reader is enabled and `false` otherwise.
+
+---
+
+### `isShowBordersEnabled()` <div className="label ios">iOS</div>
+
+```tsx
+static isShowBordersEnabled(): Promise<boolean>;
+```
+
+Query whether the Show Borders setting is enabled. This setting outlines tappable controls and was called Button Shapes before iOS 26.1. The promise resolves to `true` when enabled and `false` otherwise. On Android, the promise resolves to `false`.
 
 ---
 
