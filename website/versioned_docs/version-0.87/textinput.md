@@ -969,17 +969,19 @@ For both single line and multiline inputs:
 
 ### `textAlign`
 
-Align the input text to the left, center, or right sides of the input field.
+Align the input text. The `start` and `end` values align text to the start or end edge based on the layout direction. Unlike `left` and `right`, these values adapt to right-to-left layouts.
 
 Possible values for `textAlign` are:
 
 - `left`
 - `center`
 - `right`
+- `start`
+- `end`
 
-| Type                            |
-| ------------------------------- |
-| enum('left', 'center', 'right') |
+| Type                                            |
+| ----------------------------------------------- |
+| enum('left', 'center', 'right', 'start', 'end') |
 
 ---
 
