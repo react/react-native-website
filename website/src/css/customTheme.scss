@@ -256,6 +256,10 @@ html[data-theme="dark"] {
       text-decoration: none;
     }
   }
+
+  [class*="anchorTargetStickyNavbar"] {
+    scroll-margin-top: 1rem !important;
+  }
 }
 
 /*
@@ -711,10 +715,16 @@ html[data-theme="dark"] {
   }
 
   .alert--secondary {
-    --ifm-alert-background-color: var(
-      --ifm-color-secondary-contrast-background
-    );
+    --ifm-alert-background-color: #343a46;
     --ifm-alert-background-color-highlight: rgb(225 227 230 / 0.15);
+
+    div[class^="admonitionHeading"] {
+      color: #a5afc4;
+    }
+
+    span[class^="admonitionIcon"] svg {
+      fill: #a5afc4;
+    }
   }
 
   .alert--important {
@@ -797,14 +807,18 @@ html[data-theme="dark"] .homepage {
 .col--6[class*="authorCol"] {
   --ifm-avatar-intro-margin: 0.7rem;
 
-  flex: 0 0 50%;
+  flex: 0 0 33%;
+
+  @media (max-width: 1200px) {
+    flex: 0 0 50%;
+  }
 
   @media (max-width: 768px) {
     flex: 0 0 100%;
   }
 
   [class*="authorImage"] {
-    --ifm-avatar-photo-size: 1.75rem;
+    --ifm-avatar-photo-size: 2.5rem;
   }
 
   [class*="authorName"] {
@@ -822,11 +836,9 @@ html[data-theme="dark"] .homepage {
   }
 }
 
-// Cap the grid on desktop only; tablet keeps the full-width two columns.
-@media (min-width: 997px) {
-  .row:has(> [class*="authorCol"]) {
-    max-width: 560px;
-  }
+div[class*="tocColumn"] {
+  flex: 0 0 240px;
+  max-width: 240px;
 }
 
 .avatar__name {
@@ -868,6 +880,10 @@ article header h2 {
       opacity: 0.8;
     }
   }
+}
+
+main[class*="blogPostMain"] {
+  max-width: 100%;
 }
 
 div[class^="blogPostData"] {
@@ -1729,7 +1745,9 @@ button[class*="tocCollapsibleButton"] {
   }
 
   .pagination-nav__sublabel {
-    font-size: 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
   }
 
   .pagination-nav__link {
@@ -2343,6 +2361,10 @@ html[data-theme="dark"] .docsRating {
 // Keep blog anchors clear of the sticky DocsSecondaryNav.
 html.blog-wrapper {
   scroll-padding-top: calc(var(--ifm-navbar-height) + var(--rn-subnav-height));
+
+  nav[class*="secondaryNav"] {
+    top: calc(var(--ifm-navbar-height) - 1px);
+  }
 }
 
 .blog-wrapper .main-wrapper {
