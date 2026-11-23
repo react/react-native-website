@@ -32,7 +32,7 @@ The color scheme preference will map to the user's Light or [Dark theme](https:/
 <TabItem value="ios">
 
 :::info
-The color scheme preference will map to the user's Light or [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/) preference on iOS 13 devices and higher.
+The color scheme preference will map to the user's Light or [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/dark-mode) preference on iOS 13 devices and higher.
 :::
 
 :::note

@@ -12,7 +12,7 @@ Our top priority for React Native is to **match the expectations people have for
 
 For example, the TextInput in React Native renders to a UITextField on iOS. This ensures that integration with password managers and keyboard controls work out of the box. By using platform primitives, React Native apps are also able to stay up-to-date with design and behavior changes from new releases of Android and iOS.
 
-In order to match the look-and-feel of native apps, we must also match their performance. This is where we focus our most ambitious efforts. For example, Facebook created Hermes, [a new JavaScript Engine built from scratch for React Native on Android](https://facebook.github.io/react-native/blog/2019/07/17/hermes). Hermes significantly improves the start time of React Native apps. We are also working on major architectural changes that optimize the threading model and make React Native easier to interoperate with native code.
+In order to match the look-and-feel of native apps, we must also match their performance. This is where we focus our most ambitious efforts. For example, Facebook created Hermes, [a new JavaScript Engine built from scratch for React Native on Android](/blog/2019/07/17/hermes). Hermes significantly improves the start time of React Native apps. We are also working on major architectural changes that optimize the threading model and make React Native easier to interoperate with native code.
 
 ## Massive Scale
 

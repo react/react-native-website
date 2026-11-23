@@ -6,7 +6,7 @@ title: Color Reference
 Components in React Native are [styled using JavaScript](style). Color properties usually match how [CSS works on the web](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value). General guides on the color usage on each platform could be found below:
 
 - [Android](https://material.io/design/color/color-usage.html)
-- [iOS](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/)
+- [iOS](https://developer.apple.com/design/human-interface-guidelines/color)
 
 ## Color APIs
 

@@ -73,7 +73,7 @@ On iPhone X, text and emoji keyboard are different heights. Most applications us
 
 Another tricky bug we encountered was avoiding the home pill on iPhone X. You may be thinking, “Apple developed [safeAreaLayoutGuide](https://developer.apple.com/documentation/uikit/uiview/2891102-safearealayoutguide?language=objc) for this very reason, this is trivial!”. We were just as naive. The first issue is that the native `<InputAccessoryView>` implementation has no window to anchor to until the moment it is about to appear. That's alright, we can override `-(BOOL)becomeFirstResponder` and enforce layout constraints there. Adhering to these constraints bumps the accessory view up, but another bug arises: <img src="/blog/assets/input-accessory-5.gif" style={{float: 'left', paddingRight: 70, paddingTop: 20}} />
 
-The input accessory view successfully avoids the home pill, but now content behind the unsafe area is visible. The solution lies in this [radar](https://www.openradar.me/34411433). I wrapped the native `<InputAccessoryView>` hierarchy in a container which doesn't conform to the `safeAreaLayoutGuide` constraints. The native container covers the content in the unsafe area, while the `<InputAccessoryView>` stays within the safe area boundaries.
+The input accessory view successfully avoids the home pill, but now content behind the unsafe area is visible. The solution lies in this [radar](https://openradar.appspot.com/34411433). I wrapped the native `<InputAccessoryView>` hierarchy in a container which doesn't conform to the `safeAreaLayoutGuide` constraints. The native container covers the content in the unsafe area, while the `<InputAccessoryView>` stays within the safe area boundaries.
 
 <hr style={{clear: 'both', marginBottom: 20}} />
 
