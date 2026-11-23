@@ -55,7 +55,7 @@ Over the coming months, there will be many more components following this path t
 
 ## 👩🏽‍💻 CLI improvements
 
-React Native's command line tools are developer's entry point to the ecosystem, but they had long-standing issues and lacked official support. The CLI tools have been moved to a [new repository](https://github.com/react-native-community/react-native-cli), and a [dedicated group of maintainers](https://blog.callstack.io/the-react-native-cli-has-a-new-home-79b63838f0e6) have already made some exciting improvements.
+React Native's command line tools are developer's entry point to the ecosystem, but they had long-standing issues and lacked official support. The CLI tools have been moved to a [new repository](https://github.com/react-native-community/react-native-cli), and a [dedicated group of maintainers](https://www.callstack.com/blog/the-react-native-cli-has-a-new-home) have already made some exciting improvements.
 
 Logs are formatted much better now. Commands now run nearly instantly &mdash; you'll immediately notice a difference:
 
