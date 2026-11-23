@@ -13,7 +13,7 @@ The React Native monthly meeting continues! Let's see what our teams are up to.
 ### Callstack
 
 - We’ve been working on React Native CI. Most importantly, we have migrated from Travis to Circle, leaving React Native with a single, unified CI pipeline.
-- We’ve organised [Hacktoberfest - React Native edition](https://blog.callstack.io/announcing-hacktoberfest-7313ea5ccf4f) where, together with attendees, we tried to submit many pull requests to open source projects.
+- We’ve organised [Hacktoberfest - React Native edition](https://www.callstack.com/blog/callstack-hacktoberfest) where, together with attendees, we tried to submit many pull requests to open source projects.
 - We keep working on [Haul](https://github.com/callstack/haul). Last month, we have submitted two new releases, including webpack 3 support. We plan to add [CRNA](https://github.com/react-community/create-react-native-app) and [Expo](https://github.com/expo/expo) support as well as work on better HMR. Our roadmap is public on the issue tracker. If you would like to suggest improvements or give feedback, let us know!
 
 ### Expo
