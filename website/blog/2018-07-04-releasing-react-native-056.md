@@ -48,7 +48,7 @@ We're dropping support for iOS 8, [making iOS 9 the oldest iOS version that can 
 
 The continuous integration toolchain has been updated [to use Xcode 9.4](https://github.com/facebook/react-native/commit/c55bcd6ea729cdf57fc14a5478b7c2e3f6b2a94d), ensuring that all iOS tests are run on the latest developer tools provided by Apple.
 
-We have upgraded to [Flow 0.75](https://github.com/facebook/react-native/commit/6264b6932a08e1cefd83c4536ff7839d91938730) to use the new error format [that many devs appreciate](https://twitter.com/dan_abramov/status/998610821096857602). We've also created types for many more components. If you're not yet enforcing static typing in your project, please consider using Flow to identify problems as you code instead of at runtime.
+We have upgraded to [Flow 0.75](https://github.com/facebook/react-native/commit/6264b6932a08e1cefd83c4536ff7839d91938730) to use the new error format [that many devs appreciate](https://web.archive.org/web/20220516045926/https://twitter.com/dan_abramov/status/998610821096857602). We've also created types for many more components. If you're not yet enforcing static typing in your project, please consider using Flow to identify problems as you code instead of at runtime.
 
 ### And a lot of other things...
 
