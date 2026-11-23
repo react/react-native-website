@@ -881,11 +881,13 @@ An alias for `verticalAlign` style prop, if you use both properties, `verticalAl
 
 ---
 
-### `textDecorationStyle` <div className="label ios">iOS</div>
+### `textDecorationStyle`
 
-| Type                                                | Default   |
-| --------------------------------------------------- | --------- |
-| enum(`'solid'`, `'double'`, `'dotted'`, `'dashed'`) | `'solid'` |
+Specifies the style of the underline or strikethrough decoration.
+
+| Type                                                          | Default   |
+| ------------------------------------------------------------- | --------- |
+| enum(`'solid'`, `'double'`, `'dotted'`, `'dashed'`, `'wavy'`) | `'solid'` |
 
 ---
 
