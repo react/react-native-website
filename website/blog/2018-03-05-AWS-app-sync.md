@@ -51,7 +51,7 @@ npm install --global awsmobile-cli
 awsmobile configure
 ```
 
-Another example of encoded best practices that is specific to the mobile ecosystem is password security. The default `Auth` category implementation leverages Amazon Cognito user pools for user registration and sign-in. This service implements [Secure Remote Password protocol](https://srp.stanford.edu) as a way of protecting users during authentication attempts. If you're inclined to read through the [mathematics of the protocol](https://srp.stanford.edu/ndss.html#SECTION00032200000000000000), you'll notice that you must use a large prime number when calculating the password verifier over a primitive root to generate a Group. In React Native environments, [JIT is disabled](/docs/javascript-environment). This makes BigInteger calculations for security operations such as this less performant. To account for this, we've released native bridges in Android and iOS that you can link inside your project:
+Another example of encoded best practices that is specific to the mobile ecosystem is password security. The default `Auth` category implementation leverages Amazon Cognito user pools for user registration and sign-in. This service implements [Secure Remote Password protocol](https://web.archive.org/web/2018/http://srp.stanford.edu/) as a way of protecting users during authentication attempts. If you're inclined to read through the [mathematics of the protocol](https://web.archive.org/web/2018/http://srp.stanford.edu/ndss.html#SECTION00032200000000000000), you'll notice that you must use a large prime number when calculating the password verifier over a primitive root to generate a Group. In React Native environments, [JIT is disabled](/docs/javascript-environment). This makes BigInteger calculations for security operations such as this less performant. To account for this, we've released native bridges in Android and iOS that you can link inside your project:
 
 ```
 npm install --save aws-amplify-react-native
@@ -92,7 +92,7 @@ You can control many of the component features via props, as shown earlier, with
 return <S3Album track/>
 ```
 
-AWS Amplify favors a convention over configuration style of development, with a global initialization routine or initialization at the category level. The quickest way to get started is with an [aws-exports file](https://aws.amazon.com/blogs/mobile/enhanced-javascript-development-with-aws-mobile-hub/). However, developers can also use the library independently with existing resources.
+AWS Amplify favors a convention over configuration style of development, with a global initialization routine or initialization at the category level. The quickest way to get started is with an [aws-exports file](https://web.archive.org/web/20200925143111/https://aws.amazon.com/blogs/mobile/enhanced-javascript-development-with-aws-mobile-hub/). However, developers can also use the library independently with existing resources.
 
 For a deep dive into the philosophy and to see a full demo, check out the video from [AWS re\:Invent](https://www.youtube.com/watch?v=vAjf3lyjf8c).
 

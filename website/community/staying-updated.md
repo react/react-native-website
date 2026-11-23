@@ -63,7 +63,7 @@ Listed here are but a few of the main React Native related conferences, with lin
 - [React Universe Conf 2025](https://www.youtube.com/playlist?list=PLZ3MwD-soTTGHD999pxTX1r_6JORpOr0C)
 - [React Universe Conf 2024](https://www.youtube.com/playlist?list=PLZ3MwD-soTTGAEY8kZD3tgXGTwojn5qYh)
 
-#### [React Native Europe](https://www.react-native.eu/), organized by [Callstack](https://www.callstack.com/)
+#### [React Native Europe](https://web.archive.org/web/2023/https://www.react-native.eu/), organized by [Callstack](https://www.callstack.com/)
 
 - [React Native Europe 2023](https://www.youtube.com/playlist?list=PLZ3MwD-soTTEvs1qbdUtm52vlgUlKPDOX)
 - [React Native Europe 2022](https://www.youtube.com/playlist?list=PLZ3MwD-soTTE-qcA0MrcvZBdmkHJSIjJX)

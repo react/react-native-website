@@ -44,9 +44,9 @@ Here are the notes from each team:
 
 - Recently launched [Native Directory](https://native.directory) to help with discoverability and evaluation of libraries in React Native ecosystem. The problem: lots of libraries, hard to test, need to manually apply heuristics and not immediately obvious which ones are just the best ones that you should use. It's also hard to know if something is compatible with CRNA/Expo. So Native Directory tries to solve these problems. Check it out and [add your library](https://github.com/react-community/native-directory) to it. The list of libraries is in [here](https://github.com/react-community/native-directory/blob/master/react-native-libraries.json). This is just our first pass of it, and we want this to be owned and run by the community, not just Expo folks. So please pitch in if you think this is valuable and want to make it better!
 - Added initial support for installing npm packages in [Snack](https://snack.expo.io/) with Expo SDK 19. Let us know if you run into any issues with it, we are still working through some bugs. Along with Native Directory, this should make it easy to test libraries that have only JS dependencies, or dependencies included in [Expo SDK](https://github.com/expo/expo-sdk). Try it out:
-  - [react-native-modal](https://snack.expo.io/ByBCD_2r-)
-  - [react-native-animatable](https://snack.expo.io/SJfJguhrW)
-  - [react-native-calendars](https://snack.expo.io/HkoXUdhr-)
+  - react-native-modal
+  - [react-native-animatable](https://web.archive.org/web/20210619221428/https://snack.expo.io/SJfJguhrW)
+  - [react-native-calendars](https://web.archive.org/web/20210619211558/https://snack.expo.io/HkoXUdhr-)
 - [Released Expo SDK19](https://blog.expo.io/expo-sdk-v19-0-0-is-now-available-821a62b58d3d) with a bunch of improvements across the board, and we're now using the [updated Android JSC](https://github.com/SoftwareMansion/jsc-android-buildscripts).
 - Working on a guide in docs with [Alexander Kotliarskyi](https://github.com/frantic) with a list of tips on how to improve the user experience of your app. Please join in and add to the list or help write some of it!
   - Issue: [#14979](https://github.com/facebook/react-native/issues/14979)
@@ -75,7 +75,7 @@ Here are the notes from each team:
 
 ### Microsoft
 
-- [CodePush](https://github.com/Microsoft/code-push) has now been integrated into [Mobile Center](https://mobile.azure.com/). Existing users will have no change in their workflow.
+- [CodePush](https://github.com/Microsoft/code-push) has now been integrated into [Mobile Center](https://web.archive.org/web/2017/https://mobile.azure.com/). Existing users will have no change in their workflow.
   - Some people have reported an issue with duplicate apps - they already had an app on Mobile Center. We are working on resolving them, but if you have two apps, let us know, and we can merge them for you.
 - Mobile Center now supports Push Notifications for CodePush. We also showed how a combination of Notifications and CodePush could be used for A/B testing apps - something unique to the ReactNative architecture.
 - [VS Code](https://github.com/Microsoft/vscode) has a known debugging issue with ReactNative - the next release of the extension in a couple of days will be fixing the issue.

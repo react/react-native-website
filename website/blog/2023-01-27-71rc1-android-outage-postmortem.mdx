@@ -38,7 +38,7 @@ As soon as we identified the issue on November 4th, the community found and shar
 
 Then, over the weekend of November 5th and 6th, the release crew shipped patch releases for all previous React Native versions down to 0.63 which automatically applied the patch, so that users could update to a fixed version of React Native.
 
-At the same time, we [reached out to Sonatype](https://issues.sonatype.org/browse/OSSRH-86006) to ask for the removal of the offending artifacts.
+At the same time, we reached out to Sonatype to ask for the removal of the offending artifacts.
 
 The issue was fully resolved on November 8th when the artifacts were fully removed from Maven Central.
 
@@ -51,11 +51,11 @@ _This section contains a brief timeline of the events. All times are GMT/UTC +0_
 - Nov 4th - 7:45 PM: [Issue is identified by community](https://github.com/facebook/react-native/issues/35204#issuecomment-1304090948).
 - Nov 4th - 9:39 PM: [Workarounds are communicated, Expo ](https://github.com/facebook/react-native/issues/35204#issuecomment-1304281740)deploys fix to all their users.
 - Nov 5th - 03:04 AM: [New issue is open to communicate status and workarounds](https://github.com/facebook/react-native/issues/35210).
-- Nov 6th - 04:11 PM: [Ticket to SonaType](https://issues.sonatype.org/browse/OSSRH-86006?focusedCommentId=1216303&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-1216303) asking for removal of the artifacts is open.
+- Nov 6th - 04:11 PM: Ticket to SonaType asking for removal of the artifacts is open.
 - Nov 6th - 04:40 PM: [First tweet](https://twitter.com/reactnative/status/1589296764678705155) from @reactnative with ack + link to issue.
 - Nov 6th - 07:05 PM: Decision to patch React Native versions back to 0.63.
 - Nov 7th - 12:47 AM: Last patched release is released: [0.63.5](https://github.com/facebook/react-native/releases/tag/v0.63.5).
-- Nov 8th - 08:04 PM: Artifacts on Maven Central are [fully removed](https://issues.sonatype.org/browse/OSSRH-86006?focusedCommentId=1216303&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-1216303).
+- Nov 8th - 08:04 PM: Artifacts on Maven Central are fully removed.
 - Nov 10th - 11:51 AM: Issue about the [incident is closed](https://github.com/facebook/react-native/issues/35210#issuecomment-1310170361).
 
 ## Lessons Learned

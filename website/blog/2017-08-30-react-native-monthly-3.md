@@ -4,7 +4,7 @@ authors: [grabbou]
 tags: [engineering]
 ---
 
-The React Native monthly meeting continues! This month's meeting was a bit shorter as most of our teams were busy shipping. Next month, we are at [React Native EU](https://react-native.eu/) conference in Wroclaw, Poland. Make sure to grab a ticket and see you there in person! Meanwhile, let's see what our teams are up to.
+The React Native monthly meeting continues! This month's meeting was a bit shorter as most of our teams were busy shipping. Next month, we are at [React Native EU](https://web.archive.org/web/2017/https://react-native.eu/) conference in Wroclaw, Poland. Make sure to grab a ticket and see you there in person! Meanwhile, let's see what our teams are up to.
 
 ## Teams
 
@@ -24,11 +24,11 @@ Here are the notes from each team:
 
 - Recently open sourced [`react-native-material-palette`](https://github.com/callstack-io/react-native-material-palette). It extracts prominent colors from images to help you create visually engaging apps. It's Android only at the moment, but we are looking into adding support for iOS in the future.
 - We have landed HMR support into [`haul`](https://github.com/callstack-io/haul) and a bunch of other, cool stuff! Check out latest releases.
-- React Native EU 2017 is coming! Next month is all about React Native and Poland! Make sure to grab last tickets available [here](https://react-native.eu/).
+- React Native EU 2017 is coming! Next month is all about React Native and Poland! Make sure to grab last tickets available [here](https://web.archive.org/web/2017/https://react-native.eu/).
 
 ### Expo
 
-- Released support for installing npm packages on [Snack](https://snack.expo.io). Usual Expo restrictions apply -- packages can't depend on custom native APIs that aren't already included in Expo. We are also working on supporting multiple files and uploading assets in Snack. [Satyajit](https://github.com/satya164) will talk about Snack at [React Native Europe](https://react-native.eu/).
+- Released support for installing npm packages on [Snack](https://snack.expo.io). Usual Expo restrictions apply -- packages can't depend on custom native APIs that aren't already included in Expo. We are also working on supporting multiple files and uploading assets in Snack. [Satyajit](https://github.com/satya164) will talk about Snack at [React Native Europe](https://web.archive.org/web/2017/https://react-native.eu/).
 - Released SDK20 with camera, payments, secure storage, magnetometer, pause/resume fs downloads, and improved splash/loading screen.
 - Continuing to work with [Krzysztof](https://github.com/kmagiera) on [react-native-gesture-handler](https://github.com/kmagiera/react-native-gesture-handler). Please give it a try, rebuild some gesture that you have previously built using PanResponder or native gesture recognizers and let us know what issues you encounter.
 - Experimenting with JSC debugging protocol, working on a bunch of feature requests on [Canny](https://expo.canny.io/feature-requests).

@@ -3,7 +3,6 @@ title: Making React Native apps accessible
 author: Georgiy Kassabli
 authorTitle: Software Engineer at Facebook
 authorURL: 'https://www.facebook.com/georgiy.kassabli'
-authorImageURL: 'https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/c0.0.160.160/p160x160/1978838_795592927136196_1205041943_n.jpg?_nc_log=1&oh=d7a500fdece1250955a4d27b0a80fee2&oe=59E8165A'
 hero: '/blog/assets/blue-hero.png'
 tags: [engineering]
 ---

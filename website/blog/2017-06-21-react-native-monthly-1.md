@@ -71,7 +71,7 @@ As teams' plans might be of interest to a broader audience, we'll be sharing the
 
 ### Microsoft
 
-- [CodePush](https://github.com/Microsoft/code-push) has now been integrated into [Mobile Center](https://mobile.azure.com/). This is the first step in providing a much more integrated experience with distribution, analytics and other services. See their announcement [here](https://microsoft.github.io/code-push/articles/CodePushOnMobileCenter.html).
+- [CodePush](https://github.com/Microsoft/code-push) has now been integrated into [Mobile Center](https://web.archive.org/web/2017/https://mobile.azure.com/). This is the first step in providing a much more integrated experience with distribution, analytics and other services. See their announcement [here](https://microsoft.github.io/code-push/articles/CodePushOnMobileCenter.html).
 - [VS Code](https://github.com/Microsoft/vscode) has a bug with debugging, they are working on fixing that right now and will have a new build.
 - Investigating [Detox](https://github.com/wix/detox) for Integration testing, looking at JSC Context to get variables alongside crash reports.
 

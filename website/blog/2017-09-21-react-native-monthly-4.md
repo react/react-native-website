@@ -8,15 +8,15 @@ The React Native monthly meeting continues! Here are the notes from each team:
 
 ### Callstack
 
-- [React Native EU](https://react-native.eu) is over. More than 300 participants from 33 countries have visited Wroclaw. Talks can be found [on YouTube](https://www.youtube.com/channel/UCUNE_g1mQPuyW975WjgjYxA/videos).
+- [React Native EU](https://web.archive.org/web/2017/https://react-native.eu/) is over. More than 300 participants from 33 countries have visited Wroclaw. Talks can be found [on YouTube](https://www.youtube.com/channel/UCUNE_g1mQPuyW975WjgjYxA/videos).
 - We are slowly getting back to our open source schedule after the conference. One thing worth mentioning is that we are working on a next release of [react-native-opentok](https://github.com/callstack/react-native-opentok) that fixes most of the existing issues.
 
 ### GeekyAnts
 
 Trying to lower the entry barrier for the developers embracing React Native with the following things:
 
-- Announced [BuilderX.io](https://builderx.io/) at [React Native EU](https://react-native.eu). BuilderX is a design tool that directly works with JavaScript files (only React Native is supported at the moment) to generate beautiful, readable, and editable code.
-- Launched [ReactNativeSeed.com](https://reactnativeseed.com/) which provides a set of boilerplates for your next React Native project. It comes with a variety of options that include TypeScript & Flow for data-types, MobX, Redux, and mobx-state-tree for state-management with CRNA and plain React-Native as the stack.
+- Announced [BuilderX.io](https://builderx.io/) at [React Native EU](https://web.archive.org/web/2017/https://react-native.eu/). BuilderX is a design tool that directly works with JavaScript files (only React Native is supported at the moment) to generate beautiful, readable, and editable code.
+- Launched [ReactNativeSeed.com](https://web.archive.org/web/2017/https://reactnativeseed.com/) which provides a set of boilerplates for your next React Native project. It comes with a variety of options that include TypeScript & Flow for data-types, MobX, Redux, and mobx-state-tree for state-management with CRNA and plain React-Native as the stack.
 
 ### Expo
 

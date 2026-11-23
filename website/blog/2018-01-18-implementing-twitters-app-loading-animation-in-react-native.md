@@ -276,7 +276,7 @@ Voila! Our animation now works and we clean up our unused layers once the animat
 
 Don’t fret, dear reader. I too hate when guides only give you chunks of the code and don’t give you the completed source.
 
-This component has been published to npm and is on GitHub as [react-native-mask-loader](https://github.com/TheSavior/react-native-mask-loader). To try this out on your phone, it is [available on Expo](https://expo.io/@eliwhite/react-native-mask-loader-example) here:
+This component has been published to npm and is on GitHub as [react-native-mask-loader](https://github.com/TheSavior/react-native-mask-loader). To try this out on your phone, it is [available on Expo](https://web.archive.org/web/20210620225950/https://expo.io/@eliwhite/react-native-mask-loader-example) here:
 
 <img src="/blog/assets/loading-screen-07.png" style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
 

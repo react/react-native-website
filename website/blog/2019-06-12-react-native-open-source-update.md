@@ -63,4 +63,4 @@ Facebook merges all Pull Requests and internal changes directly into Facebook’
 
 ## Next
 
-Make sure to check out our talks about the future of React Native! In the next couple of months, members of the React Native team at Facebook will speak at [Chain React](https://infinite.red/ChainReactConf) and at [React Native EU](https://react-native.eu/). Also, watch out for our next release, 0.60, which is right around the corner. _It's going to be exciting_ ✨
+Make sure to check out our talks about the future of React Native! In the next couple of months, members of the React Native team at Facebook will speak at [Chain React](https://infinite.red/ChainReactConf) and at [React Native EU](https://web.archive.org/web/2019/https://www.react-native.eu/). Also, watch out for our next release, 0.60, which is right around the corner. _It's going to be exciting_ ✨
