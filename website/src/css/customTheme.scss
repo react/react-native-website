@@ -2130,6 +2130,14 @@ td .label {
   }
 }
 
+ul,
+ol {
+  .label {
+    padding: 0 8px;
+    line-height: 20px;
+  }
+}
+
 /*
   Mark pages as "new" using href attribute:
   - to show badge in all versions use "PAGEID"
