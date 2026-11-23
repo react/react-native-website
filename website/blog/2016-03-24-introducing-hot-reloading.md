@@ -120,7 +120,7 @@ For `log` to pick up `time` changes, we'll need to clear its cached exports beca
 
 ## HMR API
 
-HMR in React Native extends the module system by introducing the `hot` object. This API is based on [webpack](https://webpack.github.io/hot-module-replacement.md)'s one. The `hot` object exposes a function called `accept` which allows you to define a callback that will be executed when the module needs to be hot swapped. For instance, if we would change `time`'s code as follows, every time we save time, we'll see “time changed” in the console:
+HMR in React Native extends the module system by introducing the `hot` object. This API is based on [webpack](https://webpack.js.org/concepts/hot-module-replacement/)'s one. The `hot` object exposes a function called `accept` which allows you to define a callback that will be executed when the module needs to be hot swapped. For instance, if we would change `time`'s code as follows, every time we save time, we'll see “time changed” in the console:
 
 ```
 // time.js

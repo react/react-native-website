@@ -25,7 +25,7 @@ Now you are set up to run several commands:
 - `yarn test` runs the Jest-based JavaScript test suite.
   - `yarn test --watch` runs an interactive JavaScript test watcher.
   - `yarn test <pattern>` runs JavaScript tests with matching filenames.
-- `yarn flow` runs the [Flow](https://flowtype.org/) typechecks.
+- `yarn flow` runs the [Flow](https://flow.org/) typechecks.
   - `yarn flow-check-android` does a full Flow check over `*.android.js` files.
   - `yarn flow-check-ios` does a full Flow check over `*.ios.js` files.
 - `yarn test-typescript` runs the [TypeScript](https://www.typescriptlang.org/) typechecks.

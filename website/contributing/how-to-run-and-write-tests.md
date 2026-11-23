@@ -16,7 +16,7 @@ yarn test
 
 This will run tests using [Jest](https://jestjs.io).
 
-You should also make sure your code passes [Flow](https://flowtype.org/) and lint tests:
+You should also make sure your code passes [Flow](https://flow.org/) and lint tests:
 
 ```bash
 yarn flow

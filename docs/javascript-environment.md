@@ -69,7 +69,7 @@ A full list of React Native's enabled transformations can be found in [@react-na
   <TableRow name="Export Default From" code="export v from 'mod';" url="https://babeljs.io/docs/en/babel-plugin-proposal-export-default-from" />
   <tr><td className="table-heading" colSpan="2">Miscellaneous</td></tr>
   <TableRow name="Babel Template" code="template(`const %%importName%% = require(%%source%%);`);" url="https://babeljs.io/docs/en/babel-template" />
-  <TableRow name="Flow" code="function foo(x: ?number): string {};" url="https://flowtype.org/" />
+  <TableRow name="Flow" code="function foo(x: ?number): string {};" url="https://flow.org/" />
   <TableRow name="ESM to CJS" code="export default 42;" url="https://babeljs.io/docs/en/babel-plugin-transform-modules-commonjs" />
   <TableRow name="JSX" code="<View style={{color: 'red'}} />" url="https://react.dev/learn/writing-markup-with-jsx" />
   <TableRow name="Object Assign" code="Object.assign(a, b);" url="https://babeljs.io/docs/en/babel-plugin-transform-object-assign" />

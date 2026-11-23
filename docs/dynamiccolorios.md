@@ -34,7 +34,7 @@ If you’re familiar with `@media (prefers-color-scheme: dark)` in CSS, this is 
 <TabItem value="ios">
 
 :::info
-The `DynamicColorIOS` function is similar to the iOS native methods [`UIColor colorWithDynamicProvider:`](https://developer.apple.com/documentation/uikit/uicolor/3238040-colorwithdynamicprovider).
+The `DynamicColorIOS` function is similar to the iOS native methods [`UIColor colorWithDynamicProvider:`](<https://developer.apple.com/documentation/uikit/uicolor/init(dynamicprovider:)>).
 :::
 
 </TabItem>
