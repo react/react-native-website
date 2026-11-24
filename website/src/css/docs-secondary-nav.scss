@@ -119,10 +119,6 @@ html.plugin-docs {
   }
 }
 
-// The menu is left-aligned with its toggle, which sits about 236px from the
-// left edge, so on narrow screens the 170px menu extends past the viewport
-// (even while hidden) and makes the page scroll sideways. Align it to the
-// toggle's right edge instead.
 @media (max-width: 480px) {
   [class*="versionDropdown"] .dropdown__menu {
     left: auto;
