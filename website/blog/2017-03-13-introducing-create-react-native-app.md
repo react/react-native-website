@@ -32,4 +32,4 @@ You can run `npm run eject` to get a project very similar to what `react-native 
 
 ## Questions? Feedback?
 
-Create React Native App is now stable enough for general use, which means we’re very eager to hear about your experience using it! You can find me [on Twitter](https://twitter.com/dika10sune) or open an issue on [the GitHub repository](https://github.com/react-community/create-react-native-app). Pull requests are very welcome!
+Create React Native App is now stable enough for general use, which means we’re very eager to hear about your experience using it! You can find me [on GitHub](https://github.com/dikaiosune) or open an issue on [the GitHub repository](https://github.com/react-community/create-react-native-app). Pull requests are very welcome!

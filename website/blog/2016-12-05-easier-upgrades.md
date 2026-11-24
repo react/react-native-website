@@ -2,7 +2,7 @@
 title: Easier Upgrades Thanks to Git
 author: Nicolas Cuillery
 authorTitle: JavaScript consultant and trainer at Zenika
-authorURL: 'https://twitter.com/ncuillery'
+authorURL: 'https://github.com/ncuillery'
 authorImageURL: 'https://fr.gravatar.com/userimage/78328995/184460def705a160fd8edadc04f60eaf.jpg?size=128'
 authorTwitter: ncuillery
 tags: [announcement]

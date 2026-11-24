@@ -3,7 +3,7 @@ title: Using AWS with React Native
 author: Richard Threlkeld
 authorTitle: Senior Technical Product Manager at AWS Mobile
 authorURL: 'https://twitter.com/undef_obj'
-authorImageURL: 'https://pbs.twimg.com/profile_images/811239086581227520/APX1eZwF_400x400.jpg'
+authorImageURL: 'https://github.com/undefobj.png'
 authorTwitter: undef_obj
 tags: [engineering]
 ---
