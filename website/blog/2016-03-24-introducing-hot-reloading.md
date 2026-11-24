@@ -167,7 +167,7 @@ In order to walk the dependency tree, the runtime receives the inverse dependenc
 
 ## React Components
 
-React components are a bit harder to get to work with Hot Reloading. The problem is that we can't simply replace the old code with the new one as we'd loose the component's state. For React web applications, [Dan Abramov](https://github.com/gaearon) implemented a babel [transform](https://gaearon.github.io/react-hot-loader/) that uses webpack's HMR API to solve this issue. In a nutshell, his solution works by creating a proxy for every single React component on _transform time_. The proxies hold the component's state and delegate the lifecycle methods to the actual components, which are the ones we hot reload:
+React components are a bit harder to get to work with Hot Reloading. The problem is that we can't simply replace the old code with the new one as we'd loose the component's state. For React web applications, [Dan Abramov](https://bsky.app/profile/danabra.mov) implemented a babel [transform](https://gaearon.github.io/react-hot-loader/) that uses webpack's HMR API to solve this issue. In a nutshell, his solution works by creating a proxy for every single React component on _transform time_. The proxies hold the component's state and delegate the lifecycle methods to the actual components, which are the ones we hot reload:
 
 ![](/blog/assets/hmr-proxy.png)
 
