@@ -1793,13 +1793,13 @@ button[class*="tocCollapsibleButton"] {
   }
 
   .footer__logo {
-    height: 50px;
+    height: 48px;
     max-width: min(280px, 85dvw);
-    margin-bottom: -12px;
   }
 
   .footer__copyright {
     font-size: 11px;
+    margin-top: 4px;
   }
 
   svg[class^="iconExternalLink"] {
