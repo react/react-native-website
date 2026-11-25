@@ -14,13 +14,13 @@ We frequently hear feedback from the community that the release rate is hard to 
 
 ### Now releasing monthly
 
-We're happy to announce the new monthly release cadence, and the December 2016 release, `v0.40`, which has been stabilizing for all last month and is ready to adopt. (Just make sure to [update headers in your native modules on iOS](https://github.com/facebook/react-native/releases/tag/v0.40.0)).
+We're happy to announce the new monthly release cadence, and the December 2016 release, `v0.40`, which has been stabilizing for all last month and is ready to adopt. (Just make sure to [update headers in your native modules on iOS](https://github.com/react/react-native/releases/tag/v0.40.0)).
 
 Although it may vary a few days to avoid weekends or handle unforeseen issues, you can now expect a given release to be available on the first day of the month, and released on the last.
 
 ### Use the current month for the best support
 
-The January release candidate is ready to try, and you can [see what's new here](https://github.com/facebook/react-native/releases/tag/v0.41.0-rc.0).
+The January release candidate is ready to try, and you can [see what's new here](https://github.com/react/react-native/releases/tag/v0.41.0-rc.0).
 
 To see what changes are coming and provide better feedback to React Native contributors, always use the current month's release candidate when possible. By the time each version is released at the end of the month, the changes it contains will have been shipped in production Facebook apps for over two weeks.
 

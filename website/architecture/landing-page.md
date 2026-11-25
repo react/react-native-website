@@ -201,7 +201,7 @@ The team is actively researching and developing new capabilities the New Archite
 
 - [Updates to the event loop model](https://github.com/react-native-community/discussions-and-proposals/blob/main/proposals/0744-well-defined-event-loop.md)
 - [Node and layout APIs](https://github.com/react-native-community/discussions-and-proposals/blob/main/proposals/0607-dom-traversal-and-layout-apis.md)
-- [Styling and layout conformance](https://github.com/facebook/yoga/releases/tag/v2.0.0)
+- [Styling and layout conformance](https://github.com/react/yoga/releases/tag/v2.0.0)
 
 You can follow along and contribute in our dedicated [discussions & proposals](https://github.com/react-native-community/discussions-and-proposals/discussions/651) repository.
 

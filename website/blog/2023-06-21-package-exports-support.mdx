@@ -84,7 +84,7 @@ Enabling Package Exports brings a few [edge-case breaking changes](#breaking-cha
 
 ### Enabling Package Exports (beta)
 
-Package Exports can be enabled in your app's [**metro.config.js**](https://github.com/facebook/react-native/blob/0.72-stable/packages/react-native/template/metro.config.js) file via the [`resolver.unstable_enablePackageExports`](https://metrobundler.dev/docs/configuration/#unstable_enablepackageexports-experimental) option.
+Package Exports can be enabled in your app's [**metro.config.js**](https://github.com/react/react-native/blob/0.72-stable/packages/react-native/template/metro.config.js) file via the [`resolver.unstable_enablePackageExports`](https://metrobundler.dev/docs/configuration/#unstable_enablepackageexports-experimental) option.
 
 ```js
 const config = {
@@ -101,7 +101,7 @@ Metro exposes two further resolver options which configure how conditional expor
 - [`unstable_conditionsByPlatform`](https://metrobundler.dev/docs/configuration/#unstable_conditionsbyplatform-experimental) — The additional condition names to assert when resolving for a given platform target. By default, this matches `'browser'` when the platform is `'web'`.
 
 :::tip
-**Remember to use the React Native [Jest preset](https://github.com/facebook/react-native/blob/main/template/jest.config.js#L2)!** Jest includes support for Package Exports by default. In tests, you can override which `customExportConditions` are resolved using the [`testEnvironmentOptions`](https://jestjs.io/docs/configuration#testenvironmentoptions-object) option.
+**Remember to use the React Native [Jest preset](https://github.com/react/react-native/blob/main/template/jest.config.js#L2)!** Jest includes support for Package Exports by default. In tests, you can override which `customExportConditions` are resolved using the [`testEnvironmentOptions`](https://jestjs.io/docs/configuration#testenvironmentoptions-object) option.
 
 **If you are using TypeScript**, resolution behaviour can be matched by setting [`moduleResolution: 'bundler'`](https://www.typescriptlang.org/tsconfig#moduleResolution) and [`resolvePackageJsonImports: false`](https://www.typescriptlang.org/tsconfig#resolvePackageJsonExports) within your project's `tsconfig.json`.
 :::

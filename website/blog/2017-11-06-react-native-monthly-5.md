@@ -42,7 +42,7 @@ The React Native monthly meeting continues! Let's see what our teams are up to.
       - border(Left|Right)Width → border(Start|End)Width
       - border(Left|Right)Color → border(Start|End)Color
   - The meaning of “left” and “right” were swapped in RTL for position, margin, padding, and border styles. Within a few months, we’re going to remove this behaviour and make “left” always mean “left,” and “right” always mean “right”. The breaking changes are hidden under a flag. Use `I18nManager.swapLeftAndRightInRTL(false)` in your React Native components to opt into them.
-- Working on [Flow](https://github.com/facebook/flow) typing our internal native modules and using those to generate interfaces in Java and protocols in ObjC that the native implementations must implement. We hope this codegen becomes open source next year, at the earliest.
+- Working on [Flow](https://github.com/meta/flow) typing our internal native modules and using those to generate interfaces in Java and protocols in ObjC that the native implementations must implement. We hope this codegen becomes open source next year, at the earliest.
 
 ### Infinite Red
 

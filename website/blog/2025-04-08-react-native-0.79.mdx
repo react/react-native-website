@@ -25,7 +25,7 @@ This release ships with performance improvements on various fronts, as well as s
 
 ### Metro: Faster startup and package exports support
 
-This release ships with [Metro 0.82](https://github.com/facebook/metro/releases/tag/v0.82.0).This version uses deferred hashing to improve the speed of first `yarn start` typically by over 3x (more in larger projects and monorepos) making your development experience and CI builds faster on a daily basis.
+This release ships with [Metro 0.82](https://github.com/react/metro/releases/tag/v0.82.0).This version uses deferred hashing to improve the speed of first `yarn start` typically by over 3x (more in larger projects and monorepos) making your development experience and CI builds faster on a daily basis.
 
 ![metro startup comparison](../static/blog/assets/0.79-metro-startup-comparison.gif)
 
@@ -41,7 +41,7 @@ In particular, we're aware of user reported incompatibilities for some popular p
 
 If you're encountering issues:
 
-- Please update to the Metro [0.81.5 hotfix](https://github.com/facebook/metro/releases/tag/v0.81.5), or set [`resolver.unstable_enablePackageExports = false`](https://metrobundler.dev/docs/configuration/#unstable_enablepackageexports-experimental) to opt out.
+- Please update to the Metro [0.81.5 hotfix](https://github.com/react/metro/releases/tag/v0.81.5), or set [`resolver.unstable_enablePackageExports = false`](https://metrobundler.dev/docs/configuration/#unstable_enablepackageexports-experimental) to opt out.
 - See [expo/expo#36551](https://github.com/expo/expo/discussions/36551) for affected packages and future updates.
 
 :::
@@ -157,7 +157,7 @@ Read more in [this dedicated post](https://github.com/react-native-community/dis
 
 As part of modernizing our JavaScript codebase, we've updated a number of implementation modules within `react-native` to consistently use `export` syntax instead of `module.exports`.
 
-We've updated around **46 APIs** in total, which can be found in the [changelog](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0790).
+We've updated around **46 APIs** in total, which can be found in the [changelog](https://github.com/react/react-native/blob/main/CHANGELOG.md#v0790).
 
 This change has a subtle impact on existing imports:
 
@@ -223,9 +223,9 @@ This list contains a series of other breaking changes we suspect could have a mi
 - **Invalid unitless lengths in box shadows and filters**:
   - In order to make React Native more compliant with the CSS/Web specs, we now don’t support anymore unitless lengths in `box-shadow` and `filter`. This means that if you were using a `box-shadow` of `1 1 black` we won’t be rendering. You should instead specify units such as `1px 1px black`
 - **Remove incorrect hwb() syntax support from normalize-color:**
-  - In order to make React Native more compliant with the CSS/Web specs, we now restrict some invalid syntax for `hwb()`. Historically React Native used to support comma separated values (e.g. `hwb(0, 0%, 100%)`) which we now don’t support anymore (you should migrate to `hwb(0 0% 100%)`). You can read more about this change [here](https://github.com/facebook/react-native/commit/676359efd9e478d69ad430cff213acc87b273580).
+  - In order to make React Native more compliant with the CSS/Web specs, we now restrict some invalid syntax for `hwb()`. Historically React Native used to support comma separated values (e.g. `hwb(0, 0%, 100%)`) which we now don’t support anymore (you should migrate to `hwb(0 0% 100%)`). You can read more about this change [here](https://github.com/react/react-native/commit/676359efd9e478d69ad430cff213acc87b273580).
 - **Libraries/Core/ExceptionsManager exports update**
-  - As part of our effort to modernize the React Native JS API, we updated <code>[ExceptionsManager](https://github.com/facebook/react-native/blob/0.79-stable/packages/react-native/Libraries/Core/ExceptionsManager.js)</code> to now export a default `ExceptionsManager` object, and `SyntheticError` as a secondary export.
+  - As part of our effort to modernize the React Native JS API, we updated <code>[ExceptionsManager](https://github.com/react/react-native/blob/0.79-stable/packages/react-native/Libraries/Core/ExceptionsManager.js)</code> to now export a default `ExceptionsManager` object, and `SyntheticError` as a secondary export.
 
 ## Acknowledgements
 
@@ -235,7 +235,7 @@ We want to send a thank you to those community members that shipped significant 
 
 - [Marc Rousavy](https://github.com/mrousavy) for developing and documenting the “Android: Faster App Startup” feature
 - [Kudo Chien](https://github.com/Kudo) and [Oskar Kwaśniewski](https://github.com/okwasniewski)for working on the `@react-native-community/javascriptcore` package and writing the “JSC moving to Community Package” section
-- [James Lawson](https://github.com/facebook/metro/pull/1302) for adding support for import subpath resolution [in Metro](https://github.com/facebook/metro/pull/1302).
+- [James Lawson](https://github.com/react/metro/pull/1302) for adding support for import subpath resolution [in Metro](https://github.com/react/metro/pull/1302).
 
 Moreover, we also want to thank the additional authors that worked on documenting features in this release post:
 

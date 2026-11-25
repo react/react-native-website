@@ -185,9 +185,9 @@ Since our announcement of the [New Architecture being in Beta](https://github.co
 
 Our goal is for the New Architecture to be considered stable in the near future. Therefore, in the last few months we focused on bridging the gaps between the Old and the New Architecture. Some examples of bugs and missing features we fixed are:
 
-- Fix `adjustsFontSizeToFit` on Android ([#44075](https://github.com/facebook/react-native/pull/44075))
-- Fix `textAlign` not working with inline views on Android ([#44146](https://github.com/facebook/react-native/pull/44146))
-- Fix text baseline being moved up on iOS ([#44932](https://github.com/facebook/react-native/pull/44932))
+- Fix `adjustsFontSizeToFit` on Android ([#44075](https://github.com/react/react-native/pull/44075))
+- Fix `textAlign` not working with inline views on Android ([#44146](https://github.com/react/react-native/pull/44146))
+- Fix text baseline being moved up on iOS ([#44932](https://github.com/react/react-native/pull/44932))
 
 Together with the folks at Expo, we also worked on adding information about New Architecture support in the [React Native Directory](https://reactnative.directory/), so it will be immediately clear for you if a library already supports the New Architecture or not:
 
@@ -365,7 +365,7 @@ You can read more about it in our official announcement [for Android](https://gi
 
 #### Android: JSIModule has been deleted
 
-The `com.facebook.react.bridge.JSIModule` ([source](https://github.com/facebook/react-native/blob/0.73-stable/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/bridge/JSIModule.java)) was an API that we temporarily introduced to allow a Native Module to access JSI directly on Android.
+The `com.facebook.react.bridge.JSIModule` ([source](https://github.com/react/react-native/blob/0.73-stable/packages/react-native/ReactAndroid/src/main/java/com/facebook/react/bridge/JSIModule.java)) was an API that we temporarily introduced to allow a Native Module to access JSI directly on Android.
 The accessors for this API [were deprecated in 0.74](https://reactnative.dev/blog/2024/04/22/release-0.74#other-breaking-changes), and we verified that there was no meaningful usage of this API in Open Source so we’re removing it in 0.75.
 You can use [Turbo Native Modules](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/turbo-modules.md) instead as an alternative.
 

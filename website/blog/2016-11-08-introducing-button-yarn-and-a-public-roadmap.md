@@ -4,7 +4,7 @@ authors: [hectorramos]
 tags: [announcement]
 ---
 
-We have heard from many people that there is so much work happening with React Native, it can be tough to keep track of what's going on. To help communicate what work is in progress, we are now publishing a [roadmap for React Native](https://github.com/facebook/react-native/wiki/Roadmap). At a high level, this work can be broken down into three priorities:
+We have heard from many people that there is so much work happening with React Native, it can be tough to keep track of what's going on. To help communicate what work is in progress, we are now publishing a [roadmap for React Native](https://github.com/react/react-native/wiki/Roadmap). At a high level, this work can be broken down into three priorities:
 
 - **Core Libraries**. Adding more functionality to the most useful components and APIs.
 - **Stability**. Improve the underlying infrastructure to reduce bugs and improve code quality.
@@ -14,7 +14,7 @@ If you have suggestions for features that you think would be valuable on the roa
 
 ## What's new in React Native
 
-[Version 0.37 of React Native](https://github.com/facebook/react-native/releases/tag/v0.37.0), released today, introduces a new core component to make it really easy to add a touchable Button to any app. We're also introducing support for the new [Yarn](https://yarnpkg.com/) package manager, which should speed up the whole process of updating your app's dependencies.
+[Version 0.37 of React Native](https://github.com/react/react-native/releases/tag/v0.37.0), released today, introduces a new core component to make it really easy to add a touchable Button to any app. We're also introducing support for the new [Yarn](https://yarnpkg.com/) package manager, which should speed up the whole process of updating your app's dependencies.
 
 ## Introducing Button
 
@@ -50,4 +50,4 @@ In simple local testing `react-native init` finished in **about 1 minute on a go
 
 ## Thank you!
 
-We'd like to thank everyone who contributed to this release. The full [release notes](https://github.com/facebook/react-native/releases/tag/v0.37.0) are now available on GitHub. With over two dozen bug fixes and new features, React Native just keeps getting better thanks to you.
+We'd like to thank everyone who contributed to this release. The full [release notes](https://github.com/react/react-native/releases/tag/v0.37.0) are now available on GitHub. With over two dozen bug fixes and new features, React Native just keeps getting better thanks to you.

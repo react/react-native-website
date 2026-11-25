@@ -535,7 +535,7 @@ class ReactViewController: UIViewController {
 </TabItem>
 </Tabs>
 
-4. Make sure to disable the Sandbox scripting. To achieve this, in Xcode, click on your app, then on build settings. Filter for script and set the `User Script Sandboxing` to `NO`. This step is needed to properly switch between the Debug and Release version of the [Hermes engine](https://github.com/facebook/hermes/blob/main/README.md) that we ship with React Native.
+4. Make sure to disable the Sandbox scripting. To achieve this, in Xcode, click on your app, then on build settings. Filter for script and set the `User Script Sandboxing` to `NO`. This step is needed to properly switch between the Debug and Release version of the [Hermes engine](https://github.com/meta/hermes/blob/main/README.md) that we ship with React Native.
 
 ![Disable Sandboxing](/docs/assets/disable-sandboxing.png);
 

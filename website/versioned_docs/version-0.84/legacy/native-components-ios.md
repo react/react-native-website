@@ -47,7 +47,7 @@ RCT_EXPORT_MODULE(RNTMap)
 Do not attempt to set the `frame` or `backgroundColor` properties on the `UIView` instance that you expose through the `-view` method.
 React Native will overwrite the values set by your custom class in order to match your JavaScript component's layout props.
 If you need this granularity of control it might be better to wrap the `UIView` instance you want to style in another `UIView` and return the wrapper `UIView` instead.
-See [Issue 2948](https://github.com/facebook/react-native/issues/2948) for more context.
+See [Issue 2948](https://github.com/react/react-native/issues/2948) for more context.
 :::
 
 :::info
@@ -476,4 +476,4 @@ The `RCTDatePickerIOSConsts` constants are exported from native by grabbing the 
 }
 ```
 
-This guide covered many of the aspects of bridging over custom native components, but there is even more you might need to consider, such as custom hooks for inserting and laying out subviews. If you want to go even deeper, check out the [source code](https://github.com/facebook/react-native/tree/main/packages/react-native/React/Views) of some of the implemented components.
+This guide covered many of the aspects of bridging over custom native components, but there is even more you might need to consider, such as custom hooks for inserting and laying out subviews. If you want to go even deeper, check out the [source code](https://github.com/react/react-native/tree/main/packages/react-native/React/Views) of some of the implemented components.

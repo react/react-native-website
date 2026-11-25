@@ -45,7 +45,7 @@ $ ./gradlew :app:assembleDebug -PreactNativeArchitectures=x86,x86_64
 
 This can be useful if you wish to build your Android App on a CI and use a matrix to parallelize the build of the different architectures.
 
-If you wish, you can also override this value locally, using the `gradle.properties` file you have in the [top-level folder](https://github.com/facebook/react-native/blob/19cf70266eb8ca151aa0cc46ac4c09cb987b2ceb/template/android/gradle.properties#L30-L33) of your project:
+If you wish, you can also override this value locally, using the `gradle.properties` file you have in the [top-level folder](https://github.com/react/react-native/blob/19cf70266eb8ca151aa0cc46ac4c09cb987b2ceb/template/android/gradle.properties#L30-L33) of your project:
 
 ```
 # Use this property to specify which architecture you want to build.
@@ -153,7 +153,7 @@ Open `ios/Podfile` in your editor and uncomment the `ccache_enabled` line.
 
 ```ruby
   post_install do |installer|
-    # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
+    # https://github.com/react/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
     react_native_post_install(
       installer,
       config[:reactNativePath],

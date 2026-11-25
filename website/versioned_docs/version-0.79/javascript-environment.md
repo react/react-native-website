@@ -21,7 +21,7 @@ Syntax transformers make writing code more enjoyable by allowing you to use new 
 
 React Native ships with the [Babel JavaScript compiler](https://babeljs.io). Check [Babel documentation](https://babeljs.io/docs/plugins/#transform-plugins) on its supported transformations for more details.
 
-A full list of React Native's enabled transformations can be found in [@react-native/babel-preset](https://github.com/facebook/react-native/tree/main/packages/react-native-babel-preset).
+A full list of React Native's enabled transformations can be found in [@react-native/babel-preset](https://github.com/react/react-native/tree/main/packages/react-native-babel-preset).
 
 <table>
 <thead>

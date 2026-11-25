@@ -42,12 +42,12 @@ We are continuing the roll-out of the New Architecture for both Android and iOS.
 
 As mentioned above, the most important improvements in this release are centered around React 18 support and bundled Hermes. However, there have been other notable changes, including:
 
-- [Deprecating support](https://github.com/facebook/react-native/commit/982ca30de079d7e80bd0b50365d58b9048fb628f) for iOS/tvOS SDK 11.0, version 12.4+ is now required
-- [Better support](https://github.com/facebook/react-native/commit/c5babd993a2bed2994ecc4710fa9e424b3e6cfc2) for M1 users developing for Android
-- [Addition](https://github.com/facebook/react-native/commit/0480f56c5b5478b6ebe5ad88e347cad2810bfb17) of the new `.xcode.env` configuration file for more deterministically sourcing the node executable
-- [React Native now uses](https://github.com/facebook/react-native/commit/50c8e973f067d4ef1fc3c2eddd360a0709828968) the latest status bar API from Android 11
-- [Support for C++17](https://github.com/facebook/react-native/commit/c2e4ae39b8a5c6534a3fa4dae4130166eda15169)
-- [New](https://github.com/facebook/react-native/commit/1a1a304ed2023d60547aef65b1a7bf56467edf08) `hotkeysEnabled` option in the iOS debug menu
+- [Deprecating support](https://github.com/react/react-native/commit/982ca30de079d7e80bd0b50365d58b9048fb628f) for iOS/tvOS SDK 11.0, version 12.4+ is now required
+- [Better support](https://github.com/react/react-native/commit/c5babd993a2bed2994ecc4710fa9e424b3e6cfc2) for M1 users developing for Android
+- [Addition](https://github.com/react/react-native/commit/0480f56c5b5478b6ebe5ad88e347cad2810bfb17) of the new `.xcode.env` configuration file for more deterministically sourcing the node executable
+- [React Native now uses](https://github.com/react/react-native/commit/50c8e973f067d4ef1fc3c2eddd360a0709828968) the latest status bar API from Android 11
+- [Support for C++17](https://github.com/react/react-native/commit/c2e4ae39b8a5c6534a3fa4dae4130166eda15169)
+- [New](https://github.com/react/react-native/commit/1a1a304ed2023d60547aef65b1a7bf56467edf08) `hotkeysEnabled` option in the iOS debug menu
 
 ### Breaking changes
 
@@ -62,21 +62,21 @@ There have also been a few breaking changes:
   - `podspecPath` was removed from the iOS dependency config
   - Removed `--project-path` option from a `run-ios`
   - Changed iOS source directory detection from looking for an Xcode project to looking for a Podfile
-- Support for `console.disableYellowBox` [has been dropped](https://github.com/facebook/react-native/commit/b633cc130533f0731b2577123282c4530e4f0abe)
-- Already deprecated prop types have been removed ([cdfddb4dad](https://github.com/facebook/react-native/commit/cdfddb4dad7c69904850d7e5f089a32a1d3445d1), [3e229f27bc](https://github.com/facebook/react-native/commit/3e229f27bc9c7556876ff776abf70147289d544b), [10199b1581](https://github.com/facebook/react-native/commit/10199b158138b8645550b5579df87e654213fe42))
-- `removeListener`, deprecated since RN 0.65, [was removed](https://github.com/facebook/react-native/commit/8dfbed786b40082a7a222e00dc0a621c0695697d) from Appearance
-- If you were using `SegmentedComponentIOS`, you will now need to replace it with the third-party library, for example [segmented-control](https://github.com/react-native-segmented-control/segmented-control) ([235f168574](https://github.com/facebook/react-native/commit/235f1685748442553e53f8ec6d904bc0314a8ae6))
+- Support for `console.disableYellowBox` [has been dropped](https://github.com/react/react-native/commit/b633cc130533f0731b2577123282c4530e4f0abe)
+- Already deprecated prop types have been removed ([cdfddb4dad](https://github.com/react/react-native/commit/cdfddb4dad7c69904850d7e5f089a32a1d3445d1), [3e229f27bc](https://github.com/react/react-native/commit/3e229f27bc9c7556876ff776abf70147289d544b), [10199b1581](https://github.com/react/react-native/commit/10199b158138b8645550b5579df87e654213fe42))
+- `removeListener`, deprecated since RN 0.65, [was removed](https://github.com/react/react-native/commit/8dfbed786b40082a7a222e00dc0a621c0695697d) from Appearance
+- If you were using `SegmentedComponentIOS`, you will now need to replace it with the third-party library, for example [segmented-control](https://github.com/react-native-segmented-control/segmented-control) ([235f168574](https://github.com/react/react-native/commit/235f1685748442553e53f8ec6d904bc0314a8ae6))
 
 ### Upgrades
 
 And we upgraded some of our dependencies:
 
-- Bump [of AGP to 7.1.1](https://github.com/facebook/react-native/commit/200488e87cf4bc355e03c78cd814b97b23452117) - we recommend sticking to this version in your apps
-- `boost` for Android was updated to 1.76 [to align with iOS](https://github.com/facebook/react-native/commit/5cd6367f0b86543274a15bb6d0e53a8545fed845)
-- Ruby [was bumped to 2.7.5](https://github.com/facebook/react-native/commit/2c87b7466e098c5cd230e02b279fc7bc7a357615)
-- Direct metro dependencies [have been upgraded](https://github.com/facebook/react-native/commit/b74e964e705c40834acad7020562e870cdad9db1) to 0.70.1
+- Bump [of AGP to 7.1.1](https://github.com/react/react-native/commit/200488e87cf4bc355e03c78cd814b97b23452117) - we recommend sticking to this version in your apps
+- `boost` for Android was updated to 1.76 [to align with iOS](https://github.com/react/react-native/commit/5cd6367f0b86543274a15bb6d0e53a8545fed845)
+- Ruby [was bumped to 2.7.5](https://github.com/react/react-native/commit/2c87b7466e098c5cd230e02b279fc7bc7a357615)
+- Direct metro dependencies [have been upgraded](https://github.com/react/react-native/commit/b74e964e705c40834acad7020562e870cdad9db1) to 0.70.1
 
-You can check out the full list of changes [in the changelog](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#0690).
+You can check out the full list of changes [in the changelog](https://github.com/react/react-native/blob/main/CHANGELOG.md#0690).
 
 ### Acknowledgements
 

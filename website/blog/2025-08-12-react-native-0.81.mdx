@@ -120,13 +120,13 @@ This list contains a series of other breaking changes we suspect could have a mi
 - We made several classes internal. Those classes are not part of the public API and should not be accessed. We already notified or submitted patches to the affected libraries:
   - `com.facebook.react.fabric.mounting.MountingManager`
   - `com.facebook.react.views.text.TextLayoutManager`
-- We moved the `textAlignVertical` [native prop](https://github.com/facebook/react-native/blob/841866c35401ae05fa9c6a2a3e9b42714bbd291e/packages/react-native/ReactCommon/react/renderer/attributedstring/ParagraphAttributes.h#L83) from `TextAttribute.h` to `ParagraphAttribute.h`
+- We moved the `textAlignVertical` [native prop](https://github.com/react/react-native/blob/841866c35401ae05fa9c6a2a3e9b42714bbd291e/packages/react-native/ReactCommon/react/renderer/attributedstring/ParagraphAttributes.h#L83) from `TextAttribute.h` to `ParagraphAttribute.h`
   - The prop `textAlignVertical` only affects the top most text view (paragraph view). Yet, it exists in text attribute props nonetheless. To better reflect this platform limitation it was moved to paragraph props.
   - This change is **not** affecting the JS API of the `<Text>` component.
   - You will be affected by this change only if you implement a Fabric component that interacts with the C++ Text API.
   - If you’re affected by this change, you can replace `TextAttributes.h` with `ParagraphAttribute.h` in your code
 
-Read the full list of breaking changes [in the CHANGELOG for 0.81](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0810).
+Read the full list of breaking changes [in the CHANGELOG for 0.81](https://github.com/react/react-native/blob/main/CHANGELOG.md#v0810).
 
 ## Acknowledgements
 

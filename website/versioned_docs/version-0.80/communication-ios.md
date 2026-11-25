@@ -57,7 +57,7 @@ rootView.appProperties = @{@"images" : imageList};
 It is fine to update properties anytime. However, updates have to be performed on the main thread. You use the getter on any thread.
 
 :::note
-Currently, there is a known issue where setting appProperties during the bridge startup, the change can be lost. See https://github.com/facebook/react-native/issues/20115 for more information.
+Currently, there is a known issue where setting appProperties during the bridge startup, the change can be lost. See https://github.com/react/react-native/issues/20115 for more information.
 :::
 
 There is no way to update only a few properties at a time. We suggest that you build it into your own wrapper instead.
@@ -188,7 +188,7 @@ Let's look at an example.
 
 In the example we have a `FlexibleSizeExampleView` view that holds a root view. We create the root view, initialize it and set the delegate. The delegate will handle size updates. Then, we set the root view's size flexibility to `RCTRootViewSizeFlexibilityHeight`, which means that `rootViewDidChangeIntrinsicSize:` method will be called every time the React Native content changes its height. Finally, we set the root view's width and position. Note that we set there height as well, but it has no effect as we made the height RN-dependent.
 
-You can checkout full source code of the example [here](https://github.com/facebook/react-native/blob/main/packages/rn-tester/RNTester/NativeExampleViews/FlexibleSizeExampleView.mm).
+You can checkout full source code of the example [here](https://github.com/react/react-native/blob/main/packages/rn-tester/RNTester/NativeExampleViews/FlexibleSizeExampleView.mm).
 
 It's fine to change root view's size flexibility mode dynamically. Changing flexibility mode of a root view will schedule a layout recalculation and the delegate `rootViewDidChangeIntrinsicSize:` method will be called once the content size is known.
 

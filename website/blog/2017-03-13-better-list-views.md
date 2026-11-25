@@ -55,7 +55,7 @@ Lists are used in many contexts, so we packed the new components full of feature
 
 - Scroll loading (`onEndReached`).
 - Pull to refresh (`onRefresh` / `refreshing`).
-- [Configurable](https://github.com/facebook/react-native/blob/master/Libraries/CustomComponents/Lists/ViewabilityHelper.js) viewability (VPV) callbacks (`onViewableItemsChanged` / `viewabilityConfig`).
+- [Configurable](https://github.com/react/react-native/blob/master/Libraries/CustomComponents/Lists/ViewabilityHelper.js) viewability (VPV) callbacks (`onViewableItemsChanged` / `viewabilityConfig`).
 - Horizontal mode (`horizontal`).
 - Intelligent item and section separators.
 - Multi-column support (`numColumns`)

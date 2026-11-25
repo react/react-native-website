@@ -60,10 +60,10 @@ const config = {
 
 #### New `metro.config.js` Setup
 
-In React Native 0.72, we’ve changed the config loading setup for Metro in React Native CLI. Please update your project’s `metro.config.js` file to match the [template’s version](https://github.com/facebook/react-native/blob/76a42c292de838a0dd537935db792eaa81410b9b/packages/react-native/template/metro.config.js).
+In React Native 0.72, we’ve changed the config loading setup for Metro in React Native CLI. Please update your project’s `metro.config.js` file to match the [template’s version](https://github.com/react/react-native/blob/76a42c292de838a0dd537935db792eaa81410b9b/packages/react-native/template/metro.config.js).
 
 :::info
-Please update your config file to the following [format](https://github.com/facebook/react-native/blob/76a42c292de838a0dd537935db792eaa81410b9b/packages/react-native/template/metro.config.js). You can also follow the [upgrade-helper](https://react-native-community.github.io/upgrade-helper/?from=0.71.8&to=0.72.0).
+Please update your config file to the following [format](https://github.com/react/react-native/blob/76a42c292de838a0dd537935db792eaa81410b9b/packages/react-native/template/metro.config.js). You can also follow the [upgrade-helper](https://react-native-community.github.io/upgrade-helper/?from=0.71.8&to=0.72.0).
 
 These format changes to `metro.config.js` will become required in 0.73. For 0.72, we will log a warning if not updated.
 :::
@@ -98,17 +98,17 @@ You can find other improvements in the [React Native CLI changelogs](https://git
 
 #### Faster Compilation and JSON Parsing in Hermes
 
-Hermes has improved the compilation time of large object literals. For example, in one reported issue, [#852](https://github.com/facebook/hermes/issues/852), a user had an entire dataset written out as a large object literal. By improving the de-duplication algorithm Hermes uses, compilation sped up by 97% ([221c](https://github.com/facebook/hermes/commit/221ce21a209e2e32a3eaaa2d9e28ca81842fad20)). These improvements will benefit build times for apps that bundle many objects.
+Hermes has improved the compilation time of large object literals. For example, in one reported issue, [#852](https://github.com/meta/hermes/issues/852), a user had an entire dataset written out as a large object literal. By improving the de-duplication algorithm Hermes uses, compilation sped up by 97% ([221c](https://github.com/meta/hermes/commit/221ce21a209e2e32a3eaaa2d9e28ca81842fad20)). These improvements will benefit build times for apps that bundle many objects.
 
-Multiple optimizations ([de9c](https://github.com/facebook/hermes/commit/de9cff2aa41fc1f297b568848143347823d73659), [6e2d](https://github.com/facebook/hermes/commit/6e2dd652c8d90c5d59737a81f66a259efffdcd00)) to JSON parsing have also landed, benefiting apps using libraries like redux-persist that rely heavily on JSON manipulation.
+Multiple optimizations ([de9c](https://github.com/meta/hermes/commit/de9cff2aa41fc1f297b568848143347823d73659), [6e2d](https://github.com/meta/hermes/commit/6e2dd652c8d90c5d59737a81f66a259efffdcd00)) to JSON parsing have also landed, benefiting apps using libraries like redux-persist that rely heavily on JSON manipulation.
 
 #### More ECMAScript Support in Hermes
 
 Support for the following specifications in Hermes has landed in React Native 0.72:
 
-- `prototype.at` support for [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at), [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/at) and [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/at). See [#823](https://github.com/facebook/hermes/issues/823) ([ebe2](https://github.com/facebook/hermes/commit/ebe2915ac386a6b73dec39c2af4ac7063e68cd99)).
-- Implement [well-formed JSON.stringify](https://github.com/tc39/proposal-well-formed-stringify) ([d41d](https://github.com/facebook/hermes/commit/d41decf244aa814b1e58827a9de982f3b71667de)) to prevent ill-formed Unicode strings
-- Implement [AggregateError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError) ([9b25](https://github.com/facebook/hermes/commit/9b25a2530eb515f6c4fbd397ae290b6c97c049b2)) that represents several errors wrapped in a single error. Useful for multiple errors like from [`Promise.any()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any) when all promises passed to it reject.
+- `prototype.at` support for [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at), [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/at) and [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/at). See [#823](https://github.com/meta/hermes/issues/823) ([ebe2](https://github.com/meta/hermes/commit/ebe2915ac386a6b73dec39c2af4ac7063e68cd99)).
+- Implement [well-formed JSON.stringify](https://github.com/tc39/proposal-well-formed-stringify) ([d41d](https://github.com/meta/hermes/commit/d41decf244aa814b1e58827a9de982f3b71667de)) to prevent ill-formed Unicode strings
+- Implement [AggregateError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError) ([9b25](https://github.com/meta/hermes/commit/9b25a2530eb515f6c4fbd397ae290b6c97c049b2)) that represents several errors wrapped in a single error. Useful for multiple errors like from [`Promise.any()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any) when all promises passed to it reject.
 
 For users on JSC, these features are already available.
 
@@ -130,7 +130,7 @@ The following packages have been removed from React Native in 0.72. Please migra
 
 ### Package Renames
 
-All packages published from the [`react-native`](https://github.com/facebook/react-native) core repository now live under `react-native/packages`, and are published under the [@react-native npm scope](https://www.npmjs.com/search?q=%40react-native) to ensure clear ownership.
+All packages published from the [`react-native`](https://github.com/react/react-native) core repository now live under `react-native/packages`, and are published under the [@react-native npm scope](https://www.npmjs.com/search?q=%40react-native) to ensure clear ownership.
 
 There are no changes to the [react-native](https://www.npmjs.com/package/react-native) package.
 
@@ -150,9 +150,9 @@ You can read the motivation that led to these changes [in the dedicated RFC](htt
 
 ## Acknowledgements
 
-A lot of this release came from the direct feedback from the community. From reports on [noisy redboxes](https://twitter.com/baconbrix/status/1623039650775371792), [bugs with Package Exports](https://github.com/facebook/metro/issues/965), [benchmarks for the New Architecture](https://github.com/reactwg/react-native-new-architecture/discussions/85) — all of it is valuable to hear and we appreciate the time it takes to share feedback.
+A lot of this release came from the direct feedback from the community. From reports on [noisy redboxes](https://twitter.com/baconbrix/status/1623039650775371792), [bugs with Package Exports](https://github.com/react/metro/issues/965), [benchmarks for the New Architecture](https://github.com/reactwg/react-native-new-architecture/discussions/85) — all of it is valuable to hear and we appreciate the time it takes to share feedback.
 
-0.72 contains over [1100 commits](https://github.com/facebook/react-native/compare/v0.71.8...v0.72.0) from 66 contributors. Thank you for all your hard work!
+0.72 contains over [1100 commits](https://github.com/react/react-native/compare/v0.71.8...v0.72.0) from 66 contributors. Thank you for all your hard work!
 
 ## Upgrade to 0.72
 

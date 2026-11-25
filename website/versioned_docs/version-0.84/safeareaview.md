@@ -50,5 +50,5 @@ export default App;
 Inherits [View Props](view.md#props).
 
 :::note
-As padding is used to implement the behavior of the component, padding rules in styles applied to a `SafeAreaView` will be ignored and can cause different results depending on the platform. See [#22211](https://github.com/facebook/react-native/issues/22211) for details.
+As padding is used to implement the behavior of the component, padding rules in styles applied to a `SafeAreaView` will be ignored and can cause different results depending on the platform. See [#22211](https://github.com/react/react-native/issues/22211) for details.
 :::
