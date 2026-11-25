@@ -44,7 +44,7 @@ After the JDK installation, add or update your `JAVA_HOME` environment variable 
 If you used above steps, JDK will likely be located at `/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home`:
 
 ```shell
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
 ```
 
 The Zulu OpenJDK distribution offers JDKs for **both Intel and M1 Macs**. This will make sure your builds are faster on M1 Macs compared to using an Intel-based JDK.
