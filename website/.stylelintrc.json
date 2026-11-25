@@ -1,6 +1,7 @@
 {
   "plugins": ["stylelint-scss"],
   "extends": ["stylelint-config-standard-scss"],
+  "ignoreFiles": ["./build/**"],
   "rules": {
     "at-rule-no-unknown": null,
     "custom-property-pattern": null,
