@@ -78,22 +78,22 @@ We're always working to improve the upgrade experience, and we hope that these t
 
 - **LogBox**: We’re adding the new LogBox error and warning experience as an opt-in; to enable it, add `require('react-native').unstable_enableLogBox()` to your `index.js` file.
 - **React DevTools v4**: This change includes an upgrade to the [latest React DevTools](https://reactjs.org/blog/2019/08/15/new-react-devtools.html) which offers significant performance gains, an improved navigation experience, and full support for React Hooks.
-- **Accessibility improvements**: We’ve made improvements to accessibility including adding [accessibilityValue](https://reactnative.dev/docs/accessibility#accessibilityvalue-ios-android), missing props on [Touchables](https://github.com/facebook/react-native/commit/8c0c860e38f57e18296f689e47dfb4a54088c260), `onSlidingComplete` [accessibility events](https://github.com/facebook/react-native/commit/c7aa6dc8270c0eabc913fe6c617c8131e3f4b3c5), and changing the default role of Switch component from `"button"` to `"switch"`.
+- **Accessibility improvements**: We’ve made improvements to accessibility including adding [accessibilityValue](https://reactnative.dev/docs/accessibility#accessibilityvalue-ios-android), missing props on [Touchables](https://github.com/react/react-native/commit/8c0c860e38f57e18296f689e47dfb4a54088c260), `onSlidingComplete` [accessibility events](https://github.com/react/react-native/commit/c7aa6dc8270c0eabc913fe6c617c8131e3f4b3c5), and changing the default role of Switch component from `"button"` to `"switch"`.
 
 ## Breaking changes
 
 - **Remove PropTypes**: We're removing `propTypes` from core components in order to reduce the app size impact of React Native core and to favor static type systems which check at compile time instead of runtime.
-- **Remove accessibilityStates**: We’ve [removed](https://github.com/facebook/react-native/commit/7b35f427fd66cb0f36921b992095fe5b3c14d8b9) the deprecated `accessibilityStates` property in favor of the new `accessibilityState` prop which is a more semantically rich way for components to describe information about their state to accessibility services.
-- **TextInput changes**: We removed `onTextInput` [from TextInput](https://github.com/facebook/react-native/commit/3f7e0a2c9601fc186f25bfd794cd0008ac3983ab) as it’s uncommon, not W3C compliant, and difficult to implement in [Fabric](https://github.com/react-native-community/discussions-and-proposals/issues/4). We also removed the undocumented `inputView` prop, and `selectionState`.
+- **Remove accessibilityStates**: We’ve [removed](https://github.com/react/react-native/commit/7b35f427fd66cb0f36921b992095fe5b3c14d8b9) the deprecated `accessibilityStates` property in favor of the new `accessibilityState` prop which is a more semantically rich way for components to describe information about their state to accessibility services.
+- **TextInput changes**: We removed `onTextInput` [from TextInput](https://github.com/react/react-native/commit/3f7e0a2c9601fc186f25bfd794cd0008ac3983ab) as it’s uncommon, not W3C compliant, and difficult to implement in [Fabric](https://github.com/react-native-community/discussions-and-proposals/issues/4). We also removed the undocumented `inputView` prop, and `selectionState`.
 
 ## Deprecations
 
-- `AccessibilityInfo.fetch` was already deprecated, but in this release we [added a warning](https://github.com/facebook/react-native/commit/523ab8333800afbfb169c6fd70ab6611fe07cc2a).
-- Setting `useNativeDriver` is [now required](https://github.com/facebook/react-native/commit/5876052615f4858ed5fc32fa3da9b64695974238) to support switching the default in the future.
-- The `ref` of an `Animated` component is now the internal component and [deprecated](https://github.com/facebook/react-native/commit/66e72bb4e00aafbcb9f450ed5db261d98f99f82a) `getNode`.
+- `AccessibilityInfo.fetch` was already deprecated, but in this release we [added a warning](https://github.com/react/react-native/commit/523ab8333800afbfb169c6fd70ab6611fe07cc2a).
+- Setting `useNativeDriver` is [now required](https://github.com/react/react-native/commit/5876052615f4858ed5fc32fa3da9b64695974238) to support switching the default in the future.
+- The `ref` of an `Animated` component is now the internal component and [deprecated](https://github.com/react/react-native/commit/66e72bb4e00aafbcb9f450ed5db261d98f99f82a) `getNode`.
 
 ## Thanks
 
 Thank you to the hundreds of contributors that helped make 0.62 possible!
 
-To see all the updates, take a look at the [0.62 changelog](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0620).
+To see all the updates, take a look at the [0.62 changelog](https://github.com/react/react-native/blob/main/CHANGELOG.md#v0620).

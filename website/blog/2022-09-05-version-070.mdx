@@ -25,7 +25,7 @@ Over the last few months, we have been working to add more content to the [New A
 
 Along with it, you can find new documents diving into [Why a New Architecture](https://reactnative.dev/docs/next/the-new-architecture/why) and [the various parts of it](https://reactnative.dev/docs/next/the-new-architecture/pillars). We hope this helps you better understand the rationale behind the new APIs.
 
-Any feedback is more than welcome, please let us know in the [react-native-website](https://github.com/facebook/react-native-website) repository.
+Any feedback is more than welcome, please let us know in the [react-native-website](https://github.com/react/react-native-website) repository.
 
 ## Hermes as default engine
 
@@ -74,7 +74,7 @@ From now on you can use a `CMakeLists.txt` file instead of an `Android.mk` file 
 
 This change benefits both app and library users on the New Architecture as:
 
-- The CMake file created in your app is way smaller ([3 lines of code](https://github.com/facebook/react-native/blob/9923ac1b524ae959abdf50a28a3094198015f77e/packages/rn-tester/android/app/src/main/jni/CMakeLists.txt#L6-L11) versus [50+ for Android.mk files](https://github.com/facebook/react-native/blob/main/template/android/app/src/main/jni/Android.mk?rgh-link-date=2022-07-20T18%3A29%3A07Z)). This makes for an easier update experience between React Native versions in the future and less code to maintain on your end.
+- The CMake file created in your app is way smaller ([3 lines of code](https://github.com/react/react-native/blob/9923ac1b524ae959abdf50a28a3094198015f77e/packages/rn-tester/android/app/src/main/jni/CMakeLists.txt#L6-L11) versus [50+ for Android.mk files](https://github.com/react/react-native/blob/main/template/android/app/src/main/jni/Android.mk?rgh-link-date=2022-07-20T18%3A29%3A07Z)). This makes for an easier update experience between React Native versions in the future and less code to maintain on your end.
 - Codegen is now generating both `Android.mk` and `CMakeLists.txt`, so libraries should not worry about doing anything if they're using the default setup we provide for New Architecture libraries.
 - The Auto-linking mentioned above will work with both CMake and Android.mk files out of the box.
 - Despite apps being free to use either `Android.mk` or CMake files, the recommended solution in the future would be CMake files (due to better documentation, tooling and ecosystem around CMake).
@@ -85,16 +85,16 @@ As mentioned above, some of the more important improvements in this release are 
 
 - Fix for Catalyst is live, set `mac_catalyst_enabled` to `true` in Podfile (see [upgrade-helper](https://react-native-community.github.io/upgrade-helper/?from=0.69.1&to=0.70.0-rc.0) diff for details).
 - Bumping metro to 0.72.0 which will enable the new React JSX Transform: [reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html).
-- Removing `reactnativeutilsjni` as it is built from the same sources as `reactnativejni` which results in ~220 KBs saved from every Android APK build. ([https://github.com/facebook/react-native/pull/34339](https://github.com/facebook/react-native/pull/34339)).
+- Removing `reactnativeutilsjni` as it is built from the same sources as `reactnativejni` which results in ~220 KBs saved from every Android APK build. ([#34339](https://github.com/react/react-native/pull/34339)).
 
 ### Breaking changes
 
 There have also been a few breaking changes:
 
-- Removed jest/preprocessor from the react-native package ([0301cb285b](https://github.com/facebook/react-native/commit/0301cb285b2e85b48a397fe58d565196654d9754) by [@motiz88](https://github.com/motiz88))
-- Remove nonstandard `Promise.prototype.done` ([018d5cf985](https://github.com/facebook/react-native/commit/018d5cf985497273dd700b56168cf1cf64f498d5) by [@motiz88](https://github.com/motiz88))
+- Removed jest/preprocessor from the react-native package ([0301cb285b](https://github.com/react/react-native/commit/0301cb285b2e85b48a397fe58d565196654d9754) by [@motiz88](https://github.com/motiz88))
+- Remove nonstandard `Promise.prototype.done` ([018d5cf985](https://github.com/react/react-native/commit/018d5cf985497273dd700b56168cf1cf64f498d5) by [@motiz88](https://github.com/motiz88))
 
-Please also note that the version of Metro has been bumped to 0.72, which comes [with 5 breaking changes](https://github.com/facebook/metro/releases/tag/v0.72.0).
+Please also note that the version of Metro has been bumped to 0.72, which comes [with 5 breaking changes](https://github.com/react/metro/releases/tag/v0.72.0).
 
 ### Upgrades
 
@@ -107,7 +107,7 @@ And we upgraded some of our dependencies:
 - Bump Metro to 0.72
 - Bump SoLoader to 0.10.4
 
-You can check out the full list of changes [in the changelog](https://github.com/facebook/react-native/blob/main/CHANGELOG.md).
+You can check out the full list of changes [in the changelog](https://github.com/react/react-native/blob/main/CHANGELOG.md).
 
 ### Acknowledgements
 

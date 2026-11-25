@@ -26,7 +26,7 @@ Half of the credit for reaching these decisions goes to the other repository cre
 
 ## [`discussions-and-proposals`](https://github.com/react-native-community/discussions-and-proposals) 🗣
 
-This repository, created in July, expanded on the idea of a more open environment for conversations on React Native. Previously, this need was handled by issues labelled [`For Discussion`](https://github.com/facebook/react-native/labels/For%20Discussion) in the main repository, but we wanted to expand this strategy to an RFC approach that other libraries have (e.g. React).
+This repository, created in July, expanded on the idea of a more open environment for conversations on React Native. Previously, this need was handled by issues labelled [`For Discussion`](https://github.com/react/react-native/labels/For%20Discussion) in the main repository, but we wanted to expand this strategy to an RFC approach that other libraries have (e.g. React).
 
 This experiment immediately found its role in the React Native lifecycle. The Facebook team is now using the community RFC process to discuss what could [be improved in React Native](https://github.com/react-native-community/discussions-and-proposals/issues/64), and coordinate the efforts around the [Lean Core project](https://github.com/react-native-community/discussions-and-proposals/issues/6) - among other interesting discussions.
 

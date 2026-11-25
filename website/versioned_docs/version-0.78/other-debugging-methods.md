@@ -76,7 +76,7 @@ If you're using Expo CLI, this is configured for you already.
 <Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
 <TabItem value="ios">
 
-On iOS devices, open the file [`RCTWebSocketExecutor.mm`](https://github.com/facebook/react-native/blob/master/packages/react-native/React/CoreModules/RCTWebSocketExecutor.mm) and change "localhost" to the IP address of your computer.
+On iOS devices, open the file [`RCTWebSocketExecutor.mm`](https://github.com/react/react-native/blob/master/packages/react-native/React/CoreModules/RCTWebSocketExecutor.mm) and change "localhost" to the IP address of your computer.
 
 </TabItem>
 <TabItem value="android">

@@ -97,7 +97,7 @@ At this point, you should be able to run the React Native app.
 
 ## Adding TypeScript Testing Infrastructure
 
-React Native ships with [Jest](https://github.com/facebook/jest), so for testing a React Native app with TypeScript, we'll want to add [ts-jest](https://www.npmjs.com/package/ts-jest) to our `devDependencies`.
+React Native ships with [Jest](https://github.com/jestjs/jest), so for testing a React Native app with TypeScript, we'll want to add [ts-jest](https://www.npmjs.com/package/ts-jest) to our `devDependencies`.
 
 ```sh
 yarn add --dev ts-jest

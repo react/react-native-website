@@ -57,7 +57,7 @@ Using Android as an example, the general approach to leveraging platform events 
 ![A diagram illustrating the relationship of types of Android MotionEvents into Pointer Events fired. Some pointer events are conditionally fired if pointing device does not support hover. "ACTION_DOWN" and "ACTION_POINTER_DOWN" fire pointerdown and conditionally fire pointerenter, pointerover. "ACTION_MOVE" and "ACTION_HOVER_MOVE" fire pointerover, pointermove, pointerout, pointerup. "ACTION_UP" and "ACTION_POINTER_UP" fire pointerup and conditionally fire pointerout, pointerleave.](/blog/assets/pointer-events-motionevent-relationship.png)
 
 1. Build the `PointerEvent` interface with platform details from the `MotionEvent` and cached state of previous interactions. (Ex. [the `button` property](https://w3c.github.io/pointerevents/#the-button-property))
-2. Dispatch the pointer events from Android to React Native’s [core event queue](https://github.com/facebook/react-native/blob/main/ReactCommon/react/renderer/core/EventQueueProcessor.cpp#L20) and leverage JSI to call the [`dispatchEvent`](https://github.com/facebook/react/blob/main/packages/react-native-renderer/src/ReactFabricEventEmitter.js#L83) method in `react-native-renderer` which iterates through the React tree for the bubble and capture phase of the event.
+2. Dispatch the pointer events from Android to React Native’s [core event queue](https://github.com/react/react-native/blob/main/ReactCommon/react/renderer/core/EventQueueProcessor.cpp#L20) and leverage JSI to call the [`dispatchEvent`](https://github.com/react/react/blob/main/packages/react-native-renderer/src/ReactFabricEventEmitter.js#L83) method in `react-native-renderer` which iterates through the React tree for the bubble and capture phase of the event.
 
 ## Implementation Progress
 
@@ -83,7 +83,7 @@ onPointerCancel has been hooked up to the native platform’s "cancel" event but
 
 ### Event Properties
 
-For each of the events mentioned above we’ve also implemented the majority of the properties expected in the PointerEvent object — though in React Native these are exposed through the `event.nativeEvent` property. You can find an enumeration of all the implemented properties in the [event object’s Flowtype interface definition](https://github.com/facebook/react-native/blob/59ee57352738f030b41589a450209e51e44bbb06/Libraries/Types/CoreEventTypes.js#L175). One notable exception to being completely implemented is the `relatedTarget` property as exposing a native view reference in this ad-hoc manner isn’t trivial.
+For each of the events mentioned above we’ve also implemented the majority of the properties expected in the PointerEvent object — though in React Native these are exposed through the `event.nativeEvent` property. You can find an enumeration of all the implemented properties in the [event object’s Flowtype interface definition](https://github.com/react/react-native/blob/59ee57352738f030b41589a450209e51e44bbb06/Libraries/Types/CoreEventTypes.js#L175). One notable exception to being completely implemented is the `relatedTarget` property as exposing a native view reference in this ad-hoc manner isn’t trivial.
 
 ## Future Work and Exploration
 

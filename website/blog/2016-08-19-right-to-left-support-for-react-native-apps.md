@@ -9,7 +9,7 @@ tags: [engineering]
 
 After launching an app to the app stores, internationalization is the next step to further your audience reach. Over 20 countries and numerous people around the world use Right-to-Left (RTL) languages. Thus, making your app support RTL for them is necessary.
 
-We're glad to announce that React Native has been improved to support RTL layouts. This is now available in the [react-native](https://github.com/facebook/react-native) master branch today, and will be available in the next RC: [`v0.33.0-rc`](https://github.com/facebook/react-native/releases).
+We're glad to announce that React Native has been improved to support RTL layouts. This is now available in the [react-native](https://github.com/react/react-native) master branch today, and will be available in the next RC: [`v0.33.0-rc`](https://github.com/react/react-native/releases).
 
 This involved changing [css-layout](https://github.com/facebook/css-layout), the core layout engine used by RN, and RN core implementation, as well as specific OSS JS components to support RTL.
 
@@ -34,7 +34,7 @@ These include:
 
 - [css-layout RTL support for absolute positioning](https://github.com/facebook/css-layout/commit/46c842c71a1232c3c78c4215275d104a389a9a0f)
 - mapping `left` and `right` to `start` and `end` in RN core implementation for shadow nodes
-- and exposing a [bridged utility module](https://github.com/facebook/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js) to help control the RTL layout
+- and exposing a [bridged utility module](https://github.com/react/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js) to help control the RTL layout
 
 With this update, when you allow RTL layout for your app:
 
@@ -80,7 +80,7 @@ In general, most components are already RTL-ready, for example:
 
 <img src="/blog/assets/rtl-demo-listitem-rtl.png" width="300" />
 
-However, there are several cases to be aware of, for which you will need the [`I18nManager`](https://github.com/facebook/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js). In [`I18nManager`](https://github.com/facebook/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js), there is a constant `isRTL` to tell if layout of app is RTL or not, so that you can make the necessary changes according to the layout.
+However, there are several cases to be aware of, for which you will need the [`I18nManager`](https://github.com/react/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js). In [`I18nManager`](https://github.com/react/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js), there is a constant `isRTL` to tell if layout of app is RTL or not, so that you can make the necessary changes according to the layout.
 
 #### Icons with Directional Meaning
 
@@ -117,9 +117,9 @@ Here are two ways to flip the icon according to the direction:
 
 #### Gestures and Animations
 
-In Android and iOS development, when you change to RTL layout, the gestures and animations are the opposite of LTR layout. Currently, in RN, gestures and animations are not supported on RN core code level, but on components level. The good news is, some of these components already support RTL today, such as [`SwipeableRow`](https://github.com/facebook/react-native/blob/38a6eec0db85a5204e85a9a92b4dee2db9641671/Libraries/Experimental/SwipeableRow/SwipeableRow.js) and [`NavigationExperimental`](https://github.com/facebook/react-native/tree/master/Libraries/NavigationExperimental). However, other components with gestures will need to support RTL manually.
+In Android and iOS development, when you change to RTL layout, the gestures and animations are the opposite of LTR layout. Currently, in RN, gestures and animations are not supported on RN core code level, but on components level. The good news is, some of these components already support RTL today, such as [`SwipeableRow`](https://github.com/react/react-native/blob/38a6eec0db85a5204e85a9a92b4dee2db9641671/Libraries/Experimental/SwipeableRow/SwipeableRow.js) and [`NavigationExperimental`](https://github.com/react/react-native/tree/master/Libraries/NavigationExperimental). However, other components with gestures will need to support RTL manually.
 
-A good example to illustrate gesture RTL support is [`SwipeableRow`](https://github.com/facebook/react-native/blob/38a6eec0db85a5204e85a9a92b4dee2db9641671/Libraries/Experimental/SwipeableRow/SwipeableRow.js).
+A good example to illustrate gesture RTL support is [`SwipeableRow`](https://github.com/react/react-native/blob/38a6eec0db85a5204e85a9a92b4dee2db9641671/Libraries/Experimental/SwipeableRow/SwipeableRow.js).
 
 <p align="center">
   <img src="/blog/assets/rtl-demo-swipe-ltr.png" width={280} style={{margin: 10}} />
@@ -159,7 +159,7 @@ _animateBounceBack(duration: number): void {
 
 ## Maintaining Your RTL-ready App
 
-Even after the initial RTL-compatible app release, you will likely need to iterate on new features. To improve development efficiency, [`I18nManager`](https://github.com/facebook/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js) provides the `forceRTL()` function for faster RTL testing without changing the test device language. You might want to provide a simple switch for this in your app. Here's an example from the RTL example in the RNTester:
+Even after the initial RTL-compatible app release, you will likely need to iterate on new features. To improve development efficiency, [`I18nManager`](https://github.com/react/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js) provides the `forceRTL()` function for faster RTL testing without changing the test device language. You might want to provide a simple switch for this in your app. Here's an example from the RTL example in the RNTester:
 
 <p align="center">
   <img src="/blog/assets/rtl-demo-forcertl.png" width="300" />
@@ -211,6 +211,6 @@ The RTL support should cover most of the UX in your app; however, there are some
 
 ## Try it Out!
 
-Check out the [`RTLExample`](https://github.com/facebook/react-native/blob/master/packages/rn-tester/js/examples/RTL/RTLExample.js) in the `RNTester` to understand more about RTL support, and let us know how it works for you!
+Check out the [`RTLExample`](https://github.com/react/react-native/blob/master/packages/rn-tester/js/examples/RTL/RTLExample.js) in the `RNTester` to understand more about RTL support, and let us know how it works for you!
 
 Finally, thank you for reading! We hope that the RTL support for React Native helps you grow your apps for international audience!

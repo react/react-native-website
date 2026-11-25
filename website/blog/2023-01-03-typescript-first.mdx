@@ -39,7 +39,7 @@ Prior, TypeScript declarations for React Native were provided by [`@types/react-
 
 With TS types co-located with React Native source, there is more visibility and ownership of TS types. Our team is actively working on tools to maintain alignment between Flow and TS.
 
-This change also removes a dependency for React Native users to manage. When upgrading to 0.71 or above, you can remove `@types/react-native` as a dependency. [Refer to the new app template on how to set up TypeScript support.](https://github.com/facebook/react-native/blob/main/template/tsconfig.json)
+This change also removes a dependency for React Native users to manage. When upgrading to 0.71 or above, you can remove `@types/react-native` as a dependency. [Refer to the new app template on how to set up TypeScript support.](https://github.com/react/react-native/blob/main/template/tsconfig.json)
 
 We plan to deprecate `@types/react-native` for versions 0.73 and onward. Concretely this means:
 
@@ -66,19 +66,19 @@ Libraries that target versions of React Native below 0.71 may use a `peerDepende
 
 #### Maintainer of TypeScript declarations that depend on `@types/react-native`
 
-Check out the [breaking changes introduced with 0.71](https://github.com/facebook/react-native/blob/main/CHANGELOG.md) to see if you’re ready to migrate.
+Check out the [breaking changes introduced with 0.71](https://github.com/react/react-native/blob/main/CHANGELOG.md) to see if you’re ready to migrate.
 
 ### What if I use Flow?
 
 Flow users can continue to typecheck applications targeting 0.71+ but configuration logic for it is no longer included out-of-the box in the template.
 
-Flow users have previously upgraded React Native’s Flow types by merging in the `.flowconfig` from the new app template and manually updating `flow-bin`. The new app template no longer has a `.flowconfig`, but [one is still present in the React Native repository](https://github.com/facebook/react-native/blob/main/.flowconfig) that can be used as a basis for your app.
+Flow users have previously upgraded React Native’s Flow types by merging in the `.flowconfig` from the new app template and manually updating `flow-bin`. The new app template no longer has a `.flowconfig`, but [one is still present in the React Native repository](https://github.com/react/react-native/blob/main/.flowconfig) that can be used as a basis for your app.
 
-If you need to start a new React Native app in Flow, you can reference the [new app template from 0.70](https://github.com/facebook/react-native/tree/0.70-stable/template).
+If you need to start a new React Native app in Flow, you can reference the [new app template from 0.70](https://github.com/react/react-native/tree/0.70-stable/template).
 
 ### What if I find a bug in the TypeScript declaration?
 
-Regardless of whether you’re using built-in TS types or `@types/react-native`, if you find a bug please submit a PR to both [React Native](https://github.com/facebook/react-native) and [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repositories. If you don’t know how to fix it, please file a GitHub issue in the React Native repository and mention [@lunaleaps](https://github.com/lunaleaps) on the issue.
+Regardless of whether you’re using built-in TS types or `@types/react-native`, if you find a bug please submit a PR to both [React Native](https://github.com/react/react-native) and [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repositories. If you don’t know how to fix it, please file a GitHub issue in the React Native repository and mention [@lunaleaps](https://github.com/lunaleaps) on the issue.
 
 ## Documentation is TypeScript First
 

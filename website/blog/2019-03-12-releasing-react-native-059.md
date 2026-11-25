@@ -51,7 +51,7 @@ You may notice that additional components are now officially deprecated. This is
 | **Slider**           | 0.59        | [@react-native-community/react-native-slider](https://github.com/react-native-community/react-native-slider)                                             |
 | **ViewPagerAndroid** | 0.59        | [@react-native-community/react-native-viewpager](https://github.com/react-native-community/react-native-viewpager)                                       |
 
-Over the coming months, there will be many more components following this path to a leaner core. We're looking for help with this &mdash; head over to the [lean core umbrella](https://github.com/facebook/react-native/issues/23313) to pitch in.
+Over the coming months, there will be many more components following this path to a leaner core. We're looking for help with this &mdash; head over to the [lean core umbrella](https://github.com/react/react-native/issues/23313) to pitch in.
 
 ## 👩🏽‍💻 CLI improvements
 
@@ -73,7 +73,7 @@ The `react-native-git-upgrade` command has been removed in 0.59, in favor of the
 
 ## 🤗 Thanks
 
-Lots of new contributors helped with [enabling generation of native code from flow types](https://github.com/facebook/react-native/issues/22990) and [resolving Xcode warnings](https://github.com/facebook/react-native/issues/22609) - these are a great way to learn how React Native works and contributing to the greater good. Thank you! Look out for similar issues in the future.
+Lots of new contributors helped with [enabling generation of native code from flow types](https://github.com/react/react-native/issues/22990) and [resolving Xcode warnings](https://github.com/react/react-native/issues/22609) - these are a great way to learn how React Native works and contributing to the greater good. Thank you! Look out for similar issues in the future.
 
 While these are the highlights that we noted, there are many others to be excited about. To see all of the updates, take a look at the [changelog](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md). 0.59 is a huge release – we can't wait for you to try it out.
 

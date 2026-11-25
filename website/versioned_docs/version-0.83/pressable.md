@@ -41,7 +41,7 @@ The touch area never extends past the parent view bounds and the Z-index of sibl
 </figure>
 
 :::info
-`Pressable` uses React Native's `Pressability` API. For more information around the state machine flow of Pressability and how it works, check out the implementation for [Pressability](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Pressability/Pressability.js#L350).
+`Pressable` uses React Native's `Pressability` API. For more information around the state machine flow of Pressability and how it works, check out the implementation for [Pressability](https://github.com/react/react-native/blob/main/packages/react-native/Libraries/Pressability/Pressability.js#L350).
 :::
 
 ## Example

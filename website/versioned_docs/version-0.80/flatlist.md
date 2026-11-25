@@ -648,7 +648,7 @@ This may improve scroll performance for large lists. On Android the default valu
 
 ### `viewabilityConfig`
 
-See [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Lists/ViewabilityHelper.js) for flow type and further documentation.
+See [`ViewabilityHelper.js`](https://github.com/react/react-native/blob/main/packages/react-native/Libraries/Lists/ViewabilityHelper.js) for flow type and further documentation.
 
 | Type              |
 | ----------------- |
@@ -663,7 +663,7 @@ See [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/main/
 | itemVisiblePercentThreshold      | number  |
 | waitForInteraction               | boolean |
 
-At least one of the `viewAreaCoveragePercentThreshold` or `itemVisiblePercentThreshold` is required. This needs to be done in the `constructor` to avoid following error ([ref](https://github.com/facebook/react-native/issues/17408)):
+At least one of the `viewAreaCoveragePercentThreshold` or `itemVisiblePercentThreshold` is required. This needs to be done in the `constructor` to avoid following error ([ref](https://github.com/react/react-native/issues/17408)):
 
 ```
   Error: Changing viewabilityConfig on the fly is not supported

@@ -22,7 +22,7 @@ Deploying React Native in our apps lets us identify problems that we wouldn’t 
 
 We have proven that React Native can scale to massive organizations too. When hundreds of developers are working on the same app, gradual adoption is a must. This is why we made sure that React Native can be adopted one screen at a time. Soon, we will be taking this one step further and enable migrating individual native views of an existing native screen to React Native.
 
-A focus on massive scale means there are many things our team isn’t currently working on. For example, our team doesn’t drive the adoption of React Native in the industry. We also do not actively build solutions for problems that we don’t see at scale. We are proud that we have [many partners and core contributors](https://github.com/facebook/react-native/blob/master/ECOSYSTEM.md) that are able to focus on those important areas for the community.
+A focus on massive scale means there are many things our team isn’t currently working on. For example, our team doesn’t drive the adoption of React Native in the industry. We also do not actively build solutions for problems that we don’t see at scale. We are proud that we have [many partners and core contributors](https://github.com/react/react-native/blob/master/ECOSYSTEM.md) that are able to focus on those important areas for the community.
 
 ## Developer Velocity
 

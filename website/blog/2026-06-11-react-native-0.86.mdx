@@ -75,7 +75,7 @@ The following APIs have been deprecated and are due for removal in a future rele
 - **Animated mounting layer sync**: Enabled a mounting layer synchronization so Native Animated synchronous updates are not overridden by later React commits. This fixes a flicker where animated views could briefly jump back to their pre-animation values.
 - **Text measurement crash**: Fixed a crash when measuring text on a surface that had already been stopped.
 - **Non-invertible transform touch fix**: Views with non-invertible transforms (e.g., `scaleX: 0` or `scaleY: 0`) no longer receive touches on Android or iOS. Hit-testing now detects when a transform matrix can't be inverted and skips those views.
-- **Yoga Layout fixes**: Fixed several layout regressions related to Yoga such as text wrapping in absolutely positioned elements on Android ([#56651](https://github.com/facebook/react-native/pull/56651)), a crash with Android's `BoringLayout.isBoring()` with a negative width ([#56007](https://github.com/facebook/react-native/pull/56007)) and fixed ownership of nodes with `display: contents` nodes ([#56422](https://github.com/facebook/react-native/pull/56422)).
+- **Yoga Layout fixes**: Fixed several layout regressions related to Yoga such as text wrapping in absolutely positioned elements on Android ([#56651](https://github.com/react/react-native/pull/56651)), a crash with Android's `BoringLayout.isBoring()` with a negative width ([#56007](https://github.com/react/react-native/pull/56007)) and fixed ownership of nodes with `display: contents` nodes ([#56422](https://github.com/react/react-native/pull/56422)).
 
 ### Accessibility
 

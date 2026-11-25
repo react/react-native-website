@@ -238,7 +238,7 @@ For example a newly created app with React Native 0.74 occupies ~13% less space 
 
 Before 0.74, React Native continued to ship with `PropTypes`, an API that has been deprecated since React 15.5 in 2017! We are now removing all built-in `PropTypes` from React Native, reducing app size (26.4kB in a minified bundle) and memory overhead.
 
-The following `PropTypes` properties are removed: `Image.propTypes`, `Text.propTypes`, `TextInput.propTypes`, `ColorPropType`, `EdgeInsetsPropType`, `PointPropType`, `ViewPropTypes` (see [commit](https://github.com/facebook/react-native/commit/228cb80af9ded20107f3c7a30ffe00e24471bfeb)).
+The following `PropTypes` properties are removed: `Image.propTypes`, `Text.propTypes`, `TextInput.propTypes`, `ColorPropType`, `EdgeInsetsPropType`, `PointPropType`, `ViewPropTypes` (see [commit](https://github.com/react/react-native/commit/228cb80af9ded20107f3c7a30ffe00e24471bfeb)).
 
 If your app or library relies on `PropTypes`, we highly recommend migrating to a type system like TypeScript.
 
@@ -358,7 +358,7 @@ Finally, delete the following methods and adapt the logic into the callbacks abo
 
 Delete any usages of <code>[application:didRegisterUserNotificationSettings:](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623022-application?language=objc)</code> and <code>RCTPushNotificationManager</code>’s corresponding <code>didRegisterUserNotificationSettings:</code> as well.
 
-**Example:** See the RNTester <code>[AppDelegate.mm](https://github.com/facebook/react-native/blob/main/packages/rn-tester/RNTester/AppDelegate.mm)</code>.
+**Example:** See the RNTester <code>[AppDelegate.mm](https://github.com/react/react-native/blob/main/packages/rn-tester/RNTester/AppDelegate.mm)</code>.
 
 #### JS
 
@@ -400,34 +400,34 @@ Using the [Hermes Debugger](https://reactnative.dev/docs/debugging?js-debugger=h
 
 **General**
 
-- Make `start`/`end` in styles always refer to writing direction ([#42251](https://github.com/facebook/react-native/pull/42251)).
+- Make `start`/`end` in styles always refer to writing direction ([#42251](https://github.com/react/react-native/pull/42251)).
 
 **Android**
 
-- Remove of `JSIModule*` from `FabricUIManagerProvider` ([#42059](https://github.com/facebook/react-native/pull/42059)).
+- Remove of `JSIModule*` from `FabricUIManagerProvider` ([#42059](https://github.com/react/react-native/pull/42059)).
   - This API was unused in open source — use [TurboModules](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/turbo-modules.md) instead.
-- Deprecate `UIManagerModule.showPopupMenu` and `UIManagerModule.dismissPopupMenu` ([#42441](https://github.com/facebook/react-native/pull/42441))
+- Deprecate `UIManagerModule.showPopupMenu` and `UIManagerModule.dismissPopupMenu` ([#42441](https://github.com/react/react-native/pull/42441))
   - This API has been moved to the [`@react-native/popup-menu-android`](https://www.npmjs.com/package/@react-native/popup-menu-android) npm package and will be removed in 0.75.
 
 **iOS**
 
-- Delete `configFilename` and `configKey` arguments from iOS codegen CLI ([#41533](https://github.com/facebook/react-native/pull/41533)).
-- Change how [`bundleURL`](https://github.com/facebook/react-native/blob/0.74-stable/packages/react-native/template/ios/HelloWorld/AppDelegate.mm#L22-L29) is handled ([#43994](https://github.com/facebook/react-native/pull/43994)).
+- Delete `configFilename` and `configKey` arguments from iOS codegen CLI ([#41533](https://github.com/react/react-native/pull/41533)).
+- Change how [`bundleURL`](https://github.com/react/react-native/blob/0.74-stable/packages/react-native/template/ios/HelloWorld/AppDelegate.mm#L22-L29) is handled ([#43994](https://github.com/react/react-native/pull/43994)).
   - Before, `bundleURL` was set when React Native was started in an instance variable and it was not possible to update it.
-  - Now, [`bundleUrl` is a function](https://github.com/facebook/react-native/blob/0.74-stable/packages/react-native/template/ios/HelloWorld/AppDelegate.mm#L22-L29) which is re-evaluated when needed, enabling the use of a different URL across refreshes.
-  - This change will affect your app only if you were changing the `bundleURL` variable after the app is started. In this case, move the logic that updates the variable to the [`bundleURL` function](https://github.com/facebook/react-native/blob/0.74-stable/packages/react-native/template/ios/HelloWorld/AppDelegate.mm#L22-L29) in `AppDelegate`.
+  - Now, [`bundleUrl` is a function](https://github.com/react/react-native/blob/0.74-stable/packages/react-native/template/ios/HelloWorld/AppDelegate.mm#L22-L29) which is re-evaluated when needed, enabling the use of a different URL across refreshes.
+  - This change will affect your app only if you were changing the `bundleURL` variable after the app is started. In this case, move the logic that updates the variable to the [`bundleURL` function](https://github.com/react/react-native/blob/0.74-stable/packages/react-native/template/ios/HelloWorld/AppDelegate.mm#L22-L29) in `AppDelegate`.
 
-Please see the [full changelog](https://github.com/facebook/react-native/blob/main/CHANGELOG.md) for a complete list of breaking changes.
+Please see the [full changelog](https://github.com/react/react-native/blob/main/CHANGELOG.md) for a complete list of breaking changes.
 
 ## Known Issues
 
 **iOS**
 
-- Edge case when using multiple windows: When the main window is inactive and the system tries to present a dialog, the dialog is not presented in the right position on the screen. A fix is incoming in [#44167](https://github.com/facebook/react-native/pull/44167) and will ship in 0.74.1.
+- Edge case when using multiple windows: When the main window is inactive and the system tries to present a dialog, the dialog is not presented in the right position on the screen. A fix is incoming in [#44167](https://github.com/react/react-native/pull/44167) and will ship in 0.74.1.
 
 ## Acknowledgements
 
-React Native 0.74 contains over [1673 commits](https://github.com/facebook/react-native/compare/v0.73.6...v0.74.0) from 57 contributors. Thanks for all your hard work!
+React Native 0.74 contains over [1673 commits](https://github.com/react/react-native/compare/v0.73.6...v0.74.0) from 57 contributors. Thanks for all your hard work!
 
 Thanks to all the additional authors that worked on documenting features in this release post:
 

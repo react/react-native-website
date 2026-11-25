@@ -29,7 +29,7 @@ Eli's talk concludes by talking about our recent open source work. We gave [an u
 #### Highlights from the podcast:
 
 - We talked about how the React Native team at Facebook thinks about open source and how we are building a sustainable community that scales for a project of React Native's [size](https://octoverse.github.com/projects#repositories).
-- We are on track to remove multiple modules as part of the [Lean Core](https://github.com/facebook/react-native/issues/23313) effort. Many modules like WebView and the React Native CLI have received more than 100 Pull Requests since they were extracted.
+- We are on track to remove multiple modules as part of the [Lean Core](https://github.com/react/react-native/issues/23313) effort. Many modules like WebView and the React Native CLI have received more than 100 Pull Requests since they were extracted.
 - Next, we'll be focusing on overhauling the React Native website and documentation. Stay tuned!
 
 You'll find the episode in your favorite podcasting app soon or you can listen to the recording right here:

@@ -32,7 +32,7 @@ You can read more about our **commitment to stability** in [the releases page](.
 
 Breaking changes are inconvenient for everyone, and we’re trying to minimize them to the bare minimum. All the breaking changes we ship in each stable release will be highlighted in:
 
-- The _Breaking_ and the _Removed_ section of [the React Native Changelog](https://github.com/facebook/react-native/blob/main/CHANGELOG.md)
+- The _Breaking_ and the _Removed_ section of [the React Native Changelog](https://github.com/react/react-native/blob/main/CHANGELOG.md)
 - Each release blogpost in the _Breaking Changes_ section
 
 For each breaking change we’re committed to explaining the reasoning behind it, provide a replacement API if possible, and minimize the impact on final users.
@@ -102,7 +102,7 @@ However, do not use prereleases/RCs in user-facing applications directly as they
 
 ### nightly
 
-We also publish a `nightly` release channel. Nightlies are published every day starting from the `main` branch of [facebook/react-native](https://github.com/facebook/react-native). Nightlies are considered unstable versions of React Native and are not recommended for production use.
+We also publish a `nightly` release channel. Nightlies are published every day starting from the `main` branch of [facebook/react-native](https://github.com/react/react-native). Nightlies are considered unstable versions of React Native and are not recommended for production use.
 
 Nightlies follow the versioning schema as `0.80.0-nightly-<DATE>-<SHA>` where `<DATE>` is the date of the nightly and `<SHA>` is the SHA of the commit that was used to publish this nightly.
 

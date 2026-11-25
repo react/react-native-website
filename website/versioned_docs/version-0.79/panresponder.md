@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-Try the [PanResponder example in RNTester](https://github.com/facebook/react-native/blob/main/packages/rn-tester/js/examples/PanResponder/PanResponderExample.js).
+Try the [PanResponder example in RNTester](https://github.com/react/react-native/blob/main/packages/rn-tester/js/examples/PanResponder/PanResponderExample.js).
 
 ---
 

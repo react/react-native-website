@@ -14,7 +14,7 @@ The React Native monthly meeting is still going strong! Make sure to check a not
 
 - Congratulations to [Devin Abbott](https://github.com/dabbott) and [Houssein Djirdeh](https://twitter.com/hdjirdeh) on their pre-release of the "Full Stack React Native" book! It walks you through learning React Native by building several small apps.
 - Released a first (experimental) version of [reason-react-native-scripts](https://github.com/react-community/reason-react-native-scripts) to help people to easily try out [ReasonML](https://reasonml.github.io/).
-- Expo SDK 24 is [released](https://blog.expo.io/expo-sdk-v24-0-0-is-now-available-bfcac3b50d51)! It uses [React Native 0.51](https://github.com/facebook/react-native/releases/tag/v0.51.0) and includes a bunch of new features and improvements: bundling images in standalone apps (no need to cache on first load!), image manipulation API (crop, resize, rotate, flip), face detection API, new release channel features (set the active release for a given channel and rollback), web dashboard to track standalone app builds, and a fix longstanding bug with OpenGL Android implementation and the Android multi-tasker, just to name a few things.
+- Expo SDK 24 is [released](https://blog.expo.io/expo-sdk-v24-0-0-is-now-available-bfcac3b50d51)! It uses [React Native 0.51](https://github.com/react/react-native/releases/tag/v0.51.0) and includes a bunch of new features and improvements: bundling images in standalone apps (no need to cache on first load!), image manipulation API (crop, resize, rotate, flip), face detection API, new release channel features (set the active release for a given channel and rollback), web dashboard to track standalone app builds, and a fix longstanding bug with OpenGL Android implementation and the Android multi-tasker, just to name a few things.
 - We are allocating more resources to React Navigation starting this January. We strongly believe that it is both possible and desirable to build React Native navigation with just React components and primitives like Animated and `react-native-gesture-handler` and we’re really excited about some of the improvements we have planned. If you're looking to contribute to the community, check out [react-native-maps](https://github.com/react-community/react-native-maps) and [react-native-svg](https://github.com/react-native-community/react-native-svg), which could both use some help!
 
 ### Infinite Red
@@ -34,7 +34,7 @@ The React Native monthly meeting is still going strong! Make sure to check a not
 
 - [Detox](https://github.com/wix/detox)
   - In order for us to scale with E2E tests, we want to minimize time spent on CI, we are working on parallelization support for Detox.
-  - Submitted a [pull request](https://github.com/facebook/react-native/pull/16948) to enable support for custom flavor builds, to better support mocking on E2E.
+  - Submitted a [pull request](https://github.com/react/react-native/pull/16948) to enable support for custom flavor builds, to better support mocking on E2E.
 - [DetoxInstruments](https://github.com/wix/DetoxInstruments)
   - Working on the killer feature of DetoxInstruments proves to be a very challenging task, taking JavaScript backtrace at any given time requires a custom JSCore implementation to support JS thread suspension. Testing the profiler internally on Wix’s app revealed interesting insights about the JS thread.
   - The project is still not stable enough for general use but is actively worked on, and we hope to announce it soon.

@@ -115,7 +115,7 @@ One more reason is the recent [Yeoman wipeout](https://twitter.com/martinkonicek
 
 ## Try it out and provide feedback
 
-As a conclusion, I would say, enjoy the feature and feel free [to suggest improvements, report issues](https://github.com/facebook/react-native/issues) and especially [send pull requests](https://github.com/facebook/react-native/pulls). Each environment is a bit different and each React Native project is different, and we need your feedback to make this work well for everyone.
+As a conclusion, I would say, enjoy the feature and feel free [to suggest improvements, report issues](https://github.com/react/react-native/issues) and especially [send pull requests](https://github.com/react/react-native/pulls). Each environment is a bit different and each React Native project is different, and we need your feedback to make this work well for everyone.
 
 ### Thank you!
 

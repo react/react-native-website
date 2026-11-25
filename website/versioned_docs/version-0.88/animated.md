@@ -252,7 +252,7 @@ Config is an object that may have the following options.
 
 Note that you can only define one of bounciness/speed, tension/friction, or stiffness/damping/mass, but not more than one:
 
-The friction/tension or bounciness/speed options match the spring model in [`Facebook Pop`](https://github.com/facebook/pop), [Rebound](https://github.com/facebookarchive/rebound), and [Origami](https://origami.design/).
+The friction/tension or bounciness/speed options match the spring model in [`Facebook Pop`](https://github.com/facebookarchive/pop), [Rebound](https://github.com/facebookarchive/rebound), and [Origami](https://origami.design/).
 
 - `friction`: Controls "bounciness"/overshoot. Default 7.
 - `tension`: Controls speed. Default 40.

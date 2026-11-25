@@ -19,7 +19,7 @@ In this post we’ll cover some of the highlights of 0.71.
 {/* truncate */}
 
 :::info
-For a full list of changes, check out [CHANGELOG.md](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v071).
+For a full list of changes, check out [CHANGELOG.md](https://github.com/react/react-native/blob/main/CHANGELOG.md#v071).
 :::
 
 ## TypeScript by default
@@ -79,7 +79,7 @@ These props now exist on all core components of React Native:`aria-label`, `aria
 
 We also introduced equivalent web behavior for: `aria-hidden`, `aria-live`, `role`, and `tabIndex`.
 
-See this [issue](https://github.com/facebook/react-native/issues/34424) for more details.
+See this [issue](https://github.com/react/react-native/issues/34424) for more details.
 
 #### Component-Specific Behavior
 
@@ -88,7 +88,7 @@ There were also props introduced to align prop names with equivalent DOM prop na
 - **Image**: `alt`, `tintColor`, `crossOrigin`, `height`, `referrerPolicy`, `src`, `srcSet`, and `width`.
 - **TextInput**: `autoComplete`, `enterKeyHint`, `inputMode`, `readOnly`, and `rows`.
 
-See this [issue](https://github.com/facebook/react-native/issues/34424) for more details.
+See this [issue](https://github.com/react/react-native/issues/34424) for more details.
 
 #### Styles
 
@@ -106,7 +106,7 @@ The following aliases have been added to shadow existing React Native styles:
 - [`userSelect`](https://developer.mozilla.org/en-US/docs/Web/CSS/user-select)
 - [`verticalAlign`](https://reactnative.dev/docs/text-style-props#verticalalign-android)
 
-See this [issue](https://github.com/facebook/react-native/issues/34425) for more details.
+See this [issue](https://github.com/react/react-native/issues/34425) for more details.
 
 #### Events
 
@@ -145,7 +145,7 @@ Check out our dedicated [PointerEvents post](https://reactnative.dev/blog/2022/1
 
 React Native’s prop types, such as `ViewPropTypes` and `Text.propTypes`, were deprecated in 0.66 and accessing them would output deprecation warnings. When they were removed in 0.68, many developers began experiencing errors when upgrading to the latest version of React Native.
 
-After some investigation, we realized that a couple issues prevented the community from taking action on the deprecation warnings. First, the deprecation warning was not always actionable which caused people to ignore them ([issue one](https://github.com/facebook/react-native/pull/34650), [issue two](https://github.com/react-native-community/cli/pull/1699)). Second, the deprecation warnings were being [incorrectly filtered](https://github.com/facebook/react-native/commit/fa2842d) by `LogBox.ignoreLogs`. Both of these have now been fixed, but we want to give people more time to upgrade the deprecated call sites.
+After some investigation, we realized that a couple issues prevented the community from taking action on the deprecation warnings. First, the deprecation warning was not always actionable which caused people to ignore them ([issue one](https://github.com/react/react-native/pull/34650), [issue two](https://github.com/react-native-community/cli/pull/1699)). Second, the deprecation warnings were being [incorrectly filtered](https://github.com/react/react-native/commit/fa2842d) by `LogBox.ignoreLogs`. Both of these have now been fixed, but we want to give people more time to upgrade the deprecated call sites.
 
 So in this release we are adding back React Native’s propTypes so that it is easier for people to upgrade and migrate their code to avoid using them. The `deprecated-react-native-prop-types` package has also been updated for all of the props in 0.71. In the future, we plan to proceed with the deprecation and remove prop types once again. We expect that when we revisit the removal, the community will experience significantly fewer issues.
 
@@ -178,7 +178,7 @@ In React Native 0.71, we’re upgrading Hermes with a few notable improvements:
 
 - **Improve source maps**: By loading source maps over the network with Metro we’ve restored the ability to use source maps in recent versions of Chrome Dev Tools outside of Flipper.
 - **Improve `JSON.parse` performance**: This version includes a performance optimization that improves the performance of `JSON.parse` up to 30%.
-- **Add support for `.at()`**: Hermes now [supports](https://github.com/facebook/hermes/issues/823)`.at()` for `String`, `TypedArray`, and `Array`.
+- **Add support for `.at()`**: Hermes now [supports](https://github.com/meta/hermes/issues/823)`.at()` for `String`, `TypedArray`, and `Array`.
 
 For a full list of changes see [the Road to 71 issue](https://github.com/reactwg/react-native-releases/discussions/41#discussioncomment-4089256).
 
@@ -202,9 +202,9 @@ As a reminder, the New Architecture is still an experimental API experience as w
 
 ## Breaking changes
 
-- **Changes to Console Logging:** `LogBox.ignoreLog` no longer filters console logs. This means you will start seeing logs in the console that you have silenced in LogBox. See [this comment](https://github.com/facebook/react-native/pull/34476#issuecomment-1240667794) for more details.
-- **Removed AsyncStorage and MaskedViewIOS**: These components have been deprecated since version [0.59](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#deprecated-8), so it’s time we remove them entirely. For alternatives, please check [React Native Directory](https://reactnative.directory/) for community packages that cover those use cases.
-- **JSCRuntime moved to react-jsc:** react-jsi is now split into react-jsc and react-jsi. If you use JSCRuntime, you will need to add react-jsc as a dependency ([facebook/react-native@6b129d8](https://github.com/facebook/react-native/commit/6b129d81ed8cab301775d2a04971e255df9290de)).
+- **Changes to Console Logging:** `LogBox.ignoreLog` no longer filters console logs. This means you will start seeing logs in the console that you have silenced in LogBox. See [this comment](https://github.com/react/react-native/pull/34476#issuecomment-1240667794) for more details.
+- **Removed AsyncStorage and MaskedViewIOS**: These components have been deprecated since version [0.59](https://github.com/react/react-native/blob/main/CHANGELOG.md#deprecated-8), so it’s time we remove them entirely. For alternatives, please check [React Native Directory](https://reactnative.directory/) for community packages that cover those use cases.
+- **JSCRuntime moved to react-jsc:** react-jsi is now split into react-jsc and react-jsi. If you use JSCRuntime, you will need to add react-jsc as a dependency ([facebook/react-native@6b129d8](https://github.com/react/react-native/commit/6b129d81ed8cab301775d2a04971e255df9290de)).
 
 ## Acknowledgements
 

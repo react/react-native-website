@@ -83,7 +83,7 @@ You can learn more about those changes in the talk "Life After Legacy: The New A
 
 This release of React Native ships with the latest React stable: 19.1.0
 
-You can read about all the new features and bugfixes introduced in React 19.1.0 in the [release description](https://github.com/facebook/react/releases/tag/v19.1.0).
+You can read about all the new features and bugfixes introduced in React 19.1.0 in the [release description](https://github.com/react/react/releases/tag/v19.1.0).
 
 :::warning
 
@@ -105,7 +105,7 @@ During the release process of React Native, we are producing an XCFramework call
 
 We experimented and benchmarked how much time this initial prebuild for iOS is saving and, in our benchmarks, run on an M4 machine, iOS builds are roughly 12% faster with the prebuild rather than by building from source.
 
-From our experience, we also observed that several bug reports from users are caused by build issues related with React Native’s 3rd party dependencies (example [#39568](https://github.com/facebook/react-native/issues/39568)).
+From our experience, we also observed that several bug reports from users are caused by build issues related with React Native’s 3rd party dependencies (example [#39568](https://github.com/react/react-native/issues/39568)).
 Prebuilding the 3rd party dependencies allows us to build them for you, so that you won’t face these build issues anymore.
 
 Note that we are not pre-building the whole React Native: we are only pre-building the libraries Meta does not directly control, such as Folly and GLog.
@@ -170,7 +170,7 @@ As part of our JS Stable API changes, we've introduced an [`"exports"` field](ht
 
 In 0.80, this mapping continues to expose **all JavaScript subpaths** by default, and therefore should not be a major breaking change. At the same time, this may subtly affect how modules within the `react-native` package are resolved:
 
-- Under Metro, [platform-specific extensions](https://metrobundler.dev/docs/package-exports#replacing-platform-specific-extensions) will not be automatically expanded against `"exports"` matches. We've provided a number of shim modules to accommodate this ([#50426](https://github.com/facebook/react-native/pull/50426)).
+- Under Metro, [platform-specific extensions](https://metrobundler.dev/docs/package-exports#replacing-platform-specific-extensions) will not be automatically expanded against `"exports"` matches. We've provided a number of shim modules to accommodate this ([#50426](https://github.com/react/react-native/pull/50426)).
 - Under Jest, the ability to mock deep imports may be altered, which may require updating tests.
 
 ### Other Breaking Changes
@@ -179,7 +179,7 @@ This list contains a series of other breaking changes we suspect could have a mi
 
 ### JS
 
-- We bumped `eslint-plugin-react-hooks` from v4.6.0 to v5.2.0 (see full [changelog here](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/CHANGELOG.md)). The `react-hooks` lint rules may produce new error signals which you will have to fix or suppress
+- We bumped `eslint-plugin-react-hooks` from v4.6.0 to v5.2.0 (see full [changelog here](https://github.com/react/react/blob/main/packages/eslint-plugin-react-hooks/CHANGELOG.md)). The `react-hooks` lint rules may produce new error signals which you will have to fix or suppress
 
 ### Android
 
@@ -199,7 +199,7 @@ This list contains a series of other breaking changes we suspect could have a mi
 
 - We deleted the `RCTFloorPixelValue` field from RCTUtils.h - The `RCTFloorPixelValue` method was not used in React Native and we removed it altogether.
 
-Further smaller breaking changes are listed [in the CHANGELOG for 0.80](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0800).
+Further smaller breaking changes are listed [in the CHANGELOG for 0.80](https://github.com/react/react-native/blob/main/CHANGELOG.md#v0800).
 
 ## Acknowledgements
 
