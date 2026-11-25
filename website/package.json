@@ -74,7 +74,7 @@
     "@types/react": "19.2.18",
     "eslint": "^9.39.4",
     "glob": "^14.0.6",
-    "prettier": "^3.9.10",
+    "prettier": "^3.10.1",
     "remark-cli": "^12.0.1",
     "sass": "1.108.2",
     "stylelint": "^18.1.0",
