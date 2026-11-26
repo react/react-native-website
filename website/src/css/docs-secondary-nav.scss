@@ -119,6 +119,13 @@ html.plugin-docs {
   }
 }
 
+@media (max-width: 480px) {
+  [class*="versionDropdown"] .dropdown__menu {
+    left: auto;
+    right: 0;
+  }
+}
+
 [data-theme="dark"] [class*="dropdown"] {
   .dropdown__menu {
     background-color: color-mix(in srgb, var(--light), black 40%);
