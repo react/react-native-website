@@ -9,20 +9,21 @@ The best way to invoke those methods is in a `useLayoutEffect` hook: this will g
 Typical code will look like this:
 
 ```tsx
-function AComponent(children) {
-  const targetRef = useRef(null)
+function AComponent({children}) {
+  const targetRef = useRef(null);
 
-  useLayoutEffect(() => {
-    targetRef.current?.measure((x, y, width, height, pageX, pageY) => {
-      //do something with the measurements
-    });
-  }, [ /* add dependencies here */]);
-
-  return (
-    <View ref={targetRef}>
-     {children}
-    <View />
+  useLayoutEffect(
+    () => {
+      targetRef.current?.measure(
+        (x, y, width, height, pageX, pageY) => {
+          //do something with the measurements
+        },
+      );
+    },
+    [/* add dependencies here */],
   );
+
+  return <View ref={targetRef}>{children}</View>;
 }
 ```
 
