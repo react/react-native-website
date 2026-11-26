@@ -58,14 +58,14 @@ Listed here are but a few of the main React Native related conferences, with lin
 - [AppJS 2022](https://www.youtube.com/playlist?list=PLSk21zn8fFZC3UIvyRjDb4Uog3244BwM6)
 - [AppJS 2019](https://www.youtube.com/playlist?list=PLSk21zn8fFZBKEJxmkdSzzmMJrxkfyjph)
 
-#### [React Universe Conf](https://www.reactuniverseconf.com/), organized by [Callstack](https://www.callstack.com/)
+#### React Universe Conf, organized by [Callstack](https://www.callstack.com/)
 
 - [React Universe Conf 2025](https://www.youtube.com/playlist?list=PLZ3MwD-soTTGHD999pxTX1r_6JORpOr0C)
 - [React Universe Conf 2024](https://www.youtube.com/playlist?list=PLZ3MwD-soTTGAEY8kZD3tgXGTwojn5qYh)
 
-#### [React Native Europe](https://www.react-native.eu/), organized by [Callstack](https://www.callstack.com/)
+#### React Native Europe, organized by [Callstack](https://www.callstack.com/)
 
-- [React Native Europe 2023](https://www.youtube.com/playlist?list=PLZ3MwD-soTTEvs1qbdUtm52vlgUlKPDOX)
+- [React Native Europe 2023](https://www.youtube.com/playlist?list=PLZ3MwD-soTTEm5KtB2AoZuM7fiYRR69k8)
 - [React Native Europe 2022](https://www.youtube.com/playlist?list=PLZ3MwD-soTTE-qcA0MrcvZBdmkHJSIjJX)
 - [React Native Europe 2021](https://www.youtube.com/playlist?list=PLZ3MwD-soTTG-8Ix3lQ8zHvk94juXpYjl)
 - [React Native Europe 2020](https://www.youtube.com/playlist?list=PLZ3MwD-soTTEGG42-BvoqD0qK0vKV2ygm)
