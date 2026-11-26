@@ -1811,13 +1811,13 @@ button[class*="tocCollapsibleButton"] {
   }
 
   .footer__logo {
-    height: 50px;
-    max-width: 100%;
-    margin-bottom: -12px;
+    height: 48px;
+    max-width: min(280px, 85dvw);
   }
 
   .footer__copyright {
     font-size: 11px;
+    margin-top: 4px;
   }
 
   svg[class^="iconExternalLink"] {
