@@ -80,15 +80,21 @@ Inherits [View Props](view.md#props).
 
 ### `behavior`
 
-Specify how to react to the presence of the keyboard.
+Specify how to react to the presence of the keyboard. More specifically, it creates a `View` where the size and placement of it is defined by the below:
+
+- `height`: The `'View'` has a fixed defined `height` style attribute equals to the substraction of the frame heigth and the size of the keyboard.
+
+- `position`: Add an additional nested `View` with a fixed position (brought by the `bottom` style attribute) equals to the height of the keyboard.
+
+- `padding`: The `'View'` has a `paddingBottom` style attribute equals to the size of the keyboard.
 
 :::note
 Android and iOS both interact with this prop differently. On both iOS and Android, setting `behavior` is recommended.
 :::
 
-| Type                                        |
-| ------------------------------------------- |
-| enum(`'height'`, `'position'`, `'padding'`) |
+| Type                                        | Required |
+| ------------------------------------------- | -------- |
+| enum(`'height'`, `'position'`, `'padding'`) | No       |
 
 ---
 
