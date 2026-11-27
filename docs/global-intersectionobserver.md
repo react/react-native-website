@@ -42,6 +42,7 @@ An optional object with the following properties:
 | -------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `root`               | [Element](element-nodes) \| null | An element that is an ancestor of the target, whose bounding rectangle will be considered the viewport. Defaults to the root viewport if not specified or if `null`.                                              |
 | `rootMargin`         | string                           | A string which specifies a set of offsets to add to the root's bounding box when calculating intersections. Defaults to `"0px 0px 0px 0px"`.                                                                      |
+| `scrollMargin`       | string                           | A string which specifies a set of offsets to add to the clipping box of every scroll container between the root and the target when calculating intersections. Defaults to `"0px 0px 0px 0px"`.                   |
 | `threshold`          | number \| number[]               | Either a single number or an array of numbers between 0.0 and 1.0, specifying a ratio of intersection area to total bounding box area for the observed target. Defaults to `[0]` if `rnRootThreshold` is not set. |
 | `rnRootThreshold` ⚠️ | number \| number[]               | **React Native specific.** Either a single number or an array of numbers between 0.0 and 1.0, specifying a ratio of intersection area to the total root area.                                                     |
 
@@ -72,6 +73,12 @@ Notifications for a target are generated when any of the thresholds specified in
 ```ts
 get rnRootThresholds(): ReadonlyArray<number> | null;
 ```
+
+### `scrollMargin`
+
+See [documentation in MDN](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/scrollMargin).
+
+An offset rectangle applied to the clipping box of every scroll container between the root and the target when calculating intersections. Unlike `rootMargin`, it doesn't change the root's bounding box, so it doesn't affect the reported `rootBounds`.
 
 ### `thresholds`
 
